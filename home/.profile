@@ -23,12 +23,6 @@ fi
 
 alias emacs='emacs -nw'
 
-function lmv() {
-	fullsource=$(readlink -fn $1)
-	fulldest=$(readlink -mn $2)
-	mkdir -p "$2" && mv "$1" "$2" && ln -s "$fulldest/$(basename $1)" $fullsource; 
-}
-
 export PATH=$HOME/bin:$PATH
 export TERMINAL=/usr/bin/konsole
 #export TERMINAL=/usr/bin/rxvt
