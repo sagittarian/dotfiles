@@ -118,3 +118,7 @@ function lmv() {
 	fulldest=$(readlink -mn $2)
 	mkdir -p "$2" && mv "$1" "$2" && ln -s "$fulldest/$(basename $1)" "$fullsource"; 
 }
+
+# Add a timestamp to the prompt
+#PS1="\D{%Y-%m-%d} \t: $PS1"
+PS1="{\t}\041\!|$PS1"
