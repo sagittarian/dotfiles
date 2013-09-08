@@ -21,11 +21,5 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-alias emacs='emacs -nw'
+test -r ~/algs4/bin/config.sh && source ~/algs4/bin/config.sh
 
-export PATH=$HOME/bin:$PATH
-export TERMINAL=/usr/bin/konsole
-#export TERMINAL=/usr/bin/rxvt
-#export EDITOR=emacs
-export EDITOR='emacs -nw'
-export PYTHONPATH=$HOME/python:$PYTHONPATH
