@@ -24,7 +24,8 @@ fi
 alias emacs='emacs -nw'
 
 export PATH=$HOME/bin:$PATH
-export TERMINAL=/usr/bin/konsole
+export TERMINAL=/usr/bin/terminator
+#export TERMINAL=/usr/bin/konsole
 #export TERMINAL=/usr/bin/rxvt
 #export EDITOR=emacs
 export EDITOR='emacs -nw'
