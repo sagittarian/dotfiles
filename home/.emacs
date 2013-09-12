@@ -13,3 +13,14 @@
 
 (setq-default tab-width 4)
 
+;;(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
+;;(load "sass-mode")
+;;(load "scss-mode")
+
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+(setq-default scss-compile-at-save nil)
+(autoload 'sass-mode "sass-mode")
+(add-to-list 'auto-mode-alist '("\\.sass\\'" . sass-mode))
+
