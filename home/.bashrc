@@ -93,6 +93,10 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# aliases for emacsclient
+alias ec=emacsclient
+alias ecn='emacsclient -n'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -116,7 +120,7 @@ fi
 function lmv() {
 	fullsource=$(readlink -fn $1)
 	fulldest=$(readlink -mn $2)
-	mkdir -p "$2" && mv "$1" "$2" && ln -s "$fulldest/$(basename $1)" "$fullsource"; 
+	mkdir -p "$2" && mv "$1" "$2" && ln -s "$fulldest/$(basename $1)" "$fullsource";
 }
 
 # fancier prompt
@@ -130,4 +134,3 @@ PS1="\041\!@\t|$PS1"
 
 # WP-CLI completions
 # source $HOME/.composer/vendor/wp-cli/wp-cli/utils/wp-completion.bash
-
