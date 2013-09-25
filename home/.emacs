@@ -18,6 +18,8 @@
 ;;(load "sass-mode")
 ;;(load "scss-mode")
 
+(require 'git-rebase-mode)
+
 (autoload 'scss-mode "scss-mode")
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 (setq-default scss-compile-at-save nil)

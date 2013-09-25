@@ -7,3 +7,6 @@
 [submodule "external/scss-mode"]
 	path = external/scss-mode
 	url = https://github.com/antonj/scss-mode.git
+[submodule "external/git-modes"]
+	path = external/git-modes
+	url = https://github.com/magit/git-modes.git
