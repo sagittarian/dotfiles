@@ -1,5 +1,6 @@
 ;; run as an emacs server
-(server-start)
+;; we're now starting the server in headless mode in .profile
+;; (server-start)
 
 ;; Workaround the annoying warnings:
 ;;    Warning (mumamo-per-buffer-local-vars):
