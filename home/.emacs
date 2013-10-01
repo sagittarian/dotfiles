@@ -93,6 +93,18 @@
 (add-to-list 'auto-mode-alist '("\\.sass\\'" . sass-mode))
 
 ;; show the full path in the title bar
+(defun delete-trailing-whitespace-except-before-point (&optional start end)
+  "Delete trailing whitespace between start and end, but leave it just before the point"
+  (interactive "p")
+  (let ((save (when (and
+					 (looking-at "\\s-*$")
+					 (looking-back "\\s-+" (line-beginning-position) t))
+                (match-string 0))))
+    (delete-trailing-whitespace start end)
+    (when save (insert-before-markers save))))
+
+;; automatically delete trailing whitespace on all lines when saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
 			'(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
@@ -117,20 +129,12 @@
 
 ;; nxhtml mode
 (load "nxhtml/autostart.el")
-
 ;; multiple major modes
 (autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
 (setq auto-mode-alist
       (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
 (setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
-
 (show-paren-mode)
 (setq-default show-paren-style 'expression)
 
-;; automatically delete trailing whitespace on all lines when saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-;; iy-go-to-char
-(require 'iy-go-to-char)
-(global-set-key (kbd "C-c m") 'iy-go-to-char)
-(global-set-key (kbd "C-c M-m") 'iy-go-to-char-backward)
