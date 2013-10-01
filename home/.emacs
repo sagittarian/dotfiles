@@ -54,8 +54,20 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+;; use org-mode for files ending in .org
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
 ;; org-trello
 (require 'org-trello)
+;;(add-to-list 'auto-mode-alist '("\\.trello.org$" . org-trello-mode))
+(defun auto-org-trello-mode ()
+  "Automatically enable org-trello-mode for files ending in .trello.org"
+  (let ((fname (buffer-file-name)))
+	(when (and fname (string-match "\\.trello\\.org$" fname))
+	  (org-trello-mode t))))
+(add-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
+;;; (print after-change-major-mode-hook)
+(remove-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
 
 ;;(load "sass-mode")
 ;;(load "scss-mode")
