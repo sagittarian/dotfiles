@@ -2,6 +2,11 @@
 ;; we're now starting the server in headless mode in .profile
 ;; (server-start)
 
+;; look for files to load in ~/.emacs.d
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
+
+;; Set elnode not to use port 8000
+(setq elnode-init-port 3000)
 ;; Workaround the annoying warnings:
 ;;    Warning (mumamo-per-buffer-local-vars):
 ;;    Already 'permanent-local t: buffer-file-name
@@ -51,7 +56,6 @@
 ;; org-trello
 (require 'org-trello)
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
 ;;(load "sass-mode")
 ;;(load "scss-mode")
 
@@ -73,8 +77,29 @@
   ;;(message "full-auto-save-one-file")
   (save-excursion
 	  (if (and (buffer-file-name) (buffer-modified-p))
-		  (basic-save-buffer))))
+		  (save-buffer))))
 (add-hook 'auto-save-hook 'full-auto-save)
+
+(defun delete-trailing-whitespace-except-before-point (&optional start end)
+  "Delete trailing whitespace between start and end, but leave it just before the point"
+  (interactive "p")
+  (let ((save (when (and
+					 (looking-at "\\s-*$")
+					 (looking-back "\\s-+" (line-beginning-position) t))
+                (match-string 0))))
+    (delete-trailing-whitespace start end)
+    (when save (insert-before-markers save))))
+
+;; automatically delete trailing whitespace on all lines when saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
+
+;; save the buffer when switching to another window
+(defun save-buffer-other-window (count &optional all-frames)
+  "Save the buffer before switching to another window"
+  (interactive "p")
+  (full-auto-save)
+  (other-window count all-frames))
+(global-set-key (kbd "C-x o") 'save-buffer-other-window)
 
 ;; (setq-default auto-save-visited-file-name t)
 (setq-default auto-save-interval 100)
@@ -102,6 +127,14 @@
 (require 'ido)
 (ido-mode t)
 (setq-default ido-enable-flex-matching t)
+(defadvice ido-switch-buffer (before save-buffer-ido-switch-buffer activate)
+  "Save the current buffer before switching to a new one"
+  (full-auto-save))
+
+;; iy-go-to-char
+(require 'iy-go-to-char)
+(global-set-key (kbd "C-c m") 'iy-go-to-char)
+(global-set-key (kbd "C-c M-m") 'iy-go-to-char-backward)
 
 ;; enable rebase-mode in magit
 (require 'git-rebase-mode)
@@ -123,5 +156,3 @@
 (show-paren-mode)
 (setq-default show-paren-style 'expression)
 
-;; automatically delete trailing whitespace on all lines when saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
