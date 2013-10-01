@@ -78,8 +78,29 @@
   ;;(message "full-auto-save-one-file")
   (save-excursion
 	  (if (and (buffer-file-name) (buffer-modified-p))
-		  (basic-save-buffer))))
+		  (save-buffer))))
 (add-hook 'auto-save-hook 'full-auto-save)
+
+(defun delete-trailing-whitespace-except-before-point (&optional start end)
+  "Delete trailing whitespace between start and end, but leave it just before the point"
+  (interactive "p")
+  (let ((save (when (and
+					 (looking-at "\\s-*$")
+					 (looking-back "\\s-+" (line-beginning-position) t))
+                (match-string 0))))
+    (delete-trailing-whitespace start end)
+    (when save (insert-before-markers save))))
+
+;; automatically delete trailing whitespace on all lines when saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
+
+;; save the buffer when switching to another window
+(defun save-buffer-other-window (count &optional all-frames)
+  "Save the buffer before switching to another window"
+  (interactive "p")
+  (full-auto-save)
+  (other-window count all-frames))
+(global-set-key (kbd "C-x o") 'save-buffer-other-window)
 
 ;; (setq-default auto-save-visited-file-name t)
 (setq-default auto-save-interval 100)
@@ -93,18 +114,6 @@
 (add-to-list 'auto-mode-alist '("\\.sass\\'" . sass-mode))
 
 ;; show the full path in the title bar
-(defun delete-trailing-whitespace-except-before-point (&optional start end)
-  "Delete trailing whitespace between start and end, but leave it just before the point"
-  (interactive "p")
-  (let ((save (when (and
-					 (looking-at "\\s-*$")
-					 (looking-back "\\s-+" (line-beginning-position) t))
-                (match-string 0))))
-    (delete-trailing-whitespace start end)
-    (when save (insert-before-markers save))))
-
-;; automatically delete trailing whitespace on all lines when saving
-(add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
 			'(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
@@ -119,6 +128,9 @@
 (require 'ido)
 (ido-mode t)
 (setq-default ido-enable-flex-matching t)
+(defadvice ido-switch-buffer (before save-buffer-ido-switch-buffer activate)
+  "Save the current buffer before switching to a new one"
+  (full-auto-save))
 
 ;; enable rebase-mode in magit
 (require 'git-rebase-mode)
