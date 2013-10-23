@@ -32,7 +32,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ido-auto-merge-work-directories-length 0)
  '(inhibit-startup-screen t)
+ '(js2-allow-keywords-as-property-names nil)
+ '(js2-bounce-indent-p t)
+ '(js2-concat-multiline-strings (quote eol))
+ '(js2-highlight-external-variables nil)
+ '(js2-highlight-level 3)
  '(org-agenda-files nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -46,16 +52,27 @@
 (setq-default isearch-allow-scroll t)
 (setq-default column-number-mode t)
 (setq-default show-trailing-whitespace t)
+(setq-default warning-minimum-level :error)
 
 ;; marmalade
 (require 'package)
 (add-to-list 'package-archives
     '("marmalade" .
       "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+  '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
+
+(require 'js2-refactor)
+
+;; Flycheck
+(add-hook 'after-init-hook 'global-flycheck-mode)
 
 ;; use org-mode for files ending in .org
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
+;; we like js2-mode
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; org-trello
 (require 'org-trello)
@@ -68,6 +85,9 @@
 (add-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
 ;;; (print after-change-major-mode-hook)
 (remove-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
+
+;; orgmode-mediawiki (export capability)
+(require 'ox-mediawiki)
 
 ;;(load "sass-mode")
 ;;(load "scss-mode")
@@ -106,6 +126,11 @@
 ;; automatically delete trailing whitespace on all lines when saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
 
+;; iy-go-to-char
+(require 'iy-go-to-char)
+(global-set-key (kbd "C-c m") 'iy-go-to-char)
+(global-set-key (kbd "C-c M-m") 'iy-go-to-char-backward)
+
 ;; save the buffer when switching to another window
 (defun save-buffer-other-window (count &optional all-frames)
   "Save the buffer before switching to another window"
@@ -130,7 +155,8 @@
       (list (format "%s %%S: %%j " (system-name))
 			'(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
-;; interactive name completion for describe-function, describe-variable, etc.
+;; interactive name completion for describe-function,
+;; describe-variable, etc.
 (icomplete-mode t)
 
 ;; use ibuffer to list buffers by default
@@ -140,13 +166,26 @@
 (require 'ido)
 (ido-mode t)
 (setq-default ido-enable-flex-matching t)
-(defadvice ido-switch-buffer (before save-buffer-ido-switch-buffer activate)
+(defadvice ido-switch-buffer (before save-buffer-ido-switch-buffer
+									 activate)
   "Save the current buffer before switching to a new one"
   (full-auto-save))
 
 ;; enable rebase-mode in magit
 (require 'git-rebase-mode)
 
+;; tramp
+(require 'tramp)
+(setq tramp-default-method "ssh")
+
+;; yasnippets
+;; (add-to-list 'load-path "~/path-to-yasnippet")
+;; user-defined snipped dir
+(require 'yasnippet)
+(yas-global-mode 1)
+
+;; quick and easy way to run magit-status
+(global-set-key (kbd "M-s t") 'magit-status)
 
 ;; Join the following line to this one
 ;; (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
@@ -156,9 +195,16 @@
 ;; multiple major modes
 (autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
 (setq auto-mode-alist
-      (append '(("\\.html?$" . django-html-mumamo-mode)) auto-mode-alist))
+      (append '(("\\.html?$" . django-html-mumamo-mode))
+			  auto-mode-alist))
 (setq mumamo-background-colors nil)
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
 (show-paren-mode)
 (setq-default show-paren-style 'expression)
 
+;; keybindings
+(global-set-key (kbd "C-!") 'flycheck-next-error)
+(global-set-key (kbd "C-M-!") 'flycheck-previous-error)
+
+(provide '.emacs)
+;;; .emacs ends here
