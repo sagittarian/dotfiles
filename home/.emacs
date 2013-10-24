@@ -186,7 +186,7 @@
 (yas-global-mode 1)
 
 ;; quick and easy way to run magit-status
-(global-set-key (kbd "M-s t") 'magit-status)
+(global-set-key (kbd "M-s M-t") 'magit-status)
 
 ;; Join the following line to this one
 ;; (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
