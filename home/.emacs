@@ -72,7 +72,8 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; we like js2-mode
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(setq auto-mode-alist (cons '("\\.js$" . js2-mode) auto-mode-alist))
 
 ;; org-trello
 (require 'org-trello)
