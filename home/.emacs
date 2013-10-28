@@ -188,9 +188,8 @@
 (setq tramp-default-method "ssh")
 
 ;; yasnippets
-;; (add-to-list 'load-path "~/path-to-yasnippet")
-;; user-defined snipped dir
 (require 'yasnippet)
+(add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
 (yas-global-mode 1)
 
 ;; quick and easy way to run magit-status
