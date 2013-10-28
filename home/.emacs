@@ -88,7 +88,7 @@
 (remove-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
 
 ;; orgmode-mediawiki (export capability)
-(require 'ox-mediawiki)
+;; (require 'ox-mediawiki)
 
 ;;(load "sass-mode")
 ;;(load "scss-mode")
