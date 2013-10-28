@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+#set $mod Mod2
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -146,4 +147,4 @@ exec dropbox start
 exec nm-applet
 exec kmix
 exec klipper
-
+exec workrave
