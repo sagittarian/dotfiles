@@ -156,6 +156,14 @@
       (list (format "%s %%S: %%j " (system-name))
 			'(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
+;; macro for easily making anki clozes
+(fset 'make-cloze
+   (lambda (&optional arg)
+	 "Turn the selection into an Anki cloze"
+	 (interactive "p")
+	 (kmacro-exec-ring-item
+	  (quote ("{{c1::}}" 0 "%d")) arg)))
+
 ;; interactive name completion for describe-function,
 ;; describe-variable, etc.
 (icomplete-mode t)
