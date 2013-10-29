@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: cleanjs
+# key: cleanjs
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 't))
+# binding: C-c C-y
+# --
+/* jshint browser: true, unused: false, expr: true, smarttabs: true, scripturl: true, undef: true */
+/* global $: false */
+
+(function (global) {
+$1$0
+})(function () {return this;}());
