@@ -4,6 +4,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ido-auto-merge-work-directories-length 0)
+ '(ido-enable-flex-matching t)
+ '(ido-use-filename-at-point (quote guess))
+ '(ido-use-virtual-buffers t)
  '(inhibit-startup-screen t)
  '(js2-allow-keywords-as-property-names nil)
  '(js2-bounce-indent-p t)

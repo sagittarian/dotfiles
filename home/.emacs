@@ -159,7 +159,6 @@
 ;; ido
 (require 'ido)
 (ido-mode t)
-(setq-default ido-enable-flex-matching t)
 (defadvice ido-switch-buffer (before save-buffer-ido-switch-buffer
 									 activate)
   "Save the current buffer before switching to a new one"
