@@ -8,6 +8,9 @@
 ;; Set elnode not to use port 8000
 (setq elnode-init-port 3000)
 
+;; pending-delete-mode
+(pending-delete-mode t)
+
 ;; Workaround the annoying warnings:
 ;;    Warning (mumamo-per-buffer-local-vars):
 ;;    Already 'permanent-local t: buffer-file-name
@@ -48,6 +51,11 @@
 (package-initialize)
 
 (require 'js2-refactor)
+
+;; expand-region
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/expand-region.el"))
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Flycheck
 (add-hook 'after-init-hook 'global-flycheck-mode)

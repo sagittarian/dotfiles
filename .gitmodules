@@ -13,3 +13,6 @@
 [submodule "external/iy-go-to-char"]
 	path = external/iy-go-to-char
 	url = https://github.com/doitian/iy-go-to-char.git
+[submodule "external/expand-region.el"]
+	path = external/expand-region.el
+	url = https://github.com/magnars/expand-region.el.git
