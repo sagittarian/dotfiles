@@ -184,9 +184,13 @@
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
 (yas-global-mode 1)
+(define-key yas-keymap (kbd "C->") 'yas-exit-snippet)
 
 ;; quick and easy way to run magit-status
 (global-set-key (kbd "C-M-g") 'magit-status)
+
+;; cycle through buffers
+;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
 ;; quick command to commit changes in the current buffer
 (defun commit-buffer (msg)
@@ -194,10 +198,10 @@
   (interactive "MCommit message: ")
   (full-auto-save)
   (magit-run-git "commit" "-m" msg "--" (buffer-file-name)))
-(global-set-key (kbd "C-x @ b") 'commit-buffer)
+(global-set-key (kbd "C-c b") 'commit-buffer)
 
 ;; sometimes we want to know the full path of the current file
-(global-set-key (kbd "C-x @ f")
+(global-set-key (kbd "C-c f")
 				(lambda ()
 				  (interactive)
 				  (message (buffer-file-name))))
