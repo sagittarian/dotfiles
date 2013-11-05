@@ -190,14 +190,14 @@
 
 ;; quick command to commit changes in the current buffer
 (defun commit-buffer (msg)
-  "Commit the current state of the current buffer (using magit)"
+  "Commit the current state of the current buffer (using magit)."
   (interactive "MCommit message: ")
   (full-auto-save)
   (magit-run-git "commit" "-m" msg "--" (buffer-file-name)))
-(global-set-key (kbd "C-c C-b") 'commit-buffer)
+(global-set-key (kbd "C-x @ b") 'commit-buffer)
 
 ;; sometimes we want to know the full path of the current file
-(global-set-key (kbd "C-c C-f")
+(global-set-key (kbd "C-x @ f")
 				(lambda ()
 				  (interactive)
 				  (message (buffer-file-name))))
