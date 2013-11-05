@@ -186,7 +186,7 @@
 (yas-global-mode 1)
 
 ;; quick and easy way to run magit-status
-(global-set-key (kbd "M-s M-t") 'magit-status)
+(global-set-key (kbd "C-M-g") 'magit-status)
 
 ;; quick command to commit changes in the current buffer
 (defun commit-buffer (msg)
