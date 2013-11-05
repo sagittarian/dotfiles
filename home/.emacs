@@ -196,6 +196,12 @@
   (magit-run-git "commit" "-m" msg "--" (buffer-file-name)))
 (global-set-key (kbd "C-c C-b") 'commit-buffer)
 
+;; sometimes we want to know the full path of the current file
+(global-set-key (kbd "C-c C-f")
+				(lambda ()
+				  (interactive)
+				  (message (buffer-file-name))))
+
 ;; Join the following line to this one
 ;; (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
