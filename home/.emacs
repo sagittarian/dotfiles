@@ -87,8 +87,6 @@
 ;;(load "sass-mode")
 ;;(load "scss-mode")
 
-(require 'git-rebase-mode)
-
 ;; Don't give me none of that C-x C-s nonsense, young man!
 ;; Some ideas from the real-auto-save at
 ;; http://www.litchie.net/programs/real-auto-save.el
