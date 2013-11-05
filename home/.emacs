@@ -67,6 +67,7 @@
 (add-hook 'after-init-hook
 		  '(lambda ()
 			 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))))
+;; (setq auto-mode-alist (cons '("\\.js$" . js2-mode) auto-mode-alist))
 
 ;; org-trello
 (require 'org-trello)
@@ -76,9 +77,9 @@
   (let ((fname (buffer-file-name)))
 	(when (and fname (string-match "\\.trello\\.org$" fname))
 	  (org-trello-mode t))))
-(add-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
+;; (add-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
 ;;; (print after-change-major-mode-hook)
-(remove-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
+;; (remove-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
 
 ;; orgmode-mediawiki (export capability)
 ;; (require 'ox-mediawiki)
@@ -186,6 +187,14 @@
 
 ;; quick and easy way to run magit-status
 (global-set-key (kbd "M-s M-t") 'magit-status)
+
+;; quick command to commit changes in the current buffer
+(defun commit-buffer (msg)
+  "Commit the current state of the current buffer (using magit)"
+  (interactive "MCommit message: ")
+  (full-auto-save)
+  (magit-run-git "commit" "-m" msg "--" (buffer-file-name)))
+(global-set-key (kbd "C-c C-b") 'commit-buffer)
 
 ;; Join the following line to this one
 ;; (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
