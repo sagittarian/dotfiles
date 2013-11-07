@@ -3,6 +3,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(erc-autojoin-channels-alist (quote (("freenode.net" "#emacs"))))
+ '(erc-log-channels-directory "~/.log")
+ '(erc-log-insert-log-on-open t)
+ '(erc-log-mode t)
+ '(erc-log-write-after-insert t)
+ '(erc-log-write-after-send t)
+ '(erc-modules (quote (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
+ '(erc-nick "sagittarian")
+ '(erc-save-queries-on-quit nil)
  '(ido-auto-merge-work-directories-length 0)
  '(ido-enable-flex-matching t)
  '(ido-use-filename-at-point (quote guess))
