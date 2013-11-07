@@ -23,7 +23,10 @@
  '(js2-concat-multiline-strings (quote eol))
  '(js2-highlight-external-variables nil)
  '(js2-highlight-level 3)
- '(org-agenda-files nil))
+ '(org-agenda-files nil)
+ '(yas-global-mode t nil (yasnippet))
+ '(yas-triggers-in-field t)
+ '(yas-wrap-around-region t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

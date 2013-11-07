@@ -181,7 +181,8 @@
 ;; yasnippets
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
-(yas-global-mode 1)
+;; define this using customize:
+;; (yas-global-mode 1)
 (define-key yas-keymap (kbd "\e") 'yas-exit-snippet)
 
 ;; quick and easy way to run magit-status
