@@ -120,8 +120,8 @@
 
 ;; iy-go-to-char
 (require 'iy-go-to-char)
-(global-set-key (kbd "C-c m") 'iy-go-to-char)
-(global-set-key (kbd "C-c M-m") 'iy-go-to-char-backward)
+(global-set-key (kbd "M-n") 'iy-go-to-char)
+(global-set-key (kbd "M-p") 'iy-go-to-char-backward)
 
 ;; save the buffer when switching to another window
 (defun save-buffer-other-window (count &optional all-frames)
