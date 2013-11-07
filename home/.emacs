@@ -194,10 +194,17 @@
 (defun commit-buffer (msg)
   "Commit the current state of the current buffer (using magit)."
   (interactive "MCommit message: ")
-  (full-auto-save)
-  (magit-run-git "add" "--" (buffer-file-name))
+  (stage-buffer)
   (magit-run-git "commit" "-m" msg "--" (buffer-file-name)))
 (global-set-key (kbd "C-c s") 'commit-buffer)
+
+;; quick command to stage the current file
+(defun stage-buffer ()
+  "Stage the current state of the current buffer (using magit)."
+  (interactive)
+  (full-auto-save)
+  (magit-run-git "add" "--" (buffer-file-name)))
+(global-set-key (kbd "C-c a") 'stage-buffer)
 
 ;; quick command to commit all changes in the working tree
 (defun commit-all-changes (msg)
@@ -205,7 +212,7 @@
   (interactive "MCommit message: ")
   (full-auto-save)
   (magit-run-git "commit" "-am" msg))
-(global-set-key (kbd "C-c a") 'commit-all-changes)
+(global-set-key (kbd "C-c S") 'commit-all-changes)
 
 
 ;; sometimes we want to know the full path of the current file
