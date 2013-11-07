@@ -16,3 +16,6 @@
 [submodule "external/expand-region.el"]
 	path = external/expand-region.el
 	url = https://github.com/magnars/expand-region.el.git
+[submodule "external/multiple-cursors.el"]
+	path = external/multiple-cursors.el
+	url = https://github.com/magnars/multiple-cursors.el.git

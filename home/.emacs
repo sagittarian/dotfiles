@@ -237,6 +237,14 @@
 ;; erc
 (require 'erc)
 
+;; multiple cursors
+(load "multiple-cursors/multiple-cursors.el")
+(global-set-key (kbd "C-* p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-* n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-* h") 'mc/mark-sgml-tag-pair)
+(global-set-key (kbd "C-* w") 'mc/mark-all-dwim)
+(global-set-key (kbd "C-* <mouse-1>") 'mc/add-cursor-on-click)
+
 ;; some nice minor modes
 (show-paren-mode)
 (electric-pair-mode)
