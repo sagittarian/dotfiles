@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(desktop-save-mode t)
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#emacs"))))
  '(erc-log-channels-directory "~/.log")
  '(erc-log-insert-log-on-open t)
