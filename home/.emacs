@@ -180,8 +180,8 @@
 
 ;; yasnippets
 (require 'yasnippet)
-(add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
-;; define this using customize:
+;; define these using customize:
+;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
 ;; (yas-global-mode 1)
 (define-key yas-keymap (kbd "\e") 'yas-exit-snippet)
 

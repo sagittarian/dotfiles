@@ -26,6 +26,7 @@
  '(js2-highlight-level 3)
  '(org-agenda-files nil)
  '(yas-global-mode t nil (yasnippet))
+ '(yas-snippet-dirs (quote ("~/.emacs.d/snippets" "~/doc/org/snippets" "/home/adam/.emacs.d/elpa/yasnippet-20131026.1440/snippets")) nil (yasnippet))
  '(yas-triggers-in-field t)
  '(yas-wrap-around-region t))
 (custom-set-faces
