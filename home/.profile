@@ -22,8 +22,8 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # start an emacs daemon
-\emacs --daemon
-alias emacs='emacsclient -c -n -a ""'
+emacs --daemon
+#alias emacs='emacsclient -c -n -a ""'
 
 export PATH=$HOME/bin:$PATH
 export TERMINAL=/usr/bin/terminator
