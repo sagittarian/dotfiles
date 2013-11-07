@@ -109,13 +109,13 @@
 (defun delete-trailing-whitespace-except-before-point (&optional start end)
   "Delete trailing whitespace between start and end, but leave it just before the point"
   (interactive "p")
-  (let ((save (when (and
-					 (looking-at "\\s-*$")
-					 (looking-back "\\s-+" (line-beginning-position) t))
-                (match-string 0))))
-    (delete-trailing-whitespace start end)
-    (when save (insert-before-markers save))))
-
+  (unless (member yas-keymap (current-active-maps))
+	(let ((save (when (and
+					   (looking-at "\\s-*$")
+					   (looking-back "\\s-+" (line-beginning-position) t))
+				  (match-string 0))))
+	  (delete-trailing-whitespace start end)
+	  (when save (insert-before-markers save)))))
 ;; automatically delete trailing whitespace on all lines when saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
 
