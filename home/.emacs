@@ -195,6 +195,7 @@
   "Commit the current state of the current buffer (using magit)."
   (interactive "MCommit message: ")
   (full-auto-save)
+  (magit-run-git "add" "--" (buffer-file-name))
   (magit-run-git "commit" "-m" msg "--" (buffer-file-name)))
 (global-set-key (kbd "C-c b") 'commit-buffer)
 
