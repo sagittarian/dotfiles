@@ -197,7 +197,16 @@
   (full-auto-save)
   (magit-run-git "add" "--" (buffer-file-name))
   (magit-run-git "commit" "-m" msg "--" (buffer-file-name)))
-(global-set-key (kbd "C-c b") 'commit-buffer)
+(global-set-key (kbd "C-c s") 'commit-buffer)
+
+;; quick command to commit all changes in the working tree
+(defun commit-all-changes (msg)
+  "Commit all changes in the working tree (i.e. git commit -a, using magit)."
+  (interactive "MCommit message: ")
+  (full-auto-save)
+  (magit-run-git "commit" "-am" msg))
+(global-set-key (kbd "C-c a") 'commit-all-changes)
+
 
 ;; sometimes we want to know the full path of the current file
 (global-set-key (kbd "C-c f")
