@@ -255,6 +255,7 @@
 ;; keybindings
 (global-set-key (kbd "C-!") 'flycheck-next-error)
 (global-set-key (kbd "C-M-!") 'flycheck-previous-error)
+(global-set-key (kbd "C-c >") 'sgml-close-tag)
 
 (provide '.emacs)
 ;;; .emacs ends here
