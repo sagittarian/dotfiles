@@ -216,6 +216,17 @@
   (magit-run-git "commit" "-am" msg))
 (global-set-key (kbd "C-c S") 'commit-all-changes)
 
+;; source: https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (condition-case nil
+      (prin1 (eval (read (current-kill 0)))
+             (current-buffer))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
+(global-set-key (kbd "C-x M-e") 'eval-and-replace)
 
 ;; sometimes we want to know the full path of the current file
 (global-set-key (kbd "C-c f")
