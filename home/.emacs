@@ -183,6 +183,8 @@
 ;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
 ;; (yas-global-mode 1)
 (define-key yas-keymap (kbd "\e") 'yas-exit-snippet)
+(define-key yas-keymap (kbd "C-n") 'yas-next-field-or-maybe-expand)
+(define-key yas-keymap (kbd "C-p") 'yas-prev-field)
 
 ;; quick and easy way to run magit-status
 (global-set-key (kbd "C-M-g") 'magit-status)
