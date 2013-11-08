@@ -250,6 +250,9 @@
 ;; erc
 (require 'erc)
 
+;; wrap-region
+(wrap-region-global-mode t)
+
 ;; multiple cursors
 (load "multiple-cursors/multiple-cursors.el")
 (global-set-key (kbd "C-* p") 'mc/mark-previous-like-this)
