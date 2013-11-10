@@ -143,6 +143,8 @@
 (autoload 'sass-mode "sass-mode")
 (add-to-list 'auto-mode-alist '("\\.sass\\'" . sass-mode))
 
+(blink-cursor-mode)
+
 ;; show the full path in the title bar
 (setq frame-title-format
       (list (format "%s %%S: %%j " (system-name))
