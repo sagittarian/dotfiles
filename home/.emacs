@@ -255,7 +255,8 @@
 
 ;; wrap-region
 (wrap-region-global-mode t)
-(wrap-region-add-wrapper "{% " " %}" "%" 'html-mode)
+(wrap-region-add-wrappers '(("{% " " %}" "%" 'html-mode)
+							("{# " " #}" "#" 'html-mode)))
 
 ;; multiple cursors
 (load "multiple-cursors/multiple-cursors.el")
