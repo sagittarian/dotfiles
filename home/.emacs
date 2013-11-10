@@ -53,7 +53,8 @@
 (require 'js2-refactor)
 
 ;; expand-region
-(load "expand-region/expand-region.el")
+(add-to-list 'load-path "~/.emacs.d/expand-region")
+(load "expand-region.el")
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Flycheck
