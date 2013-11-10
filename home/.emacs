@@ -251,7 +251,7 @@
 (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
 
 ;; erc
-(require 'erc)
+;; (require 'erc)
 
 ;; wrap-region
 (wrap-region-global-mode t)
