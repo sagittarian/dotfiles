@@ -3,6 +3,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode t)
+ '(column-number-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#emacs"))))
@@ -25,8 +27,11 @@
  '(js2-highlight-external-variables nil)
  '(js2-highlight-level 3)
  '(org-agenda-files nil)
+ '(show-paren-mode t)
+ '(size-indication-mode t)
+ '(text-mode-hook (quote (turn-on-auto-fill er/add-text-mode-expansions text-mode-hook-identify)))
+ '(tool-bar-mode nil)
  '(yas-global-mode t nil (yasnippet))
- '(yas-snippet-dirs (quote ("~/.emacs.d/snippets" "~/doc/org/snippets" "/home/adam/.emacs.d/elpa/yasnippet-20131026.1440/snippets")) nil (yasnippet))
  '(yas-triggers-in-field t)
  '(yas-wrap-around-region t))
 (custom-set-faces

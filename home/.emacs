@@ -32,7 +32,7 @@
 
 ;; custom variables
 (setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
+(add-hook 'after-init-hook (lambda () (load custom-file)))
 
 (setq-default tab-width 4)
 (setq-default sentence-end-double-space nil)
@@ -50,7 +50,7 @@
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-(require 'js2-refactor)
+;; (require 'js2-refactor)
 
 ;; expand-region
 (add-to-list 'load-path "~/.emacs.d/expand-region")
@@ -109,7 +109,7 @@
 (defun delete-trailing-whitespace-except-before-point (&optional start end)
   "Delete trailing whitespace between start and end, but leave it just before the point"
   (interactive "p")
-  (unless (member yas-keymap (current-active-maps))
+  (unless (and (boundp 'yas-keymap) (member yas-keymap (current-active-maps)))
 	(let ((save (when (and
 					   (looking-at "\\s-*$")
 					   (looking-back "\\s-+" (line-beginning-position) t))
@@ -181,13 +181,14 @@
 (setq tramp-default-method "ssh")
 
 ;; yasnippets
-(require 'yasnippet)
+;; (require 'yasnippet)
 ;; define these using customize:
 ;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets")
 ;; (yas-global-mode 1)
-(define-key yas-keymap (kbd "\e") 'yas-exit-snippet)
-(define-key yas-keymap (kbd "C-n") 'yas-next-field-or-maybe-expand)
-(define-key yas-keymap (kbd "C-p") 'yas-prev-field)
+(eval-after-load "yasnippet" 
+  '((define-key yas-keymap (kbd "\e") 'yas-exit-snippet)
+    (define-key yas-keymap (kbd "C-n") 'yas-next-field-or-maybe-expand)
+    (define-key yas-keymap (kbd "C-p") 'yas-prev-field)))
 
 ;; quick and easy way to run magit-status
 (global-set-key (kbd "C-M-g") 'magit-status)
@@ -275,6 +276,7 @@
 (global-set-key (kbd "C-!") 'flycheck-next-error)
 (global-set-key (kbd "C-M-!") 'flycheck-previous-error)
 (global-set-key (kbd "C-c >") 'sgml-close-tag)
+(global-set-key (kbd "<f5>") 'revert-buffer)
 
 (provide '.emacs)
 ;;; .emacs ends here
