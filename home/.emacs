@@ -203,7 +203,8 @@
   "Commit the current state of the current buffer (using magit)."
   (interactive "MCommit message: ")
   (stage-buffer)
-  (magit-run-git "commit" "-m" msg "--" (buffer-file-name)))
+  (magit-run-git "commit" "-m" msg "--" (buffer-file-name))
+  (message "committed %s" (buffer-file-name)))
 (global-set-key (kbd "C-c s") 'commit-buffer)
 
 ;; quick command to stage the current file
@@ -211,7 +212,8 @@
   "Stage the current state of the current buffer (using magit)."
   (interactive)
   (full-auto-save)
-  (magit-run-git "add" "--" (buffer-file-name)))
+  (magit-run-git "add" "--" (buffer-file-name))
+  (message "staged %s" (buffer-file-name)))
 (global-set-key (kbd "C-c a") 'stage-buffer)
 
 ;; quick command to commit all changes in the working tree
@@ -219,7 +221,8 @@
   "Commit all changes in the working tree (i.e. git commit -a, using magit)."
   (interactive "MCommit message: ")
   (full-auto-save)
-  (magit-run-git "commit" "-am" msg))
+  (magit-run-git "commit" "-am" msg)
+  (message "committed all changes in working tree"))
 (global-set-key (kbd "C-c S") 'commit-all-changes)
 
 ;; source: https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el
