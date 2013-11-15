@@ -50,7 +50,8 @@
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-;; (require 'js2-refactor)
+(require 'js2-refactor)
+(js2r-add-keybindings-with-prefix "C-c C-m")
 
 ;; expand-region
 (add-to-list 'load-path "~/.emacs.d/expand-region")
