@@ -225,6 +225,17 @@
   (message "committed all changes in working tree"))
 (global-set-key (kbd "C-c S") 'commit-all-changes)
 
+;; date and time stamps
+(defun insert-date ()
+   (interactive)
+   (insert (format-time-string "%Y-%m-%d")))
+(global-set-key (kbd "C-c d") 'insert-date)
+
+(defun insert-timestamp ()
+   (interactive)
+   (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
+(global-set-key (kbd "C-c t") 'insert-timestamp)
+
 ;; source: https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
