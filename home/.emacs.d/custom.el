@@ -7,6 +7,7 @@
  '(column-number-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
+ '(doc-view-continuous t)
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#emacs"))))
  '(erc-log-channels-directory "~/.log")
  '(erc-log-insert-log-on-open t)
