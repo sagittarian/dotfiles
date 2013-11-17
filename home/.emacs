@@ -207,6 +207,13 @@
   (message "committed %s" (buffer-file-name)))
 (global-set-key (kbd "C-c s") 'commit-buffer)
 
+(defun amend-buffer ()
+  "Amend the last commit to include the current state of the current buffer (using magit)."
+  (interactive)
+  (stage-buffer)
+  (magit-run-git "commit" "--amend" "--no-edit" "--" (buffer-file-name)))
+;; XXX set this up to be run with commit-buffer above with prefix arg
+
 ;; quick command to stage the current file
 (defun stage-buffer ()
   "Stage the current state of the current buffer (using magit)."
