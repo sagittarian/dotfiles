@@ -35,7 +35,7 @@
 (add-hook 'after-init-hook (lambda () (load custom-file)))
 
 (setq-default tab-width 4)
-(setq-default sentence-end-double-space nil)
+(setq-default sentence-end-double-space t)
 (setq-default isearch-allow-scroll t)
 (setq-default column-number-mode t)
 (setq-default show-trailing-whitespace t)
@@ -50,9 +50,6 @@
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
-(require 'js2-refactor)
-(js2r-add-keybindings-with-prefix "C-c C-m")
-
 ;; expand-region
 (add-to-list 'load-path "~/.emacs.d/expand-region")
 (load "expand-region.el")
@@ -63,12 +60,6 @@
 
 ;; use org-mode for files ending in .org
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-
-;; we like js2-mode
-(add-hook 'after-init-hook
-		  '(lambda ()
-			 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))))
-;; (setq auto-mode-alist (cons '("\\.js$" . js2-mode) auto-mode-alist))
 
 ;; org-trello
 (require 'org-trello)
@@ -300,6 +291,15 @@
 (global-set-key (kbd "C-M-!") 'flycheck-previous-error)
 (global-set-key (kbd "C-c >") 'sgml-close-tag)
 (global-set-key (kbd "<f5>") 'revert-buffer)
+
+;; we like js2-mode
+;; (add-hook 'after-init-hook
+;; 		  '(lambda ()
+;; 			 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))))
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(require 'js2-refactor)
+(js2r-add-keybindings-with-prefix "C-c C-m")
 
 (provide '.emacs)
 ;;; .emacs ends here
