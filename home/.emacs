@@ -274,7 +274,8 @@
 							("{# " " #}" "#" 'html-mode)))
 
 ;; multiple cursors
-(load "multiple-cursors/multiple-cursors.el")
+(add-to-list 'load-path "~/.emacs.d/multiple-cursors")
+(require 'multiple-cursors)
 (global-set-key (kbd "C-* p") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-* n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-* h") 'mc/mark-sgml-tag-pair)
