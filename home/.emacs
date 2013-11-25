@@ -50,6 +50,10 @@
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+;; undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode)
+
 ;; expand-region
 (add-to-list 'load-path "~/.emacs.d/expand-region")
 (load "expand-region.el")
