@@ -190,6 +190,14 @@
 ;; quick and easy way to run magit-status
 (global-set-key (kbd "C-M-g") 'magit-status)
 
+(defun shell-command-as-kill (cmd)
+  "Execute the given shell command and put its output into the kill ring"
+  (interactive "MShell command: ")
+  (let ((output (shell-command-to-string cmd)))
+	(message output)
+	(kill-new output)))
+(global-set-key (kbd "C-M-&") 'shell-command-as-kill)
+
 ;; cycle through buffers
 ;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
