@@ -267,6 +267,9 @@
 ;; Join the following line to this one
 ;; (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
+;; wc-mode
+(require 'wc-mode)
+
 ;; nxhtml mode
 (load "nxhtml/autostart.el")
 ;; multiple major modes
