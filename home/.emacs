@@ -8,6 +8,18 @@
 ;; Set elnode not to use port 8000
 (setq elnode-init-port 3000)
 
+;; XXX need to set this to nil for non-healarium project files
+(setq-default indent-tabs-mode t)
+
+(setq x-select-enable-clipboard t
+	  x-select-enable-primary t
+	  save-interprogram-paste-before-kill t
+	  apropos-do-all t
+	  mouse-yank-at-point t
+	  save-place-file (concat user-emacs-directory "places")
+	  backup-directory-alist `(("." . ,(concat user-emacs-directory
+											   "backups"))))
+
 ;; pending-delete-mode
 (pending-delete-mode t)
 
@@ -308,7 +320,11 @@
 (global-set-key (kbd "C-c >") 'sgml-close-tag)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "C-`") 'bury-buffer)
-
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
 
 ;; we like js2-mode
 ;; (add-hook 'after-init-hook
@@ -318,6 +334,9 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (require 'js2-refactor)
 (js2r-add-keybindings-with-prefix "C-c C-m")
+
+(require 'uniquify)
+(require 'saveplace)
 
 (provide '.emacs)
 ;;; .emacs ends here
