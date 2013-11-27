@@ -307,6 +307,8 @@
 (global-set-key (kbd "C-M-!") 'flycheck-previous-error)
 (global-set-key (kbd "C-c >") 'sgml-close-tag)
 (global-set-key (kbd "<f5>") 'revert-buffer)
+(global-set-key (kbd "C-`") 'bury-buffer)
+
 
 ;; we like js2-mode
 ;; (add-hook 'after-init-hook
