@@ -64,7 +64,7 @@
 
 ;; undo-tree
 (require 'undo-tree)
-(global-undo-tree-mode)
+;; (global-undo-tree-mode) ;; undo-tree is throwing errors
 
 ;; expand-region
 (add-to-list 'load-path "~/.emacs.d/expand-region")
