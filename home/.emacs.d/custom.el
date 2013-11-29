@@ -30,6 +30,7 @@
  '(js2-highlight-level 3)
  '(org-agenda-files nil)
  '(save-place t nil (saveplace))
+ '(save-place-file "~/.emacs.d/places")
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(text-mode-hook (quote (turn-on-auto-fill er/add-text-mode-expansions text-mode-hook-identify)))
