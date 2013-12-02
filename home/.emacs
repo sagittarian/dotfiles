@@ -181,6 +181,11 @@
   "Save the current buffer before switching to a new one"
   (full-auto-save))
 
+;; flx-ido
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
+
 ;; enable rebase-mode in magit
 (require 'git-rebase-mode)
 
