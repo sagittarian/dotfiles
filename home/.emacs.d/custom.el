@@ -29,6 +29,7 @@
  '(js2-highlight-external-variables nil)
  '(js2-highlight-level 3)
  '(org-agenda-files nil)
+ '(projectile-global-mode t)
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/places")
  '(show-paren-mode t)

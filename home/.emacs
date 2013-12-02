@@ -186,6 +186,11 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 
+;; projectile
+;; the keymap prefix has to be set before we require 'projectile
+(setq projectile-keymap-prefix (kbd "C-c C-p"))
+(require 'projectile)
+
 ;; enable rebase-mode in magit
 (require 'git-rebase-mode)
 
