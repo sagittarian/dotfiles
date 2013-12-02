@@ -305,10 +305,14 @@
 ;; erc
 ;; (require 'erc)
 
-;; wrap-region
-(wrap-region-global-mode t)
-(wrap-region-add-wrappers '(("{% " " %}" "%" 'html-mode)
-							("{# " " #}" "#" 'html-mode)))
+;; wrap-region ;; superceded by smartparens
+;; (wrap-region-global-mode t)
+;; (wrap-region-add-wrappers '(("{% " " %}" "%" 'html-mode)
+;; 							("{# " " #}" "#" 'html-mode)))
+
+;; smartparens
+(require 'smartparens-config)
+(smartparens-global-mode t)
 
 ;; multiple cursors
 (add-to-list 'load-path "~/.emacs.d/multiple-cursors")
@@ -321,7 +325,7 @@
 
 ;; some nice minor modes
 (show-paren-mode)
-(electric-pair-mode)
+;; (electric-pair-mode) ;; superceded by smartparens
 (setq-default show-paren-style 'expression)
 
 ;; keybindings
