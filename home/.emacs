@@ -132,6 +132,13 @@
 (global-set-key (kbd "M-n") 'iy-go-to-char)
 (global-set-key (kbd "M-p") 'iy-go-to-char-backward)
 
+;; ack-and-a-half
+(require 'ack-and-a-half)
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
 ;; save the buffer when switching to another window
 (defun save-buffer-other-window (count &optional all-frames)
   "Save the buffer before switching to another window"
