@@ -139,6 +139,15 @@
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
+;; smart-tabs-mode
+(autoload 'smart-tabs-mode "smart-tabs-mode"
+  "Intelligently indent with tabs, align with spaces!")
+(autoload 'smart-tabs-mode-enable "smart-tabs-mode")
+(autoload 'smart-tabs-advice "smart-tabs-mode")
+(autoload 'smart-tabs-insinuate "smart-tabs-mode")
+(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
+					  'ruby 'nxml)
+
 ;; save the buffer when switching to another window
 (defun save-buffer-other-window (count &optional all-frames)
   "Save the buffer before switching to another window"
