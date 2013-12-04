@@ -40,6 +40,7 @@
  '(tool-bar-mode nil)
  '(undo-tree-auto-save-history t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
+ '(wgrep-enable-key (kbd "C-c C-r"))
  '(yas-global-mode t nil (yasnippet))
  '(yas-triggers-in-field t)
  '(yas-wrap-around-region t))
