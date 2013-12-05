@@ -300,7 +300,9 @@
 (global-set-key (kbd "C-c f")
 				(lambda ()
 				  (interactive)
-				  (message (buffer-file-name))))
+				  (let ((fname (buffer-file-name)))
+					(message fname)
+					(kill-new fname))))
 
 ;; Join the following line to this one
 ;; (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
