@@ -212,7 +212,7 @@
 
 ;; tramp
 (require 'tramp)
-(setq tramp-default-method "ssh")
+;; (setq tramp-default-method "ssh")
 
 ;; yasnippets
 ;; (require 'yasnippet)

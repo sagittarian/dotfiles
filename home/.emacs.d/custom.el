@@ -44,6 +44,7 @@
  '(size-indication-mode t)
  '(text-mode-hook (quote (turn-on-auto-fill er/add-text-mode-expansions text-mode-hook-identify)))
  '(tool-bar-mode nil)
+ '(tramp-default-method "ssh")
  '(undo-tree-auto-save-history t)
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(wgrep-enable-key "C-c C-r")
