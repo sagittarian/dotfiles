@@ -341,6 +341,11 @@
 (global-set-key (kbd "C-* w") 'mc/mark-all-dwim)
 (global-set-key (kbd "C-* <mouse-1>") 'mc/add-cursor-on-click)
 
+;; keyfreq
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
+
 ;; some nice minor modes
 (show-paren-mode)
 ;; (electric-pair-mode) ;; superceded by smartparens
