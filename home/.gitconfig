@@ -1,0 +1,17 @@
+[user]
+	name = Adam Mesha
+	email = adam@mesha.org
+[color]
+	ui = true
+[merge]
+	tool = meld
+[branch]
+	autosetuprebase = always
+[push]
+	default = upstream
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	br = branch
+	ds = diff --staged
