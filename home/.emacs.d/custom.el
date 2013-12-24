@@ -38,6 +38,7 @@
  '(magit-restore-window-configuration t)
  '(org-agenda-files nil)
  '(projectile-global-mode t)
+ '(projectile-switch-project-action (quote projectile-dired))
  '(python-indent-guess-indent-offset nil)
  '(python-indent-offset 4)
  '(python-shell-interpreter "ipython")
