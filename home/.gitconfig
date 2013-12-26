@@ -9,6 +9,10 @@
 	autosetuprebase = always
 [push]
 	default = upstream
+[credential]
+	helper = cache --timeout=3600
+[diff]
+	algorithm = patience
 [alias]
 	ci = commit
 	co = checkout
