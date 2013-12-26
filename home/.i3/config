@@ -149,3 +149,4 @@ exec nm-applet
 exec kmix
 exec klipper
 exec workrave
+# exec tagtimed.pl
