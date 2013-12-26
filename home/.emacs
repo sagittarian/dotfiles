@@ -352,6 +352,10 @@
 (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
 (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
 
+;; w3m
+(setq browse-url-browser-function 'w3m-browse-url)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+
 ;; some nice minor modes
 (show-paren-mode)
 ;; (electric-pair-mode) ;; superceded by smartparens
