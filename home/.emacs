@@ -351,6 +351,7 @@
   "Emacs quick move minor mode" t)
 (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
 (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
+(global-set-key (kbd "C-c <SPC>") 'ace-jump-mode)
 
 ;; w3m
 (setq browse-url-browser-function 'w3m-browse-url)
