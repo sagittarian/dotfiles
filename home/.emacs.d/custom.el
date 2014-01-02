@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ack-and-a-half-executable "/usr/bin/ack-grep")
  '(ack-and-a-half-prompt-for-directory t)
  '(ack-and-a-half-use-ido t)
  '(blink-cursor-mode t)
@@ -18,9 +19,7 @@
  '(erc-log-mode t)
  '(erc-log-write-after-insert t)
  '(erc-log-write-after-send t)
- '(erc-modules
-   (quote
-    (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
+ '(erc-modules (quote (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
  '(erc-nick "sagittarian")
  '(erc-save-queries-on-quit nil)
  '(git-commit-confirm-commit nil)
