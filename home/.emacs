@@ -78,7 +78,7 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; org-trello
-(require 'org-trello)
+;; (require 'org-trello)
 ;;(add-to-list 'auto-mode-alist '("\\.trello.org$" . org-trello-mode))
 (defun auto-org-trello-mode ()
   "Automatically enable org-trello-mode for files ending in .trello.org"
