@@ -25,6 +25,8 @@
  '(git-commit-confirm-commit nil)
  '(global-undo-tree-mode nil)
  '(ido-auto-merge-work-directories-length 0)
+ '(ido-default-buffer-method (quote selected-window))
+ '(ido-default-file-method (quote selected-window))
  '(ido-enable-flex-matching t)
  '(ido-use-filename-at-point (quote guess))
  '(ido-use-virtual-buffers t)
