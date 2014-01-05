@@ -28,6 +28,7 @@ alias emacs=emacs-snapshot
 alias emacsclient=emacsclient.emacs-snapshot
 
 export PATH=$HOME/bin:$PATH
+export CDPATH=:..:~:~/src:~/doc:$CDPATH
 export TERMINAL=/usr/bin/terminator
 #export TERMINAL=/usr/bin/konsole
 #export TERMINAL=/usr/bin/rxvt
