@@ -24,11 +24,13 @@ fi
 # start an emacs daemon
 # emacs --daemon
 #alias emacs='emacsclient -c -n -a ""'
+alias emacs=emacs-snapshot
+alias emacsclient=emacsclient.emacs-snapshot
 
 export PATH=$HOME/bin:$PATH
 export TERMINAL=/usr/bin/terminator
 #export TERMINAL=/usr/bin/konsole
 #export TERMINAL=/usr/bin/rxvt
 #export EDITOR=emacs
-export EDITOR=emacsclient
+export EDITOR=emacsclient.emacs-snapshot
 export PYTHONPATH=$HOME/python:$PYTHONPATH
