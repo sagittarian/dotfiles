@@ -21,6 +21,8 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+alias 'ps?'='ps aux | grep -i '
+
 # start an emacs daemon
 # emacs --daemon
 #alias emacs='emacsclient -c -n -a ""'
