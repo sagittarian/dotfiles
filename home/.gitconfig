@@ -19,3 +19,5 @@
 	st = status
 	br = branch
 	ds = diff --staged
+	vi = bisect visualize
+	bi = bisect
