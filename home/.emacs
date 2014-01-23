@@ -252,7 +252,9 @@
   "Amend the last commit to include the current state of the current buffer (using magit)."
   (interactive)
   (stage-buffer)
-  (magit-run-git "commit" "--amend" "--no-edit" "--" (buffer-file-name)))
+  (magit-run-git "commit" "--amend" "--no-edit" "--" (buffer-file-name))
+  (message "amended last commit for %s" (buffer-file-name)))
+(global-set-key (kbd "C-c A") 'amend-buffer)
 ;; XXX set this up to be run with commit-buffer above with prefix arg
 
 ;; quick command to stage the current file
