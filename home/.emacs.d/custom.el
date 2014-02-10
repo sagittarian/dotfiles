@@ -19,9 +19,12 @@
  '(erc-log-mode t)
  '(erc-log-write-after-insert t)
  '(erc-log-write-after-send t)
- '(erc-modules (quote (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
+ '(erc-modules
+   (quote
+    (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
  '(erc-nick "sagittarian")
  '(erc-save-queries-on-quit nil)
+ '(focus-follows-mouse t)
  '(git-commit-confirm-commit nil)
  '(global-undo-tree-mode nil)
  '(ido-auto-merge-work-directories-length 0)
@@ -42,6 +45,7 @@
  '(magit-diff-refine-hunk t)
  '(magit-process-popup-time 1)
  '(magit-restore-window-configuration t)
+ '(mouse-autoselect-window t)
  '(org-agenda-files nil)
  '(projectile-global-mode t)
  '(projectile-switch-project-action (quote projectile-dired))
@@ -54,7 +58,9 @@
  '(save-place-file "~/.emacs.d/places")
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(text-mode-hook (quote (er/add-text-mode-expansions text-mode-hook-identify)))
+ '(text-mode-hook
+   (quote
+    (er/add-text-mode-expansions text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(tramp-default-method "ssh")
  '(undo-tree-auto-save-history t)
