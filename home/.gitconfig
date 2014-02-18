@@ -21,3 +21,4 @@
 	ds = diff --staged
 	vi = bisect visualize
 	bi = bisect
+	kall = !gitk --all
