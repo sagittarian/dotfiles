@@ -181,6 +181,7 @@
 	 (interactive "p")
 	 (kmacro-exec-ring-item
 	  (quote ("{{c1::}}" 0 "%d")) arg)))
+(global-set-key (kbd "C-c c") 'make-cloze)
 
 ;; interactive name completion for describe-function,
 ;; describe-variable, etc.
