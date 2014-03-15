@@ -51,6 +51,16 @@
  '(magit-restore-window-configuration t)
  '(mouse-autoselect-window t)
  '(org-agenda-files nil)
+ '(org-mode-hook
+   (quote
+    (er/add-org-mode-expansions
+     #[nil "\300\301\302\303\304$\207"
+           [org-add-hook change-major-mode-hook org-show-block-all append local]
+           5]
+     #[nil "\300\301\302\303\304$\207"
+           [org-add-hook change-major-mode-hook org-babel-show-result-all append local]
+           5]
+     org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
  '(projectile-global-mode t)
  '(projectile-switch-project-action (quote projectile-dired))
  '(python-indent-guess-indent-offset nil)
