@@ -136,3 +136,20 @@ PS1="\041\!@\t|$PS1"
 
 # WP-CLI completions
 # source $HOME/.composer/vendor/wp-cli/wp-cli/utils/wp-completion.bash
+
+alias 'ps?'='ps aux | grep -i '
+
+# start an emacs daemon
+# emacs --daemon
+#alias emacs='emacsclient -c -n -a ""'
+alias emacs=emacs-snapshot
+alias emacsclient=emacsclient.emacs-snapshot
+
+export PATH=$HOME/bin:$PATH
+export CDPATH=:..:~:~/src:~/doc:$CDPATH
+export TERMINAL=/usr/bin/terminator
+#export TERMINAL=/usr/bin/konsole
+#export TERMINAL=/usr/bin/rxvt
+#export EDITOR=emacs
+export EDITOR=emacsclient.emacs-snapshot
+export PYTHONPATH=$HOME/python:$PYTHONPATH
