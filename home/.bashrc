@@ -144,6 +144,7 @@ alias 'ps?'='ps aux | grep -i '
 #alias emacs='emacsclient -c -n -a ""'
 alias emacs=emacs-snapshot
 alias emacsclient=emacsclient.emacs-snapshot
+alias hdmioff="xrandr --output HDMI1 --off"
 
 export PATH=$HOME/bin:$PATH
 export CDPATH=:..:~:~/src:~/doc:$CDPATH
