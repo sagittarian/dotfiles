@@ -299,6 +299,16 @@
            (insert (current-kill 0)))))
 (global-set-key (kbd "C-x M-e") 'eval-and-replace)
 
+;; from emacswiki: http://www.emacswiki.org/emacs/MiniBuffer
+(defun switch-to-minibuffer ()
+  "Switch to minibuffer window."
+  (interactive)
+  (if (active-minibuffer-window)
+      (select-window (active-minibuffer-window))
+    (error "Minibuffer is not active")))
+
+(global-set-key (kbd "C-c o") 'switch-to-minibuffer)
+
 ;; sometimes we want to know the full path of the current file
 (global-set-key (kbd "C-c f")
 				(lambda ()
