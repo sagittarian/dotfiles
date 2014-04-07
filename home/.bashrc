@@ -145,6 +145,13 @@ alias 'ps?'='ps aux | grep -i '
 alias emacs=emacs-snapshot
 alias emacsclient=emacsclient.emacs-snapshot
 alias hdmioff="xrandr --output HDMI1 --off"
+alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
+alias setmon="xrandr --output HDMI1 --auto --left-of LVDS1"
+alias sethdmi="xrandr --output HDMI1 --auto --left-of LVDS1"
+alias setkb="setxkbmap -layout 'us(dvp),il,ru' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
+alias cycleworkspace="i3-msg move workspace to output left"
+
+
 
 export PATH=$HOME/bin:$PATH
 export CDPATH=:..:~:~/src:~/doc:$CDPATH
