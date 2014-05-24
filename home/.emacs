@@ -157,8 +157,8 @@
 (global-set-key (kbd "C-x o") 'save-buffer-other-window)
 
 ;; (setq-default auto-save-visited-file-name t)
-(setq-default auto-save-interval 100)
-(setq-default auto-save-timeout 5)
+;; (setq-default auto-save-interval 100)
+;; (setq-default auto-save-timeout 5)
 
 ;; modes
 (autoload 'scss-mode "scss-mode")
