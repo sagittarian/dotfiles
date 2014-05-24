@@ -133,6 +133,9 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# Enter resize mode
+bindsym $mod+p mode "resize"
+
 # i3lock to lock the screen
 bindsym $mod+j exec i3lock
 
@@ -143,6 +146,7 @@ bar {
 }
 
 exec setxkbmap -layout 'us(dvp),il,ru' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'
+exec xmodmap -e "keycode 107 = Menu"
 exec kalarm
 exec skype
 exec dropbox start
