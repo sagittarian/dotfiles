@@ -150,7 +150,8 @@ alias setmon="xrandr --output HDMI1 --auto --left-of LVDS1"
 alias sethdmi="xrandr --output HDMI1 --auto --left-of LVDS1"
 alias setkb="setxkbmap -layout 'us(dvp),il,ru' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
 alias cycleworkspace="i3-msg move workspace to output left"
-
+#alias ghc=ghc-7.8.2
+#alias ghci=ghci-7.8.2
 
 
 export PATH=$HOME/bin:$PATH
