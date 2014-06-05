@@ -145,6 +145,7 @@ alias 'ps?'='ps aux | grep -i '
 alias emacs=emacs-snapshot
 alias emacsclient=emacsclient.emacs-snapshot
 alias hdmioff="xrandr --output HDMI1 --off"
+alias vgaoff='xrandr --output VGA1 --off'
 alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
 alias setmon="xrandr --output HDMI1 --auto --left-of LVDS1"
 alias sethdmi="xrandr --output HDMI1 --auto --left-of LVDS1"
