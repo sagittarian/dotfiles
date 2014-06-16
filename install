@@ -15,4 +15,4 @@ then
 fi
 
 mkdir -p $(dirname $dst)
-echo ln -sf $src $dst
+ln -sf $src $dst
