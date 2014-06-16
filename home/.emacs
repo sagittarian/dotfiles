@@ -9,7 +9,7 @@
 (setq elnode-init-port 3000)
 
 ;; XXX need to set this to nil for non-healarium project files
-(setq-default indent-tabs-mode t)
+;; (setq-default indent-tabs-mode t)
 
 (setq x-select-enable-clipboard t
 	  x-select-enable-primary t
@@ -145,8 +145,17 @@
 (autoload 'smart-tabs-mode-enable "smart-tabs-mode")
 (autoload 'smart-tabs-advice "smart-tabs-mode")
 (autoload 'smart-tabs-insinuate "smart-tabs-mode")
+;; smart tabs for javascript
+(add-hook 'js2-mode-hook 'smart-tabs-mode-enable)
+(smart-tabs-advice js2-indent-line js2-basic-offset)
+;; smart tabs for python
+(add-hook 'python-mode-hook 'smart-tabs-mode-enable)
+(smart-tabs-advice python-indent-line-1 python-indent)
+
 (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
 					  'ruby 'nxml)
+
+
 
 ;; save the buffer when switching to another window
 (defun save-buffer-other-window (count &optional all-frames)
@@ -440,3 +449,5 @@
 
 (provide '.emacs)
 ;;; .emacs ends here
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
