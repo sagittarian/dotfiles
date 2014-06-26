@@ -1,0 +1,37 @@
+#
+
+# deb cdrom:[Debian GNU/Linux 7.3.0 _Wheezy_ - Official amd64 NETINST Binary-1 20131215-04:55]/ wheezy main
+
+#deb cdrom:[Debian GNU/Linux 7.3.0 _Wheezy_ - Official amd64 NETINST Binary-1 20131215-04:55]/ wheezy main
+
+deb http://debian.co.il/debian/ wheezy main non-free contrib
+deb-src http://debian.co.il/debian/ wheezy main non-free contrib
+
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+
+# wheezy-updates, previously known as 'volatile'
+deb http://debian.co.il/debian/ wheezy-updates main contrib non-free
+deb-src http://debian.co.il/debian/ wheezy-updates main contrib non-free
+
+# emacs snapshot
+deb http://emacs.naquadah.org/ stable/
+deb-src http://emacs.naquadah.org/ stable/
+
+# iceweasel backports
+deb http://mozilla.debian.net/ wheezy-backports iceweasel-release
+
+# dropbox
+deb http://linux.dropbox.com/debian wheezy main
+
+# virtualbox
+deb http://download.virtualbox.org/virtualbox/debian wheezy contrib
+
+# samsung scanner
+deb http://www.bchemnet.com/suldr/ debian extra
+
+# cassandra
+deb http://debian.datastax.com/community stable main
+
+# svn 1.8
+deb http://staging.opensource.wandisco.com/debian wheezy svn18
