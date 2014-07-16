@@ -165,3 +165,4 @@ export TERMINAL=/usr/bin/terminator
 #export EDITOR=emacs
 export EDITOR=emacsclient.emacs-snapshot
 export PYTHONPATH=$HOME/python:$PYTHONPATH
+export NODE_ENV=DEV
