@@ -146,10 +146,12 @@ alias emacs=emacs-snapshot
 alias emacsclient=emacsclient.emacs-snapshot
 alias hdmioff="xrandr --output HDMI1 --off"
 alias vgaoff='xrandr --output VGA1 --off'
+alias dpoff='xrandr --output DP1 --off'
 alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
 alias setmon="xrandr --output HDMI1 --auto --left-of LVDS1"
 alias sethdmi="xrandr --output HDMI1 --auto --left-of LVDS1"
 alias setvga='xrandr --output VGA1 --auto --left-of LVDS1'
+alias setdp='xrandr --output DP1 --auto --left-of eDP1'
 alias setkb="setxkbmap -layout 'us(dvp),il,ru' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
 alias cycleworkspace="i3-msg move workspace to output left"
 alias cycw="i3-msg move workspace to output left"
