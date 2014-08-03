@@ -155,6 +155,7 @@ alias setdp='xrandr --output DP1 --mode 1152x864 --left-of eDP1'
 alias setkb="setxkbmap -layout 'us(dvp),il,ru' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
 alias cycleworkspace="i3-msg move workspace to output left"
 alias cycw="i3-msg move workspace to output left"
+alias runnode="nodemon -x authbind node bin/www"
 #alias ghc=ghc-7.8.2
 #alias ghci=ghci-7.8.2
 
