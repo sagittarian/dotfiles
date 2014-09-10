@@ -150,7 +150,7 @@ alias dpoff='xrandr --output DP1 --off'
 alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
 alias setmon="xrandr --output HDMI1 --auto --left-of LVDS1"
 alias sethdmi="xrandr --output HDMI1 --auto --left-of LVDS1"
-alias setvga='xrandr --output VGA1 --auto --left-of LVDS1'
+alias setvga='xrandr --output VGA1 --auto --right-of LVDS1'
 #alias setdp='xrandr --output DP1 --mode 1152x864 --left-of eDP1'
 #alias setdp='xrandr --output DP1 --mode 1280x1024 --above eDP1'
 alias setdp='xrandr --output DP1 --mode 1920x1080 --above eDP1'
