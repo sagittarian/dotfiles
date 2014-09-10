@@ -173,3 +173,11 @@ export TERMINAL=/usr/bin/terminator
 export EDITOR=emacsclient.emacs-snapshot
 export PYTHONPATH=$HOME/python:$PYTHONPATH
 export NODE_ENV=DEV
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# cabal
+export PATH="$PATH:$HOME/.cabal/bin"
+
+
+source ~/.rvm/scripts/rvm
