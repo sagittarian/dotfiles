@@ -1,24 +1,25 @@
 [user]
-	name = Adam Mesha
-	email = adam@mesha.org
+    name = Adam Mesha
+    email = adam@mesha.org
 [color]
-	ui = true
+    ui = true
 [merge]
-	tool = meld
+    tool = meld
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [push]
-	default = upstream
+    default = upstream
 [credential]
-	helper = cache --timeout=3600
+    helper = cache --timeout=3600
 [diff]
-	algorithm = patience
+    algorithm = patience
 [alias]
-	ci = commit
-	co = checkout
-	st = status
-	br = branch
-	ds = diff --staged
-	vi = bisect visualize
-	bi = bisect
-	kall = !gitk --all
+    ci = commit
+    co = checkout
+    st = status
+    br = branch
+    ds = diff --staged
+    vi = bisect visualize
+    bi = bisect
+    sco = "!sco() { git stash && git checkout $1 && git stash pop; }; sco"
+    kall = !gitk --all
