@@ -34,6 +34,8 @@
  '(global-undo-tree-mode nil)
  '(haskell-font-lock-symbols t)
  '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
+ '(htmlize-css-name-prefix "htmlize-")
+ '(htmlize-output-type (quote css))
  '(ido-auto-merge-work-directories-length 0)
  '(ido-default-buffer-method (quote selected-window))
  '(ido-default-file-method (quote selected-window))
