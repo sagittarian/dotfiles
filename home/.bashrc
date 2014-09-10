@@ -161,6 +161,7 @@ alias flipw='i3-msg move workspace to output up'
 alias runnode="nodemon -x authbind node bin/www"
 #alias ghc=ghc-7.8.2
 #alias ghci=ghci-7.8.2
+alias runrails="authbind --deep rails server -p 80"
 
 
 export PATH=$HOME/bin:$PATH
