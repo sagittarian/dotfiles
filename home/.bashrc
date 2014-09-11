@@ -163,6 +163,10 @@ alias runnode="nodemon -x authbind node bin/www"
 #alias ghc=ghc-7.8.2
 #alias ghci=ghci-7.8.2
 alias runrails="authbind --deep rails server -p 80"
+alias cd..="cd .."
+alias cd...="cd ../.."
+alias cd....="cd ../../.."
+alias cd.....="cd ../../../.."
 
 
 export PATH=$HOME/bin:$PATH
