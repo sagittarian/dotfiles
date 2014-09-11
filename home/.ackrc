@@ -8,3 +8,5 @@
 --type-set=json=.json
 --nojson
 --ignore-dir=i18n-js
+--ignore-dir=.git
+--smart-case
