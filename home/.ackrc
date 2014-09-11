@@ -5,3 +5,6 @@
 --type-set=coffee=.coffee
 --type-set=jade=.jade
 --type-set=slim=.slim
+--type-set=json=.json
+--nojson
+--ignore-dir=i18n-js
