@@ -22,4 +22,5 @@
     vi = bisect visualize
     bi = bisect
     sco = "!sco() { git stash && git checkout $1 && git stash pop; }; sco"
+    spull = "!git stash && git pull --rebase && git stash pop"
     kall = !gitk --all
