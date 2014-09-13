@@ -144,6 +144,7 @@ alias 'ps?'='ps aux | grep -i '
 #alias emacs='emacsclient -c -n -a ""'
 alias emacs=emacs-snapshot
 alias emacsclient=emacsclient.emacs-snapshot
+alias e="emacsclient.emacs-snapshot -n -c"
 alias hdmioff="xrandr --output HDMI1 --off"
 alias vgaoff='xrandr --output VGA1 --off'
 alias dpoff='xrandr --output DP1 --off'
