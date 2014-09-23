@@ -12,6 +12,7 @@
  '(auto-save-interval 20)
  '(auto-save-timeout 5)
  '(blink-cursor-mode t)
+ '(coffee-tab-width 2)
  '(column-number-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
