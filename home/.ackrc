@@ -6,7 +6,9 @@
 --type-set=jade=.jade
 --type-set=slim=.slim
 --type-set=json=.json
+--type-set=erb=.erb
 --nojson
 --ignore-dir=i18n-js
 --ignore-dir=.git
+--ignore-dir=.sass-cache
 --smart-case
