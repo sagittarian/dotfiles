@@ -364,9 +364,9 @@
 (global-set-key (kbd "C-* <mouse-1>") 'mc/add-cursor-on-click)
 
 ;; keyfreq
-(require 'keyfreq)
-(keyfreq-mode 1)
-(keyfreq-autosave-mode 1)
+;; (require 'keyfreq)
+;; (keyfreq-mode 1)
+;; (keyfreq-autosave-mode 1)
 
 ;; ace jump mode
 (autoload 'ace-jump-mode "ace-jump-mode"
