@@ -56,10 +56,11 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+source /etc/bash_completion.d/git
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\041\[\033[00;37m\]\!\[\033[00;00m\] @\[\033[00;33m\]\t\[\033[00;00m\] ${debian_chroot:+($debian_chroot)}[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]]\[\033[01;31m\]$(__git_ps1)\[\033[00;00m\] \$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\041\! @\t ${debian_chroot:+($debian_chroot)}[\u@\h:\w]$(__git_ps1) \$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -124,10 +125,6 @@ function lmv() {
 	fulldest=$(readlink -mn $2)
 	mkdir -p "$2" && mv "$1" "$2" && ln -s "$fulldest/$(basename $1)" "$fullsource";
 }
-
-# fancier prompt
-#PS1="\D{%Y-%m-%d} \t: $PS1"
-PS1="\041\!@\t|$PS1"
 
 # old WP stuff
 # export WPORG_USER=sagittarian
