@@ -1,0 +1,15 @@
+* Things to do to get a bare system up and running
+  - Install various programs via apt
+    - i3
+    - emacs
+    - git
+    - workrave
+    - skype
+  - Clone various personal repos
+  - Install various things not via the package manager
+    - node.js
+    - rvm
+    - pip
+    - ghc
+  - Get tagtime
+  - Install cron scripts
