@@ -5,6 +5,9 @@
 ;; look for files to load in ~/.emacs.d
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
 
+;; No splash screen
+(setq inhibit-startup-screen t)
+
 ;; Set elnode not to use port 8000
 (setq elnode-init-port 3000)
 
@@ -53,17 +56,25 @@
 (setq-default show-trailing-whitespace t)
 (setq-default warning-minimum-level :error)
 
-;; marmalade
 (require 'package)
-(add-to-list 'package-archives
-    '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
+;; marmalade
+;; (add-to-list 'package-archives
+;;     '("marmalade" .
+;;       "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+;;;; We need to do something like this XXX
+;;;; package.el
+;; (require 'package)
+;; (setq package-user-dir "~/.emacs.d/elpa/")
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; (package-initialize)
+
 ;; undo-tree
-(require 'undo-tree)
+;; (require 'undo-tree)
 ;; (global-undo-tree-mode) ;; undo-tree is throwing errors
 
 ;; expand-region
@@ -80,11 +91,11 @@
 ;; org-trello
 ;; (require 'org-trello)
 ;;(add-to-list 'auto-mode-alist '("\\.trello.org$" . org-trello-mode))
-(defun auto-org-trello-mode ()
-  "Automatically enable org-trello-mode for files ending in .trello.org"
-  (let ((fname (buffer-file-name)))
-	(when (and fname (string-match "\\.trello\\.org$" fname))
-	  (org-trello-mode t))))
+;; (defun auto-org-trello-mode ()
+;;   "Automatically enable org-trello-mode for files ending in .trello.org"
+;;   (let ((fname (buffer-file-name)))
+;; 	(when (and fname (string-match "\\.trello\\.org$" fname))
+;; 	  (org-trello-mode t))))
 ;; (add-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
 ;;; (print after-change-major-mode-hook)
 ;; (remove-hook 'after-change-major-mode-hook 'auto-org-trello-mode)
@@ -128,9 +139,9 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
 
 ;; iy-go-to-char
-(require 'iy-go-to-char)
-(global-set-key (kbd "M-n") 'iy-go-to-char)
-(global-set-key (kbd "M-p") 'iy-go-to-char-backward)
+;; (require 'iy-go-to-char)
+;; (global-set-key (kbd "M-n") 'iy-go-to-char)
+;; (global-set-key (kbd "M-p") 'iy-go-to-char-backward)
 
 ;; ack-and-a-half
 (require 'ack-and-a-half)
@@ -236,6 +247,7 @@
 	 (define-key yas-keymap (kbd "C-p") 'yas-prev-field)))
 
 ;; quick and easy way to run magit-status
+(require 'magit)
 (global-set-key (kbd "C-M-g") 'magit-status)
 
 (defun shell-command-as-kill (cmd)
@@ -369,11 +381,11 @@
 ;; (keyfreq-autosave-mode 1)
 
 ;; ace jump mode
-(autoload 'ace-jump-mode "ace-jump-mode"
-  "Emacs quick move minor mode" t)
-(autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
-(eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
-(global-set-key (kbd "C-c <SPC>") 'ace-jump-mode)
+;; (autoload 'ace-jump-mode "ace-jump-mode"
+;;   "Emacs quick move minor mode" t)
+;; (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
+;; (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
+;; (global-set-key (kbd "C-c <SPC>") 'ace-jump-mode)
 
 ;; w3m
 (setq browse-url-browser-function 'w3m-browse-url)
@@ -447,7 +459,8 @@
         (set-buffer-modified-p nil)
         t))))
 
-(provide '.emacs)
-;;; .emacs ends here
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+(provide '.emacs)
+;;; .emacs ends here
