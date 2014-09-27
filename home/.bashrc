@@ -178,7 +178,7 @@ export PATH="$HOME/.rvm/bin:$PATH"
 source ~/.rvm/scripts/rvm
 
 # cabal
-export PATH="$PATH:$HOME/.cabal/bin"
+export PATH="$HOME/.cabal/bin:$PATH"
 
 export PATH=$HOME/bin:$PATH
 export CDPATH=:..:~:~/src:~/doc:$CDPATH
