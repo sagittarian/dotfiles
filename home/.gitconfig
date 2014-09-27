@@ -37,6 +37,8 @@
     ll = log --graph --date=short
     hist = log --graph --pretty=format:'%C(cyan)%h%Creset -%C(red)%d%Creset %s %C(yellow)[%an] %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
+    # submodules
+    subup = !git pull && git submodule init && git submodule update
 
     # ignore local changes to a file
     ignore = update-index --assume-unchanged
