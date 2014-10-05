@@ -164,6 +164,7 @@ alias flipw='i3-msg move workspace to output up'
 #alias ghci=ghci-7.8.2
 alias runnode="nodemon -x authbind node bin/www"
 alias runrails="authbind --deep bundle exec rails server -p 80"
+alias localeup="localeapp pull && rake i18n:js:export"
 
 alias ..="cd .."
 alias ...="cd ../.."
