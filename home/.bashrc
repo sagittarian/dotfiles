@@ -109,6 +109,7 @@ fi
 
 alias ack=ack-grep
 alias 'ps?'='ps aux | grep -i '
+alias findname='findname () { find -iname "*$1*"; }; findname'
 
 if hash emacsclient.emacs-snapshot 2>/dev/null; then
     alias emacs=emacs-snapshot
@@ -158,6 +159,7 @@ alias setkbru="setxkbmap -layout 'us(dvp),ru' -option 'grp:shifts_toggle,esperan
 
 alias cycleworkspace="i3-msg move workspace to output left"
 alias cycw="i3-msg move workspace to output left"
+alias cw="i3-msg move workspace to output left"
 alias flipw='i3-msg move workspace to output up'
 
 #alias ghc=ghc-7.8.2
