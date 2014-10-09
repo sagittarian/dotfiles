@@ -7,7 +7,9 @@
 --type-set=slim=.slim
 --type-set=json=.json
 --type-set=erb=.erb
+--type-set=log:ext:log
 --nojson
+--nolog
 --ignore-dir=i18n-js
 --ignore-dir=.git
 --ignore-dir=.sass-cache
