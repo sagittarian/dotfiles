@@ -249,6 +249,8 @@
 ;; quick and easy way to run magit-status
 (require 'magit)
 (global-set-key (kbd "C-M-g") 'magit-status)
+(global-set-key (kbd "C-c g g") 'magit-status)
+(global-set-key (kbd "C-c g b") 'magit-blame-mode)
 
 (defun shell-command-as-kill (cmd)
   "Execute the given shell command and put its output into the kill ring"
