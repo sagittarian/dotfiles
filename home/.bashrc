@@ -174,17 +174,17 @@ alias .....="cd ../../../.."
 export NODE_ENV=DEV
 export PYTHONPATH=$HOME/python:$PYTHONPATH
 
-# rvm
-export PATH="$HOME/.rvm/bin:$PATH"
-source ~/.rvm/scripts/rvm
-
-# cabal
-export PATH="$HOME/.cabal/bin:$PATH"
-
 export PATH=$HOME/bin:$PATH
 export CDPATH=:..:~:~/src:~/doc:$CDPATH
 export TERMINAL=/usr/bin/terminator
 #export TERMINAL=/usr/bin/konsole
 #export TERMINAL=/usr/bin/rxvt
+
+# cabal
+export PATH="$HOME/.cabal/bin:$PATH"
+
+# rvm
+export PATH="$HOME/.rvm/bin:$PATH"
+source ~/.rvm/scripts/rvm
 
 export EDITOR
