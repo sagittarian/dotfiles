@@ -1,15 +1,18 @@
 * Things to do to get a bare system up and running
+  - Update the packaged files
   - Install various programs via apt
     - i3
     - emacs
     - git
     - workrave
     - skype
-  - Clone various personal repos
+    - firefox/iceweasel
+    - kmix
+  - Clone various personal repos, install dotfiles and ~/bin
   - Install various things not via the package manager
     - node.js
     - rvm
     - pip
     - ghc
-  - Get tagtime
+  - Get tagtime, install .tagtimerc
   - Install cron scripts
