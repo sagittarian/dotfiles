@@ -1,12 +1,3 @@
-[submodule "external/sass-mode"]
-	path = external/sass-mode
-	url = https://github.com/nex3/sass-mode.git
-[submodule "external/haml-mode"]
-	path = external/haml-mode
-	url = https://github.com/nex3/haml-mode.git
-[submodule "external/scss-mode"]
-	path = external/scss-mode
-	url = https://github.com/antonj/scss-mode.git
 [submodule "external/git-modes"]
 	path = external/git-modes
 	url = https://github.com/magit/git-modes.git
