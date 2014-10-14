@@ -175,6 +175,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 export NODE_ENV=DEV
+export RAILS_ENV=development
 export PYTHONPATH=$HOME/python:$PYTHONPATH
 
 export PATH=$HOME/bin:$PATH
