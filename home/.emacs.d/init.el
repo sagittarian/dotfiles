@@ -80,7 +80,6 @@
 ;; expand-region
 (add-to-list 'load-path "~/.emacs.d/expand-region")
 (load "expand-region.el")
-(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Flycheck
 (add-hook 'after-init-hook 'global-flycheck-mode)
@@ -138,11 +137,6 @@
 ;; automatically delete trailing whitespace on all lines when saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
 
-;; iy-go-to-char
-;; (require 'iy-go-to-char)
-;; (global-set-key (kbd "M-n") 'iy-go-to-char)
-;; (global-set-key (kbd "M-p") 'iy-go-to-char-backward)
-
 ;; ack-and-a-half
 (require 'ack-and-a-half)
 (defalias 'ack 'ack-and-a-half)
@@ -174,7 +168,6 @@
   (interactive "p")
   (full-auto-save)
   (other-window count all-frames))
-(global-set-key (kbd "C-x o") 'save-buffer-other-window)
 
 ;; (setq-default auto-save-visited-file-name t)
 ;; (setq-default auto-save-interval 100)
@@ -201,7 +194,6 @@
 	 (interactive "p")
 	 (kmacro-exec-ring-item
 	  (quote ("{{c1::}}" 0 "%d")) arg)))
-(global-set-key (kbd "C-c c") 'make-cloze)
 
 ;; interactive name completion for describe-function,
 ;; describe-variable, etc.
@@ -246,11 +238,7 @@
 	 (define-key yas-keymap (kbd "C-n") 'yas-next-field-or-maybe-expand)
 	 (define-key yas-keymap (kbd "C-p") 'yas-prev-field)))
 
-;; quick and easy way to run magit-status
 (require 'magit)
-(global-set-key (kbd "C-M-g") 'magit-status)
-(global-set-key (kbd "C-c g g") 'magit-status)
-(global-set-key (kbd "C-c g b") 'magit-blame-mode)
 
 (defun shell-command-as-kill (cmd)
   "Execute the given shell command and put its output into the kill ring"
@@ -258,10 +246,6 @@
   (let ((output (shell-command-to-string cmd)))
 	(message output)
 	(kill-new output)))
-(global-set-key (kbd "C-M-&") 'shell-command-as-kill)
-
-;; cycle through buffers
-;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
 ;; quick command to commit changes in the current buffer
 (defun commit-buffer (msg)
@@ -270,7 +254,6 @@
   (stage-buffer)
   (magit-run-git "commit" "-m" msg "--" (buffer-file-name))
   (message "committed %s" (buffer-file-name)))
-(global-set-key (kbd "C-c s") 'commit-buffer)
 
 (defun amend-buffer ()
   "Amend the last commit to include the current state of the current buffer (using magit)."
@@ -278,8 +261,6 @@
   (stage-buffer)
   (magit-run-git "commit" "--amend" "--no-edit" "--" (buffer-file-name))
   (message "amended last commit for %s" (buffer-file-name)))
-(global-set-key (kbd "C-c A") 'amend-buffer)
-;; XXX set this up to be run with commit-buffer above with prefix arg
 
 ;; quick command to stage the current file
 (defun stage-buffer ()
@@ -288,7 +269,6 @@
   (full-auto-save)
   (magit-run-git "add" "--" (buffer-file-name))
   (message "staged %s" (buffer-file-name)))
-(global-set-key (kbd "C-c a") 'stage-buffer)
 
 ;; quick command to commit all changes in the working tree
 (defun commit-all-changes (msg)
@@ -297,18 +277,15 @@
   (full-auto-save)
   (magit-run-git "commit" "-am" msg)
   (message "committed all changes in working tree"))
-(global-set-key (kbd "C-c S") 'commit-all-changes)
 
 ;; date and time stamps
 (defun insert-date ()
    (interactive)
    (insert (format-time-string "%Y-%m-%d")))
-(global-set-key (kbd "C-c d") 'insert-date)
 
 (defun insert-timestamp ()
    (interactive)
    (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
-(global-set-key (kbd "C-c t") 'insert-timestamp)
 
 ;; source: https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el
 (defun eval-and-replace ()
@@ -320,7 +297,6 @@
              (current-buffer))
     (error (message "Invalid expression")
            (insert (current-kill 0)))))
-(global-set-key (kbd "C-x M-e") 'eval-and-replace)
 
 ;; from emacswiki: http://www.emacswiki.org/emacs/MiniBuffer
 (defun switch-to-minibuffer ()
@@ -330,18 +306,12 @@
       (select-window (active-minibuffer-window))
     (error "Minibuffer is not active")))
 
-(global-set-key (kbd "C-c o") 'switch-to-minibuffer)
-
 ;; sometimes we want to know the full path of the current file
-(global-set-key (kbd "C-c f")
-				(lambda ()
-				  (interactive)
-				  (let ((fname (buffer-file-name)))
-					(message fname)
-					(kill-new fname))))
-
-;; Join the following line to this one
-;; (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
+(defun current-buffer-file-name ()
+  (interactive)
+  (let ((fname (buffer-file-name)))
+    (message fname)
+    (kill-new fname)))
 
 ;; wc-mode
 (require 'wc-mode)
@@ -371,11 +341,6 @@
 ;; multiple cursors
 (add-to-list 'load-path "~/.emacs.d/multiple-cursors")
 (require 'multiple-cursors)
-(global-set-key (kbd "C-* p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-* n") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-* h") 'mc/mark-sgml-tag-pair)
-(global-set-key (kbd "C-* w") 'mc/mark-all-dwim)
-(global-set-key (kbd "C-* <mouse-1>") 'mc/add-cursor-on-click)
 
 ;; keyfreq
 ;; (require 'keyfreq)
@@ -387,7 +352,6 @@
 ;;   "Emacs quick move minor mode" t)
 ;; (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
 ;; (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
-;; (global-set-key (kbd "C-c <SPC>") 'ace-jump-mode)
 
 ;; w3m
 (setq browse-url-browser-function 'w3m-browse-url)
@@ -398,21 +362,6 @@
 ;; (electric-pair-mode) ;; superceded by smartparens
 (setq-default show-paren-style 'expression)
 
-;; keybindings
-(global-set-key (kbd "C-!") 'flycheck-next-error)
-(global-set-key (kbd "C-M-!") 'flycheck-previous-error)
-(global-set-key (kbd "C-c >") 'sgml-close-tag)
-(global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "C-`") 'bury-buffer)
-(global-set-key (kbd "M-/") 'hippie-expand)
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-(global-set-key (kbd "C-c %") 'replace-string)
-(global-set-key (kbd "C-c M-%") 'replace-regexp)
-(global-set-key (kbd "C-M-s") 'isearch-forward)
-(global-set-key (kbd "C-M-r") 'isearch-backward)
-(global-set-key (kbd "C-x j") 'auto-fill-mode)
-
 ;; we like js2-mode
 ;; (add-hook 'after-init-hook
 ;; 		  '(lambda ()
@@ -420,7 +369,6 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (require 'js2-refactor)
-(js2r-add-keybindings-with-prefix "C-c C-m")
 
 (require 'uniquify)
 (require 'saveplace)
