@@ -185,7 +185,7 @@ export TERMINAL=/usr/bin/terminator
 #export TERMINAL=/usr/bin/rxvt
 
 # cabal
-export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 
 # rvm
 export PATH="$HOME/.rvm/bin:$PATH"
