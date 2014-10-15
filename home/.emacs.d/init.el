@@ -6,7 +6,7 @@
 (setq inhibit-startup-screen t)
 
 ;; Set elnode not to use port 8000
-(setq elnode-init-port 3000)
+;; (setq elnode-init-port 3000)
 
 (setq x-select-enable-clipboard t
 	  x-select-enable-primary t
