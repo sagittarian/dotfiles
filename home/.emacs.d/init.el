@@ -1,8 +1,5 @@
-;; run as an emacs server
-;; we're now starting the server in headless mode in .profile
-;; (server-start)
-
 ;; look for files to load in ~/.emacs.d
+;; XXX this is not a great idea in general
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
 
 ;; No splash screen
@@ -10,9 +7,6 @@
 
 ;; Set elnode not to use port 8000
 (setq elnode-init-port 3000)
-
-;; XXX need to set this to nil for non-healarium project files
-;; (setq-default indent-tabs-mode t)
 
 (setq x-select-enable-clipboard t
 	  x-select-enable-primary t
@@ -23,9 +17,6 @@
 	  backup-directory-alist `(("." . ,(concat user-emacs-directory
 											   "backups"))))
 
-;; pending-delete-mode
-(pending-delete-mode t)
-
 ;; Workaround the annoying warnings:
 ;;    Warning (mumamo-per-buffer-local-vars):
 ;;    Already 'permanent-local t: buffer-file-name
@@ -35,15 +26,15 @@
            (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 ;; wow mumamo has some serious issues
-(when (and (equal emacs-major-version 23)
-           (equal emacs-minor-version 3))
-  (eval-after-load "bytecomp"
-    '(add-to-list 'byte-compile-not-obsolete-vars
-                  'font-lock-beginning-of-syntax-function))
-  ;; tramp-compat.el clobbers this variable!
-  (eval-after-load "tramp-compat"
-    '(add-to-list 'byte-compile-not-obsolete-vars
-                  'font-lock-beginning-of-syntax-function)))
+;; (when (and (equal emacs-major-version 23)
+;;            (equal emacs-minor-version 3))
+;;   (eval-after-load "bytecomp"
+;;     '(add-to-list 'byte-compile-not-obsolete-vars
+;;                   'font-lock-beginning-of-syntax-function))
+;;   ;; tramp-compat.el clobbers this variable!
+;;   (eval-after-load "tramp-compat"
+;;     '(add-to-list 'byte-compile-not-obsolete-vars
+;;                   'font-lock-beginning-of-syntax-function)))
 
 ;; custom variables
 (setq custom-file "~/.emacs.d/custom.el")
@@ -58,20 +49,13 @@
 
 (require 'package)
 ;; marmalade
+;; marmalade is less up to date, let's just not use it
 ;; (add-to-list 'package-archives
 ;;     '("marmalade" .
 ;;       "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
-
-;;;; We need to do something like this XXX
-;;;; package.el
-;; (require 'package)
-;; (setq package-user-dir "~/.emacs.d/elpa/")
-;; (add-to-list 'package-archives
-;;              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-;; (package-initialize)
 
 ;; undo-tree
 ;; (require 'undo-tree)
@@ -316,15 +300,15 @@
 ;; wc-mode
 (require 'wc-mode)
 
-;; nxhtml mode
-(load "nxhtml/autostart.el")
-;; multiple major modes
-(autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
-(setq auto-mode-alist
-      (append '(("\\.html?$" . django-html-mumamo-mode))
-			  auto-mode-alist))
-(setq mumamo-background-colors nil)
-(add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
+;; ;; nxhtml mode
+;; (load "nxhtml/autostart.el")
+;; ;; multiple major modes
+;; (autoload 'django-html-mumamo-mode "~/.emacs.d/nxhtml/autostart.el")
+;; (setq auto-mode-alist
+;;       (append '(("\\.html?$" . django-html-mumamo-mode))
+;; 			  auto-mode-alist))
+;; (setq mumamo-background-colors nil)
+;; (add-to-list 'auto-mode-alist '("\\.html$" . django-html-mumamo-mode))
 
 ;; erc
 ;; (require 'erc)
