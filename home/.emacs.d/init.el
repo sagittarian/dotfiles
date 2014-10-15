@@ -20,10 +20,10 @@
 ;; Workaround the annoying warnings:
 ;;    Warning (mumamo-per-buffer-local-vars):
 ;;    Already 'permanent-local t: buffer-file-name
-(when (equal emacs-major-version 24)
-  (eval-after-load "mumamo"
-    '(setq mumamo-per-buffer-local-vars
-           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
+;; (when (equal emacs-major-version 24)
+;;   (eval-after-load "mumamo"
+;;     '(setq mumamo-per-buffer-local-vars
+;;            (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 ;; wow mumamo has some serious issues
 ;; (when (and (equal emacs-major-version 23)
