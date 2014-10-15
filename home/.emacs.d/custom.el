@@ -14,6 +14,7 @@
  '(blink-cursor-mode t)
  '(coffee-tab-width 2)
  '(column-number-mode t)
+ '(delete-selection-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
  '(doc-view-continuous t)
@@ -25,9 +26,7 @@
  '(erc-log-mode t)
  '(erc-log-write-after-insert t)
  '(erc-log-write-after-send t)
- '(erc-modules
-   (quote
-    (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
+ '(erc-modules (quote (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
  '(erc-nick "sagittarian")
  '(erc-save-queries-on-quit nil)
  '(focus-follows-mouse t)
@@ -43,7 +42,7 @@
  '(ido-enable-flex-matching t)
  '(ido-use-filename-at-point (quote guess))
  '(ido-use-virtual-buffers t)
- '(indent-tabs-mode nil)
+ '(indent-tabs-mode t)
  '(inhibit-startup-screen t)
  '(js2-allow-keywords-as-property-names nil)
  '(js2-basic-offset 4)
@@ -58,16 +57,7 @@
  '(magit-restore-window-configuration t)
  '(mouse-autoselect-window t)
  '(org-agenda-files nil)
- '(org-mode-hook
-   (quote
-    (er/add-org-mode-expansions
-     #[nil "\300\301\302\303\304$\207"
-           [org-add-hook change-major-mode-hook org-show-block-all append local]
-           5]
-     #[nil "\300\301\302\303\304$\207"
-           [org-add-hook change-major-mode-hook org-babel-show-result-all append local]
-           5]
-     org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
+ '(org-mode-hook (quote (er/add-org-mode-expansions #[nil "\300\301\302\303\304$\207" [org-add-hook change-major-mode-hook org-show-block-all append local] 5] #[nil "\300\301\302\303\304$\207" [org-add-hook change-major-mode-hook org-babel-show-result-all append local] 5] org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
  '(projectile-global-mode t)
  '(projectile-switch-project-action (quote projectile-dired))
  '(python-indent-guess-indent-offset nil)
@@ -75,14 +65,15 @@
  '(python-shell-interpreter "ipython")
  '(python-shell-prompt-regexp "In \\[\\d+\\]: ")
  '(python-skeleton-autoinsert t)
+ '(require-final-newline t)
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/places")
  '(show-paren-mode t)
  '(size-indication-mode t)
- '(text-mode-hook
-   (quote
-    (er/add-text-mode-expansions text-mode-hook-identify)))
+ '(tab-width 4)
+ '(text-mode-hook (quote (er/add-text-mode-expansions text-mode-hook-identify)))
  '(tool-bar-mode nil)
+ '(track-eol t)
  '(tramp-default-method "ssh")
  '(undo-tree-auto-save-history t)
  '(uniquify-ask-about-buffer-names-p t)
@@ -91,6 +82,7 @@
  '(uniquify-strip-common-suffix t)
  '(wdired-allow-to-change-permissions t)
  '(wgrep-enable-key (kbd "C-c C-r"))
+ '(words-include-escapes t)
  '(yas-global-mode t nil (yasnippet))
  '(yas-triggers-in-field t)
  '(yas-wrap-around-region t))
