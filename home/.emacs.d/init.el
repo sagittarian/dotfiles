@@ -2,20 +2,7 @@
 ;; XXX this is not a great idea in general
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
 
-;; No splash screen
-(setq inhibit-startup-screen t)
-
-;; Set elnode not to use port 8000
-;; (setq elnode-init-port 3000)
-
-(setq x-select-enable-clipboard t
-	  x-select-enable-primary t
-	  save-interprogram-paste-before-kill t
-	  apropos-do-all t
-	  mouse-yank-at-point t
-	  save-place-file (concat user-emacs-directory "places")
-	  backup-directory-alist `(("." . ,(concat user-emacs-directory
-											   "backups"))))
+(load "variables.el")
 
 ;; Workaround the annoying warnings:
 ;;    Warning (mumamo-per-buffer-local-vars):
@@ -40,12 +27,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (add-hook 'after-init-hook (lambda () (load custom-file)))
 
-(setq-default tab-width 4)
-(setq-default sentence-end-double-space t)
-(setq-default isearch-allow-scroll t)
-(setq-default column-number-mode t)
-(setq-default show-trailing-whitespace t)
-(setq-default warning-minimum-level :error)
 
 (require 'package)
 ;; marmalade
@@ -196,8 +177,6 @@
 
 ;; flx-ido
 (flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-use-faces nil)
 
 ;; projectile
 ;; the keymap prefix has to be set before we require 'projectile
