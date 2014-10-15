@@ -16,3 +16,7 @@
     - ghc
   - Get tagtime, install .tagtimerc
   - Install cron scripts
+* emacs packages that need to be installed
+  - yasnippet
+  - expand-region
+
