@@ -37,7 +37,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # monitor setting aliases
 alias sethdmi="xrandr --output HDMI1 --auto --left-of LVDS1"
-alias setvga='xrandr --output VGA1 --auto --left-of LVDS1'
+alias setvga='xrandr --output VGA1 --auto --right-of LVDS1'
 alias setdp='xrandr --output DP1 --mode 1920x1080 --above eDP1'
 #alias setdp='xrandr --output DP1 --mode 1152x864 --left-of eDP1'
 #alias setdp='xrandr --output DP1 --mode 1280x1024 --above eDP1'
