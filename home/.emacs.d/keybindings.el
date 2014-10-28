@@ -26,7 +26,10 @@
 (global-set-key (kbd "C-c o") 'switch-to-minibuffer)
 (global-set-key (kbd "C-x M-e") 'eval-and-replace)
 (global-set-key (kbd "C-c f") 'current-buffer-file-name)
-(global-set-key (kbd "C-x o") 'save-buffer-other-window)
+
+;; use my own function that saves the file when you switch windows
+(define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
+;; (global-set-key (kbd "C-x o") 'save-buffer-other-window)
 
 ;; Join the following line to this one
 ;; (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
@@ -61,13 +64,18 @@
 ;; js2-refactor
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
+;; ;; Align your code in a pretty way.
+(global-set-key (kbd "C-x \\") 'align-regexp)
+
+;; ;; Start proced in a similar manner to dired
+(global-set-key (kbd "C-x p") 'proced)
+
+
 ;;;; miscelaneous stuff collected from the internets to go through and
 ;;;; see if there's anything interesting there some time
 
 ;;;;;; source: https://github.com/steinn/emacs-prelude/blob/master/core/prelude-global-keybindings.el
 
-;; ;; Align your code in a pretty way.
-;; (global-set-key (kbd "C-x \\") 'align-regexp)
 
 ;; ;; Font size
 ;; (global-set-key (kbd "C-+") 'text-scale-increase)
@@ -80,9 +88,6 @@
 
 ;; ;; Indentation help
 ;; (global-set-key (kbd "C-x ^") 'join-line)
-
-;; ;; Start proced in a similar manner to dired
-;; (global-set-key (kbd "C-x p") 'proced)
 
 ;; ;; Start eshell or switch to it if it's active.
 ;; (global-set-key (kbd "C-x m") 'eshell)
