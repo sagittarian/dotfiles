@@ -375,6 +375,8 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+(add-hook 'python-mode-hook (lambda () (set-variable 'tab-width 4)))
+
 (load "keybindings.el")
 
 (provide 'init)
