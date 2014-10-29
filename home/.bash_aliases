@@ -7,7 +7,7 @@ alias findname='findname () { find -iname "*$1*"; }; findname'
 if hash emacsclient.emacs-snapshot 2>/dev/null; then
     alias emacs=emacs-snapshot
     alias emacsclient=emacsclient.emacs-snapshot
-    alias e="emacsclient.emacs-snapshot -n -c"
+    alias e="emacsclient.emacs-snapshot -n -c -e ''"
     EDITOR=emacsclient.emacs-snapshot
 else
     alias e="emacsclient -n -c"
