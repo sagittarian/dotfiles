@@ -377,7 +377,10 @@
 
 (add-hook 'python-mode-hook (lambda () (set-variable 'tab-width 4)))
 
-(load "keybindings.el")
+;; no menu bars
+(menu-bar-mode 0)
+
+(load "keybindings")
 
 (provide 'init)
 ;;; init ends here
