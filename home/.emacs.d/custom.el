@@ -14,6 +14,7 @@
  '(blink-cursor-mode t)
  '(coffee-tab-width 2)
  '(column-number-mode t)
+ '(css-indent-offset 2)
  '(delete-selection-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
