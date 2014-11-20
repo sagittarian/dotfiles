@@ -66,3 +66,4 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias ff='firefox -no-remote'
