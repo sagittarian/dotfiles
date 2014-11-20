@@ -1,8 +1,10 @@
 #!/bin/bash
 
-if [ $(pgrep -cf tagtimed.pl) == 0 ]; then
+daemon=tagtimed.py
+
+if [ $(pgrep -cf $daemon) == 0 ]; then
     # echo tagtime is not running;
-    cd ~/src/TagTime
-    DISPLAY=:0 ./tagtimed.pl &
+    cd ~/src/pytagtime/
+    DISPLAY=:0 ./$daemon &
 fi
 
