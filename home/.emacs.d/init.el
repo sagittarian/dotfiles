@@ -382,5 +382,9 @@
 
 (load "keybindings")
 
+;; beeminder
+(load "load/beeminder")
+(load "load/beeminder-config")
+
 (provide 'init)
 ;;; init ends here

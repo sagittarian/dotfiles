@@ -70,6 +70,13 @@
 ;; ;; Start proced in a similar manner to dired
 (global-set-key (kbd "C-x p") 'proced)
 
+;; beeminder
+(global-set-key (kbd "C-c b a") 'beeminder-add-data)
+(global-set-key (kbd "C-c b w") 'beeminder-whoami)
+(global-set-key (kbd "C-c b g") 'beeminder-my-goals-org)
+(global-set-key (kbd "C-c b r") 'beeminder-refresh-goal)
+(global-set-key (kbd "C-c b t") 'beeminder-submit-clocked-time)
+
 
 ;;;; miscelaneous stuff collected from the internets to go through and
 ;;;; see if there's anything interesting there some time
