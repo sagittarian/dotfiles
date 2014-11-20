@@ -13,4 +13,5 @@
 --ignore-dir=i18n-js
 --ignore-dir=.git
 --ignore-dir=.sass-cache
+--ignore-dir=_site
 --smart-case
