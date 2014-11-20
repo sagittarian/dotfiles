@@ -1,1 +1,0 @@
-../../external/scss-mode/scss-mode.el
