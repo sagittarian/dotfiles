@@ -386,5 +386,8 @@
 (load "load/beeminder")
 (load "load/beeminder-config")
 
+;; theme
+(load-theme 'spolsky t nil)
+
 (provide 'init)
 ;;; init ends here
