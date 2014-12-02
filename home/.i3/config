@@ -19,11 +19,18 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# We use dolphin all the time
+bindsym $mod+Shift+E exec dolphin
+# And also emacs
+bindsym $mod+m exec emacsclient -n -c
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+colon kill
+# also let's do it without the shift, because it's so common
+bindsym $mod+semicolon kill
 
 # start dmenu (a program launcher)
 bindsym $mod+e exec dmenu_run_aliases
