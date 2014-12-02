@@ -1,3 +1,6 @@
+;; print screen is where the menu key should be on my thinkpad
+(global-set-key (kbd "<print>") 'execute-extended-command)
+
 ;; expand region
 (global-set-key (kbd "C-=") 'er/expand-region)
 
