@@ -8,6 +8,7 @@
     - skype
     - firefox/iceweasel
     - terminator
+	- dolphin
     - kmix
   - Clone various personal repos, install dotfiles and ~/bin
   - Install various things not via the package manager
@@ -22,5 +23,24 @@
   - expand-region
   - flex-isearch
   - flx
-  - editorconfig
+  - flycheck (haskell, python, js)
+  - ack-and-a-half
+  - projectile
+  - smart-tabs
+  - scss-mode
+  - sass-mode
+  - (ido is built in)
+  - git-rebase-mode
+  - magit (magit-svn)
+  - wc-mode
+  - smartparens
+  - multiple-cursors
+  - spolsky (sublime-themes)
+  - flx, flx-ido, flx, flx-isearch
+  - js2-mode, js2-refactor
+** nice to have emacs
+   - editorconfig
+* things that may be nice to have (but not absolutely necessary)
+  - meld/kdiff3
+  - chrome
 
