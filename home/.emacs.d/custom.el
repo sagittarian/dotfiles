@@ -15,6 +15,7 @@
  '(coffee-tab-width 2)
  '(column-number-mode t)
  '(css-indent-offset 2)
+ '(custom-safe-themes (quote ("0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
  '(delete-selection-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
@@ -94,6 +95,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:background nil)))))
 
 ;;; custom.el ends here
