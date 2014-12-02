@@ -67,3 +67,5 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ff='firefox -no-remote'
+
+#alias findold="find . ! -newermt $(date +%Y-%m-%d -d '1 day ago') ! -name ."
