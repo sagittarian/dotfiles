@@ -380,11 +380,14 @@
 ;; no menu bars
 (menu-bar-mode 0)
 
-(load "keybindings")
-
 ;; beeminder
 (load "load/beeminder")
 (load "load/beeminder-config")
+
+;; smex
+(smex-initialize)
+
+(load "keybindings")
 
 ;; theme
 (load-theme 'spolsky t nil)

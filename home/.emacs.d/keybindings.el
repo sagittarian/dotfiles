@@ -73,6 +73,12 @@
 ;; ;; Start proced in a similar manner to dired
 (global-set-key (kbd "C-x p") 'proced)
 
+;; smex
+;(global-set-key (kbd "M-x") 'smex)
+(define-key (current-global-map)
+  [remap execute-extended-command] 'smex)
+(global-set-key (kbd "C-x M-x") 'smex-major-mode-commands)
+
 ;; beeminder
 (global-set-key (kbd "C-c b a") 'beeminder-add-data)
 (global-set-key (kbd "C-c b w") 'beeminder-whoami)
