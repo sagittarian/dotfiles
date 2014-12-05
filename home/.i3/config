@@ -156,6 +156,7 @@ bar {
 exec setxkbmap -layout 'us(dvp),il' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'
 exec xmodmap -e "keycode 107 = Menu"
 exec skype
+exec skype-call-recorder
 exec nm-applet
 exec kmix
 exec klipper
