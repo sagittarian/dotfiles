@@ -1,9 +1,0 @@
-[submodule "external/git-modes"]
-	path = external/git-modes
-	url = https://github.com/magit/git-modes.git
-[submodule "external/iy-go-to-char"]
-	path = external/iy-go-to-char
-	url = https://github.com/doitian/iy-go-to-char.git
-[submodule "external/multiple-cursors.el"]
-	path = external/multiple-cursors.el
-	url = https://github.com/magnars/multiple-cursors.el.git
