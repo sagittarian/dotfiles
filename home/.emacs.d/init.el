@@ -395,5 +395,14 @@
 ;; magit-svn (why do people use sucky software, grumble grumble
 ;; grumble)
 (add-hook 'magit-mode-hook 'magit-svn-mode)
+
+;; fill-column-indicator
+(add-hook 'text-mode-hook 'fci-mode)
+(add-hook 'js2-mode-hook 'fci-mode)
+(add-hook 'js-mode-hook 'fci-mode)
+(add-hook 'python-mode-hook 'fci-mode)
+(add-hook 'ruby-mode-hook 'fci-mode)
+(add-hook 'haskell-mode-hook 'fci-mode)
+
 (provide 'init)
 ;;; init ends here
