@@ -392,5 +392,8 @@
 ;; theme
 (load-theme 'spolsky t nil)
 
+;; magit-svn (why do people use sucky software, grumble grumble
+;; grumble)
+(add-hook 'magit-mode-hook 'magit-svn-mode)
 (provide 'init)
 ;;; init ends here
