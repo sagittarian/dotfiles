@@ -43,3 +43,5 @@
     # ignore local changes to a file
     ignore = update-index --assume-unchanged
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+[magit]
+	extension = svn
