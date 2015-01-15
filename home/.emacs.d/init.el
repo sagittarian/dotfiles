@@ -404,5 +404,20 @@
 (add-hook 'ruby-mode-hook 'fci-mode)
 (add-hook 'haskell-mode-hook 'fci-mode)
 
+;; js-doc
+
+(setq js-doc-mail-address "adam@mesha.org"
+      js-doc-author (format "Adam Mesha <%s>" js-doc-mail-address)
+      js-doc-url "http://www.mesha.org"
+      js-doc-license "MIT")
+
+(add-hook 'js2-mode-hook
+          #'(lambda ()
+              (define-key js2-mode-map "\C-ci"
+				'js-doc-insert-function-doc)
+              (define-key js2-mode-map "@" 'js-doc-insert-tag)))
+
+
 (provide 'init)
 ;;; init ends here
+(put 'set-goal-column 'disabled nil)
