@@ -27,6 +27,8 @@
     smerge = "!smerge () { git stash && git merge $@ && git stash pop; }; smerge"
     kall = !gitk --all
 
+	showtool = "!showci () { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; showci $1"
+
     # logging
     # various pretty loggers from various places
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
