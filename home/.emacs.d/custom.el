@@ -56,6 +56,7 @@
  '(js2-concat-multiline-strings (quote eol))
  '(js2-highlight-external-variables nil)
  '(js2-highlight-level 3)
+ '(linum-format " %7i ")
  '(magit-completing-read-function (quote magit-ido-completing-read))
  '(magit-diff-options (quote ("--patience" "-b")))
  '(magit-diff-refine-hunk t)
@@ -72,6 +73,7 @@
  '(python-shell-prompt-regexp "In \\[\\d+\\]: ")
  '(python-skeleton-autoinsert t)
  '(require-final-newline t)
+ '(safe-local-variable-values (quote ((indent-tabs-mode\. t))))
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/places")
  '(show-paren-mode t)
@@ -97,6 +99,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#161A1F" :foreground "#DEDEDE" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 96 :width normal :foundry "unknown" :family "Ubuntu Mono")))))
+ '(default ((t (:background nil)))))
 
 ;;; custom.el ends here
