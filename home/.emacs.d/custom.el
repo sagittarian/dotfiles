@@ -48,7 +48,7 @@
  '(ido-enable-flex-matching t)
  '(ido-use-filename-at-point (quote guess))
  '(ido-use-virtual-buffers t)
- '(indent-tabs-mode t)
+ '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(js2-allow-keywords-as-property-names nil)
  '(js2-basic-offset 4)
