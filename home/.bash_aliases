@@ -45,7 +45,15 @@ alias hdmioff="xrandr --output HDMI1 --off"
 alias vgaoff='xrandr --output VGA1 --off'
 alias dpoff='xrandr --output DP1 --off'
 
+function xinput_set_prop () {
+    deviceid=$(xinput list | grep -i $1 | ruby -n -e '$_ =~ /id=(\d+)/; puts $+')
+    xinput set-prop $deviceid "$2" "$3"
+}
+
 alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
+alias touchpad-enable="xinput_set_prop touchpad 'Device Enabled' 1 && xinput_set_prop trackpoint 'Device Enabled' 1"
+alias touchpad-disable="xinput_set_prop touchpad 'Device Enabled' 0 && xinput_set_prop trackpoint 'Device Enabled' 1"
+
 #alias setmon="xrandr --output HDMI1 --auto --left-of LVDS1"
 alias setkb="setxkbmap -layout 'us(dvp),il' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
 alias setkbru="setxkbmap -layout 'us(dvp),ru' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
