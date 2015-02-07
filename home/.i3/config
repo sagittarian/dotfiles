@@ -23,6 +23,8 @@ floating_modifier $mod
 bindsym $mod+Shift+E exec dolphin
 # And also emacs
 bindsym $mod+m exec emacsclient -n -c
+# don't forget uzbl
+bindsym $mod+g exec uzbl-browser
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
