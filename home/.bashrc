@@ -119,4 +119,10 @@ export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
 source ~/.rvm/scripts/rvm
 
+# gradle and java
+export GRADLE_HOME=/home/adam/src/t2k/infra/gradle
+export PATH="$PATH:$GRADLE_HOME/bin"
+export JAVA_HOME=/usr/lib/jvm/default-java
+#org.gradle.java.home=d:/t2kdev/infra/Java/win32
+
 export EDITOR
