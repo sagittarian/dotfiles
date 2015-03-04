@@ -45,5 +45,8 @@
     # ignore local changes to a file
     ignore = update-index --assume-unchanged
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+
+	# apply patches to the t2k svn tree
+	transfer-patch = !xfer () { git format-patch --stdout > t2k.patch; cd ~/src/t2k/}
 [magit]
 	extension = svn
