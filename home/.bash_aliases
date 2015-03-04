@@ -77,3 +77,9 @@ alias .....="cd ../../../.."
 alias ff='firefox -no-remote'
 
 #alias findold="find . ! -newermt $(date +%Y-%m-%d -d '1 day ago') ! -name ."
+
+alias g=git
+alias gst="git status"
+alias gco="git checkout"
+alias gci="git commit"
+alias gd="git diff"
