@@ -16,6 +16,7 @@
 ;;(global-set-key (kbd "C-M-g") 'magit-status)
 (global-set-key (kbd "C-c g g") 'magit-status)
 (global-set-key (kbd "C-c g b") 'magit-blame-mode)
+(global-set-key (kbd "C-c g t") 'git-timemachine)
 
 ;; custom commands
 (global-set-key (kbd "C-M-&") 'shell-command-as-kill)
