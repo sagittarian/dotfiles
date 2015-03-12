@@ -47,6 +47,7 @@
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 
 	# apply patches to the t2k svn tree
-	transfer-patch = !xfer () { git format-patch --stdout > t2k.patch; cd ~/src/t2k/}
+	# transfer-patch = "!xfer () { git format-patch --stdout > t2k.patch; cd ~/src/t2k/}; xfer"
+	transfer-patch = "!xpatch () { dir=$(pwd); git format-patch --stdout \"$@\" > t2k.patch; cd ~/src/t2k/player/projects/player/src/main/webapp; patch -p1 < $dir/t2k.patch; }; xpatch"
 [magit]
 	extension = svn
