@@ -418,6 +418,12 @@
               (define-key js2-mode-map "@" 'js-doc-insert-tag)))
 
 
+;; pretty-json
+(defun pretty-json ()
+  (interactive)
+  (mark-whole-buffer)
+  (shell-command-on-region (region-beginning) (region-end) "python -mjson.tool" t t nil t))
+
 (provide 'init)
 ;;; init ends here
 (put 'set-goal-column 'disabled nil)
