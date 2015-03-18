@@ -88,3 +88,6 @@ alias gd="git diff"
 alias gbr="git branch"
 alias gvi="git visualize"
 alias gbi="git bisect"
+
+# make sudo pay attention to aliases
+alias sudo='sudo '
