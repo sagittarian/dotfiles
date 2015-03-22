@@ -45,6 +45,10 @@ alias hdmioff="xrandr --output HDMI1 --off"
 alias vgaoff='xrandr --output VGA1 --off'
 alias dpoff='xrandr --output DP1 --off'
 
+function mkcd () {
+    mkdir -p $1 && cd $1;
+}
+
 function xinput_set_prop () {
     deviceid=$(xinput list | grep -i $1 | ruby -n -e '$_ =~ /id=(\d+)/; puts $+')
     xinput set-prop $deviceid "$2" "$3"
