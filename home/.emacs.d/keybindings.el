@@ -50,6 +50,9 @@
 (global-set-key (kbd "C-!") 'flycheck-next-error)
 (global-set-key (kbd "C-M-!") 'flycheck-previous-error)
 (global-set-key (kbd "C-c >") 'sgml-close-tag)
+
+;; misc
+(global-set-key (kbd "<f11>") 'calendar)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "C-`") 'bury-buffer)
 ;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
