@@ -95,3 +95,11 @@ alias gbi="git bisect"
 
 # make sudo pay attention to aliases
 alias sudo='sudo '
+
+function mkcd () {
+	mkdir -p $1 && cd $1
+}
+
+# specific to t2k
+alias extract-data="jq -r '.[keys[0]].convertedData'"
+
