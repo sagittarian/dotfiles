@@ -10,7 +10,7 @@
     - terminator
 	- dolphin
     - kmix
-  - Clone various personal repos, install dotfiles and ~/bin
+  - Clone various personal repos, install dotfiles and *~/bin*
   - Install various things not via the package manager
     - node.js
     - rvm
@@ -31,6 +31,7 @@
   - sass-mode
   - (ido is built in)
   - git-rebase-mode
+  - git-timemachine
   - magit (magit-svn)
   - wc-mode
   - smartparens
