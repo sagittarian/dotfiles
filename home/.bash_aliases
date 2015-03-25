@@ -100,6 +100,8 @@ function mkcd () {
 	mkdir -p $1 && cd $1
 }
 
+alias urldecode='ruby -ne "puts \$_.gsub(/%([0-9A-Fa-f][0-9A-Fa-f])/) { |m| \$1.hex.chr; }"'
+
 # specific to t2k
 alias extract-data="jq -r '.[keys[0]].convertedData'"
 
