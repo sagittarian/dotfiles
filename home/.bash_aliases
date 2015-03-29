@@ -11,6 +11,7 @@ if hash emacsclient.emacs-snapshot 2>/dev/null; then
     EDITOR=emacsclient.emacs-snapshot
 else
     alias e="emacsclient -n -c -a ''"
+    alias e.="emacsclient -n -c -a '' ."
     EDITOR=emacsclient
 fi
 
@@ -54,7 +55,7 @@ function xinput_set_prop () {
     xinput set-prop $deviceid "$2" "$3"
 }
 
-alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
+alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | grep -vi generic | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
 alias touchpad-enable="xinput_set_prop touchpad 'Device Enabled' 1 && xinput_set_prop trackpoint 'Device Enabled' 1"
 alias touchpad-disable="xinput_set_prop touchpad 'Device Enabled' 0 && xinput_set_prop trackpoint 'Device Enabled' 1"
 
@@ -64,7 +65,10 @@ alias setkbru="setxkbmap -layout 'us(dvp),ru' -option 'grp:shifts_toggle,esperan
 
 alias cycleworkspace="i3-msg move workspace to output left"
 alias cycw="i3-msg move workspace to output left"
-alias cw="i3-msg move workspace to output left"
+#alias cw="i3-msg move workspace to output left"
+function cw () {
+    i3-msg move workspace to output ${1:-left}
+}
 alias flipw='i3-msg move workspace to output up'
 
 #alias ghc=ghc-7.8.2
