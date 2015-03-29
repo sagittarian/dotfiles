@@ -180,7 +180,7 @@
 
 ;; projectile
 ;; the keymap prefix has to be set before we require 'projectile
-(setq projectile-keymap-prefix (kbd "C-c C-p"))
+(setq projectile-keymap-prefix (kbd "C-c p"))
 (require 'projectile)
 
 ;; enable rebase-mode in magit
@@ -332,6 +332,7 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (require 'js2-refactor)
+;;(add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (require 'uniquify)
 (require 'saveplace)
@@ -382,7 +383,7 @@
 
 ;; beeminder
 (load "load/beeminder")
-(load "load/beeminder-config")
+(load "load/beeminder-config" t)
 
 ;; smex
 (smex-initialize)
