@@ -10,6 +10,7 @@
     - terminator
 	- dolphin
     - kmix
+    - uzbl
   - Clone various personal repos, install dotfiles and *~/bin*
   - Install various things not via the package manager
     - node.js
@@ -18,6 +19,7 @@
     - ghc
   - Get tagtime, install .tagtimerc
   - Install cron scripts
+  - get uzbl set up (XXX fill in details)
 * emacs packages that need to be installed
   - yasnippet
   - expand-region
