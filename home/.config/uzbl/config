@@ -466,4 +466,9 @@ sync_spawn_exec @scripts_dir/load_cookies.sh @data_home/uzbl/session-cookies.txt
 # Set the "home" page.
 set uri = uzbl.org/doesitwork/@COMMIT
 
+# @cbind \\c = sh 'echo "@scripts_dir" >> "/home/adam/uzbl-test"'
+# @cbind \\h = sh @scripts_dir/hello.sh
+# @cbind \\H = @set_status 'hello, world'
+@cbind \\b<tags:>_ = spawn @scripts_dir/bookmark.py --uzbl --tags "%s"
+
 # vim: set fdm=syntax:
