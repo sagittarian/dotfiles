@@ -86,6 +86,7 @@
  '(python-shell-prompt-regexp "In \\[\\d+\\]: ")
  '(python-skeleton-autoinsert t)
  '(require-final-newline t)
+ '(safe-local-variable-values (quote ((indent-tabs-mode\. t))))
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/places")
  '(show-paren-mode t)
