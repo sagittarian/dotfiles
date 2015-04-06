@@ -27,8 +27,8 @@ def get_args():
     args = parser.parse_args()
 
     if args.uzbl:
-        args.title = args.title or os.environ['UZBL_TITLE']
-        args.url = args.url or os.environ["UZBL_URI"]
+        args.title = args.title or os.environ.get('UZBL_TITLE', '')
+        args.url = args.url or os.environ.get("UZBL_URI", '')
 
     args.tags = args.tags.strip().replace(' ', '-')
     args.tags = ('#' + t for t in args.tags.split(',')) if args.tags else ''
