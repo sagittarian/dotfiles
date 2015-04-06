@@ -39,6 +39,7 @@
  '(erc-modules (quote (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
  '(erc-nick "sagittarian")
  '(erc-save-queries-on-quit nil)
+ '(fill-column 80)
  '(flex-isearch-auto (quote on-failed))
  '(focus-follows-mouse t)
  '(git-commit-confirm-commit nil)
