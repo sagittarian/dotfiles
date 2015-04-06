@@ -11,6 +11,7 @@ class AddTagTransform:
     def __init__(self, tag, test):
         self.tag = tag
         self.test = test
+        Bookmark.transform(self)
 
     def __call__(self, bmark):
         if self.tag not in bmark.tags and self.test(bmark):
@@ -61,7 +62,8 @@ class Bookmark:
 lesswrong = AddTagTransform('lw',
                             lambda b: 'lesswrong.com' in b.url or
                             re.search('less[-_ ]?wrong', b.title, re.I))
-Bookmark.transform(lesswrong)
+
+youtube = AddTagTransform('yt', lambda b: 'youtu' in b.url)
 
 
 def get_args():
