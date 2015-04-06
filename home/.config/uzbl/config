@@ -470,5 +470,5 @@ set uri = uzbl.org/doesitwork/@COMMIT
 # @cbind \\h = sh @scripts_dir/hello.sh
 # @cbind \\H = @set_status 'hello, world'
 @cbind \\b<tags:>_ = spawn @scripts_dir/bookmark.py --uzbl --tags "%s"
-
+@cbind \\n<note:>_ = spawn @scripts_dir/bookmark.py --uzbl --file notes "%s"
 # vim: set fdm=syntax:
