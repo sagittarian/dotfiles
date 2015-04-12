@@ -56,6 +56,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# git in the prompt
+GIT_PS1_SHOWDIRTYSTATE=yes
+GIT_PS1_SHOWUNTRACKEDFILES=yes
+GIT_PS1_SHOWSTASHSTATE=yes
+GIT_PS1_SHOWUPSTREAM=verbose
+
 # source /etc/bash_completion.d/git
 if [ "$color_prompt" = yes ]; then
     PS1='\041\[\033[00;37m\]\!\[\033[00;00m\] @\[\033[00;33m\]\t\[\033[00;00m\] ${debian_chroot:+($debian_chroot)}[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]]$(__git_ps1 " (\[\033[01;31m\]%s\[\033[00;00m\])")\$ '
