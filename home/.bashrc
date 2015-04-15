@@ -97,11 +97,11 @@ chroot_part='${debian_chroot:+($debian_chroot)}'
 #dir_part='[${t_bold}${t_green}\u@\h${t_reset}:${t_bold}${t_blue}\w${t_reset}]'
 #dir_part="$t_red\[$t_bold\]\[$t_red\][\[$t_yellow\]\u\[$t_green\]@\[$t_blue\]\h\[$t_purple\]:${t_teal}\w\[$t_red\]]\[$t_reset\]"
 dir_part="$t_white[$t_bold$t_yellow\u$t_reset@$t_purple$t_bold\h$t_reset:$t_bold${t_teal}\w$t_reset$t_white]$t_reset"
-git_part='$(__git_ps1 " (${t_bold}${t_red}%s${t_reset})")'
+git_part='$(__git_ps1 " ${t_bold}${t_red}%s${t_reset}")'
 # prompt_part=$'\n\xe2\x9e\x94\$ ' # fat arrow
 # prompt_part=$'\n $t_green\xe2\x87\xb6 ' # triple arrow
 # prompt_part='\n $t_bold${t_blue}\h${t_white}\$ '
-prompt_part='\n $t_bold${t_blue}\$ '
+prompt_part='\n $t_bold${t_blue}\$${t_reset} '
 PS1="$ques_part $bang_part $timestamp $chroot_part$dir_part$git_part$prompt_part$t_reset"
 
 unset color_prompt force_color_prompt
