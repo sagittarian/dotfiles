@@ -9,7 +9,7 @@
     background_image = None
     foreground_color = "#ffffff"
     scroll_on_output = False
-    font = Ubuntu Mono 18
+    font = DejaVu Sans Mono 18
     scrollback_infinite = True
 [layouts]
   [[default]]
