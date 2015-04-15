@@ -90,7 +90,8 @@ else
 fi
 
 #PS1='\041\[\033[00;37m\]\!\[\033[00;00m\] @\[\033[00;33m\]\t\[\033[00;00m\] ${debian_chroot:+($debian_chroot)}[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]]$(__git_ps1 " (\[\033[01;31m\]%s\[\033[00;00m\])")\$ '
-bang_part='${t_white}${t_bold}\041$t_reset${t_red}\!${t_reset}'
+ques_part='$t_bold?$(ecode=$?; if [[ $ecode == 0 ]]; then echo -n $t_green; else echo -n $t_red; fi; echo -n $ecode)$t_reset'
+bang_part='${t_white}${t_bold}\041$t_reset${t_yellow}\!${t_reset}'
 timestamp='$t_white$t_bold@$t_reset${t_green}\D{%Y-%m-%d}$t_blue \D{%H:%M:%S}${t_reset}'
 chroot_part='${debian_chroot:+($debian_chroot)}'
 #dir_part='[${t_bold}${t_green}\u@\h${t_reset}:${t_bold}${t_blue}\w${t_reset}]'
@@ -99,8 +100,9 @@ dir_part="$t_white[$t_bold$t_yellow\u$t_reset@$t_purple$t_bold\h$t_reset:$t_bold
 git_part='$(__git_ps1 " (${t_bold}${t_red}%s${t_reset})")'
 # prompt_part=$'\n\xe2\x9e\x94\$ ' # fat arrow
 # prompt_part=$'\n $t_green\xe2\x87\xb6 ' # triple arrow
-prompt_part='\n $t_bold$t_green\$ '
-PS1="$bang_part $timestamp $chroot_part$dir_part$git_part$prompt_part$t_reset"
+# prompt_part='\n $t_bold${t_blue}\h${t_white}\$ '
+prompt_part='\n $t_bold${t_blue}\$ '
+PS1="$ques_part $bang_part $timestamp $chroot_part$dir_part$git_part$prompt_part$t_reset"
 
 unset color_prompt force_color_prompt
 
