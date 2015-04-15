@@ -100,8 +100,16 @@ alias gbi="git bisect"
 # make sudo pay attention to aliases
 alias sudo='sudo '
 
+# create a directory and cd into it
 function mkcd () {
 	mkdir -p $1 && cd $1
+}
+
+# move a file and leave a symlink pointing to the new location behind
+function lmv() {
+	fullsource=$(readlink -fn $1)
+	fulldest=$(readlink -mn $2)
+	mkdir -p "$2" && mv "$1" "$2" && ln -s "$fulldest/$(basename $1)" "$fullsource";
 }
 
 alias urldecode='ruby -ne "puts \$_.gsub(/%([0-9A-Fa-f][0-9A-Fa-f])/) { |m| \$1.hex.chr; }"'
@@ -114,3 +122,7 @@ alias extract-data="jq -r '.[keys[0]].convertedData'"
 alias ghc-sandbox="ghc -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
 alias ghci-sandbox="ghci -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
 alias runhaskell-sandbox="runhaskell -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
+
+# personal shortcuts
+alias org='cd ~/src/org'
+alias dl='cd ~/src/dl'
