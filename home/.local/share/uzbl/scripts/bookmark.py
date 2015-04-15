@@ -5,7 +5,13 @@ import os
 import re
 import sys
 
+WRAP = 72
+INDENT = 2
 DEFAULT_OUT_DIR = os.path.expanduser('~/src/org')
+
+def wrap(text):
+	pass
+
 
 class AddTagTransform:
     def __init__(self, tag, test):
@@ -92,6 +98,9 @@ def get_args():
     parser.add_argument('--file', metavar='FILE', default='bookmarks',
                         help='The file in {} to write to. (Default: {})'.format(
                             DEFAULT_OUT_DIR, 'bookmarks'))
+    parser.add_argument('-i', '--interactive', action='store_true',
+                        default=False,
+                        help='Ask details interactively (instead of via cmdline)')
 
     args = parser.parse_args()
 
@@ -99,10 +108,25 @@ def get_args():
         args.title = args.title or os.environ.get('UZBL_TITLE', '')
         args.url = args.url or os.environ.get("UZBL_URI", '')
 
-    args.tags = args.tags.strip().replace(' ', '-')
-    args.tags = [t for t in args.tags.split(',')] if args.tags else []
 
     args.note = ' '.join(args.note)
+
+    def ask(attr):
+        val = getattr(args, attr)
+        if val:
+            return
+        newval = input('{}: '.format(attr))
+        setattr(args, attr, newval)
+
+    if args.interactive:
+        ask('url')
+        ask('title')
+        ask('tags')
+        ask('file')
+        ask('note')
+
+    args.tags = args.tags.strip().replace(' ', '-')
+    args.tags = [t for t in args.tags.split(',')] if args.tags else []
 
     return args
 
