@@ -138,27 +138,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-export NODE_ENV=DEV
-export RAILS_ENV=development
-export PYTHONPATH=$HOME/python:$PYTHONPATH
+if [ -f ~/.bash_vars ]; then
+    . ~/.bash_vars
+fi
 
-export PATH=$HOME/bin:$PATH
-export CDPATH=:..:~:~/src:~/doc:$CDPATH
-export TERMINAL=/usr/bin/terminator
-#export TERMINAL=/usr/bin/konsole
-#export TERMINAL=/usr/bin/rxvt
-
-# cabal
-export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
-
-# rvm
-export PATH="$HOME/.rvm/bin:$PATH"
-source ~/.rvm/scripts/rvm
-
-# gradle and java
-export GRADLE_HOME=/home/adam/src/t2k/infra/gradle
-export PATH="$PATH:$GRADLE_HOME/bin"
-export JAVA_HOME=/usr/lib/jvm/default-java
-#org.gradle.java.home=d:/t2kdev/infra/Java/win32
-
-export EDITOR
