@@ -1,5 +1,6 @@
 ;; some things...
 (global-set-key (kbd "C-o") 'other-window)
+(global-set-key (kbd "C-<return>") 'newline-and-indent)
 
 ;; print screen is where the menu key should be on my thinkpad
 (global-set-key (kbd "<print>") 'execute-extended-command)
