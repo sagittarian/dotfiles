@@ -3,6 +3,7 @@
     email = adam@mesha.org
 [color]
     ui = true
+	diff = auto
 [merge]
     tool = meld
 [branch]
