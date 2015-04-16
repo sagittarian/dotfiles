@@ -3,6 +3,7 @@
 import argparse
 import os
 import re
+import string
 import sys
 
 WRAP = 72
@@ -10,7 +11,12 @@ INDENT = 2
 DEFAULT_OUT_DIR = os.path.expanduser('~/src/org')
 
 def wrap(text):
-	pass
+	colstart = 0
+	idx = 0
+	result = []
+	while idx < len(text):
+		if text[idx] in string.whitespace:
+
 
 
 class AddTagTransform:
