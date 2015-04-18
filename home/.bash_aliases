@@ -118,7 +118,12 @@ function lmv() {
 	mkdir -p "$2" && mv "$1" "$2" && ln -s "$fulldest/$(basename $1)" "$fullsource";
 }
 
-alias urldecode='ruby -ne "puts \$_.gsub(/%([0-9A-Fa-f][0-9A-Fa-f])/) { |m| \$1.hex.chr; }"'
+#alias urldecode='ruby -ne "puts \$_.gsub(/%([0-9A-Fa-f][0-9A-Fa-f])/) { |m| \$1.hex.chr; }"'
+alias urldecode='ruby -nr uri -e "puts URI.decode \$_.chomp"'
+alias urlencode='ruby -nr uri -e "puts URI.encode \$_.chomp"'
+alias querydecode='ruby -nr uri -e "puts URI.decode_www_form(61.chr + \$_.chomp).to_h[%{}]"'
+alias queryencode='ruby -nr uri -e "puts URI.encode_www_form(nil => \$_.chomp)[1..-1]"'
+
 
 # specific to t2k
 alias extract-data="jq -r '.[keys[0]].convertedData'"
