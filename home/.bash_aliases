@@ -90,7 +90,7 @@ alias apt-get="apt-get --yes"
 
 #alias findold="find . ! -newermt $(date +%Y-%m-%d -d '1 day ago') ! -name ."
 
-alias g=git
+#alias g=git
 alias gst="git status"
 alias gco="git checkout"
 alias gci="git commit"
