@@ -494,6 +494,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .p2<py2 module:>_         = uri https://docs.python.org/2/library/\@<encodeURIComponent(%r)>\@.html
 @cbind .ho<hoogle:>_             = uri https://www.haskell.org/hoogle/?hoogle=\@<encodeURIComponent(%r)>\@
 @cbind .mdn<MDN:>_               = uri https://developer.mozilla.org/en-US/search?q=\@<encodeURIComponent(%r)>\@
+@cbind .node                     = uri https://nodejs.org/api/
 
 ## etc
 @cbind .ciu<Can I Use:>_         = uri http://caniuse.com/\#search=\@<encodeURIComponent(%r)>\@
