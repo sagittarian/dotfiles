@@ -365,9 +365,17 @@ set ebind     = @mode_bind global,-insert
 #set follow_hint_keys = 0123456789
 #set follow_hint_keys = qwerty
 #set follow_hint_keys = asdfghjkl;
-#set follow_hint_keys = aoeuidhtns
-set follow_hint_keys = uhetonidaspgcryf,.
 #set follow_hint_keys = thsnd-rcgmvwb/;789aefijkopquxyz234
+#set follow_hint_keys = aoeuidhtns
+#set follow_hint_keys = uhetonidaspgcryf,.
+#set follow_hint_keys = uhetonidaspgcryf.
+#set follow_hint_keys = htgcnrdf
+set right_hand_hint_keys = htgcnrdf
+set both_hands_hint_keys = uhetonidaspgcryf.
+set follow_hint_keys = @both_hands_hint_keys
+@cbind \\r    = set follow_hint_keys = @right_hand_hint_keys
+@cbind \\lr   = set follow_hint_keys = @both_hands_hint_keys
+
 @cbind  fl*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'click') >\@
 @cbind  Fl*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'newwindow') >\@
 @cbind  fL*  = spawn @scripts_dir/follow.sh \@< uzbl.follow("\@follow_hint_keys", "%s", 'returnuri') >\@ set
