@@ -99,6 +99,10 @@ alias gbr="git branch"
 alias gvi="git visualize"
 alias gbi="git bisect"
 
+function wrapstash () {
+    git stash && "$@" && git stash pop
+}
+
 # make sudo pay attention to aliases
 alias sudo='sudo '
 
