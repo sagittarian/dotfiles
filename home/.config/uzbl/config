@@ -327,17 +327,25 @@ set ebind     = @mode_bind global,-insert
 @cbind  yU  = sh 'echo -n "$1" | xclip -selection clipboard' '\@SELECTED_URI'
 @cbind  yy  = sh 'echo -n "$UZBL_TITLE" | xclip -selection clipboard'
 @cbind  ys  = spawn @scripts_dir/follow.sh \@< uzbl.follow.followSelection('returnuri') >\@ clipboard
+# quick searches using the selection
+@cbind ypg  = uri https://www.google.com/search?q=\@< encodeURIComponent(window.getSelection().toString()) >\@
+@cbind ypw  = uri https://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(window.getSelection().toString())>\@&go=Go
+@cbind ypyt = uri https://www.youtube.com/results?search_query=\@<encodeURIComponent(window.getSelection().toString())>\@
 
 # Clone current window
 @cbind  c   = event REQ_NEW_WINDOW \@uri
 # Go the page from primary selection
-@cbind  p   = sh 'echo "uri $(xclip -selction clipboard -o | sed s/\\\@/%40/g)" > "$UZBL_FIFO"'
+@cbind  pp   = sh 'echo "uri $(xclip -o | sed s/\\\@/%40/g)" > "$UZBL_FIFO"'
 # Go to the page in clipboard
-@cbind  P   = sh 'echo "uri $(xclip -selection clipboard -o | sed s/\\\@/%40/g)" > "$UZBL_FIFO"'
+@cbind  Pp   = sh 'echo "uri $(xclip -selection clipboard -o | sed s/\\\@/%40/g)" > "$UZBL_FIFO"'
+@cbind  pg = sh 'echo "uri http://www.google.com/search?q=$(xclip -o | ruby -nr uri -e '"'"'puts URI.encode_www_form(nil => $_.chomp)[1..-1]'"'"')" > "$UZBL_FIFO"'
+@cbind  Pg = sh 'echo "uri http://www.google.com/search?q=$(xclip -o -selection clipboard | ruby -nr uri -e '"'"'puts URI.encode_www_form(nil => $_.chomp)[1..-1]'"'"')" > "$UZBL_FIFO"'
+
 # Start a new uzbl instance from the page in primary selection
 @cbind  'p  = sh echo "event REQ_NEW_WINDOW $(xclip -o)" > "$UZBL_FIFO"'
 # paste primary selection into keycmd at the cursor position
 @bind <Shift><Insert> = sh 'echo "event INJECT_KEYCMD $(xclip -o | sed s/\\\@/%40/g)" > "$UZBL_FIFO"'
+@bind <Ctrl>y = sh 'echo "event INJECT_KEYCMD $(xclip -o | sed s/\\\@/%40/g)" > "$UZBL_FIFO"'
 
 # Bookmark inserting binds
 @cbind <Ctrl>m<tags:>_  = sh 'echo "$UZBL_URI $1" >> "$XDG_DATA_HOME"/uzbl/bookmarks' '%s'
