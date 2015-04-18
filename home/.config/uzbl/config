@@ -498,5 +498,6 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .urban<urbandictionary:>_ = uri http://www.urbandictionary.com/define.php?term=\@<encodeURIComponent(%r)>\@
 @cbind .etym<etymonline:>_       = uri http://etymonline.com/index.php?allowed_in_frame=0&search=\@<encodeURIComponent(%r)>\@&searchmode=none
 @cbind .imdb<imdb:>_             = uri http://www.imdb.com/find?ref_=nv_sr_fn&q=\@<encodeURIComponent(%r)>\@&s=all
+@cbind .auto                     = uri https://class.coursera.org/automata-002
 
 # vim: set fdm=syntax:
