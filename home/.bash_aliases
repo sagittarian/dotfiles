@@ -125,9 +125,6 @@ alias querydecode='ruby -nr uri -e "puts URI.decode_www_form(61.chr + \$_.chomp)
 alias queryencode='ruby -nr uri -e "puts URI.encode_www_form(nil => \$_.chomp)[1..-1]"'
 
 
-# specific to t2k
-alias extract-data="jq -r '.[keys[0]].convertedData'"
-
 # ghc
 
 alias ghc-sandbox="ghc -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
@@ -139,3 +136,9 @@ alias inst='sudo apt-get install'
 # personal shortcuts
 alias org='cd ~/src/org'
 alias dl='cd ~/src/dl'
+
+# t2k
+alias extract-data="jq -r '.[keys[0]].convertedData'"
+function t2k_hotfix_patch () {
+    git format-patch --stdout $@ | (cd $T2K_HOTFIX_BRANCH && patch -p1)
+}
