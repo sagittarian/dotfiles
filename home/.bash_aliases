@@ -133,6 +133,9 @@ alias runhaskell-sandbox="runhaskell -no-user-package-db -package-db .cabal-sand
 
 alias inst='sudo apt-get install'
 
+
+alias unhist='unset HISTFILE'
+
 # personal shortcuts
 alias org='cd ~/src/org'
 alias dl='cd ~/src/dl'
