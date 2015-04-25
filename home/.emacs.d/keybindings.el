@@ -58,6 +58,11 @@
 ;; misc
 (global-set-key (kbd "<f11>") 'calendar)
 (global-set-key (kbd "<f5>") 'revert-buffer)
+(defun tabify-buffer ()
+  (interactive)
+  (message "tabify-buffer")
+  (tabify (point-min) (point-max)))
+;(global-set-key (kbd "<f6>") 'tabify-buffer)
 (global-set-key (kbd "C-`") 'bury-buffer)
 ;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
 (global-set-key (kbd "M-/") 'hippie-expand)
