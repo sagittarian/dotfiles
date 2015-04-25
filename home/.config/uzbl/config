@@ -485,8 +485,8 @@ set uri = uzbl.org/doesitwork/@COMMIT
 
 # === misc bindings
 
-@cbind .b<tags:>_                = spawn @scripts_dir/bookmark.py --uzbl --tags "%s"
-@cbind .n<note:>_                = spawn @scripts_dir/bookmark.py --uzbl --file notes "%s"
+@cbind .bm<tags:>_                = spawn @scripts_dir/bookmark.py --uzbl --tags "%s"
+@cbind .no<note:>_                = spawn @scripts_dir/bookmark.py --uzbl --file notes "%s"
 
 # programming of various kinds
 
@@ -515,10 +515,14 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .lw<Less Wrong:>_         = uri http://lesswrong.com/search/results?cx=015839050583929870010%3A-802ptn4igi&cof=FORID%3A11&ie=UTF-8&q=\@<encodeURIComponent(%r)>\@&sa=Search
 @cbind .revo<ReVo:>              = uri http://www.reta-vortaro.de/cgi-bin/sercxu.pl?sercxata=\@<encodeURIComponent(%r)>\@
 @cbind .gg<Google:>_             = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
+@cbind .g+<I\'m feeling lucky:>_ = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@&btnI=1
 @cbind .gi<Google Images:>_      = uri http://images.google.com/search?tbm=isch&q=\@<encodeURIComponent(%r)>\@
 @cbind .gnenil                   = uri http://news.google.com/?ned=en_il
 @cbind .gnus                     = uri http://news.google.com/?ned=us
 @cbind .gnhe                     = uri http://news.google.com/?ned=he_il
+@cbind .gtr                      = uri http://translate.google.com/
+@cbind .movie<movie search:>_    = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@+-inurl%3A%28htm%7Chtml%7Cphp%7Cpls%7Ctxt%29+intitle%3Aindex.of+%22last+modified%22+%28mkv%7Cmp4%7Cavi%29
+@cbind .book<book search:>_    = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@+-inurl%3A%28htm%7Chtml%7Cphp%7Cpls%7Ctxt%29+intitle%3Aindex.of+%22last+modified%22+%28lit%7Cepub%7Cmobi%7Cpdf%29
 @cbind .ddg<DuckDuckGo:>_        = uri http://duckduckgo.com/?q=%s
 @cbind .awiki<Archwiki:>_        = uri http://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
 @cbind .w<Wikipedia:>_           = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
