@@ -514,7 +514,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 # misc/general stuff
 @cbind .yt<youtube:>_            = uri https://www.youtube.com/results?search_query=\@<encodeURIComponent(%r)>\@
 @cbind .lw<Less Wrong:>_         = uri http://lesswrong.com/search/results?cx=015839050583929870010%3A-802ptn4igi&cof=FORID%3A11&ie=UTF-8&q=\@<encodeURIComponent(%r)>\@&sa=Search
-@cbind .revo<ReVo:>              = uri http://www.reta-vortaro.de/cgi-bin/sercxu.pl?sercxata=\@<encodeURIComponent(%r)>\@
+@cbind .revo<ReVo:>_             = uri http://www.reta-vortaro.de/cgi-bin/sercxu.pl?sercxata=\@<encodeURIComponent(%r)>\@
 @cbind .gg<Google:>_             = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
 @cbind .g+<I\'m feeling lucky:>_ = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@&btnI=1
 @cbind .gi<Google Images:>_      = uri http://images.google.com/search?tbm=isch&q=\@<encodeURIComponent(%r)>\@
