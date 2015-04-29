@@ -144,5 +144,5 @@ alias dl='cd ~/src/dl'
 # t2k
 alias extract-data="jq -r '.[keys[0]].convertedData'"
 function t2k_hotfix_patch () {
-    git format-patch --stdout $@ | (cd $T2K_HOTFIX_BRANCH && patch -p1)
+    git format-patch --stdout ${@:-HEAD^} | (cd $T2K_HOTFIX_BRANCH && patch -p1)
 }
