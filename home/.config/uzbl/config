@@ -510,6 +510,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 ## etc
 @cbind .ciu<Can I Use:>_         = uri http://caniuse.com/\#search=\@<encodeURIComponent(%r)>\@
 @cbind .auto                     = uri https://class.coursera.org/automata-002
+@cbind .math                     = uri http://betterexplained.com/
 
 # misc/general stuff
 @cbind .yt<youtube:>_            = uri https://www.youtube.com/results?search_query=\@<encodeURIComponent(%r)>\@
