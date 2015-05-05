@@ -99,6 +99,8 @@ alias gd="git diff"
 alias gbr="git branch"
 alias gvi="git visualize"
 alias gbi="git bisect"
+alias good='git bisect good'
+alias bad='git bisect bad'
 
 function wrapstash () {
     git stash && "$@" && git stash pop
