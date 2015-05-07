@@ -109,8 +109,9 @@ function wrapstash () {
     git stash && "$@" && git stash pop
 }
 
-# make sudo pay attention to aliases
+# make some commands pay attention to aliases
 alias sudo='sudo '
+alias xargs='xargs '
 
 # create a directory and cd into it
 function mkcd () {
