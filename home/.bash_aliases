@@ -4,6 +4,9 @@ alias ack=ack-grep
 alias 'ps?'='ps aux | grep -i '
 alias findname='findname () { find -iname "*$1*"; }; findname'
 alias ipy=ipython3
+alias ipy2=ipython
+alias bpy=bpython3
+alias bpy2=bpython
 
 if hash emacsclient.emacs-snapshot 2>/dev/null; then
     alias emacs=emacs-snapshot
