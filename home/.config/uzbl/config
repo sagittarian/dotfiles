@@ -515,7 +515,6 @@ set uri = uzbl.org/doesitwork/@COMMIT
 # misc/general stuff
 @cbind .yt<youtube:>_            = uri https://www.youtube.com/results?search_query=\@<encodeURIComponent(%r)>\@
 @cbind .lw<Less Wrong:>_         = uri http://lesswrong.com/search/results?cx=015839050583929870010%3A-802ptn4igi&cof=FORID%3A11&ie=UTF-8&q=\@<encodeURIComponent(%r)>\@&sa=Search
-@cbind .revo<ReVo:>_             = uri http://www.reta-vortaro.de/cgi-bin/sercxu.pl?sercxata=\@<encodeURIComponent(%r)>\@
 @cbind .gg<Google:>_             = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
 @cbind .g+<I\'m feeling lucky:>_ = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@&btnI=1
 @cbind .gi<Google Images:>_      = uri http://images.google.com/search?tbm=isch&q=\@<encodeURIComponent(%r)>\@
@@ -534,5 +533,10 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .urban<urbandictionary:>_ = uri http://www.urbandictionary.com/define.php?term=\@<encodeURIComponent(%r)>\@
 @cbind .etym<etymonline:>_       = uri http://etymonline.com/index.php?allowed_in_frame=0&search=\@<encodeURIComponent(%r)>\@&searchmode=none
 @cbind .imdb<imdb:>_             = uri http://www.imdb.com/find?ref_=nv_sr_fn&q=\@<encodeURIComponent(%r)>\@&s=all
+
+# language lookup
+@cbind .revo<ReVo:>_             = uri http://www.reta-vortaro.de/cgi-bin/sercxu.pl?sercxata=\@<encodeURIComponent(%r)>\@
+@cbind .latin<Words:>_           = uri http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\@<encodeURIComponent(%r)>\@
+@cbind .greek<Greek:>_           = uri http://www.perseus.tufts.edu/hopper/resolveform?type=start&lookup=\@<encodeURIComponent(%r)>\@&lang=greek
 
 # vim: set fdm=syntax:
