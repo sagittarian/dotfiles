@@ -520,7 +520,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .gi<Google Images:>_      = uri http://images.google.com/search?tbm=isch&q=\@<encodeURIComponent(%r)>\@
 @cbind .gnenil                   = uri http://news.google.com/?ned=en_il
 @cbind .gnus                     = uri http://news.google.com/?ned=us
-@cbind .gnhe                     = uri http://news.google.com/?ned=he_il
+@cbind .gnhe                     = uri http://news.google.com/?ned=iw_il
 @cbind .gtr                      = uri http://translate.google.com/
 @cbind .movie<movie search:>_    = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@+-inurl%3A%28htm%7Chtml%7Cphp%7Cpls%7Ctxt%29+intitle%3Aindex.of+%22last+modified%22+%28mkv%7Cmp4%7Cavi%29
 @cbind .book<book search:>_    = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@+-inurl%3A%28htm%7Chtml%7Cphp%7Cpls%7Ctxt%29+intitle%3Aindex.of+%22last+modified%22+%28lit%7Cepub%7Cmobi%7Cpdf%29
