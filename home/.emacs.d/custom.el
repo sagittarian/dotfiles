@@ -47,7 +47,7 @@
  '(global-linum-mode t)
  '(global-undo-tree-mode nil)
  '(haskell-font-lock-symbols t)
- '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
+ '(haskell-mode-hook (quote (turn-on-haskell-indentation)) t)
  '(holiday-bahai-holidays nil)
  '(holiday-general-holidays (quote ((holiday-fixed 1 1 "New Year's Day") (holiday-fixed 2 14 "Valentine's Day") (holiday-fixed 4 1 "April Fools' Day") (holiday-float 5 0 2 "Mother's Day") (holiday-float 6 0 3 "Father's Day") (holiday-fixed 10 31 "Samhain/Halloween") (holiday-float 11 4 4 "Thanksgiving"))))
  '(holiday-hebrew-holidays (quote ((holiday-hebrew-passover t) (holiday-hebrew-rosh-hashanah t) (holiday-hebrew-hanukkah t) (holiday-hebrew 11 15 "Tu B'Shevat") (if calendar-hebrew-all-holidays-flag (append (holiday-hebrew-tisha-b-av) (holiday-hebrew-misc))))))
@@ -112,6 +112,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ '(default ((t (:background nil :family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 90 :width normal)))))
 
 ;;; custom.el ends here
