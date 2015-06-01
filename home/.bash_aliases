@@ -51,6 +51,8 @@ alias setdp='xrandr --output DP1 --mode 1920x1080 --above eDP1'
 alias hdmioff="xrandr --output HDMI1 --off"
 alias vgaoff='xrandr --output VGA1 --off'
 alias dpoff='xrandr --output DP1 --off'
+alias dualmonoff='xrandr --output DP1 --off --output DP2 --off'
+alias dualmon='xrandr --output DP2 --auto --right-of eDP1 --output DP1 --auto --right-of DP2'
 
 function mkcd () {
     mkdir -p $1 && cd $1;
