@@ -104,8 +104,16 @@ alias gd="git diff"
 alias gbr="git branch"
 alias gvi="git bisect visualize"
 alias gbi="git bisect"
-alias good='git bisect good'
-alias bad='git bisect bad'
+
+function swapgood () {
+	alias good='git bisect bad'
+	alias bad='git bisect good'
+}
+function unswapgood () {
+	alias good='git bisect good'
+	alias bad='git bisect bad'
+}
+unswapgood
 
 function wrapstash () {
     git stash && "$@" && git stash pop
@@ -154,5 +162,10 @@ alias extract-data="jq -r '.[keys[0]].convertedData'"
 function t2k_hotfix_patch () {
     git format-patch --stdout ${@:-HEAD^} | (cd $T2K_HOTFIX_BRANCH && patch -p1)
 }
+
+# convert to svn
+alias svn-authors-transform='svn log -q | awk -F '"'"'|'"'"' '"'"'/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2">"}'"'"' | sort -u'
+
+alias rm_git_svn_id="ruby -n -i.orig -e '"
 
 alias rnd="python3 -c 'import random, sys; print(random.choice(sys.argv[1:]))'"
