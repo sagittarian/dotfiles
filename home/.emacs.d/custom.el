@@ -6,12 +6,12 @@
  '(ack-and-a-half-executable "/usr/bin/ack-grep")
  '(ack-and-a-half-prompt-for-directory t)
  '(ack-and-a-half-use-ido t)
+ '(ag-arguments (quote ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--")))
  '(auto-indent-delete-line-char-remove-extra-spaces t)
  '(auto-indent-kill-line-at-eol nil)
  '(auto-indent-kill-remove-extra-spaces t)
  '(auto-save-interval 20)
  '(auto-save-timeout 5)
- '(blink-cursor-mode t)
  '(calendar-date-display-form (quote (calendar-iso-date-display-form)))
  '(calendar-date-style (quote iso))
  '(calendar-hebrew-all-holidays-flag t)
@@ -80,6 +80,7 @@
  '(org-mode-hook (quote (er/add-org-mode-expansions #[nil "\300\301\302\303\304$\207" [org-add-hook change-major-mode-hook org-show-block-all append local] 5] #[nil "\300\301\302\303\304$\207" [org-add-hook change-major-mode-hook org-babel-show-result-all append local] 5] org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
  '(projectile-global-mode t)
  '(projectile-switch-project-action (quote projectile-dired))
+ '(projectile-use-git-grep t)
  '(python-indent-guess-indent-offset nil)
  '(python-indent-offset 4)
  '(python-shell-interpreter "ipython")
@@ -112,6 +113,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil :family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 90 :width normal)))))
+ '(default ((t (:background nil :family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 83 :width normal)))))
 
 ;;; custom.el ends here
