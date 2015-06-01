@@ -80,6 +80,20 @@
 ;; js2-refactor
 (js2r-add-keybindings-with-prefix "C-c C-m")
 
+;; js-doc
+(setq js-doc-mail-address "adam@mesha.org"
+      js-doc-author (format "Adam Mesha <%s>" js-doc-mail-address)
+      js-doc-url "http://mesha.org"
+      js-doc-license "ISC")
+
+(add-hook 'js2-mode-hook
+          #'(lambda ()
+              (define-key js2-mode-map (kbd "C-c j f") 'js-doc-insert-function-doc)
+              (define-key js2-mode-map (kbd "C-c j p") 'js-doc-insert-file-doc)
+              (define-key js2-mode-map "@" 'js-doc-insert-tag)
+			  (define-key js2-mode-map (kdb "C-c j h" 'js-doc-describe-tag))))
+
+
 ;; ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
