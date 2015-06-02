@@ -1,0 +1,2 @@
+# get a list of all files sorted by date modified (as per last git commit)
+git ls-files | grep '\.js$' | while read f; do ts=$(git log --pretty=%at -- $f | head -n 1); sz=$(wc -c $f); echo $ts $sz $f; done | sort -r > all-files
