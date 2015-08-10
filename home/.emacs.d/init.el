@@ -103,11 +103,11 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
 
 ;; ack-and-a-half
-(require 'ack-and-a-half)
-(defalias 'ack 'ack-and-a-half)
-(defalias 'ack-same 'ack-and-a-half-same)
-(defalias 'ack-find-file 'ack-and-a-half-find-file)
-(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+;; (require 'ack-and-a-half)
+;; (defalias 'ack 'ack-and-a-half)
+;; (defalias 'ack-same 'ack-and-a-half-same)
+;; (defalias 'ack-find-file 'ack-and-a-half-find-file)
+;; (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
 ;; smart-tabs-mode
 (autoload 'smart-tabs-mode "smart-tabs-mode"
@@ -184,8 +184,8 @@
 (require 'projectile)
 
 ;; enable rebase-mode in magit
-(require 'git-rebase-mode)
-
+;; (require 'git-rebase-mode)
+;; 
 ;; tramp
 (require 'tramp)
 ;; (setq tramp-default-method "ssh")
