@@ -42,17 +42,19 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# monitor setting aliases
-alias sethdmi="xrandr --output HDMI1 --auto --left-of LVDS1"
-alias setvga='xrandr --output VGA1 --auto --right-of LVDS1'
-alias setdp='xrandr --output DP1 --mode 1920x1080 --above eDP1'
-#alias setdp='xrandr --output DP1 --mode 1152x864 --left-of eDP1'
-#alias setdp='xrandr --output DP1 --mode 1280x1024 --above eDP1'
-alias hdmioff="xrandr --output HDMI1 --off"
-alias vgaoff='xrandr --output VGA1 --off'
-alias dpoff='xrandr --output DP1 --off'
-alias dualmonoff='xrandr --output DP1 --off --output DP2 --off'
-alias dualmon='xrandr --output DP2 --auto --right-of eDP1 --output DP1 --auto --right-of DP2'
+# monitor setting aliases, most of them very old
+# alias sethdmi="xrandr --output HDMI1 --auto --left-of LVDS1"
+# alias setvga='xrandr --output VGA1 --auto --right-of LVDS1'
+# alias setdp='xrandr --output DP1 --mode 1920x1080 --above eDP1'
+# alias setdp='xrandr --output DP1 --mode 1152x864 --left-of eDP1'
+# alias setdp='xrandr --output DP1 --mode 1280x1024 --above eDP1'
+# alias hdmioff="xrandr --output HDMI1 --off"
+# alias vgaoff='xrandr --output VGA1 --off'
+# alias dpoff='xrandr --output DP1 --off'
+# alias dualmonoff='xrandr --output DP1 --off --output DP2 --off'
+# alias dualmon='xrandr --output DP2 --auto --right-of eDP1 --output DP1 --auto --right-of DP2'
+alias mon2='xrandr --output DP1-1 --auto --left-of eDP1'
+alias mon2off='xrandr --output DP1-1 --off'
 
 function mkcd () {
     mkdir -p $1 && cd $1;
