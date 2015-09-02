@@ -155,6 +155,9 @@ alias inst='sudo apt-get install'
 
 alias unhist='unset HISTFILE'
 
+# convert yaml to json
+alias y2j="python -c 'import yaml, json, sys; print(json.dumps(yaml.load(sys.stdin.read())))'"
+
 # personal shortcuts
 alias org='cd ~/src/org'
 alias dl='cd ~/src/dl'
