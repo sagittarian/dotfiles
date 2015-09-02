@@ -43,6 +43,7 @@
   - js2-mode, js2-refactor
   - smex
   - ido-completing-read+ (for magit/ido integration)
+  - pyvenv
 ** nice to have emacs
    - editorconfig
 * things that may be nice to have (but not absolutely necessary)
