@@ -144,3 +144,12 @@ if [ -f ~/.bash_vars ]; then
     . ~/.bash_vars
 fi
 
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/src
+source /usr/local/bin/virtualenvwrapper.sh
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# working on foreman locally
+export RAILS_ENV=development
