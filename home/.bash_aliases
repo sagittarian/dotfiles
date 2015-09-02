@@ -174,3 +174,16 @@ alias svn-authors-transform='svn log -q | awk -F '"'"'|'"'"' '"'"'/^r/ {sub("^ "
 alias rm_git_svn_id="ruby -n -i.orig -e '"
 
 alias rnd="python3 -c 'import random, sys; print(random.choice(sys.argv[1:]))'"
+
+# PD stuff
+function pddeploy () {
+	env=${1:-../configs/envx.json}
+	run -c $env ~/src/pd-tests/pd_tests/dev/deploy.py -a deploy
+}
+
+alias pdclient='cat ${1:-~/src/configs/envx.yml} | y2j | jq -r .environment.clients[0].address'
+alias pddd='cat ${1:-~/src/configs/envx.yml} | y2j | jq -r .environment.data_directors[0].address'
+alias pdds='cat ${1:-~/src/configs/envx.yml} | y2j | jq -r .environment.data_stores[0].address'
+function pdssh () {
+	sshpass -p Tonian2013 ssh root@$1
+}
