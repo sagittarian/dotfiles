@@ -149,7 +149,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/src
 source /usr/local/bin/virtualenvwrapper.sh
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 # working on foreman locally
 export RAILS_ENV=development
+
+# rvm
+export PATH="$HOME/.rvm/bin:$PATH"
+source ~/.rvm/scripts/rvm
