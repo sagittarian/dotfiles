@@ -8,17 +8,17 @@
  '(ack-and-a-half-use-ido t)
  '(ag-arguments
    (quote
-	("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--")))
+    ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--")))
  '(auto-coding-alist
    (quote
-	(("\\.\\(arc\\|zip\\|lzh\\|lha\\|zoo\\|[jew]ar\\|xpi\\|rar\\|7z\\|ARC\\|ZIP\\|LZH\\|LHA\\|ZOO\\|[JEW]AR\\|XPI\\|RAR\\|7Z\\)\\'" . no-conversion-multibyte)
-	 ("\\.\\(exe\\|EXE\\)\\'" . no-conversion)
-	 ("\\.\\(sx[dmicw]\\|odt\\|tar\\|t[bg]z\\)\\'" . no-conversion)
-	 ("\\.\\(gz\\|Z\\|bz\\|bz2\\|xz\\|gpg\\)\\'" . no-conversion)
-	 ("\\.\\(jpe?g\\|png\\|gif\\|tiff?\\|p[bpgn]m\\)\\'" . no-conversion)
-	 ("\\.pdf\\'" . no-conversion)
-	 ("/#[^/]+#\\'" . utf-8-emacs-unix)
-	 ("\\.py" . utf-8-unix))))
+    (("\\.\\(arc\\|zip\\|lzh\\|lha\\|zoo\\|[jew]ar\\|xpi\\|rar\\|7z\\|ARC\\|ZIP\\|LZH\\|LHA\\|ZOO\\|[JEW]AR\\|XPI\\|RAR\\|7Z\\)\\'" . no-conversion-multibyte)
+     ("\\.\\(exe\\|EXE\\)\\'" . no-conversion)
+     ("\\.\\(sx[dmicw]\\|odt\\|tar\\|t[bg]z\\)\\'" . no-conversion)
+     ("\\.\\(gz\\|Z\\|bz\\|bz2\\|xz\\|gpg\\)\\'" . no-conversion)
+     ("\\.\\(jpe?g\\|png\\|gif\\|tiff?\\|p[bpgn]m\\)\\'" . no-conversion)
+     ("\\.pdf\\'" . no-conversion)
+     ("/#[^/]+#\\'" . utf-8-emacs-unix)
+     ("\\.py" . utf-8-unix))))
  '(auto-indent-delete-line-char-remove-extra-spaces t)
  '(auto-indent-kill-line-at-eol nil)
  '(auto-indent-kill-remove-extra-spaces t)
@@ -38,7 +38,7 @@
  '(custom-enabled-themes (quote (manoj-dark)))
  '(custom-safe-themes
    (quote
-	("0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
+    ("0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
  '(delete-selection-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
@@ -53,7 +53,7 @@
  '(erc-log-write-after-send t)
  '(erc-modules
    (quote
-	(autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
+    (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
  '(erc-nick "sagittarian")
  '(erc-save-queries-on-quit nil)
  '(fill-column 80)
@@ -68,30 +68,30 @@
  '(holiday-bahai-holidays nil)
  '(holiday-general-holidays
    (quote
-	((holiday-fixed 1 1 "New Year's Day")
-	 (holiday-fixed 2 14 "Valentine's Day")
-	 (holiday-fixed 4 1 "April Fools' Day")
-	 (holiday-float 5 0 2 "Mother's Day")
-	 (holiday-float 6 0 3 "Father's Day")
-	 (holiday-fixed 10 31 "Samhain/Halloween")
-	 (holiday-float 11 4 4 "Thanksgiving"))))
+    ((holiday-fixed 1 1 "New Year's Day")
+     (holiday-fixed 2 14 "Valentine's Day")
+     (holiday-fixed 4 1 "April Fools' Day")
+     (holiday-float 5 0 2 "Mother's Day")
+     (holiday-float 6 0 3 "Father's Day")
+     (holiday-fixed 10 31 "Samhain/Halloween")
+     (holiday-float 11 4 4 "Thanksgiving"))))
  '(holiday-hebrew-holidays
    (quote
-	((holiday-hebrew-passover t)
-	 (holiday-hebrew-rosh-hashanah t)
-	 (holiday-hebrew-hanukkah t)
-	 (holiday-hebrew 11 15 "Tu B'Shevat")
-	 (if calendar-hebrew-all-holidays-flag
-		 (append
-		  (holiday-hebrew-tisha-b-av)
-		  (holiday-hebrew-misc))))))
+    ((holiday-hebrew-passover t)
+     (holiday-hebrew-rosh-hashanah t)
+     (holiday-hebrew-hanukkah t)
+     (holiday-hebrew 11 15 "Tu B'Shevat")
+     (if calendar-hebrew-all-holidays-flag
+         (append
+          (holiday-hebrew-tisha-b-av)
+          (holiday-hebrew-misc))))))
  '(holiday-islamic-holidays nil)
  '(holiday-other-holidays
    (quote
-	((holiday-fixed 2 1 "Imbolc")
-	 (holiday-fixed 5 1 "Beltaine")
-	 (holiday-fixed 8 1 "Lughnasadh")
-	 (holiday-fixed 11 1 "Samhain"))))
+    ((holiday-fixed 2 1 "Imbolc")
+     (holiday-fixed 5 1 "Beltaine")
+     (holiday-fixed 8 1 "Lughnasadh")
+     (holiday-fixed 11 1 "Samhain"))))
  '(htmlize-css-name-prefix "htmlize-")
  '(htmlize-output-type (quote css))
  '(ido-auto-merge-work-directories-length 0)
@@ -100,7 +100,7 @@
  '(ido-enable-flex-matching t)
  '(ido-use-filename-at-point (quote guess))
  '(ido-use-virtual-buffers t)
- '(indent-tabs-mode t)
+ '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(js2-allow-keywords-as-property-names nil)
  '(js2-basic-offset 4)
@@ -119,18 +119,18 @@
  '(org-agenda-files nil)
  '(org-mode-hook
    (quote
-	(er/add-org-mode-expansions
-	 #[nil "\300\301\302\303\304$\207"
-		   [org-add-hook change-major-mode-hook org-show-block-all append local]
-		   5]
-	 #[nil "\300\301\302\303\304$\207"
-		   [org-add-hook change-major-mode-hook org-babel-show-result-all append local]
-		   5]
-	 org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
+    (er/add-org-mode-expansions
+     #[nil "\300\301\302\303\304$\207"
+           [org-add-hook change-major-mode-hook org-show-block-all append local]
+           5]
+     #[nil "\300\301\302\303\304$\207"
+           [org-add-hook change-major-mode-hook org-babel-show-result-all append local]
+           5]
+     org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
  '(projectile-global-mode t)
  '(projectile-switch-project-action (quote projectile-dired))
  '(projectile-use-git-grep t)
- '(python-indent-guess-indent-offset nil)
+ '(python-indent-guess-indent-offset t)
  '(python-indent-offset 4)
  '(python-shell-interpreter "ipython")
  '(python-shell-prompt-regexp "In \\[\\d+\\]: ")
@@ -144,7 +144,7 @@
  '(tab-width 4)
  '(text-mode-hook
    (quote
-	(er/add-text-mode-expansions text-mode-hook-identify)))
+    (er/add-text-mode-expansions text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(track-eol t)
  '(tramp-default-method "ssh")
