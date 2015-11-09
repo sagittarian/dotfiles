@@ -533,6 +533,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .urban<urbandictionary:>_ = uri http://www.urbandictionary.com/define.php?term=\@<encodeURIComponent(%r)>\@
 @cbind .etym<etymonline:>_       = uri http://etymonline.com/index.php?allowed_in_frame=0&search=\@<encodeURIComponent(%r)>\@&searchmode=none
 @cbind .imdb<imdb:>_             = uri http://www.imdb.com/find?ref_=nv_sr_fn&q=\@<encodeURIComponent(%r)>\@&s=all
+@cbind .morfix<morfix:>_         = uri http://milon.morfix.co.il/\@<encodeURIComponent(%r)>\@
 
 # language lookup
 @cbind .revo<ReVo:>_             = uri http://www.reta-vortaro.de/cgi-bin/sercxu.pl?sercxata=\@<encodeURIComponent(%r)>\@
