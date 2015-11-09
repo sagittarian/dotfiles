@@ -25,6 +25,10 @@ bindsym $mod+Shift+E exec dolphin
 bindsym $mod+m exec emacsclient -n -c
 # don't forget uzbl
 bindsym $mod+g exec uzbl-browser
+# open terminator with ipython
+bindsym $mod+c exec terminator -e ipython
+# open terminator with ghci
+bindsym $mod+Shift+g exec terminator -e ghci
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
