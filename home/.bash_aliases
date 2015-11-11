@@ -232,6 +232,8 @@ function showpypath () {
 	python -c "import $1; print $1"
 }
 
+alias jython='java -jar ~/jython/jython.jar'
+
 # virtualenv
 alias wo=workon
 alias wot='workon tonat'
