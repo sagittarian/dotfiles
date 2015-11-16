@@ -501,6 +501,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .py<py3 module:>_         = uri https://docs.python.org/3/library/\@<encodeURIComponent(%r)>\@.html
 @cbind .p3<py3 module:>_         = uri https://docs.python.org/3/library/\@<encodeURIComponent(%r)>\@.html
 @cbind .p2<py2 module:>_         = uri https://docs.python.org/2/library/\@<encodeURIComponent(%r)>\@.html
+@cbind .pep8                     = uri https://www.python.org/dev/peps/pep-0008/
 @cbind .ho<hoogle:>_             = uri https://www.haskell.org/hoogle/?hoogle=\@<encodeURIComponent(%r)>\@
 @cbind .mdn<MDN:>_               = uri https://developer.mozilla.org/en-US/search?q=\@<encodeURIComponent(%r)>\@
 @cbind .node                     = uri https://nodejs.org/api/
