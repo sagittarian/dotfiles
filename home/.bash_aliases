@@ -56,11 +56,18 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # alias dualmon='xrandr --output DP2 --auto --right-of eDP1 --output DP1 --auto --right-of DP2'
 # alias mon2='xrandr --output DP1-1 --auto --left-of eDP1'
 # alias mon2off='xrandr --output DP1-1 --off'
-#alias mon3='xrandr --output DP1-3 --auto --left-of eDP1 --output DP1-1 --auto --left-of DP1-3'
-alias mon3='xrandr --output VIRTUAL1 --off --output eDP1 --mode 1366x768 --pos \
-3840x752 --rotate normal --output DP1 --off --output HDMI2 --off --output HDMI1 \
---off --output DP1-3 --mode 1920x1080 --pos 1920x216 --rotate normal --crtc 2 \
---output DP1-2 --off --output DP1-1 --mode 1920x1080 --pos 0x0 --rotate normal'
+# alias mon3='xrandr --output DP1-3 --auto --left-of eDP1 --output DP1-1 --auto --left-of DP1-3'
+# alias mon3='xrandr --output VIRTUAL1 --off \
+#   --output eDP1 --mode 1366x768 --pos 3840x752 --rotate normal \
+#   --output DP1 --off --output HDMI2 --off --output HDMI1 --off \
+#   --output DP1-1 --mode 1920x1080 --pos 0x0 --rotate normal \
+#   --output DP1-2 --off \
+#   --output DP1-3 --mode 1920x1080 --pos 1920x216 --rotate normal --crtc 2'
+alias mon3='xrandr --output VIRTUAL1 --off \
+  --output eDP1 --mode 1366x768 --pos 3840x808 --rotate normal \
+  --output DP1 --off --output HDMI2 --off --output HDMI1 --off \
+  --output DP1-3 --mode 1920x1080 --pos 0x240 --rotate normal --crtc 2 \
+  --output DP1-2 --off --output DP1-1 --mode 1920x1080 --pos 1920x0 --rotate normal'
 alias mon3off='xrandr --output DP1-1 --off --output DP1-3 --off'
 
 
