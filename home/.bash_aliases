@@ -239,7 +239,14 @@ function showpypath () {
 	python -c "import $1; print $1"
 }
 
-alias jython='java -jar ~/jython/jython.jar'
+# alias jython='java -jar ~/jython/jython.jar'
+# alias vmjython='java -jar ~/jython/jython.jar -Djava.ext.dirs=/home/adam/SDK/spbm/java/JAXWS/lib:/home/adam/SDK/vsphere-ws/java/JAXWS/lib/ -Dpython.security.respectJavaAccessibility=false'
+JYTHONPATH='/home/adam/jython/bin'
+alias jython=$JYTHONPATH/jython
+VCENTER_SDK_ROOT=/home/adam/SDK
+JAVA_EXT_DIRS=$VCENTER_SDK_ROOT/spbm/java/JAXWS/lib:$VCENTER_SDK_ROOT/vsphere-ws/java/JAXWS/lib/:$VCENTER_SDK_ROOT/sms-sdk/java/JAXWS/lib/
+alias vmjython="$JYTHONPATH/jython -Djava.ext.dirs=$JAVA_EXT_DIRS"
+alias jpip=$JYTHONPATH/pip
 
 # virtualenv
 alias wo=workon
