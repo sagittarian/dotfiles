@@ -233,6 +233,7 @@ function nodepool-run () {
            --logfile drms.log --console --debug --extended \
            --prop-file hosts.properties --out table --out-file output_file --topology standalone
 }
+alias sshtm='sshpass -p Tonian ssh testmanager@172.31.12.89 -t "cd /testmanager/tm/env && bash --login"'
 
 
 function showpypath () {
