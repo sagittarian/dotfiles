@@ -109,21 +109,21 @@
 ;; (defalias 'ack-find-file 'ack-and-a-half-find-file)
 ;; (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
-;; smart-tabs-mode
-(autoload 'smart-tabs-mode "smart-tabs-mode"
-  "Intelligently indent with tabs, align with spaces!")
-(autoload 'smart-tabs-mode-enable "smart-tabs-mode")
-(autoload 'smart-tabs-advice "smart-tabs-mode")
-(autoload 'smart-tabs-insinuate "smart-tabs-mode")
-;; smart tabs for javascript
-(add-hook 'js2-mode-hook 'smart-tabs-mode-enable)
-(smart-tabs-advice js2-indent-line js2-basic-offset)
-;; smart tabs for python
-(add-hook 'python-mode-hook 'smart-tabs-mode-enable)
-(smart-tabs-advice python-indent-line-1 python-indent)
+;; ;; smart-tabs-mode
+;; (autoload 'smart-tabs-mode "smart-tabs-mode"
+;;   "Intelligently indent with tabs, align with spaces!")
+;; (autoload 'smart-tabs-mode-enable "smart-tabs-mode")
+;; (autoload 'smart-tabs-advice "smart-tabs-mode")
+;; (autoload 'smart-tabs-insinuate "smart-tabs-mode")
+;; ;; smart tabs for javascript
+;; (add-hook 'js2-mode-hook 'smart-tabs-mode-enable)
+;; (smart-tabs-advice js2-indent-line js2-basic-offset)
+;; ;; smart tabs for python
+;; (add-hook 'python-mode-hook 'smart-tabs-mode-enable)
+;; (smart-tabs-advice python-indent-line-1 python-indent)
 
-(smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
-					  'ruby 'nxml)
+;; (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'python
+;; 					  'ruby 'nxml)
 
 
 
@@ -185,7 +185,7 @@
 
 ;; enable rebase-mode in magit
 ;; (require 'git-rebase-mode)
-;; 
+;;
 ;; tramp
 (require 'tramp)
 ;; (setq tramp-default-method "ssh")
