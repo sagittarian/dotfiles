@@ -111,6 +111,7 @@
  '(keyboard-coding-system (quote utf-8-unix))
  '(linum-format " %7i ")
  '(magit-completing-read-function (quote magit-ido-completing-read))
+ '(magit-diff-arguments (quote ("--no-ext-diff" "-w")))
  '(magit-diff-options (quote ("--patience" "-b")))
  '(magit-diff-refine-hunk t)
  '(magit-process-popup-time 1)
