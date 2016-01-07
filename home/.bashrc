@@ -148,6 +148,7 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/src
 source /usr/local/bin/virtualenvwrapper.sh
+# source /home/adam/jython/bin/virtualenvwrapper.sh
 
 # working on foreman locally
 export RAILS_ENV=development
