@@ -2,6 +2,12 @@
   enabled_plugins = CustomCommandsMenu, InactivityWatch, ActivityWatch, APTURLHandler, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
   focus = mouse
 [keybindings]
+  go_up = <Alt>t
+  next_tab = <Primary><Shift>s
+  prev_tab = <Primary><Shift>h
+  go_down = <Alt>n
+  go_right = <Alt>s
+  go_left = <Alt>h
 [profiles]
   [[default]]
     use_system_font = False
