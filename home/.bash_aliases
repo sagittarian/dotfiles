@@ -193,62 +193,12 @@ alias rm_git_svn_id="ruby -n -i.orig -e '"
 
 alias rnd="python3 -c 'import random, sys; print(random.choice(sys.argv[1:]))'"
 
-# PD stuff
-function pddeploy () {
-	env=${1:-$PDCONFIG}
-	time run -c $env ~/src/pd-tests/pd_tests/dev/deploy.py -a deploy -L DEBUG
-}
-
-function pdsmoke () {
-	env=${1:-$PDCONFIG}
-	time run -c $env ~/src/pd-tests/pd_tests/ -a 'jira=="PD-4681"' -L DEBUG
-}
-
-function tonatrepl () {
-	env=${1:-$PDCONFIG}
-	time run -c $env ~/src/pd-tests/pd_tests/ -a 'jira=="PD-4681"' -L DEBUG --repl
-}
-
-
-export PDCONFIG=/home/adam/src/configs/adamvvol.yml
-alias pdclient="cat \${1:-$PDCONFIG} | y2j | jq -r .environment.clients[0].address"
-alias pddd="cat \${1:-$PDCONFIG} | y2j | jq -r .environment.data_directors[0].address"
-alias pdds="cat \${1:-$PDCONFIG} | y2j | jq -r .environment.data_stores[0].address"
-function pdssh () {
-	sshpass -p Tonian2013 ssh root@$1
-}
-alias sshforeman='sshpass -p 1q2w3e4r ssh root@172.29.100.100'
-alias nodepool='python drms/cli.py'
-function nodepool-run () {
-    setup=$1
-    prefix=${2:-${setup}-dd}
-    version=${3:-3263}
-
-    python drms/cli.py host create \
-           --compute-resource tlvvc01 --resource-pool Automation --configure \
-           --prefix $prefix --hostgroup datadirector/1.0.0.${version}-1 \
-           --organization Automation --location telaviv --username Automation \
-           --password 1q2w3e4r --foreman-version 1.8.2 --setup-name $setup \
-           --root-pass Tonian2013 --amount 1 --url http://172.29.100.100 \
-           --logfile drms.log --console --debug --extended \
-           --prop-file hosts.properties --out table --out-file output_file --topology standalone
-}
-alias sshtm='sshpass -p Tonian ssh testmanager@172.31.12.89 -t "cd /testmanager/tm/env && bash --login"'
-
-
 function showpypath () {
 	python -c "import $1; print $1"
 }
 
-# alias jython='java -jar ~/jython/jython.jar'
-# alias vmjython='java -jar ~/jython/jython.jar -Djava.ext.dirs=/home/adam/SDK/spbm/java/JAXWS/lib:/home/adam/SDK/vsphere-ws/java/JAXWS/lib/ -Dpython.security.respectJavaAccessibility=false'
-JYTHONPATH='/home/adam/jython/bin'
-alias jython=$JYTHONPATH/jython
-VCENTER_SDK_ROOT=/home/adam/SDK
-JAVA_EXT_DIRS=$VCENTER_SDK_ROOT/spbm/java/JAXWS/lib:$VCENTER_SDK_ROOT/vsphere-ws/java/JAXWS/lib/:$VCENTER_SDK_ROOT/sms-sdk/java/JAXWS/lib/
-alias vmjython="$JYTHONPATH/jython -Djava.ext.dirs=$JAVA_EXT_DIRS"
-alias jpip=$JYTHONPATH/pip
-
 # virtualenv
 alias wo=workon
 alias wot='workon tonat'
+
+source ~/.pd
