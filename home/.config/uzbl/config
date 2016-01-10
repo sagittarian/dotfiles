@@ -486,7 +486,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 # === misc bindings
 
 @cbind .bm<tags:>_                = spawn @scripts_dir/bookmark.py --uzbl --tags "%s"
-@cbind .no<note:>_                = spawn @scripts_dir/bookmark.py --uzbl --file notes "%s"
+@cbind .nt<note:>_                = spawn @scripts_dir/bookmark.py --uzbl --file notes "%s"
 
 # programming of various kinds
 
