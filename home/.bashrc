@@ -156,3 +156,6 @@ export RAILS_ENV=development
 # rvm
 export PATH="$HOME/.rvm/bin:$PATH"
 source ~/.rvm/scripts/rvm
+
+# use my version of java 8
+export PATH="$HOME/java8/bin:$PATH"
