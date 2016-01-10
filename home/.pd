@@ -103,3 +103,5 @@ alias jpip=$JYTHONPATH/pip
 
 # credentials for nodepool/foreman-drms
 export NPCRED='--user Admin --password 1q2w3e4r --url https://172.29.100.100/'
+
+alias vcenter="/home/adam/java8/bin/java -cp '/home/adam/src/tonat2/tonat/product/nodes/jars/*'"
