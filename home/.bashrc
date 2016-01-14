@@ -155,7 +155,9 @@ export RAILS_ENV=development
 
 # rvm
 export PATH="$HOME/.rvm/bin:$PATH"
-source ~/.rvm/scripts/rvm
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 
 # use my version of java 8
 export PATH="$HOME/java8/bin:$PATH"
