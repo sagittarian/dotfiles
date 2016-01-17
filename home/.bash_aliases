@@ -2,7 +2,8 @@
 
 alias ack=ack-grep
 alias 'ps?'='ps aux | grep -i '
-alias findname='findname () { find -iname "*$1*"; }; findname'
+#alias findname='findname () { find -iname "*$1*"; }; findname'
+alias fname='find -name'
 alias ipy=ipython3
 alias ipy2=ipython
 alias bpy=bpython3
