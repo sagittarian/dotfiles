@@ -21,6 +21,7 @@ floating_modifier $mod
 
 # We use dolphin all the time
 bindsym $mod+Shift+E exec dolphin
+bindsym $mod+Shift+M exec dolphin ~/media
 # And also emacs
 bindsym $mod+m exec emacsclient -n -c
 # don't forget uzbl
