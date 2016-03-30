@@ -81,7 +81,13 @@ function xinput_set_prop () {
     xinput set-prop $deviceid "$2" "$3"
 }
 
-alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | grep -vi generic | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
+#alias setmouse="xinput set-button-map \$(xinput list | grep -i mouse | grep -vi generic | perl -n -e'/id=(\d+)/ && print \$1') 3 2 1"
+function setmouse {
+    devids=$(xinput list | grep -Ei 'slave\s+pointer' | grep -i microsoft | python -c 'import sys, re; print("\n".join(re.findall(r"id=(\d+)", sys.stdin.read())))')
+    for devid in $devids; do
+        xinput set-button-map $devid 3 2 1
+    done
+}
 alias touchpad-enable="xinput_set_prop touchpad 'Device Enabled' 1 && xinput_set_prop trackpoint 'Device Enabled' 1"
 alias touchpad-disable="xinput_set_prop touchpad 'Device Enabled' 0 && xinput_set_prop trackpoint 'Device Enabled' 1"
 
