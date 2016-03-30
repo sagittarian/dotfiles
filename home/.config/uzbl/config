@@ -507,6 +507,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .node                     = uri https://nodejs.org/api/
 @cbind .rb<ruby:>_               = uri http://ruby-doc.com/search.html?q=\@<encodeURIComponent(%r)>\@
 @cbind .jq                       = uri http://jqapi.ru/
+@cbind .java                     = uri https://docs.oracle.com/javase/8/docs/api/
 
 ## etc
 @cbind .ciu<Can I Use:>_         = uri http://caniuse.com/\#search=\@<encodeURIComponent(%r)>\@
