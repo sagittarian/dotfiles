@@ -3,6 +3,7 @@ function pddeploy () {
 	env=${1:-$(pdcfg)}
 	time run -c $env ~/src/pd-tests/pd_tests/dev/deploy.py -a deploy -L DEBUG
 }
+alias smoke="tonat -a \"jira in ['PD-3047', 'PD-3018', 'PD-2975', 'PD-5925', 'PD-3023', 'PD-3331', 'PD-9457', 'PD-3048', 'PD-3031', 'PD-3013', 'PD-14921', 'PD-3188', 'PD-3028', 'PD-3025']\" -F max_dses"
 
 function pdsmoke () {
 	env=${1:-$(pdcfg)}
@@ -95,9 +96,10 @@ alias sshtm='sshpass -p Tonian ssh testmanager@172.31.12.89 -t "cd /testmanager/
 JYTHONPATH='/home/adam/jython/bin'
 alias jython=$JYTHONPATH/jython
 VCENTER_SDK_ROOT=/home/adam/SDK
-DEFAULT_JAVA_EXT_DIRS=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext
+# DEFAULT_JAVA_EXT_DIRS=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext
+JAVA_EXT_DIRS=/home/adam/java8/jre/lib:/home/adam/java8/jre/lib/ext
 #JAVA_EXT_DIRS=$DEFAULT_JAVA_EXT_DIRS:$VCENTER_SDK_ROOT/spbm/java/JAXWS/lib:$VCENTER_SDK_ROOT/vsphere-ws/java/JAXWS/lib/:$VCENTER_SDK_ROOT/sms-sdk/java/JAXWS/lib/
-JAVA_EXT_DIRS=$DEFAULT_JAVA_EXT_DIRS:/home/adam/src/tonat2/tonat/product/nodes/jars
+JAVA_EXT_DIRS=$JAVA_EXT_DIRS:/home/adam/src/tonat2/tonat/product/nodes/jars
 alias vmjython="JYTHONPATH=/home/adam/src/vcenter/src $JYTHONPATH/jython -Djava.ext.dirs=$JAVA_EXT_DIRS"
 alias jpip=$JYTHONPATH/pip
 
