@@ -161,6 +161,11 @@ export PATH="$HOME/.rvm/bin:$PATH"
 
 # use my version of java 8
 export PATH="$HOME/java8/bin:$PATH"
+export JAVA_HOME="$HOME/java8/"
+
+# golang
+export GOPATH="$HOME"
+
 # bash completion
 compdir="$HOME/.bash_completion.d"
 if [ -e $compdir ]; then
