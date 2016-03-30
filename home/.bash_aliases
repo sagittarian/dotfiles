@@ -100,8 +100,11 @@ alias cycleworkspace="i3-msg move workspace to output left"
 alias cycw="i3-msg move workspace to output left"
 #alias cw="i3-msg move workspace to output left"
 function cw () {
-    i3-msg move workspace to output ${1:-left}
+    dir=${1:-left}
+    i3-msg move workspace to output $dir
 }
+alias cwr='cw right'
+alias cwl='cw left'
 alias flipw='i3-msg move workspace to output up'
 
 #alias ghc=ghc-7.8.2
@@ -179,7 +182,7 @@ alias inst='sudo apt-get install'
 alias unhist='unset HISTFILE'
 
 # convert yaml to json and the other way around
-alias y2j="python -c 'import yaml, json, sys; print(json.dumps(yaml.load(sys.stdin.read())))'"
+alias y2j="python -c 'import yaml, json, sys; print(json.dumps(yaml.load(sys.stdin.read()), indent=4))'"
 #alias j2y="python -c 'import yaml, json, sys; print(yaml.dump(json.loads(sys.stdin.read())))'"
 alias j2y="ruby -r json -r yaml -e 'puts YAML.dump JSON.load \$stdin.read'"
 
@@ -199,13 +202,18 @@ alias svn-authors-transform='svn log -q | awk -F '"'"'|'"'"' '"'"'/^r/ {sub("^ "
 alias rm_git_svn_id="ruby -n -i.orig -e '"
 
 alias rnd="python3 -c 'import random, sys; print(random.choice(sys.argv[1:]))'"
+alias rndchars="strings /dev/urandom | grep -o '[A-Za-z0-9]' | head" # | tr -d "\n"
 
 function showpypath () {
-	python -c "import $1; print $1"
+	python -c "import re, $1; print re.search(r\"([^']+.py)c?'>$\", str($1)).group(1)"
 }
 
 # virtualenv
 alias wo=workon
 alias wot='workon tonat'
 
+# clojure/clojurescript
+alias clojure='java -cp cljs.jar:src clojure.main'
+
+# put PD stuff in a separate file
 source ~/.pd
