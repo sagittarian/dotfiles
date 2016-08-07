@@ -395,7 +395,7 @@
 
 ;; magit-svn (why do people use sucky software, grumble grumble
 ;; grumble)
-(add-hook 'magit-mode-hook 'magit-svn-mode)
+;; (add-hook 'magit-mode-hook 'magit-svn-mode)
 
 ;; fill-column-indicator
 (add-hook 'text-mode-hook 'fci-mode)
