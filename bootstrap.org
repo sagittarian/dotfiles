@@ -5,10 +5,11 @@
     - emacs
     - git
     - workrave
+    - ag
     - skype
     - firefox/iceweasel
     - terminator
-	- dolphin
+    - dolphin
     - kmix
     - uzbl
   - Clone various personal repos, install dotfiles and *~/bin*
