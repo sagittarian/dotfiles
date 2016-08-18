@@ -1,6 +1,5 @@
-;; look for files to load in ~/.emacs.d
-;; XXX this is not a great idea in general
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/"))
+;; look for files to load in ~/.emacs.d/load
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/load/"))
 
 (load "variables.el")
 

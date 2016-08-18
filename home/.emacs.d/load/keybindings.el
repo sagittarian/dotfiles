@@ -1,6 +1,9 @@
 ;; some things...
-(global-set-key (kbd "C-o") 'other-window)
+;; (global-set-key (kbd "C-o") 'other-window)
+(global-set-key (kbd "C-+") 'other-window)
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
+(global-set-key (kbd "M-<return>") 'am-open-next-line)
+
 
 ;; print screen is where the menu key should be on my thinkpad
 (global-set-key (kbd "<print>") 'execute-extended-command)
@@ -20,7 +23,7 @@
 ;;(global-set-key (kbd "C-M-g") 'magit-status)
 (global-set-key (kbd "C-c g g") 'magit-status)
 ;; trying a new keybinding for magit-status:
-(global-set-key (kbd "C-c g s") 'magit-status)
+;; (global-set-key (kbd "C-c g s") 'magit-status)
 ;(global-set-key (kbd "C-c g b") 'magit-blame-mode)
 (global-set-key (kbd "C-c g b") 'magit-blame)
 (global-set-key (kbd "C-c g B") 'magit-blame-popup)
@@ -117,6 +120,50 @@
 (global-set-key (kbd "C-c b r") 'beeminder-refresh-goal)
 (global-set-key (kbd "C-c b t") 'beeminder-submit-clocked-time)
 
+;; smartparens
+(define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
+(define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
+
+(define-key smartparens-mode-map (kbd "C-M-d") 'sp-down-sexp)
+(define-key smartparens-mode-map (kbd "C-M-a") 'sp-backward-down-sexp)
+(define-key smartparens-mode-map (kbd "C-S-d") 'sp-beginning-of-sexp)
+(define-key smartparens-mode-map (kbd "C-S-a") 'sp-end-of-sexp)
+
+(define-key smartparens-mode-map (kbd "C-M-e") 'sp-up-sexp)
+(define-key smartparens-mode-map (kbd "C-M-u") 'sp-backward-up-sexp)
+(define-key smartparens-mode-map (kbd "C-M-t") 'sp-transpose-sexp)
+
+(define-key smartparens-mode-map (kbd "C-M-n") 'sp-next-sexp)
+(define-key smartparens-mode-map (kbd "C-M-p") 'sp-previous-sexp)
+
+(define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-sexp)
+(define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
+
+(define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)
+(define-key smartparens-mode-map (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
+
+(define-key smartparens-mode-map (kbd "C-<right>") 'sp-forward-slurp-sexp)
+(define-key smartparens-mode-map (kbd "<C-S-right>") 'sp-slurp-hybrid-sexp)
+(define-key smartparens-mode-map (kbd "C-<left>") 'sp-forward-barf-sexp)
+(define-key smartparens-mode-map (kbd "C-M-<left>") 'sp-backward-slurp-sexp)
+(define-key smartparens-mode-map (kbd "C-M-<right>") 'sp-backward-barf-sexp)
+
+(define-key smartparens-mode-map (kbd "M-D") 'sp-splice-sexp)
+(define-key smartparens-mode-map (kbd "C-M-<delete>") 'sp-splice-sexp-killing-forward)
+(define-key smartparens-mode-map (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
+(define-key smartparens-mode-map (kbd "C-S-<backspace>") 'sp-splice-sexp-killing-around)
+
+(define-key smartparens-mode-map (kbd "C-]") 'sp-select-next-thing-exchange)
+(define-key smartparens-mode-map (kbd "C-<left_bracket>") 'sp-select-previous-thing)
+(define-key smartparens-mode-map (kbd "C-M-]") 'sp-select-next-thing)
+
+(define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
+(define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
+
+;; (bind-key "C-c f" (lambda () (interactive) (sp-beginning-of-sexp 2)) smartparens-mode-map)
+;; (bind-key "C-c b" (lambda () (interactive) (sp-beginning-of-sexp -2)) smartparens-mode-map)
+
+;; (global-set-key (kbd "C-M-<backspace>") 'sp-splice-sexp)
 
 ;;;; miscelaneous stuff collected from the internets to go through and
 ;;;; see if there's anything interesting there some time

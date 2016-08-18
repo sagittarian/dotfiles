@@ -1,3 +1,4 @@
+
 ;; No splash screen
 (setq inhibit-startup-screen t)
 
@@ -17,7 +18,7 @@
 (setq-default sentence-end-double-space t)
 (setq-default isearch-allow-scroll t)
 (setq-default column-number-mode t)
-(setq-default show-trailing-whitespace t)
+;; (setq-default show-trailing-whitespace t)
 (setq-default warning-minimum-level :error)
 
 ;; disable ido faces to see flx highlights.
