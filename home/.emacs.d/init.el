@@ -1,7 +1,7 @@
 ;; look for files to load in ~/.emacs.d/load
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/load/"))
 
-(load "variables.el")
+(load "variables")
 
 ;; Workaround the annoying warnings:
 ;;    Warning (mumamo-per-buffer-local-vars):
@@ -40,10 +40,6 @@
 ;; undo-tree
 ;; (require 'undo-tree)
 ;; (global-undo-tree-mode) ;; undo-tree is throwing errors
-
-;; expand-region
-(add-to-list 'load-path "~/.emacs.d/expand-region")
-(load "expand-region.el")
 
 ;; Flycheck
 (add-hook 'after-init-hook 'global-flycheck-mode)
@@ -272,8 +268,7 @@
 (defun current-buffer-file-name ()
   (interactive)
   (let ((fname (buffer-file-name)))
-    (message fname)
-    (kill-new fname)))
+    (kill-new (message fname))))
 
 ;; wc-mode
 (require 'wc-mode)
@@ -297,12 +292,13 @@
 ;; 							("{# " " #}" "#" 'html-mode)))
 
 ;; smartparens
-(require 'smartparens-config)
-(smartparens-global-mode t)
+;; (require 'smartparens-config)
+;; (smartparens-global-mode t)
+;; (smart)
 
 ;; multiple cursors
-(add-to-list 'load-path "~/.emacs.d/multiple-cursors")
-(require 'multiple-cursors)
+;; (add-to-list 'load-path "~/.emacs.d/multiple-cursors")
+;; (require 'multiple-cursors)
 
 ;; keyfreq
 ;; (require 'keyfreq)
@@ -375,14 +371,21 @@
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
+;; python stuff
 (add-hook 'python-mode-hook (lambda () (set-variable 'tab-width 4)))
+(add-hook 'python-mode-hook 'anaconda-mode)
+
+;; jedi
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:setup-keys t)                      ; optional
+;; (setq jedi:complete-on-dot t)                 ; optional
 
 ;; no menu bars
 (menu-bar-mode 0)
 
 ;; beeminder
-(load "load/beeminder")
-(load "load/beeminder-config" t)
+(load "beeminder")
+(load "beeminder-config" t)
 
 ;; smex
 (smex-initialize)
@@ -403,6 +406,7 @@
 (add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'ruby-mode-hook 'fci-mode)
 (add-hook 'haskell-mode-hook 'fci-mode)
+(add-hook 'c-mode-hook 'fci-mode)
 
 ;; js-doc
 
@@ -422,7 +426,24 @@
 (defun pretty-json ()
   (interactive)
   (mark-whole-buffer)
-  (shell-command-on-region (region-beginning) (region-end) "python -mjson.tool" t t nil t))
+  (shell-command-on-region
+   (region-beginning)
+   (region-end)
+   "python -mjson.tool" t t nil t))
+
+;; open-next-line
+;; modified from
+;; https://www.emacswiki.org/emacs/OpenNextLine
+(defun am-open-next-line (arg)
+  "Move to the next line and then opens a line.
+   See also `newline-and-indent'."
+  (interactive "p")
+  (end-of-line)
+  (open-line arg)
+  (next-line 1)
+  (indent-according-to-mode))
+
+
 
 (provide 'init)
 ;;; init ends here
