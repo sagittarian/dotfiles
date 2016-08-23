@@ -24,6 +24,12 @@
  '(auto-indent-kill-remove-extra-spaces t)
  '(auto-save-interval 20)
  '(auto-save-timeout 5)
+ '(c-default-style
+   (quote
+    ((c-mode . "c")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu"))))
  '(calendar-date-display-form (quote (calendar-iso-date-display-form)))
  '(calendar-date-style (quote iso))
  '(calendar-hebrew-all-holidays-flag t)
