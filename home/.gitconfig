@@ -56,3 +56,5 @@
 	wip = commit -am wip
 [magit]
 	extension = svn
+[status]
+	submoduleSummary = true
