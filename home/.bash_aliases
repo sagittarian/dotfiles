@@ -216,4 +216,4 @@ alias wot='workon tonat'
 alias clojure='java -cp cljs.jar:src clojure.main'
 
 # put PD stuff in a separate file
-source ~/.pd
+# source ~/.pd
