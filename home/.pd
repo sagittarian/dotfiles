@@ -89,7 +89,7 @@ function nodepool-host-create () {
            --logfile drms.log --console --debug --extended \
            --prop-file hosts.properties --out table --out-file output_file --topology standalone
 }
-alias sshtm='sshpass -p Tonian ssh testmanager@172.31.12.89 -t "cd /testmanager/tm/env && bash --login"'
+alias sshtm='sshpass -p pd@2015 ssh testmanager@172.29.63.151 -t "cd /testmanager/tm/env && bash --login"'
 
 # alias jython='java -jar ~/jython/jython.jar'
 # alias vmjython='java -jar ~/jython/jython.jar -Djava.ext.dirs=/home/adam/SDK/spbm/java/JAXWS/lib:/home/adam/SDK/vsphere-ws/java/JAXWS/lib/ -Dpython.security.respectJavaAccessibility=false'
@@ -99,8 +99,11 @@ VCENTER_SDK_ROOT=/home/adam/SDK
 # DEFAULT_JAVA_EXT_DIRS=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext
 JAVA_EXT_DIRS=/home/adam/java8/jre/lib:/home/adam/java8/jre/lib/ext
 #JAVA_EXT_DIRS=$DEFAULT_JAVA_EXT_DIRS:$VCENTER_SDK_ROOT/spbm/java/JAXWS/lib:$VCENTER_SDK_ROOT/vsphere-ws/java/JAXWS/lib/:$VCENTER_SDK_ROOT/sms-sdk/java/JAXWS/lib/
-JAVA_EXT_DIRS=$JAVA_EXT_DIRS:/home/adam/src/tonat2/tonat/product/nodes/jars
-alias vmjython="JYTHONPATH=/home/adam/src/vcenter/src $JYTHONPATH/jython -Djava.ext.dirs=$JAVA_EXT_DIRS"
+# JAVA_EXT_DIRS=$JAVA_EXT_DIRS:$HOME/src/tonat2/tonat/product/nodes/vcenter/bin/com/vmware/spbm/connection:/home/adam/src/tonat2/tonat/product/nodes/jars:$HOME/SDK/spbm/java/JAXWS/lib
+#/home/adam/SDK/bin/spbm/java/JAXWS/lib/*
+JYTHON_CP='$HOME/src/tonat2/tonat/product/nodes/vcenter/bconn.jar:$HOME/SDK/spbm/java/JAXWS/lib/*:$HOME/src/tonat2/tonat/product/nodes/vcenter/bin/com/vmware/spbm/connection/*:/home/adam/src/tonat2/tonat/product/nodes/jars/*' #:$HOME/SDK/spbm/java/JAXWS/lib/*'
+# alias vmjython="JYTHONPATH=/home/adam/src/tonat2/tonat/product/nodes/jython $JYTHONPATH/jython -J-cp $JYTHON_CP -Djava.ext.dirs=$JAVA_EXT_DIRS"
+alias vmjython="JYTHONPATH=/home/adam/src/tonat2/tonat/product/nodes/jython $JYTHONPATH/jython -J-cp $JYTHON_CP"
 alias jpip=$JYTHONPATH/pip
 
 # credentials for nodepool/foreman-drms
