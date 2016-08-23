@@ -53,5 +53,6 @@
 
 	# add to the last commit
 	grow-commit = commit -a --amend --no-edit
+	wip = commit -am wip
 [magit]
 	extension = svn
