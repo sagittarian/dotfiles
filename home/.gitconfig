@@ -54,6 +54,7 @@
 	# add to the last commit
 	grow-commit = commit -a --amend --no-edit
 	wip = commit -am wip
+    yolo = !git commit -am \"$(curl -s whatthecommit.com/index.txt)\"
 [magit]
 	extension = svn
 [status]
