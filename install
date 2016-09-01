@@ -1,18 +1,50 @@
 #!/bin/bash
 
-basedir=$(dirname $(readlink -f $0))
-src=$basedir/home/$1
-dst=$HOME/$1
+function install {
+    basedir=$(dirname $(readlink -f $0))
+    src=$basedir/home/$1
+    dst=$HOME/$1
 
-if [ -e $dst ]
-then
-   read -p "File $dst exists, are you sure you want to install? " -n 1 -r reply
-   echo
-   if [ $reply != "y" ]
-   then
-       exit 1
-   fi
-fi
+    if [ -e $dst ]
+    then
+        read -p "File $dst exists, are you sure you want to install? " -n 1 -r reply
+        echo
+        if [ $reply != "y" ]
+        then
+            return
+        fi
+    fi
 
-mkdir -p $(dirname $dst)
-ln -sf $src $dst
+    mkdir -p $(dirname $dst)
+    ln -sf $src $dst
+}
+
+function install_all {
+    install .ackrc
+    install .agignore
+    install .bash_aliases
+    install .bash_vars
+    install .config/pip
+    install .config/terminator
+    install .config/uzbl
+    install .config/youtube-dl.conf
+    install .emacs.d
+    install .gitconfig
+    install .i3
+    install .inputrc
+    install .jython
+    # install .kde
+    install .local/share/uzbl
+    # install .pd
+    install .profile
+    install .vimrc
+}
+
+if [ "$1" = "all" ]; then
+    echo installing all dotfiles
+    install_all
+else
+    echo installing $1
+    install $1;
+fi;
+
