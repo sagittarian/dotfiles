@@ -94,6 +94,7 @@ alias touchpad-disable="xinput_set_prop touchpad 'Device Enabled' 0 && xinput_se
 #alias setmon="xrandr --output HDMI1 --auto --left-of LVDS1"
 alias setkb="setxkbmap -layout 'us(dvp),il' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
 alias setkbus="setxkbmap -layout 'us,il' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
+alias setkbdana="setxkbmap -layout 'us,il' -option"
 alias setkbru="setxkbmap -layout 'us(dvp),ru' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
 
 alias cycleworkspace="i3-msg move workspace to output left"
