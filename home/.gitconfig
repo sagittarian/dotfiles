@@ -3,7 +3,7 @@
     email = adam@mesha.org
 [color]
     ui = true
-	diff = auto
+    diff = auto
 [merge]
     tool = meld
 [branch]
@@ -28,7 +28,7 @@
     smerge = "!smerge () { git stash && git merge $@ && git stash pop; }; smerge"
     kall = !gitk --all
 
-	showtool = "!showci () { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; showci $1"
+    showtool = "!showci () { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; showci $1"
 
     # logging
     # various pretty loggers from various places
@@ -47,15 +47,15 @@
     ignore = update-index --assume-unchanged
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 
-	# apply patches to the t2k svn tree
-	# transfer-patch = "!xfer () { git format-patch --stdout > t2k.patch; cd ~/src/t2k/}; xfer"
-	transfer-patch = "!xpatch () { dir=$(pwd); git format-patch --stdout \"$@\" > t2k.patch; cd ~/src/t2k/player/projects/player/src/main/webapp; patch -p1 < $dir/t2k.patch; }; xpatch"
+    # apply patches to the t2k svn tree
+    # transfer-patch = "!xfer () { git format-patch --stdout > t2k.patch; cd ~/src/t2k/}; xfer"
+    transfer-patch = "!xpatch () { dir=$(pwd); git format-patch --stdout \"$@\" > t2k.patch; cd ~/src/t2k/player/projects/player/src/main/webapp; patch -p1 < $dir/t2k.patch; }; xpatch"
 
-	# add to the last commit
-	grow-commit = commit -a --amend --no-edit
-	wip = commit -am wip
-    yolo = !git commit -am \"$(curl -s whatthecommit.com/index.txt)\"
+    # add to the last commit
+    grow-commit = commit -a --amend --no-edit
+    wip = commit -am wip
+    yolo = !git commit -am \"wip -- $(curl -s whatthecommit.com/index.txt || echo wip)\"
 [magit]
-	extension = svn
+    extension = svn
 [status]
-	submoduleSummary = true
+    submoduleSummary = true
