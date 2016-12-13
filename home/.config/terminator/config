@@ -2,23 +2,12 @@
   enabled_plugins = CustomCommandsMenu, InactivityWatch, ActivityWatch, APTURLHandler, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
   focus = mouse
 [keybindings]
+  go_down = <Alt>n
+  go_left = <Alt>h
+  go_right = <Alt>s
   go_up = <Alt>t
   next_tab = <Primary><Shift>s
   prev_tab = <Primary><Shift>h
-  go_down = <Alt>n
-  go_right = <Alt>s
-  go_left = <Alt>h
-[profiles]
-  [[default]]
-    use_system_font = False
-    visible_bell = True
-    urgent_bell = True
-    background_image = None
-    foreground_color = "#839496"
-    scroll_on_output = False
-    font = DejaVu Sans Mono 14
-    background_color = "#002b36"
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -29,3 +18,21 @@
       type = Window
       parent = ""
 [plugins]
+[profiles]
+  [[default]]
+    background_color = "#002b36"
+    background_image = None
+    font = DejaVu Sans Mono 14
+    foreground_color = "#839496"
+    scroll_on_output = False
+    scrollback_infinite = True
+    urgent_bell = True
+    use_system_font = False
+    visible_bell = True
+  [[small]]
+    background_color = "#ffffff"
+    background_image = None
+    font = DejaVu Sans Mono 10
+    foreground_color = "#000000"
+    scrollback_infinite = True
+    use_system_font = False
