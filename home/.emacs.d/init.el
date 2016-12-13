@@ -376,6 +376,8 @@
 ;; (add-hook 'python-mode-hook 'anaconda-mode)
 (elpy-enable)
 
+;; ;; which key mode
+;; (which-key-mode)
 
 ;; jedi
 ;; (add-hook 'python-mode-hook 'jedi:setup)
@@ -444,8 +446,6 @@
   (open-line arg)
   (next-line 1)
   (indent-according-to-mode))
-
-
 
 (provide 'init)
 ;;; init ends here
