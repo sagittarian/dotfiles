@@ -55,6 +55,7 @@
     grow-commit = commit -a --amend --no-edit
     wip = commit -am wip
     yolo = !git commit -am \"wip -- $(curl -s whatthecommit.com/index.txt || echo wip)\"
+    when-modified = log -1 --format=\"%ad\" --date=iso --
 [magit]
     extension = svn
 [status]
