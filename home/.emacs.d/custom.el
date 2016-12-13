@@ -57,6 +57,9 @@
  '(electric-layout-mode nil)
  '(electric-pair-delete-adjacent-pairs nil)
  '(electric-pair-preserve-balance nil)
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults)))
  '(erc-autojoin-channels-alist (quote (("freenode.net" "#emacs"))))
  '(erc-log-channels-directory "~/.log")
  '(erc-log-insert-log-on-open t)
@@ -77,6 +80,9 @@
  '(global-undo-tree-mode nil)
  '(haskell-font-lock-symbols t)
  '(haskell-mode-hook (quote (turn-on-haskell-indentation)) t)
+ '(hippie-expand-try-functions-list
+   (quote
+    (try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-lisp-symbol-partially try-complete-lisp-symbol try-expand-line try-expand-list)))
  '(holiday-bahai-holidays nil)
  '(holiday-general-holidays
    (quote
@@ -117,10 +123,11 @@
  '(jedi:complete-on-dot t)
  '(js2-allow-keywords-as-property-names nil)
  '(js2-basic-offset 4)
- '(js2-bounce-indent-p nil)
+ '(js2-bounce-indent-p t)
  '(js2-concat-multiline-strings (quote eol))
  '(js2-highlight-external-variables nil)
  '(js2-highlight-level 3)
+ '(js2-strict-trailing-comma-warning nil)
  '(keyboard-coding-system (quote utf-8-unix))
  '(linum-format " %7i ")
  '(magit-completing-read-function (quote magit-ido-completing-read))
@@ -129,6 +136,7 @@
  '(magit-diff-refine-hunk t)
  '(magit-process-popup-time 1)
  '(magit-restore-window-configuration t)
+ '(makefile-mode-hook (quote ((lambda nil (set-variable (quote tab-width) 8)))))
  '(mouse-autoselect-window t)
  '(org-agenda-files nil)
  '(org-mode-hook
@@ -159,7 +167,7 @@
  '(show-trailing-whitespace t)
  '(size-indication-mode t)
  '(smartparens-global-mode t)
- '(smartparens-global-strict-mode nil)
+ '(smartparens-global-strict-mode t)
  '(sp-autoescape-string-quote nil)
  '(sp-hybrid-kill-excessive-whitespace t)
  '(sp-successive-kill-preserve-whitespace 2)
@@ -172,8 +180,10 @@
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(uniquify-min-dir-content 1)
  '(uniquify-strip-common-suffix t)
+ '(wc-modeline-format "WC[%tl,%tw,%tc]")
  '(wdired-allow-to-change-permissions t)
  '(wgrep-enable-key (kbd "C-c C-r"))
+ '(which-key-mode t)
  '(with-editor-emacsclient-executable "/usr/bin/emacsclient")
  '(words-include-escapes t)
  '(yas-global-mode t nil (yasnippet))
