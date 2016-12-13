@@ -224,3 +224,16 @@ alias clojure='java -cp cljs.jar:src clojure.main'
 # fdna
 alias alc='workon alc && cd algo_code'
 alias rungw='gunicorn -b 0.0.0.0:9000 --log-file=- --access-logfile=- --error-logfile=- greenwood.greenwood:app'
+
+function clipcopy {
+    readlink -f $1 | xclip -sel clip
+}
+
+alias normdir='cd $(readlink -f $(pwd))'
+# function _cd {
+#     d=$(readlink -f $@)
+#     \cd $d
+# }
+# alias cd=_cd
+
+alias agentify='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa_fdna'
