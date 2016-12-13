@@ -373,7 +373,9 @@
 
 ;; python stuff
 (add-hook 'python-mode-hook (lambda () (set-variable 'tab-width 4)))
-(add-hook 'python-mode-hook 'anaconda-mode)
+;; (add-hook 'python-mode-hook 'anaconda-mode)
+(elpy-enable)
+
 
 ;; jedi
 ;; (add-hook 'python-mode-hook 'jedi:setup)
