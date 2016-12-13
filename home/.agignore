@@ -1,4 +1,5 @@
 #*#
 *.nxml
 *.sql
+*.bak
 TAGS
