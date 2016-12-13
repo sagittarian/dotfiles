@@ -213,7 +213,7 @@ function showpypath () {
 
 # virtualenv
 alias wo=workon
-alias wot='workon tonat'
+# alias wot='workon tonat'
 
 # clojure/clojurescript
 alias clojure='java -cp cljs.jar:src clojure.main'
