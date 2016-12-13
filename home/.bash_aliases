@@ -208,7 +208,7 @@ alias rnd="python3 -c 'import random, sys; print(random.choice(sys.argv[1:]))'"
 alias rndchars="strings /dev/urandom | grep -o '[A-Za-z0-9]' | head" # | tr -d "\n"
 
 function showpypath () {
-	python -c "import re, $1; print re.search(r\"([^']+.py)c?'>$\", str($1)).group(1)"
+	python -c "import re, $1; print(re.search(r\"([^']+.py)c?'>$\", str($1)).group(1))"
 }
 
 # virtualenv
