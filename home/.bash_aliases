@@ -9,6 +9,8 @@ alias ipy2=ipython
 alias bpy=bpython3
 alias bpy2=bpython
 
+alias pyecho="python -c 'import sys; print(sys.argv[1:])'"
+
 if hash emacsclient.emacs-snapshot 2>/dev/null; then
     alias emacs=emacs-snapshot
     alias emacsclient=emacsclient.emacs-snapshot
