@@ -1,6 +1,7 @@
 ;; some things...
 ;; (global-set-key (kbd "C-o") 'other-window)
-(global-set-key (kbd "C-+") 'other-window)
+;; (global-set-key (kbd "C-+") 'other-window)
+(global-set-key (kbd "M-+") 'other-window)
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
 (global-set-key (kbd "M-<return>") 'am-open-next-line)
 
