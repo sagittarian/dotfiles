@@ -237,3 +237,5 @@ alias normdir='cd $(readlink -f $(pwd))'
 # alias cd=_cd
 
 alias agentify='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa_fdna'
+
+alias space='du -s * | sort -g'
