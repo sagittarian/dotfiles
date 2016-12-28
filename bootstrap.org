@@ -12,12 +12,12 @@
     - dolphin
     - kmix
     - uzbl
+    - ghc
+    - pip
   - Clone various personal repos, install dotfiles and *~/bin*
   - Install various things not via the package manager
     - node.js
     - rvm
-    - pip
-    - ghc
   - Get tagtime, install .tagtimerc
   - Install cron scripts
   - get uzbl set up (XXX fill in details)
