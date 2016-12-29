@@ -1,0 +1,4 @@
+---
+- name: Install Elisp packages
+  command: >-
+    emacs --batch --script {{ elisp_bootstrap_file }}

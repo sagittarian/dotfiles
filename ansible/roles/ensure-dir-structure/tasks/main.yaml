@@ -1,0 +1,21 @@
+---
+- name: Ensure Downloads directory
+  file:
+    state: directory
+    path: "{{ download_dir }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: Ensure bin directory
+  file:
+    state: directory
+    path: "{{ bin_dir }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: Ensure src directory
+  file:
+    state: directory
+    path: "{{ src_dir }}"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"

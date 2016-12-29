@@ -1,0 +1,2 @@
+---
+elisp_bootstrap_file: "{{ home_dir }}/.emacs.d/bootstrap.el"
