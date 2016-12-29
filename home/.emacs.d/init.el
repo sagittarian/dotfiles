@@ -26,7 +26,6 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (add-hook 'after-init-hook (lambda () (load custom-file)))
 
-
 (require 'package)
 ;; marmalade
 ;; marmalade is less up to date, let's just not use it
@@ -175,14 +174,14 @@
 
 ;; projectile
 ;; the keymap prefix has to be set before we require 'projectile
-(setq projectile-keymap-prefix (kbd "C-c p"))
-(require 'projectile)
+;;(setq projectile-keymap-prefix (kbd "C-c p"))
+;;(require 'projectile)
 
 ;; enable rebase-mode in magit
 ;; (require 'git-rebase-mode)
 ;;
 ;; tramp
-(require 'tramp)
+;;(require 'tramp)
 ;; (setq tramp-default-method "ssh")
 
 ;; yasnippets
@@ -196,7 +195,7 @@
 	 (define-key yas-keymap (kbd "C-n") 'yas-next-field-or-maybe-expand)
 	 (define-key yas-keymap (kbd "C-p") 'yas-prev-field)))
 
-(require 'magit)
+;;(require 'magit)
 
 (defun shell-command-as-kill (cmd)
   "Execute the given shell command and put its output into the kill ring"
@@ -271,7 +270,7 @@
     (kill-new (message fname))))
 
 ;; wc-mode
-(require 'wc-mode)
+;;(require 'wc-mode)
 
 ;; ;; nxhtml mode
 ;; (load "nxhtml/autostart.el")
@@ -324,13 +323,13 @@
 ;; (add-hook 'after-init-hook
 ;; 		  '(lambda ()
 ;; 			 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))))
-(require 'js2-mode)
+;;(require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(require 'js2-refactor)
+;;(require 'js2-refactor)
 ;;(add-hook 'js2-mode-hook 'ac-js2-mode)
 
-(require 'uniquify)
-(require 'saveplace)
+;;(require 'uniquify)
+;;(require 'saveplace)
 
 ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 (defun rename-file-and-buffer (new-name)
