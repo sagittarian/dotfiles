@@ -151,6 +151,7 @@
      org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
  '(projectile-enable-caching t)
  '(projectile-global-mode t)
+ '(projectile-mode t nil (projectile))
  '(projectile-sort-order (quote recently-active))
  '(projectile-switch-project-action (quote projectile-dired))
  '(projectile-use-git-grep t)
