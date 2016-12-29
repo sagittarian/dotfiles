@@ -1,0 +1,50 @@
+---
+- name: Ensure dotfiles repo exists
+  git:
+    repo: "{{ dotfiles_remote_url }}"
+    dest: "{{ dotfiles_dir }}"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+
+- name: "Ensure user's config directories exist"
+  file:
+    state: directory
+    path: "{{ home_dir }}/{{ item }}"
+    recurse: yes
+  with_items:
+    - .config
+    - .local/share
+
+- name: Create symlinks in home directory
+  file:
+    state: link
+    src: "{{ dotfiles_dir }}/home/{{ item }}"
+    path: "{{ home_dir }}/{{ item }}"
+    force: yes
+  with_items:
+    - .ackrc
+    - .agignore
+    - .bash_aliases
+    - .bashrc
+    - .bash_vars
+    - .config/pip
+    - .config/terminator
+    - .config/uzbl
+    - .config/youtube-dl.conf
+    - .emacs.d
+    - .gitconfig
+    - .inputrc
+    # - .jython
+    # - .kde
+    - .local/share/uzbl
+    # - .pd
+    - .profile
+    - .vimrc
+
+- name: Copy the dmenu_run_aliases to ~/bin
+  copy:
+    remote_src: yes
+    src: "{{ dotfiles_dir }}/scripts/dmenu_run_aliases"
+    dest: "{{ bin_dir }}"
+    mode: a+x
