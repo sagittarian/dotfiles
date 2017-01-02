@@ -17,3 +17,56 @@
     regexp: 127.0.0.1\s+{{ item | regex_replace('\s+', '\\s+') }}
   with_items: "{{ sites }}"
 
+- name: Find path for ansible-playbook
+  tags:
+    - crontab_block
+  command: which ansible-playbook
+  register: ansible_playbook_cmd
+
+- name: Add crontab jobs to block sites on a Pomo
+  tags:
+    - crontab_block
+  become: yes
+  cron:
+    state: present
+    name: "Block timewasters when on a Pomo: {{ item.name }}"
+    user: root
+    job: >-
+      {{ ansible_playbook_cmd.stdout }}
+      {{ src_dir }}/dotfiles/ansible/playbooks/block.yaml
+      -i {{ src_dir }}/dotfiles/ansible/inventory
+      > /dev/null
+    hour: "{{ item.hour }}"
+    minute: "{{ item.minute }}"
+  with_items:
+    - minute: 28
+      hour: 1-23/2
+      name: odd hours
+    - minute: 8,48
+      hour: 0-23/2
+      name: even hours
+
+- name: Add crontab jobs to unblock sites on a break
+  # when: no
+  tags:
+    - crontab_block
+  become: yes
+  cron:
+    state: present
+    name: "Unblock timewasters when on a break: {{ item.name }}"
+    user: root
+    job: >-
+      {{ ansible_playbook_cmd.stdout }}
+      {{ src_dir }}/dotfiles/ansible/playbooks/unblock.yaml
+      -i {{ src_dir }}/dotfiles/ansible/inventory
+      > /dev/null
+    hour: "{{ item.hour }}"
+    minute: "{{ item.minute }}"
+  with_items:
+    - minute: 20
+      hour: 1-23/2
+      name: odd hours
+    - minute: 0,40
+      hour: 0-23/2
+      name: even hours
+
