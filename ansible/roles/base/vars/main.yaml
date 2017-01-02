@@ -1,0 +1,4 @@
+home_dir: "{{ ansible_user_dir }}"
+download_dir: "{{ home_dir }}/Downloads"
+bin_dir: "{{ home_dir }}/bin"
+src_dir: "{{ home_dir }}/src"
