@@ -1,0 +1,26 @@
+block: yes
+sites:
+  - reddit.com www.reddit.com
+  - m.facebook.com facebook.com www.facebook.com
+  - realclearpolitics.com www.realclearpolitics.com
+  - fivethirtyeight.com www.fivethirtyeight.com
+  - everydayfeminism.com www.everydayfeminism.com
+  - vox.com www.vox.com
+  - econlog.econlib.org
+  - twitter.com www.twitter.com
+  - nytimes.com www.nytimes.com
+  - washingtonpost.com www.washingtonpost.com
+  - news.google.com
+  - breitbart.com www.breitbart.com
+  - nymag.com www.nymag.com
+  - cnn.com www.cnn.com
+  - time.com www.time.com
+  - theatlantic.com www.theatlantic.com
+  - businessinsider.com www.businessinsider.com
+  - huffingtonpost.com www.huffingtonpost.com
+  - blog.dilbert.com
+  - theguardian.com www.theguardian.com
+  - unz.com www.unz.com
+  - instagram.com www.instagram.com
+  - pinterest.com www.pinterest.com
+  - web.whatsapp.com

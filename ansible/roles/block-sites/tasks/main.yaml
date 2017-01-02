@@ -1,0 +1,19 @@
+---
+- name: Block timewaster sites
+  become: yes
+  when: block
+  lineinfile:
+    state: present
+    dest: /etc/hosts
+    line: 127.0.0.1   {{ item }}
+  with_items: "{{ sites }}"
+
+- name: Unblock timewaster sites
+  become: yes
+  when: not block
+  lineinfile:
+    state: absent
+    dest: /etc/hosts
+    regexp: 127.0.0.1\s+{{ item | regex_replace('\s+', '\\s+') }}
+  with_items: "{{ sites }}"
+

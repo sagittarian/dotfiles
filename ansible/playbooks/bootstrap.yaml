@@ -17,3 +17,5 @@
       become: no
     - role: init-emacs
       become: no
+    - role: block-sites
+      become: yes

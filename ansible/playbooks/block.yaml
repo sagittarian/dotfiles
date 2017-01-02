@@ -1,0 +1,7 @@
+---
+- hosts: localmachine
+  tags: block
+  roles:
+    - role: block-sites
+      become: yes
+      block: yes
