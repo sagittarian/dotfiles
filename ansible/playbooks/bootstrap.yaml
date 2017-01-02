@@ -12,5 +12,7 @@
       become: no
     - role: init-emacs
       become: no
+    - role: crontab
+      become: yes
     - role: block-sites
       become: yes
