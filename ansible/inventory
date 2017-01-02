@@ -11,5 +11,5 @@ ansible_user = ubuntu
 ansible_host = 127.0.0.1
 
 [localmachine:children]
-vagrant
+# vagrant
 local
