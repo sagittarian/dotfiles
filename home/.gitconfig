@@ -60,3 +60,5 @@
     extension = svn
 [status]
     submoduleSummary = true
+[rebase]
+	autoStash = true
