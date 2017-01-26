@@ -1,0 +1,6 @@
+---
+- name: Clone pytagtime
+  git:
+    dest: "{{ src_dir }}/pytagtime"
+    accept_hostkey: yes
+    repo: "{{ pytagtime_repo_url }}"

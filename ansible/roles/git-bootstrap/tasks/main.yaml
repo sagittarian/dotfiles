@@ -1,0 +1,13 @@
+---
+- name: Clone org and notes repo
+  git:
+    dest: "{{ src_dir }}/{{ item.dir }}"
+    repo: "{{ item.url }}"
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+  with_items:
+    - url: "{{ org_repo_url }}"
+      dir: "{{ org_repo }}"
+    - url: "{{ notes_repo_url }}"
+      dir: "{{ notes_repo }}"
