@@ -45,6 +45,7 @@
   - smex
   - ido-completing-read+ (for magit/ido integration)
   - pyvenv
+  - elpy
 ** nice to have emacs
    - editorconfig
 * things that may be nice to have (but not absolutely necessary)
