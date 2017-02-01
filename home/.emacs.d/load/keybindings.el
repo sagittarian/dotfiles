@@ -41,7 +41,7 @@
 (global-set-key (kbd "C-c t") 'insert-timestamp)
 (global-set-key (kbd "C-c o") 'switch-to-minibuffer)
 (global-set-key (kbd "C-x M-e") 'eval-and-replace)
-(global-set-key (kbd "C-c f") 'current-buffer-file-name)
+(global-set-key (kbd "C-c w") 'current-buffer-file-name)
 
 ;; use my own function that saves the file when you switch windows
 (define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
