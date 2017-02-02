@@ -1,5 +1,7 @@
 ---
 - name: Clone org and notes repo
+  tags:
+    - git-bootstrap
   git:
     dest: "{{ src_dir }}/{{ item.dir }}"
     repo: "{{ item.url }}"

@@ -4,3 +4,24 @@
     dest: "{{ src_dir }}/pytagtime"
     accept_hostkey: yes
     repo: "{{ pytagtime_repo_url }}"
+  notify:
+    - Restart pytagtime
+
+- name: Create .pytagtimerc
+  template:
+    dest: "{{ home_dir }}/.pytagtimerc"
+    src: pytagtimerc.py
+  notify:
+    - Restart pytagtime
+
+- name: Install supervisord
+  become: yes
+  apt: name=supervisor state=present update_cache=yes
+
+- name: Install pytagtime supervisor config
+  become: yes
+  template:
+    dest: "{{ supervisor_conf_dir }}/pytagtime.conf"
+    src: pytagtime.conf
+  notify:
+    - Restart pytagtime

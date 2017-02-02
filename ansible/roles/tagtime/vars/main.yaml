@@ -1,1 +1,2 @@
 pytagtime_repo_url: git@github.com:sagittarian/pytagtime.git
+supervisor_conf_dir: /etc/supervisor/conf.d

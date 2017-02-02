@@ -1,0 +1,6 @@
+---
+- name: Restart pytagtime
+  become: yes
+  supervisorctl:
+    name: pytagtime
+    state: restarted
