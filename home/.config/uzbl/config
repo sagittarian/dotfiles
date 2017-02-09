@@ -529,7 +529,8 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .book<book search:>_    = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@+-inurl%3A%28htm%7Chtml%7Cphp%7Cpls%7Ctxt%29+intitle%3Aindex.of+%22last+modified%22+%28lit%7Cepub%7Cmobi%7Cpdf%29
 @cbind .ddg<DuckDuckGo:>_        = uri http://duckduckgo.com/?q=%s
 @cbind .awiki<Archwiki:>_        = uri http://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
-@cbind .w<Wikipedia:>_           = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind .wp<Wikipedia:>_          = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind .wt<Wiktionary:>_         = uri http://en.wiktionary.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
 @cbind .arch                     = uri http://web.archive.org/*/\@uri
 @cbind .dict<dictionary.com:>_   = uri http://dictionary.reference.com/browse/\@<encodeURIComponent(%r)>\@
 @cbind .thes<thesaurus.com:>_    = uri http://thesaurus.reference.com/browse/\@<encodeURIComponent(%r)>\@
@@ -543,5 +544,7 @@ set uri = uzbl.org/doesitwork/@COMMIT
 @cbind .revo<ReVo:>_             = uri http://www.reta-vortaro.de/cgi-bin/sercxu.pl?sercxata=\@<encodeURIComponent(%r)>\@
 @cbind .latin<Words:>_           = uri http://www.archives.nd.edu/cgi-bin/wordz.pl?keyword=\@<encodeURIComponent(%r)>\@
 @cbind .greek<Greek:>_           = uri http://www.perseus.tufts.edu/hopper/resolveform?type=start&lookup=\@<encodeURIComponent(%r)>\@&lang=greek
+@cbind .deen<Wordreference DE-EN:>_    = uri http://www.wordreference.com/deen/\@<encodeURIComponent(%r)>\@
+@cbind .ende<Wordreference EN-DE:>_    = uri http://www.wordreference.com/ende/\@<encodeURIComponent(%r)>\@
 
 # vim: set fdm=syntax:
