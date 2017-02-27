@@ -13,7 +13,7 @@
 [credential]
     helper = cache --timeout=3600
 [diff]
-    algorithm = patience
+	algorithm = patience
 [alias]
     ci = commit
     co = checkout
@@ -62,3 +62,5 @@
     submoduleSummary = true
 [rebase]
 	autoStash = true
+[pull]
+	rebase = true
