@@ -239,3 +239,7 @@ alias normdir='cd $(readlink -f $(pwd))'
 alias agentify='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa_fdna'
 
 alias space='du -s * | sort -g'
+
+function pypath {
+    echo PYTHONPATH=/home/adam/src/common_infra/$1:/home/adam/src/searcher/$1
+}
