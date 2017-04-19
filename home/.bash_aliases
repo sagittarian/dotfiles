@@ -218,6 +218,8 @@ alias wo=workon
 # clojure/clojurescript
 alias clojure='java -cp cljs.jar:src clojure.main'
 
+alias xsel='xclip -sel clip'
+
 # put PD stuff in a separate file
 # source ~/.pd
 
