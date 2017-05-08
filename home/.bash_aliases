@@ -19,6 +19,7 @@ if hash emacsclient.emacs-snapshot 2>/dev/null; then
 else
     alias e="emacsclient -n -c -a ''"
     alias e.="emacsclient -n -c -a '' ."
+    alias ec="emacsclient -nw"
     EDITOR=emacsclient
 fi
 export EDITOR
