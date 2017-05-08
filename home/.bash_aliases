@@ -246,3 +246,8 @@ alias space='du -s * | sort -g'
 function pypath {
     echo PYTHONPATH=/home/adam/src/common_infra/$1:/home/adam/src/searcher/$1
 }
+
+function cppath {
+    file=$1
+    echo -n $(readlink -f $file) | xclip -sel clip
+}
