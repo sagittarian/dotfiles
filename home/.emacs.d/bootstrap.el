@@ -7,6 +7,7 @@
             elpy smex smartparens sublime-themes expand-region
             yaml-mode ansible-doc ggtags jinja2-mode
             json-mode json-reformat
+            docker marcopolo dockerfile-mode docker-tramp docker-api
             pyvenv which-key))
 
 ;; some others
