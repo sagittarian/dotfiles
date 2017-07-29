@@ -1,5 +1,7 @@
 (setq package-list
-      '(flx flx-ido flx-isearch yasnippet projectile magit
+      '(flx flx-ido
+            ;; flx-isearch ;; seems broken
+            yasnippet projectile magit
             git-timemachine wc-mode js2-mode js2-refactor
             ;; uniquify saveplace
             flycheck flycheck-ghcmod flycheck-haskell flymake-easy
