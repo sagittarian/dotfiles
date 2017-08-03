@@ -76,7 +76,7 @@
  '(flex-isearch-auto (quote on-failed))
  '(focus-follows-mouse t)
  '(git-commit-confirm-commit nil)
- '(global-flex-isearch-mode t)
+ '(global-flex-isearch-mode nil)
  '(global-linum-mode t)
  '(global-undo-tree-mode nil)
  '(haskell-font-lock-symbols t)
