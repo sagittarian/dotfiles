@@ -78,6 +78,7 @@
  '(git-commit-confirm-commit nil)
  '(global-flex-isearch-mode nil)
  '(global-linum-mode t)
+ '(global-magit-file-mode t)
  '(global-undo-tree-mode nil)
  '(haskell-font-lock-symbols t)
  '(haskell-mode-hook (quote (turn-on-haskell-indentation)) t)
