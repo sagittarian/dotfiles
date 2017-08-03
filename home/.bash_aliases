@@ -251,3 +251,5 @@ function cppath {
     file=$1
     echo -n $(readlink -f $file) | xclip -sel clip
 }
+
+alias dux='du -sc * | sort -g'
