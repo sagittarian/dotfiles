@@ -1,0 +1,49 @@
+---
+- name: register short codename
+  # e.g. 'xenial' on Ubuntu Xenial
+  command: lsb_release -cs
+  register: short_codename
+  tags:
+    - docker
+
+- name: install docker prerequisites
+  apt: name={{item}} update_cache=yes state=present
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+  tags:
+    - docker
+
+- name: add docker gpg key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  tags:
+    - docker
+
+- name: add docker repository
+  apt_repository:
+    state: present
+    repo: >-
+      deb [arch=amd64] https://download.docker.com/linux/ubuntu
+      {{ short_codename.stdout }} stable
+  tags:
+    - docker
+
+- name: install docker
+  apt:
+    state: present
+    name: docker-ce
+    update_cache: yes
+  tags:
+    - docker
+
+- name: add user to docker group
+  user:
+    append: yes
+    name: "{{ ansible_user }}"
+    groups: docker
+  tags:
+    docker

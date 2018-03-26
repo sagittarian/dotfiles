@@ -10,6 +10,8 @@
       become: no
     - role: install-nodejs
       become: no
+    - role: install-docker
+      become: yes
     - role: init-emacs
       become: no
 #    - role: crontab
