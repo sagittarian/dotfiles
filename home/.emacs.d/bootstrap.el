@@ -2,13 +2,14 @@
       '(flx flx-ido
             ;; flx-isearch ;; seems broken
             yasnippet projectile magit
+            ido-completing-read+
             git-timemachine wc-mode js2-mode js2-refactor
             ;; uniquify saveplace
             flycheck flycheck-ghcmod flycheck-haskell flymake-easy
             flymake-hlint flymake-jshint flymake-json flymake-yaml
             elpy smex smartparens sublime-themes expand-region
             yaml-mode ansible-doc ggtags jinja2-mode
-            json-mode json-reformat ag swiper
+            json-mode json-reformat ag winnow swiper
             docker marcopolo dockerfile-mode docker-tramp docker-api
             pyvenv which-key))
 
