@@ -81,6 +81,10 @@
 ;; (global-set-key (kbd "C-M-s") 'isearch-forward)
 ;; (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+;; swiper
+(global-set-key (kbd "C-S-s") 'swiper)
+
+
 (global-set-key (kbd "C-c %") 'replace-string)
 (global-set-key (kbd "C-c M-%") 'replace-regexp)
 (global-set-key (kbd "C-x j") 'auto-fill-mode)
