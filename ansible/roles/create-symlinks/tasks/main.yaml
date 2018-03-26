@@ -16,6 +16,7 @@
     recurse: yes
   with_items:
     - .config
+    - .config/i3
     - .local/share
 
 - name: Create symlinks in home directory
@@ -34,6 +35,7 @@
     - .config/terminator
     - .config/uzbl
     - .config/youtube-dl.conf
+    - .config/i3/config
     - .emacs.d
     - .gitconfig
     - .inputrc
