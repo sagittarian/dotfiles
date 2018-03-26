@@ -21,6 +21,7 @@
     - ksysguard
     - kate
     - kdesudo
+    - openssh-server
 
 - name: Download Chrome
   get_url:
