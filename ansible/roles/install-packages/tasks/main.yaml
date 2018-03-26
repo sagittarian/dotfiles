@@ -22,11 +22,15 @@
   get_url:
     url: "{{ chrome_download_url }}"
     dest: "{{ download_dir }}/{{ chrome_download_url | basename }}"
+  tags:
+    - chrome
 
 - name: Install Chrome
   apt:
     deb: "{{ download_dir }}/{{ chrome_download_url | basename }}"
     state: present
+  tags:
+    - chrome
 
 - name: Install python packages
   pip: name={{ item }}

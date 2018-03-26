@@ -6,6 +6,8 @@
     clone: yes
     update: yes
     accept_hostkey: yes
+  tags:
+    - dotfiles
 
 - name: "Ensure user's config directories exist"
   file:
