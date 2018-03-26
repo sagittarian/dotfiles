@@ -8,7 +8,7 @@
             flymake-hlint flymake-jshint flymake-json flymake-yaml
             elpy smex smartparens sublime-themes expand-region
             yaml-mode ansible-doc ggtags jinja2-mode
-            json-mode json-reformat
+            json-mode json-reformat ag swiper
             docker marcopolo dockerfile-mode docker-tramp docker-api
             pyvenv which-key))
 
