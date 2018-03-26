@@ -1,0 +1,6 @@
+Example command:
+
+$ ansible-playbook -vvv --vault-password-file=vpass --skip-tags=chrome,dotfiles --become-method=sudo --ask-become-pass playbooks/bootstrap.yaml
+
+- Need to ensure that your SSH public key is updated at github and bitbucket.
+- Need to put the vault password in the vpass file (or similar).
