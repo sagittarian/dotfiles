@@ -13,10 +13,14 @@
     - dolphin
     - kmix
     - uzbl
+    - jq
     - ghc
     - python-pip
     - python3
     - python3-pip
+    - ksysguard
+    - kate
+    - kdesudo
 
 - name: Download Chrome
   get_url:
