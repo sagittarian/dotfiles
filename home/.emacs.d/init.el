@@ -446,6 +446,10 @@
   (next-line 1)
   (indent-according-to-mode))
 
+;; enable winnow-mode globally
+(add-hook 'compilation-mode-hook 'winnow-mode)
+
+(put 'set-goal-column 'disabled nil)
+
 (provide 'init)
 ;;; init ends here
-(put 'set-goal-column 'disabled nil)
