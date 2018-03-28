@@ -23,6 +23,7 @@
     - kate
     - kdesudo
     - openssh-server
+    - exuberant-ctags
 
 - name: Download Chrome
   get_url:
