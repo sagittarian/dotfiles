@@ -144,6 +144,13 @@ if [ -f ~/.bash_vars ]; then
     . ~/.bash_vars
 fi
 
+# additions for specific hosts
+repo_root=$(dirname $(dirname $(readlink -f "$BASH_SOURCE")))
+host_config=$repo_root/host-config/$(hostname).sh
+if [ -f "$host_config" ]; then
+    . "$host_config"
+fi
+
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/src
