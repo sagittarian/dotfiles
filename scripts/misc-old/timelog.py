@@ -12,7 +12,7 @@ from collections import defaultdict
 
 USERNAME = 'adam'
 import codecs
-PASSWORD = codecs.getencoder('rot-13')('tynhxbcvf5')[0]
+PASSWORD = codecs.getencoder('rot-13')('wqqhoyqth1')[0]
 WIKIROOT = 'https://raven.mesha.org/wiki/'
 APIURL = WIKIROOT + 'api.php'
 EMAIL = 'adam@mesha.org'
@@ -34,7 +34,7 @@ def login():
         'format': 'json',
     }
     postdata = urllib.parse.urlencode(postdatadict).encode('ascii')
-    
+
     result = None
     while result is None or result['login']['result'] == 'NeedToken':
         if result is not None and 'token' in result['login']:
@@ -67,7 +67,7 @@ def pretty(printouts):
             data = data['fulltext']
         d[key] = data
     return d
-    
+
 def timelog_items(mindate=None, maxdate=None, cat=None, subcat=None):
     '''Return all time logs matching the parameter criteria'''
     qstr = '[[object type::time log]]'
@@ -158,7 +158,7 @@ def timelog_report(mindate=None, maxdate=None, only_ratios=False):
     else:
         heading = 'Full time log'
     ratios['heading'] = heading
-    
+
     return ratios
 
 def prettify(report, round_hours=True):
