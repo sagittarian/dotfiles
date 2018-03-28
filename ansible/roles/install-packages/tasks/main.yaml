@@ -13,7 +13,7 @@
     - terminator
     - dolphin
     - kmix
-    - uzbl
+    # - uzbl
     - jq
     - ghc
     - python-pip
