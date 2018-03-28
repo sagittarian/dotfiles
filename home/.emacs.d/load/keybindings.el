@@ -5,7 +5,6 @@
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
 (global-set-key (kbd "M-<return>") 'am-open-next-line)
 
-
 ;; print screen is where the menu key should be on my thinkpad
 (global-set-key (kbd "<print>") 'execute-extended-command)
 
@@ -83,6 +82,7 @@
 
 ;; swiper
 (global-set-key (kbd "C-S-s") 'swiper)
+;; (global-set-key (kbd "C-s") 'swiper)
 
 
 (global-set-key (kbd "C-c %") 'replace-string)
