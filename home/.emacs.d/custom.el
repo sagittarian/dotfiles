@@ -136,6 +136,7 @@
  '(magit-diff-arguments (quote ("--no-ext-diff" "-w")))
  '(magit-diff-options (quote ("--patience" "-b")))
  '(magit-diff-refine-hunk t)
+ '(magit-diff-section-arguments (quote ("--no-ext-diff" "-w")))
  '(magit-process-popup-time 1)
  '(magit-restore-window-configuration t)
  '(makefile-mode-hook (quote ((lambda nil (set-variable (quote tab-width) 8)))))
