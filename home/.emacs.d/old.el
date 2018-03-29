@@ -31,13 +31,6 @@
 ;; ;; 	  (set-buffer buf)
 ;; ;; 	  (if (and (buffer-file-name) (buffer-modified-p))
 ;; ;; 		  (basic-save-buffer)))))
-;; (defun full-auto-save ()
-;;   (interactive)
-;;   ;;(message "full-auto-save-one-file")
-;;   (save-excursion
-;; 	  (if (and (buffer-file-name) (buffer-modified-p))
-;; 		  (save-buffer))))
-;; (add-hook 'auto-save-hook 'full-auto-save)
 
 ;; ;; smart-tabs-mode
 ;; (autoload 'smart-tabs-mode "smart-tabs-mode"

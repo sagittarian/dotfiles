@@ -11,6 +11,14 @@
 	  (delete-trailing-whitespace start end)
 	  (when save (insert-before-markers save)))))
 
+(defun full-auto-save ()
+  (interactive)
+  ;;(message "full-auto-save-one-file")
+  (save-excursion
+	  (if (and (buffer-file-name) (buffer-modified-p))
+		  (save-buffer))))
+(add-hook 'auto-save-hook 'full-auto-save)
+
 ;; save the buffer when switching to another window
 (defun save-buffer-other-window (count &optional all-frames)
   "Save the buffer before switching to another window"
