@@ -194,17 +194,6 @@ alias j2y="ruby -r json -r yaml -e 'puts YAML.dump JSON.load \$stdin.read'"
 alias org='cd ~/src/org'
 alias dl='cd ~/src/dl'
 
-# t2k
-alias extract-data="jq -r '.[keys[0]].convertedData'"
-function t2k_hotfix_patch () {
-    git format-patch --stdout ${@:-HEAD^} | (cd $T2K_HOTFIX_BRANCH && patch -p1)
-}
-
-# convert to svn
-alias svn-authors-transform='svn log -q | awk -F '"'"'|'"'"' '"'"'/^r/ {sub("^ ", "", $2); sub(" $", "", $2); print $2" = "$2" <"$2">"}'"'"' | sort -u'
-
-alias rm_git_svn_id="ruby -n -i.orig -e '"
-
 alias rnd="python3 -c 'import random, sys; print(random.choice(sys.argv[1:]))'"
 alias rndchars="strings /dev/urandom | grep -o '[A-Za-z0-9]' | head" # | tr -d "\n"
 
@@ -214,19 +203,11 @@ function showpypath () {
 
 # virtualenv
 alias wo=workon
-# alias wot='workon tonat'
 
 # clojure/clojurescript
 alias clojure='java -cp cljs.jar:src clojure.main'
 
 alias xsel='xclip -sel clip'
-
-# put PD stuff in a separate file
-# source ~/.pd
-
-# fdna
-alias alc='workon alc && cd algo_code'
-alias rungw='gunicorn -b 0.0.0.0:9000 --log-file=- --access-logfile=- --error-logfile=- greenwood.greenwood:app'
 
 function clipcopy {
     readlink -f $1 | xclip -sel clip
@@ -238,8 +219,6 @@ alias normdir='cd $(readlink -f $(pwd))'
 #     \cd $d
 # }
 # alias cd=_cd
-
-alias agentify='eval $(ssh-agent) && ssh-add ~/.ssh/id_rsa_fdna'
 
 alias space='du -s * | sort -g'
 

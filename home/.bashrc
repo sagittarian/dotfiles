@@ -128,14 +128,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# old WP stuff
-# export WPORG_USER=sagittarian
-# Composer scripts
-# export PATH=$HOME/.composer/bin:$PATH
-
-# WP-CLI completions
-# source $HOME/.composer/vendor/wp-cli/wp-cli/utils/wp-completion.bash
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -157,16 +149,6 @@ export PROJECT_HOME=$HOME/src
 source /usr/local/bin/virtualenvwrapper.sh
 # source /home/adam/jython/bin/virtualenvwrapper.sh
 
-# working on foreman locally
-export RAILS_ENV=development
-
-# use my version of java 8
-# export PATH="$HOME/java8/bin:$PATH"
-# export JAVA_HOME="$HOME/java8/"
-
-# golang
-export GOPATH="$HOME"
-
 # bash completion
 compdir="$HOME/.bash_completion.d"
 if [ -e $compdir ]; then
@@ -174,14 +156,3 @@ if [ -e $compdir ]; then
         source "$compdir/$fname";
     done
 fi
-
-export NVM_DIR="/home/adam/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# RVM
-# Add RVM to PATH for scripting.
-# Make sure this is the last PATH variable change.
-# export PATH="$HOME/.rvm/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin"
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
