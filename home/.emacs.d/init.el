@@ -113,6 +113,47 @@
 (load "functions")
 (load "keybindings")
 
+(defhydra hydra-nav (global-map "C-c n")
+  "nav"
+  ("n" next-line)
+  ;; ("k" next-line)
+  ("p" previous-line)
+  ;; ("j" previous-line)
+  ("f" forward-char)
+  ("b" backward-char)
+  ;; ("h" backward-char)
+  ("a" beginning-of-line)
+  ("e" move-end-of-line)
+  ("v" scroll-up-command)
+  ("V" scroll-down-command)
+  ("M-v" scroll-down-command)
+  ("u" sp-backward-up-sexp)
+  ("d" sp-down-sexp)
+  ("l" recenter-top-bottom)
+  ("<" beginning-of-buffer "top")
+  (">" end-of-buffer "end")
+  ("o" other-window "other-window")
+  ("j" ace-jump-word-mode "jump-word" :color blue)
+  ("c" ace-jump-char-mode "jump-char" :color blue)
+  ("g" ace-jump-line-mode "jump-line" :color blue))
+
+(defhydra hydra-window (global-map "C-c {")
+  "window"
+  ("{" shrink-window-horizontally)
+  ("}" enlarge-window-horizontally)
+  ("^" enlarge-window)
+  ("v" shrink-window)
+  ("+" balance-windows)
+  ("=" balance-windows)
+  ("o" other-window)
+  ("0" delete-window "del")
+  ("1" delete-other-windows "del-other")
+  ("2" split-window-below "split-below")
+  ("3" split-window-right "split-right"))
+
+(move-text-default-bindings)
+
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 (provide 'init)
 ;;; init ends here

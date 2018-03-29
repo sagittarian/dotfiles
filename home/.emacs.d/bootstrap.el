@@ -12,6 +12,7 @@
             json-mode json-reformat ag winnow swiper
             fill-column-indicator
             docker marcopolo dockerfile-mode docker-tramp docker-api
+            hydra move-text undo-tree git-ps1-mode ace-jump-mode
             pyvenv which-key))
 
 ;; some others
