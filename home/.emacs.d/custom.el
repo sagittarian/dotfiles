@@ -28,6 +28,9 @@
  '(auto-indent-kill-remove-extra-spaces t)
  '(auto-save-interval 20)
  '(auto-save-timeout 5)
+ '(avy-keys
+   (quote
+    (97 111 101 117 105 100 104 116 110 115 46 112 121 102 103 99 114)))
  '(blink-cursor-mode t)
  '(c-default-style
    (quote
