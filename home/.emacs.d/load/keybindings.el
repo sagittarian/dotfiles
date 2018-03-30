@@ -36,6 +36,9 @@
 ;; use my own function that saves the file when you switch windows
 (define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
 
+;; use avy-goto-line instead of goto-line
+(define-key (current-global-map) [remap goto-line] 'avy-goto-line)
+
 ;; flycheck
 (global-set-key (kbd "C-!") 'flycheck-next-error)
 (global-set-key (kbd "C-M-!") 'flycheck-previous-error)
