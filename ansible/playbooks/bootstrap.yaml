@@ -12,6 +12,8 @@
       become: no
     - role: install-docker
       become: yes
+    - role: install-anki
+      become: no
     - role: init-emacs
       become: no
 #    - role: crontab
