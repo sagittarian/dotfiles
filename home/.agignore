@@ -1,5 +1,6 @@
-#*#
+\#*\#
 *.nxml
 *.sql
 *.bak
 TAGS
+*~
