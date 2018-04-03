@@ -77,7 +77,7 @@
                 'js-doc-insert-file-doc)
               (define-key js2-mode-map "@"
                 'js-doc-insert-tag)
-              (define-key js2-mode-map (kdb "C-c j h")
+              (define-key js2-mode-map (kbd "C-c j h")
                 'js-doc-describe-tag)))
 
 ;; ;; Align your code in a pretty way.
