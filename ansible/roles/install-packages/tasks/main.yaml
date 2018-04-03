@@ -21,9 +21,15 @@
     - python3-pip
     - ksysguard
     - kate
+    - kwrite
     - kdesudo
     - openssh-server
     - exuberant-ctags
+    - isympy
+    - python-sympy
+    - python3-sympy
+    - pavucontrol
+    - gwenview
 
 - name: Download Chrome
   get_url:
