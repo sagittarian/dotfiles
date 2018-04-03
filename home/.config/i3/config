@@ -30,7 +30,7 @@ bindsym $mod+m exec emacsclient -n -c
 # don't forget uzbl
 bindsym $mod+g exec uzbl-browser
 # open terminator with ipython
-bindsym $mod+Shift+C exec terminator -e ipython
+bindsym $mod+Shift+C exec terminator -e isympy
 # open terminator with ghci
 bindsym $mod+Shift+g exec terminator -e ghci
 
