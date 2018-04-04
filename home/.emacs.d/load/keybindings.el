@@ -9,7 +9,7 @@
 
 ;; expand region
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kdb "C-9") 'er/contract-region)
+(global-set-key (kbd "C-9") 'er/contract-region)
 
 ;; macro to make an anki cloze
 (global-set-key (kbd "C-c c") 'make-cloze)
