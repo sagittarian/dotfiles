@@ -21,3 +21,11 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin"
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+export CDPATH=$CDPATH:$HOME/src/genie/branches
+
+export GENIE_ENV=dev
+
+# source $HOME/.virtualenvs/geniedev/bin/activate
+workon geniedev
