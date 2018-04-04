@@ -30,6 +30,7 @@
     - python3-sympy
     - pavucontrol
     - gwenview
+    - meld
 
 - name: Download Chrome
   get_url:
