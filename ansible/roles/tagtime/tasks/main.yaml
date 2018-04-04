@@ -25,3 +25,15 @@
     src: pytagtime.conf
   notify:
     - Restart pytagtime
+
+- name: Add cron job to notify if editing tagtime
+  become: no
+  cron:
+    state: present
+    user: "{{ ansible_user }}"
+    job: >-
+      pgrep -f
+        $(python3 -c
+          'import codecs; print(codecs.decode("GntGvzr", "rot13"))')
+        > /dev/null &&
+      notify-send tagtime 'Waiting for tagtime'
