@@ -173,6 +173,9 @@
            [org-add-hook change-major-mode-hook org-babel-show-result-all append local]
            5]
      org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
+ '(package-selected-packages
+   (quote
+    (js-doc git-timemachine org-jira undo-tree yaml-mode winnow which-key wc-mode swiper sublime-themes ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode ido-completing-read+ haml-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod flx-ido fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag)))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-global-mode t)
