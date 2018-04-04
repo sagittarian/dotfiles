@@ -11,6 +11,7 @@
             yaml-mode ansible-doc ggtags jinja2-mode
             json-mode json-reformat ag winnow swiper
             fill-column-indicator
+            ;; undo-tree
             docker marcopolo dockerfile-mode docker-tramp docker-api
             ;; isearch+
             hydra move-text undo-tree git-ps1-mode
