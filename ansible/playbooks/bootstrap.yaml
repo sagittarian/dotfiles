@@ -16,10 +16,8 @@
       become: no
     - role: init-emacs
       become: no
-#    - role: crontab
-#      become: yes
-#    - role: block-sites
-#      become: yes
+    - role: crontab
+      become: no
     - role: git-bootstrap
       become: no
       tags:
