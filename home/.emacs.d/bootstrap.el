@@ -3,7 +3,7 @@
             ;; flx-isearch ;; seems broken
             yasnippet projectile magit
             ido-completing-read+
-            git-timemachine wc-mode js2-mode js2-refactor
+            git-timemachine wc-mode js2-mode js2-refactor js-doc
             ;; uniquify saveplace
             flycheck flycheck-ghcmod flycheck-haskell flymake-easy
             flymake-hlint flymake-jshint flymake-json flymake-yaml
