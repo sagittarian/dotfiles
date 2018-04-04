@@ -32,8 +32,5 @@
     state: present
     user: "{{ ansible_user }}"
     job: >-
-      pgrep -f
-        $(python3 -c
-          'import codecs; print(codecs.decode("GntGvzr", "rot13"))')
-        > /dev/null &&
-      notify-send tagtime 'Waiting for tagtime'
+      pgrep -f $(echo GntGvzr | tr a-zA-Z n-za-mN-ZA-M) > /dev/null &&
+      notify-send -t 60000 tagtime 'Waiting for tagtime'
