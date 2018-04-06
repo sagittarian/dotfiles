@@ -1,6 +1,10 @@
 ---
 - name: apt install
-  apt: name={{item}} update_cache=yes state=present
+  apt:
+    name: "{{item}}"
+    update_cache: yes
+    state: present
+    upgrade: dist
   with_items:
     - git
     - gitk
