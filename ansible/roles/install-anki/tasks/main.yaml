@@ -16,5 +16,5 @@
 - name: Create symlink to Anki
   file:
     state: link
-    path: "{{ bin_dir }}/anki"
     src: "{{ bin_dir }}/{{ anki_unarchive_dir }}/bin/anki"
+    path: "{{ bin_dir }}/anki"
