@@ -1,10 +1,4 @@
 ---
-- name: apt upgrade installed packages
-  apt:
-    update_cache: yes
-    state: present
-    upgrade: dist
-
 - name: apt install
   apt:
     name: "{{item}}"
@@ -41,6 +35,12 @@
     - gwenview
     - meld
     - fish
+
+- name: apt upgrade installed packages
+  apt:
+    update_cache: yes
+    state: present
+    upgrade: dist
 
 - name: Download Chrome
   get_url:
