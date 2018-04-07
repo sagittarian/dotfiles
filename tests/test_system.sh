@@ -54,8 +54,8 @@ echo '  /usr/bin/python -m pip'
 cmd "/usr/bin/python -m pip -h > /dev/null"
 echo '  /usr/bin/python3 -m pip'
 cmd "/usr/bin/python3 -m pip -h > /dev/null"
-echo '  python -m virtualenv'
-cmd "python -m virtualenv -h > /dev/null"
+echo '  /usr/bin/python -m virtualenv'
+cmd "/usr/bin/python -m virtualenv -h > /dev/null"
 
 # role: create-symlinks
 test -d $SRC
