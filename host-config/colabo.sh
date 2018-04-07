@@ -1,6 +1,6 @@
 alias jenkins='ssh -L8080:localhost:8080 adam@c8-ci.colabo.com'
 alias ipy=ipython2
-alias ipy3=ipython3
+alias ipy3='[ -n "$VIRTUAL_ENV" ] && deactivate; ipython3'
 
 export NVM_DIR="/home/adam/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
