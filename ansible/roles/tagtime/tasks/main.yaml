@@ -29,6 +29,7 @@
 - name: Add cron job to notify if editing tagtime
   become: no
   cron:
+    name: Check tagtime editing
     state: present
     user: "{{ ansible_user }}"
     job: >-

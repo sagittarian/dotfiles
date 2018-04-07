@@ -11,8 +11,8 @@
   tags:
     - crontab
   cron:
+    name: microbreak reminder
     state: present
     user: "{{ ansible_user }}"
-    name: microbreak reminder
     job: DISPLAY=:0 notify-send microbreak
     minute: "*/9"
