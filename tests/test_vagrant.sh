@@ -20,5 +20,10 @@ fi
 cd $vagrantdir
 vagrant up
 
+echo Vagrant up and provisioned, running dotfile configuration
 script=$(cat $basedir/moon.sh | sed -e "s/\$vpass/$vpass/")
 vagrant ssh -c "$script"
+
+echo Testing that the system has been properly installed
+tests=$(cat $basedir/test_system.sh)
+vagrant ssh -c "$tests"
