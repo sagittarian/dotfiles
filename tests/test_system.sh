@@ -33,7 +33,6 @@ for d in $ds; do
     echo "  ~/$d"
     cmd test -d $HOME/$d
 done
-echo
 
 # role: install-packages
 echo "Checking that no packages need to be upgraded... "
@@ -72,13 +71,13 @@ symlinks="
     .profile .vimrc"
 for symlink in $symlinks; do
     echo Checking for symlink $HOME/$symlink
-    cmd test -h $HOME/$symlink
+    cmd "test -h $HOME/$symlink && echo "\""  $HOME/$symlink -> \$(readlink -f $HOME/$symlink)"\"
 done
 
 # role: install-nodejs, install-anki done in the program checks above
 
 # role: install-docker
-echo -n 'Checking for docker: '
+echo -ne 'Checking for docker\n  '
 cmd 'which docker && docker ps > /dev/null'
 
 # role: init-emacs
@@ -87,7 +86,7 @@ cmd 'which docker && docker ps > /dev/null'
 # role: crontab
 echo -n "Checking for DISPLAY=:0 in crontab: "
 cmd 'crontab -l | grep ^DISPLAY=.\\?:0.\\?$'
-echo -ne "Checking for microbreak cron job: \n  "
+echo -ne "Checking for microbreak cron job\n  "
 cmd "crontab -l | grep 'notify-send.*microbreak'"
 
 # role: git-bootstrap
@@ -105,10 +104,10 @@ cmd test -e $HOME/.pytagtimerc
 
 echo Checking for Supervisord
 cmd "service supervisor status > /dev/null"
-echo -n Checking for supervisorctl
+echo -ne "Checking for supervisorctl\n  "
 cmd which supervisorctl
 
-echo -ne "Checking for cron job to notify if editing tagtime: \n  "
+echo -ne "Checking for cron job to notify if editing tagtime\n  "
 cmd "crontab -l | grep 'pgrep.*GntGvzr'"
 
 if [ $failures -eq 0 ]; then
