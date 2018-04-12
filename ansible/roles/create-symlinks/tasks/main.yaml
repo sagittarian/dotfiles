@@ -36,6 +36,7 @@
     - .config/uzbl
     - .config/youtube-dl.conf
     - .config/i3/config
+    - .config/fish
     - .emacs.d
     - .gitconfig
     - .inputrc
