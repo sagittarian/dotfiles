@@ -21,6 +21,21 @@ function fish_prompt --description 'Write out the prompt'
         set __fish_color_status (set_color -o red)
     end
 
+	set -l color_cwd
+	set -l suffix
+	switch $USER
+	case root toor
+		if set -q fish_color_cwd_root
+			set color_cwd $fish_color_cwd_root
+		else
+			set color_cwd $fish_color_cwd
+		end
+		set suffix '#'
+	case '*'
+		set color_cwd $fish_color_cwd
+		set suffix '$'
+	end
+
     switch $USER
 
         case root toor
@@ -41,7 +56,7 @@ function fish_prompt --description 'Write out the prompt'
                 set -g __fish_prompt_cwd (set_color $fish_color_cwd)
             end
 
-            printf '[%s] %s%s@%s %s%s %s(%s)%s \f\r> ' (date "+%H:%M:%S") "$__fish_color_blue" $USER $__fish_prompt_hostname "$__fish_prompt_cwd" "$PWD" "$__fish_color_status" "$stat" "$__fish_prompt_normal"
+            printf '[%s] %s%s@%s %s%s %s(%s)%s \f\r%s ' (date "+%H:%M:%S") "$__fish_color_blue" $USER $__fish_prompt_hostname "$__fish_prompt_cwd" "$PWD" "$__fish_color_status" "$stat" "$__fish_prompt_normal" "$suffix"
 
     end
 end
