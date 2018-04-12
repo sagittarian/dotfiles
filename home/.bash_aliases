@@ -209,16 +209,7 @@ alias clojure='java -cp cljs.jar:src clojure.main'
 
 alias xsel='xclip -sel clip'
 
-function clipcopy {
-    readlink -f $1 | xclip -sel clip
-}
-
 alias normdir='cd $(readlink -f $(pwd))'
-# function _cd {
-#     d=$(readlink -f $@)
-#     \cd $d
-# }
-# alias cd=_cd
 
 alias space='du -s * | sort -g'
 
