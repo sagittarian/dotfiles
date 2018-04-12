@@ -27,5 +27,7 @@ export CDPATH=$CDPATH:$HOME/src/genie/branches
 
 export GENIE_ENV=dev
 
+export FIREBASE_PROJECT_ID=dev-adam-12bd0
+
 # source $HOME/.virtualenvs/geniedev/bin/activate
 workon geniedev

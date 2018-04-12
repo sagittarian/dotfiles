@@ -11,5 +11,3 @@ export TERMINAL=/usr/bin/terminator
 # cabal
 export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 
-
-export FIREBASE_PROJECT_ID=dev-adam-12bd0
