@@ -23,9 +23,16 @@ export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 
-export CDPATH=$CDPATH:$HOME/src/genie/branches
+export CDPATH=$CDPATH:$HOME/src/genie/branches:$HOME/src/genie/worktrees
 
 export GENIE_ENV=dev
+
+function runsvc {
+    svc=$1
+    pushd ./$svc
+    GENIE_SERVICE_NAME=$svc ./$svc
+    popd
+}
 
 export FIREBASE_PROJECT_ID=dev-adam-12bd0
 
