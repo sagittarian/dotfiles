@@ -11,8 +11,5 @@ export TERMINAL=/usr/bin/terminator
 # cabal
 export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 
-# greenwood
-export FLASK_DEBUG=1
-export FLASK_APP=/home/adam/src/greenwood/greenwood/greenwood.py
 
 export FIREBASE_PROJECT_ID=dev-adam-12bd0
