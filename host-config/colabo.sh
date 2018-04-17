@@ -24,6 +24,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 
 export CDPATH=$CDPATH:$HOME/src/genie/branches:$HOME/src/genie/worktrees
+for pkg in genie pycase; do
+    PYTHONPATH=./src/python/$pkg:../src/python/$pkg:$PYTHONPATH
+done
+export PYTHONPATH
 
 export GENIE_ENV=dev
 
