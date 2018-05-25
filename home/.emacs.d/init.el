@@ -176,7 +176,7 @@
 
 (move-text-default-bindings)
 
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(global-git-gutter-mode)
 
 (provide 'init)
 ;;; init ends here
