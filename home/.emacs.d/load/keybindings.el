@@ -97,6 +97,13 @@
 (global-set-key (kbd "C-c b r") 'beeminder-refresh-goal)
 (global-set-key (kbd "C-c b t") 'beeminder-submit-clocked-time)
 
+;; projectile shortcuts
+(require 'projectile)
+(define-key projectile-mode-map (kbd "C-S-f") 'projectile-find-file)
+(define-key projectile-mode-map (kbd "C-S-b") 'projectile-switch-to-buffer)
+(global-set-key (kbd "C-S-p") 'projectile-switch-project)
+(define-key projectile-mode-map (kbd "C-S-s") 'projectile-ag)
+
 ;; smartparens
 (define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
 (define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
