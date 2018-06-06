@@ -35,6 +35,8 @@
     - gwenview
     - meld
     - fish
+    - vlc
+    - kvirc
 
 - name: apt upgrade installed packages
   apt:
