@@ -1,5 +1,9 @@
 ;;; Code:
 
+(defun copy-symbol-at-point-as-kill ()
+  (interactive)
+  (kill-new (thing-at-point 'symbol)))
+
 (defun delete-trailing-whitespace-except-before-point (&optional start end)
   "Delete trailing whitespace between start and end, but leave it just before the point"
   (interactive "p")
