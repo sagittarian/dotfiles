@@ -147,7 +147,18 @@
   ("c" avy-goto-char-timer)
   ("g" avy-goto-line)
   ("r" avy-resume)
+  ("q" nil)
+  ("ESC" nil))
+
+(defhydra hydra-yank ()
+  "yank"
+  ("C-y" yank "yank")
+  ("y" yank-pop "yank-pop")
+  ("M-y" yank-pop "yank-pop")
+  ("/" undo "undo")
   ("q" nil))
+(define-key (current-global-map) [remap yank] 'hydra-yank/yank)
+(define-key (current-global-map) [remap yank-pop] 'hydra-yank/yank-pop)
 
 (defhydra hydra-window (global-map "C-c {")
   "window"
