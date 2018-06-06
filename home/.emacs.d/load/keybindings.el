@@ -114,6 +114,26 @@
 (global-set-key (kbd "C-S-p") 'projectile-switch-project)
 (define-key projectile-mode-map (kbd "C-S-s") 'projectile-ag)
 
+;; dired-subtree
+
+(define-key dired-mode-map (kbd "C-. i") 'dired-subtree-insert)
+(define-key dired-mode-map (kbd "C-. r") 'dired-subtree-remove)
+(define-key dired-mode-map (kbd "C-. t") 'dired-subtree-toggle)
+(define-key dired-mode-map (kbd "C-. c") 'dired-subtree-cycle)
+(define-key dired-mode-map (kbd "C-. v") 'dired-subtree-revert)
+(define-key dired-mode-map (kbd "C-. n") 'dired-subtree-narrow)
+(define-key dired-mode-map (kbd "C-. u") 'dired-subtree-up)
+(define-key dired-mode-map (kbd "C-. d") 'dired-subtree-down)
+(define-key dired-mode-map (kbd "C-. n") 'dired-subtree-next-sibling)
+(define-key dired-mode-map (kbd "C-. p") 'dired-subtree-previous-sibling)
+(define-key dired-mode-map (kbd "C-. ^") 'dired-subtree-beginning)
+(define-key dired-mode-map (kbd "C-. $") 'dired-subtree-end)
+(define-key dired-mode-map (kbd "C-. m") 'dired-subtree-mark-subtree)
+(define-key dired-mode-map (kbd "C-. <backspace>") 'dired-subtree-unmark-subtree)
+(define-key dired-mode-map (kbd "C-. o f") 'dired-subtree-only-this-file)
+(define-key dired-mode-map (kbd "C-. o d") 'dired-subtree-only-this-directory)
+
+
 ;; smartparens
 (define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
 (define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
