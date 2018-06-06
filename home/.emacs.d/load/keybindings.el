@@ -1,8 +1,11 @@
 ;;; Code:
 
 (global-set-key (kbd "M-+") 'other-window)
+(global-set-key (kbd "C-+") 'other-window)
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
 (global-set-key (kbd "M-<return>") 'am-open-next-line)
+(global-set-key (kbd "C-M-)") 'make-frame-command)
+;; (global-set-key (kbd "C-M-}") 'split-window-right)
 
 ;; print screen is where the menu key should be on my thinkpad
 (global-set-key (kbd "<print>") 'execute-extended-command)
@@ -14,11 +17,17 @@
 ;; macro to make an anki cloze
 (global-set-key (kbd "C-c c") 'make-cloze)
 
+;; elpy
+(require 'elpy)
+(define-key elpy-mode-map (kbd "C-.") 'xref-find-definitions-other-window)
+
 ;; magit
+(require 'magit)
 (global-set-key (kbd "C-c g g") 'magit-status)
 (global-set-key (kbd "C-c g b") 'magit-blame)
 (global-set-key (kbd "C-c g B") 'magit-blame-popup)
 (global-set-key (kbd "C-c g t") 'git-timemachine)
+;; (define-key magit-status-mode-map "s-<return>" 'magit-diff-visit-file-other-window)
 
 ;; custom commands
 (global-set-key (kbd "C-M-&") 'shell-command-as-kill)
@@ -58,8 +67,9 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 
 ;; swiper
-(global-set-key (kbd "C-S-s") 'swiper)
+;; (global-set-key (kbd "C-S-s") 'isearch-forward)
 ;; (global-set-key (kbd "C-s") 'swiper)
+(define-key (current-global-map) [remap isearch-forward] 'swiper)
 
 
 (global-set-key (kbd "C-c %") 'replace-string)
