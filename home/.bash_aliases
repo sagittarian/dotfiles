@@ -66,7 +66,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ff='firefox -no-remote'
+alias ff='firefox --no-remote --ProfileManager'
 
 alias apt-get="apt-get --yes"
 
