@@ -28,7 +28,8 @@ bindsym $mod+Shift+M exec dolphin ~/media
 # And also emacs
 bindsym $mod+m exec emacsclient -n -c
 # don't forget uzbl
-bindsym $mod+g exec uzbl-browser
+# bindsym $mod+g exec uzbl-browser
+bindsym $mod+g exec google-chrome --new-window
 # open terminator with ipython
 bindsym $mod+Shift+C exec terminator -e isympy
 # open terminator with ghci
