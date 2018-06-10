@@ -16,6 +16,9 @@
             ;; isearch+
             hydra move-text undo-tree git-ps1-mode
             avy ;; ace-jump-mode ace-jump-buffer ace-window
+            dired-subtree
+            ;; dired-sidebar
+            ;; pylint
             pyvenv which-key))
 
 ;; some others
