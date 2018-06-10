@@ -68,6 +68,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ff='firefox --no-remote --ProfileManager'
 
+alias ctrlcntr='unset XDG_CURRENT_DESKTOP && unity-control-center'
+
 alias apt-get="apt-get --yes"
 
 #alias findold="find . ! -newermt $(date +%Y-%m-%d -d '1 day ago') ! -name ."
