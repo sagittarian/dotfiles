@@ -41,7 +41,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+colon kill
 # also let's do it without the shift, because it's so common
-bindsym $mod+semicolon kill
+# bindsym $mod+semicolon kill
 
 # start dmenu (a program launcher)
 bindsym $mod+e exec dmenu_run_aliases
