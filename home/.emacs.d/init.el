@@ -176,7 +176,8 @@
 
 (move-text-default-bindings)
 
-(global-git-gutter-mode)
+(global-git-gutter+-mode)
+;; (git-gutter+-toggle-fringe)
 
 (provide 'init)
 ;;; init ends here

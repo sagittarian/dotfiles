@@ -19,6 +19,9 @@
             dired-subtree
             ;; dired-sidebar
             ;; pylint
+            ;; wiki-summary i3wm
+            git-gutter+-mode git-gutter-fringe+
+            traad
             pyvenv which-key))
 
 ;; some others
