@@ -21,6 +21,13 @@
 (require 'elpy)
 (define-key elpy-mode-map (kbd "C-.") 'xref-find-definitions-other-window)
 
+;; traad
+(define-key elpy-mode-map (kbd "C-c r r") 'traad-rename)
+(define-key elpy-mode-map (kbd "C-c r x") 'traad-extract-method)
+(define-key elpy-mode-map (kbd "C-c r v") 'traad-extract-variable)
+(define-key elpy-mode-map (kbd "C-c r f") 'traad-local-to-field)
+(define-key elpy-mode-map (kbd "C-c r i") 'traad-organize-imports)
+
 ;; magit
 (require 'magit)
 (global-set-key (kbd "C-c g g") 'magit-status)
