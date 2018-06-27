@@ -53,7 +53,7 @@
  '(compilation-scroll-output (quote first-error))
  '(compilation-search-path nil)
  '(css-indent-offset 2)
- '(custom-enabled-themes (quote (tango-dark)))
+ '(custom-enabled-themes (quote (wheatgrass)))
  '(custom-safe-themes
    (quote
     ("3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "7085ad716baf17384f10a5eb121a840a4c29da57e403e8bceff0ca65a6f83d61" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
@@ -82,6 +82,7 @@
     (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
  '(erc-nick "sagittarian")
  '(erc-save-queries-on-quit nil)
+ '(fci-rule-color "#969896")
  '(fill-column 72)
  '(flex-isearch-auto (quote on-failed))
  '(flx-ido-mode nil)
@@ -93,7 +94,7 @@
  '(global-linum-mode t)
  '(global-undo-tree-mode t)
  '(haskell-font-lock-symbols t)
- '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
+ '(haskell-mode-hook (quote (turn-on-haskell-indentation)) t)
  '(hippie-expand-try-functions-list
    (quote
     (try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-lisp-symbol-partially try-complete-lisp-symbol try-expand-line try-expand-list)))
@@ -152,6 +153,7 @@
  '(keyboard-coding-system (quote utf-8-unix))
  '(kill-do-not-save-duplicates t)
  '(kill-read-only-ok t)
+ '(line-number-mode t)
  '(linum-format " %7i ")
  '(magit-completing-read-function (quote ivy-completing-read))
  '(magit-diff-arguments (quote ("--no-ext-diff" "-w")))
@@ -196,6 +198,8 @@
  '(save-interprogram-paste-before-kill t)
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/places")
+ '(select-enable-clipboard t)
+ '(select-enable-primary t)
  '(sentence-end-double-space t)
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
@@ -222,8 +226,6 @@
  '(which-key-mode t)
  '(with-editor-emacsclient-executable "/usr/bin/emacsclient")
  '(words-include-escapes t)
- '(x-select-enable-clipboard t)
- '(x-select-enable-primary t)
  '(yas-global-mode t nil (yasnippet))
  '(yas-triggers-in-field t)
  '(yas-wrap-around-region t))
@@ -232,6 +234,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil :family "Liberation Mono" :foundry "unknown" :slant normal :weight normal :height 83 :width normal)))))
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "wheat" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 108 :width normal :foundry "DAMA" :family "Ubuntu Mono")))))
 
 ;;; custom.el ends here
