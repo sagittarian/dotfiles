@@ -1,10 +1,12 @@
 ;;; Code:
 
+;; misc
 (global-set-key (kbd "M-+") 'other-window)
 (global-set-key (kbd "C-+") 'other-window)
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
 (global-set-key (kbd "M-<return>") 'am-open-next-line)
 (global-set-key (kbd "C-M-)") 'make-frame-command)
+(global-set-key (kbd "s-;") 'delete-frame)
 ;; (global-set-key (kbd "C-M-}") 'split-window-right)
 
 ;; print screen is where the menu key should be on my thinkpad
