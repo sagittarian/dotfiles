@@ -114,10 +114,6 @@
 ;;       (unless (eq ibuffer-sorting-mode 'alphabetic)
 ;;         (ibuffer-do-sort-by-alphabetic))))
 
-
-(load "functions")
-(load "keybindings")
-
 (defhydra hydra-nav (global-map "C-c n")
   "nav"
   ("n" next-line)
@@ -183,6 +179,9 @@
 
 ;; (global-git-gutter+-mode)
 ;; (git-gutter+-toggle-fringe)
+
+(load "functions")
+(load "keybindings")
 
 (provide 'init)
 ;;; init ends here

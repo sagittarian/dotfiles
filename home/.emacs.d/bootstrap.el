@@ -22,6 +22,7 @@
             ;; wiki-summary i3wm
             git-gutter+ git-gutter-fringe+
             traad
+            string-inflection
             pyvenv which-key))
 
 ;; some others

@@ -28,6 +28,11 @@
 (define-key elpy-mode-map (kbd "C-c r f") 'traad-local-to-field)
 (define-key elpy-mode-map (kbd "C-c r i") 'traad-organize-imports)
 
+;; string-inflection
+(global-set-key (kbd "C-c _") 'string-inflection-all-cycle)
+(global-set-key (kbd "C-c C--") 'string-inflection-all-cycle)
+(define-key python-mode-map (kbd "C-c C--") 'string-inflection-python-style-cycle)
+
 ;; magit
 (require 'magit)
 (global-set-key (kbd "C-c g g") 'magit-status)
