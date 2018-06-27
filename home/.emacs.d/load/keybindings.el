@@ -76,6 +76,15 @@
 ;; use avy-goto-line instead of goto-line
 (define-key (current-global-map) [remap goto-line] 'avy-goto-line)
 
+;; avy
+(avy-setup-default)
+;; (global-set-key (kbd "C-'") 'avy-goto-char-timer)
+(global-set-key (kbd "C-'") 'hydra-nav/avy-goto-char-timer)
+(global-set-key (kbd "C-S-SPC") 'hydra-nav/avy-goto-char-timer)
+;; (global-set-key (kbd "C-;") 'avy-goto-word-1)
+(global-set-key (kbd "C-;") 'hydra-nav/avy-goto-word-1)
+(global-set-key (kbd "C-c SPC") 'avy-resume)
+
 ;; flycheck
 (global-set-key (kbd "C-!") 'flycheck-next-error)
 (global-set-key (kbd "C-M-!") 'flycheck-previous-error)
