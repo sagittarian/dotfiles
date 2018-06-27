@@ -6,3 +6,6 @@ TAGS
 *~
 worktrees
 backups
+dist
+node_modules
+bower_components
