@@ -150,6 +150,14 @@
   ("r" avy-resume)
   ("q" nil)
   ("ESC" nil))
+;; (define-key (current-global-map) [remap next-line] 'hydra-nav/next-line)
+;; (define-key (current-global-map) [remap previous-line] 'hydra-nav/previous-line)
+;; (define-key (current-global-map) [remap forward-char] 'hydra-nav/forward-char)
+;; (define-key (current-global-map) [remap backward-char] 'hydra-nav/backward-char)
+;; (define-key (current-global-map) [remap next-line] 'next-line)
+;; (define-key (current-global-map) [remap previous-line] 'previous-line)
+;; (define-key (current-global-map) [remap forward-char] 'forward-char)
+;; (define-key (current-global-map) [remap backward-char] 'backward-char)
 
 (defhydra hydra-yank ()
   "yank"
