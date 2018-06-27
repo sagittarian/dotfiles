@@ -80,6 +80,11 @@
 ;; grumble)
 ;; (add-hook 'magit-mode-hook 'magit-svn-mode)
 
+;; git-gutter+
+(global-git-gutter+-mode)
+(require 'git-gutter-fringe+)
+(git-gutter+-toggle-fringe)
+
 ;; fill-column-indicator
 (add-hook 'text-mode-hook 'fci-mode)
 (add-hook 'js2-mode-hook 'fci-mode)
@@ -176,7 +181,7 @@
 
 (move-text-default-bindings)
 
-(global-git-gutter+-mode)
+;; (global-git-gutter+-mode)
 ;; (git-gutter+-toggle-fringe)
 
 (provide 'init)

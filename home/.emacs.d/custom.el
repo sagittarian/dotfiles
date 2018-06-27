@@ -89,6 +89,7 @@
  '(git-commit-confirm-commit nil)
  '(global-flex-isearch-mode t)
  '(global-flycheck-mode t)
+ '(global-git-gutter+-mode t)
  '(global-linum-mode t)
  '(global-undo-tree-mode t)
  '(haskell-font-lock-symbols t)

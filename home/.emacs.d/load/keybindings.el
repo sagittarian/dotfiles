@@ -36,6 +36,20 @@
 (global-set-key (kbd "C-c g t") 'git-timemachine)
 ;; (define-key magit-status-mode-map "s-<return>" 'magit-diff-visit-file-other-window)
 
+;; git-gutter+
+(define-key git-gutter+-mode-map (kbd "C-c M-g n") 'git-gutter+-next-hunk)
+(define-key git-gutter+-mode-map (kbd "C-c M-g p") 'git-gutter+-previous-hunk)
+;; act on hunks
+(define-key git-gutter+-mode-map (kbd "C-c M-g v =") 'git-gutter+-show-hunk)
+(define-key git-gutter+-mode-map (kbd "C-c M-g r") 'git-gutter+-revert-hunks)
+;; stage hunk at point
+;; if region is active, stage all hunk lines within the region
+(define-key git-gutter+-mode-map (kbd "C-c M-g s") 'git-gutter+-stage-hunks)
+(define-key git-gutter+-mode-map (kbd "C-c M-g c") 'git-gutter+-commit)
+(define-key git-gutter+-mode-map (kbd "C-c M-g C") 'git-gutter+-stage-and-commit)
+(define-key git-gutter+-mode-map (kbd "C-c M-g C-y") 'git-gutter+-stage-and-commit-whole-buffer)
+(define-key git-gutter+-mode-map (kbd "C-c M-g u") 'git-gutter+-unstage-whole-buffer)
+
 ;; custom commands
 (global-set-key (kbd "C-M-&") 'shell-command-as-kill)
 (global-set-key (kbd "C-c s") 'commit-buffer)
