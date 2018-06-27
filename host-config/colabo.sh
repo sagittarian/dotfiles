@@ -44,12 +44,16 @@ export FIREBASE_PROJECT_ID=dev-adam-12bd0
 export PROD=c8-pr1.colabo.com
 export ST2=c8-st2.colabo.com
 export ST1=c8-st1.colabo.com
+export JENKINS=c8-ci.colabo.com
 
 alias lorem="python -c 'import random; from statlorem import ipsum; print(ipsum(\"scifi\", 1, random.randrange(5, 19)))' | tee >(cat 1>&2) | xsel"
-
 alias monsvc='watch "ps aux | grep -v virtualenv | grep [s]vc; echo total services: \$(ps aux | grep -v virtualenv | grep [s]vc | wc -l)"'
-
 alias newjira="jira-cli new -v --jira-url https://jira.colabo.com --project GEN --assignee adam --description '' --type Task --priority medium"
+alias migrate='echo "I want to run migrations on env: DEV env_id:ADAM__AT__ANTHIA" | devops/migrations/do-db-migrate -H localhost -p 5432 -d genie_dev'
+
+function geniecat {
+    cat "$@" | jq -r '.levelname + " " + .["@timestamp"] + " " + .message'
+}
 
 export GENIE_GLOBAL_LOG_LEVEL=info
 
