@@ -41,7 +41,7 @@
 (global-set-key (kbd "C-c g b") 'magit-blame)
 (global-set-key (kbd "C-c g B") 'magit-blame-popup)
 (global-set-key (kbd "C-c g t") 'git-timemachine)
-;; (define-key magit-status-mode-map "s-<return>" 'magit-diff-visit-file-other-window)
+(define-key magit-status-mode-map (kbd "s-<return>") 'magit-diff-visit-file-other-window)
 
 ;; git-gutter+
 (define-key git-gutter+-mode-map (kbd "C-c M-g n") 'git-gutter+-next-hunk)
