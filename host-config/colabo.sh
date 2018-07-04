@@ -51,9 +51,12 @@ alias monsvc='watch "ps aux | grep -v virtualenv | grep [s]vc; echo total servic
 alias newjira="jira-cli new -v --jira-url https://jira.colabo.com --project GEN --assignee adam --description '' --type Task --priority medium"
 alias migrate='echo "I want to run migrations on env: DEV env_id:ADAM__AT__ANTHIA" | devops/migrations/do-db-migrate -H localhost -p 5432 -d genie_dev'
 
-function geniecat {
-    cat "$@" | jq -r '.levelname + " " + .["@timestamp"] + " " + .message'
+function grablog {
+    svc=$1
+    rsync -avz "prod:/var/log/genie/${svc}*.log" .
 }
+
+alias seelog='jq -r '"'"'.["@timestamp"] + " " + .levelname + " " + .message'"'"
 
 export GENIE_GLOBAL_LOG_LEVEL=info
 
