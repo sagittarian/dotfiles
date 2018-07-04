@@ -139,6 +139,48 @@ alias normdir='cd $(readlink -f $(pwd))'
 
 alias space='du -s * | sort -g'
 
+function textwrap {
+    width=${1:-72}
+    python3 -c "import textwrap, sys, re; \
+                nl = chr(10); sp = chr(32); qu = chr(34); sl = chr(92); \
+                W = type('CommaWrap', (textwrap.TextWrapper,), {}); \
+                wp = r'[\\w!{}\'&.,?]'.format(qu); lt = r'[^\\d\\W]'; \
+                wordsep_re = r'''
+                    ( # any whitespace
+                      \\s+ \
+                    | # em-dash between words
+                      (?<=%(wp)s) -{2,} (?=\\w)
+                    | # word, possibly hyphenated
+                      \\S+? (?:
+                        # hyphenated word
+                          -(?: (?<=%(lt)s{2}-) | (?<=%(lt)s-%(lt)s-))
+                          (?= %(lt)s -? %(lt)s)
+                        | # end of word
+                          (?=\\s|\\Z)
+                        | # em-dash
+                          (?<=%(wp)s) (?=-{2,}\\w)
+                        | # comma
+                          ,
+                        )
+                    )''' % {'wp': wp, 'lt': lt}; \
+                W.wordsep_re = re.compile(wordsep_re, re.VERBOSE); \
+                print((nl+nl).join([ \
+                    nl.join(line if i == 0 else sp*2 + line \
+                            for (i, line) in enumerate(W(width=$width).wrap(para))) \
+                    for para in sys.stdin if para.strip()]))"
+}
+
+# If you don't need to split on commas, you can use this simpler version:
+# function textwrap {
+#     width=${1:-72}
+#     python3 -c "import textwrap, sys, re; \
+#                 nl = chr(10); sp = chr(32); \
+#                 print((nl+nl).join([ \
+#                     nl.join(line if i == 0 else sp*2 + line \
+#                             for (i, line) in enumerate(textwrap.wrap(para, width=$width))) \
+#                     for para in sys.stdin if para.strip()]))"
+# }
+
 function cppath {
     file=$1
     echo -n $(readlink -f $file) | xclip -sel clip
