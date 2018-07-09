@@ -1,0 +1,23 @@
+#!/bin/bash
+
+STASH_NAME="pre-push-$(date -Is)"
+git stash save --keep-index $STASH_NAME
+
+source /home/adam/.virtualenvs/geniedev/bin/activate
+
+for pkg in genie pycase; do
+    PYTHONPATH=./src/python/$pkg:../src/python/$pkg:$PYTHONPATH
+done
+export PYTHONPATH
+
+./run-lint
+
+result=$?
+
+echo result is $result
+
+if echo $(git stash list | head -1) | grep -q "$STASH_NAME"; then
+    git stash pop
+fi
+
+exit $result
