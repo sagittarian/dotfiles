@@ -92,6 +92,7 @@
  '(global-flycheck-mode t)
  '(global-git-gutter+-mode t)
  '(global-linum-mode t)
+ '(global-smartscan-mode t)
  '(global-undo-tree-mode t)
  '(haskell-font-lock-symbols t)
  '(haskell-mode-hook (quote (turn-on-haskell-indentation)) t)
