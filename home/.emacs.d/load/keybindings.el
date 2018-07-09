@@ -96,6 +96,9 @@
 ;; misc
 (global-set-key (kbd "<f11>") 'calendar)
 (global-set-key (kbd "<f5>") 'revert-buffer)
+(global-set-key (kbd "<f12>") 'shell)
+(global-set-key (kbd "S-<f12>") 'run-python)
+
 
 (defun tabify-buffer ()
   (interactive)
