@@ -188,6 +188,9 @@
 ;; (global-git-gutter+-mode)
 ;; (git-gutter+-toggle-fringe)
 
+
+(global-smartscan-mode 1)
+
 (load "functions")
 (load "keybindings")
 

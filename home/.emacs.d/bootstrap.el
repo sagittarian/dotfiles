@@ -23,6 +23,7 @@
             git-gutter+ git-gutter-fringe+
             traad
             string-inflection
+            smartscan
             pyvenv which-key))
 
 ;; some others
