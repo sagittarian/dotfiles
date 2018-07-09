@@ -191,6 +191,8 @@
 
 (global-smartscan-mode 1)
 
+(add-hook 'inferior-python-mode-hook (lambda () (smartscan-mode 0)))
+
 (load "functions")
 (load "keybindings")
 
