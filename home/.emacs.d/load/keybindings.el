@@ -3,6 +3,9 @@
 ;; misc
 (global-set-key (kbd "M-+") 'other-window)
 (global-set-key (kbd "C-+") 'other-window)
+(global-set-key (kbd "C-M-+")
+                (lambda () (interactive)
+                  (switch-to-buffer-other-window (current-buffer))))
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
 (global-set-key (kbd "M-<return>") 'am-open-next-line)
 (global-set-key (kbd "C-M-)") 'make-frame-command)
