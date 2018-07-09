@@ -131,7 +131,6 @@
  '(ido-default-buffer-method (quote selected-window))
  '(ido-default-file-method (quote selected-window))
  '(ido-enable-flex-matching t)
- '(ido-mode nil nil (ido))
  '(ido-use-faces nil)
  '(ido-use-filename-at-point (quote guess))
  '(ido-use-virtual-buffers t)
