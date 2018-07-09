@@ -217,5 +217,8 @@
 (define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
 (define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
 
+;; dired-sidebar
+(global-set-key (kbd "C-c (") 'dired-sidebar-toggle-sidebar)
+
 (provide 'keybindings)
 ;;; keybindings ends here
