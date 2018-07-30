@@ -53,7 +53,7 @@ alias migrate='echo "I want to run migrations on env: DEV env_id:ADAM__AT__ANTHI
 
 function grablog {
     svc=$1
-    rsync -avz "prod:/var/log/genie/${svc}*.log" .
+    rsync -avz "prod:/var/log/genie/${svc}*.log*" .
 }
 
 alias seelog='jq -r '"'"'.["@timestamp"] + " " + .levelname + " " + .message'"'"
