@@ -10,17 +10,10 @@ alias bpy2=bpython
 
 alias pyecho="python -c 'import sys; print(sys.argv[1:])'"
 
-if hash emacsclient.emacs-snapshot 2>/dev/null; then
-    alias emacs=emacs-snapshot
-    alias emacsclient=emacsclient.emacs-snapshot
-    alias e="emacsclient.emacs-snapshot -n -c -a ''"
-    EDITOR=emacsclient.emacs-snapshot
-else
-    alias e="emacsclient -n -c -a ''"
-    alias e.="emacsclient -n -c -a '' ."
-    alias ec="emacsclient -nw"
-    EDITOR=emacsclient
-fi
+alias e="emacsclient -n -c -a ''"
+alias e.="emacsclient -n -c -a '' ."
+alias ec="emacsclient -nw"
+EDITOR='emacsclient -c'
 export EDITOR
 
 alias ebang="emacsclient -n -c \$(eval \$(fc -ln -1))"

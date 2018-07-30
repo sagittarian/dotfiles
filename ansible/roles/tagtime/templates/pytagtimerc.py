@@ -15,7 +15,7 @@ logf = os.path.join("{{ src_dir }}", "{{ org_repo }}", user + '.log')
 # If you're using windows, you'll need cygwin and to set this flag to True:
 # cygwin = False        # CHANGEME to True if you're using windows/cygwin.
 
-ed = subprocess.getoutput('which emacsclient')
+ed = '{} -c'.format(subprocess.getoutput('which emacsclient'))
 xt = subprocess.getoutput('which xterm')
 
 # Get your personal Beeminder auth token (after signing in) from
