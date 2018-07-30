@@ -69,7 +69,7 @@
 (global-set-key (kbd "C-c S") 'commit-all-changes)
 (global-set-key (kbd "C-c d") 'insert-date)
 (global-set-key (kbd "C-c t") 'insert-timestamp)
-(global-set-key (kbd "C-c o") 'switch-to-minibuffer)
+(global-set-key (kbd "C-c m") 'switch-to-minibuffer)
 (global-set-key (kbd "C-x M-e") 'eval-and-replace)
 (global-set-key (kbd "C-c w") 'current-buffer-file-name)
 
