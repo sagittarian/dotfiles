@@ -186,7 +186,7 @@
 (move-text-default-bindings)
 
 ;; (global-git-gutter+-mode)
-;; (git-gutter+-toggle-fringe)
+(git-gutter+-toggle-fringe)
 
 
 (global-smartscan-mode 1)
