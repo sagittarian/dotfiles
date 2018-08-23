@@ -24,5 +24,5 @@ cd $HOME/src/dotfiles/ansible
 
 [ ! -e vpass ] && echo "$vpass" > vpass
 
-ansible-playbook -vvv --vault-password-file=vpass --become-method=sudo \
+ansible-playbook -vvv --vault-password-file=vpass --become-method=sudo "$@" \
                  playbooks/bootstrap.yaml
