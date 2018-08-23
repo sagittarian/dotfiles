@@ -25,7 +25,7 @@
     - ksysguard
     - kate
     - kwrite
-    - kdesudo
+    # - kdesudo
     - openssh-server
     - exuberant-ctags
     - isympy
@@ -37,6 +37,7 @@
     - fish
     - vlc
     - kvirc
+    - w3m
 
 - name: apt upgrade installed packages
   apt:
