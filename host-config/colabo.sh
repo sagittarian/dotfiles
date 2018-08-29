@@ -58,12 +58,46 @@ function grablog {
     rsync -avz "prod:/var/log/genie/${svc}*.log*" .
 }
 
-alias seelog='jq -r '"'"'.["@timestamp"] + " " + .levelname + " " + .message'"'"
+alias synclogs='rsync -avz "prod:/var/log/genie/*log*" .'
+
+alias seelog='jq -r '"'"'.["@timestamp"] + " " + .levelname + " " + .message + "
+" + .exc_info'"'"
+
+function prod {
+    port=$1
+    shift
+    url=$1
+    shift
+    cmd="curl -s 'http://localhost:$port/api/v1/$url' $@"
+    # echo $cmd
+    ssh prod "$cmd" | jq .
+}
+
+alias striplogname="sed -re 's/^[a-z_]+-[0-9]+\.log(\.[0-9]+)?://'"
 
 export GENIE_GLOBAL_LOG_LEVEL=info
+
+# alias ccfmt="python -c \"import autopep8, sys, re; \
+#        print('\n'.join(re.sub(r'\b[A-Z]\w+\(.*\)$', \
+#                               lambda match: autopep8.fix_code(match.group(0), \
+#                                                               options=dict(aggressive=3)), \
+#                               line) for line in sys.stdin))\""
+
+
+alias ccfmt="python -c \"import autopep8, sys, re
+for line in sys.stdin: print(
+    re.sub(r'\b[A-Z]\w+\(.*\)$',
+           lambda match: autopep8.fix_code(match.group(0),
+                                           options=dict(aggressive=3, max_line_length=120)),
+           line.rstrip()))\""
+
 
 # source $HOME/.virtualenvs/geniedev/bin/activate
 workon geniedev
 
+eval $(cd ~/src/genie && python -c "from genie.config import get_config
+for s, d in get_config()['service_discovery']['services'].items(): print('{}_PORT={}'.format(s.upper(), d['port']))")
+
+alias greplog='python /home/adam/src/genie/tools/greplog.py'
 
 # docker run -v $(readlink -f ./conf):/genie/services/conf -v /var/log/genie:/var/log/genie -ti --entrypoint /bin/bash adam-genie-test
