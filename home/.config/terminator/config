@@ -1,13 +1,15 @@
 [global_config]
-  enabled_plugins = CustomCommandsMenu, InactivityWatch, ActivityWatch, APTURLHandler, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
+  enabled_plugins = CustomCommandsMenu, InactivityWatch, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   focus = mouse
 [keybindings]
   go_down = <Alt>n
   go_left = <Alt>h
   go_right = <Alt>s
   go_up = <Alt>t
+  layout_launcher = <Shift><Alt>l
   next_tab = <Primary><Shift>s
   prev_tab = <Primary><Shift>h
+  toggle_scrollbar = <Shift><Alt>s
 [layouts]
   [[default]]
     [[[child1]]]
