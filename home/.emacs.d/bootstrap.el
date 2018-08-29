@@ -25,6 +25,8 @@
         traad
         string-inflection
         smartscan
+        annoying-arrows-mode
+        w3m
         pyvenv which-key))
 
 ;; some others

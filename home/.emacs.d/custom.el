@@ -31,7 +31,7 @@
  '(avy-keys
    (quote
     (97 111 101 117 105 100 104 116 110 115 46 112 121 102 103 99 114)))
- '(blink-cursor-mode t)
+ '(browse-url-browser-function (quote w3m-browse-url))
  '(c-default-style
    (quote
     ((c-mode . "c")
@@ -56,7 +56,7 @@
  '(custom-enabled-themes (quote (wheatgrass)))
  '(custom-safe-themes
    (quote
-    ("3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "7085ad716baf17384f10a5eb121a840a4c29da57e403e8bceff0ca65a6f83d61" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
+    ("3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "7085ad716baf17384f10a5eb121a840a4c29da57e403e8bceff0ca65a6f83d61" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
  '(delete-selection-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
@@ -65,9 +65,10 @@
  '(electric-layout-mode nil)
  '(electric-pair-delete-adjacent-pairs nil)
  '(electric-pair-preserve-balance nil)
+ '(elpy-disable-backend-error-display t)
  '(elpy-modules
    (quote
-    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults)))
+    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
  '(elpy-test-pytest-runner-command (quote ("pytest")))
  '(elpy-test-runner (quote elpy-test-pytest-runner))
  '(enable-recursive-minibuffers t)
@@ -88,6 +89,9 @@
  '(flx-ido-mode nil)
  '(focus-follows-mouse t)
  '(git-commit-confirm-commit nil)
+ '(git-gutter+-modified-sign "*")
+ '(git-gutter+-unchanged-sign "=")
+ '(global-annoying-arrows-mode t)
  '(global-flex-isearch-mode t)
  '(global-flycheck-mode t)
  '(global-git-gutter+-mode t)
@@ -143,8 +147,8 @@
  '(ivy-use-virtual-buffers t)
  '(ivy-wrap t)
  '(jedi:complete-on-dot t)
+ '(js-indent-level 4)
  '(js2-allow-keywords-as-property-names nil)
- '(js2-basic-offset 4)
  '(js2-bounce-indent-p t)
  '(js2-concat-multiline-strings (quote eol))
  '(js2-highlight-external-variables nil)
@@ -165,6 +169,9 @@
  '(makefile-mode-hook (quote ((lambda nil (set-variable (quote tab-width) 8)))))
  '(mouse-autoselect-window t)
  '(mouse-yank-at-point t)
+ '(nrepl-message-colors
+   (quote
+    ("#183691" "#969896" "#a71d5d" "#969896" "#0086b3" "#795da3" "#a71d5d" "#969896")))
  '(org-agenda-files nil)
  '(org-mode-hook
    (quote
@@ -178,23 +185,26 @@
      org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
  '(package-selected-packages
    (quote
-    (js-doc git-timemachine org-jira undo-tree yaml-mode winnow which-key wc-mode swiper sublime-themes ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode ido-completing-read+ haml-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod flx-ido fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag)))
+    (w3m smartscan f traad git-gutter-fringe+ git-gutter+ string-inflection string-utils sql-indent format-sql dired-subtree groovy-mode pylint restclient-helm annoying-arrows-mode git-gutter-fringe all-the-icons-dired dired-sidebar ghub fish-mode markdown-mode github-theme abyss-theme js-doc git-timemachine org-jira undo-tree yaml-mode winnow which-key wc-mode swiper sublime-themes ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode haml-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag)))
+ '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
  '(projectile-global-mode t)
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "worktrees" "node_modules")))
  '(projectile-mode t nil (projectile))
  '(projectile-sort-order (quote recently-active))
  '(projectile-switch-project-action (quote projectile-dired))
  '(projectile-use-git-grep t)
  '(python-indent-guess-indent-offset t)
  '(python-indent-offset 4)
- '(python-shell-interpreter "ipython")
  '(python-shell-prompt-regexp "In \\[\\d+\\]: ")
  '(python-skeleton-autoinsert t)
  '(pyvenv-mode t)
  '(pyvenv-virtualenvwrapper-python "/home/adam/local/bin/python3")
  '(require-final-newline t)
- '(safe-local-variable-values (quote ((indent-tabs-mode\. t))))
+ '(safe-local-variable-values (quote ((js-indent-level 2) (indent-tabs-mode\. t))))
  '(save-interprogram-paste-before-kill t)
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/places")
@@ -205,7 +215,7 @@
  '(show-trailing-whitespace t)
  '(size-indication-mode t)
  '(smartparens-global-mode t)
- '(smartparens-global-strict-mode t)
+ '(smartparens-global-strict-mode nil)
  '(sp-autoescape-string-quote nil)
  '(sp-hybrid-kill-excessive-whitespace t)
  '(sp-successive-kill-preserve-whitespace 2)
@@ -218,6 +228,30 @@
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
  '(uniquify-min-dir-content 1)
  '(uniquify-strip-common-suffix t)
+ '(vc-annotate-background "#b0cde7")
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#969896")
+     (40 . "#183691")
+     (60 . "#969896")
+     (80 . "#969896")
+     (100 . "#969896")
+     (120 . "#a71d5d")
+     (140 . "#969896")
+     (160 . "#969896")
+     (180 . "#969896")
+     (200 . "#969896")
+     (220 . "#63a35c")
+     (240 . "#0086b3")
+     (260 . "#795da3")
+     (280 . "#969896")
+     (300 . "#0086b3")
+     (320 . "#969896")
+     (340 . "#a71d5d")
+     (360 . "#969896"))))
+ '(vc-annotate-very-old-color "#969896")
+ '(w3m-fill-column 72)
+ '(w3m-mode-hook (quote (bookmark-w3m-prepare visual-line-mode)))
  '(warning-minimum-level :error)
  '(wc-modeline-format "WC[%tl,%tw,%tc]")
  '(wdired-allow-to-change-permissions t)
