@@ -224,5 +224,31 @@
 ;; dired-sidebar
 (global-set-key (kbd "C-c (") 'dired-sidebar-toggle-sidebar)
 
+;; w3m
+(define-key w3m-mode-map (kbd "C-,") 'w3m-tab-previous-buffer)
+(define-key w3m-mode-map (kbd "C-.") 'w3m-tab-next-buffer)
+
+;; XXX move these function definitions
+(defun w3m-search-wikipedia (article)
+  (interactive "MWikipedia search: ")
+  (let ((url (format "https://en.wikipedia.org/w/index.php?title=Special:Search&search=%s" article)))
+    (w3m-goto-url-new-session url)))
+
+(defun w3m-python-module (module-name use-py2)
+  (interactive "MPython module: \nP")
+  (message (format "use-py2 is %s" use-py2))
+  (let* ((py-version (if use-py2 "2" "3"))
+         (url (format "https://docs.python.org/%s/library/%s.html" py-version module-name)))
+    (w3m-goto-url-new-session url)))
+
+(defun w3m-pypi-search (query)
+  (interactive "MPyPI search query: ")
+  (let ((url (format "https://pypi.org/search/?q=%s" query)))
+    (w3m-goto-url-new-session url)))
+
+(global-set-key (kbd "C-c C-c p") 'w3m-python-module)
+(global-set-key (kbd "C-c C-c w") 'w3m-search-wikipedia)
+(global-set-key (kbd "C-c C-c P") 'w3m-pypi-search)
+
 (provide 'keybindings)
 ;;; keybindings ends here
