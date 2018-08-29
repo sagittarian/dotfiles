@@ -1,0 +1,41 @@
+- Despite the cryptic Lisp name for a function, the functions
+  beginning-of-defun and end-of-defun works great with most programming
+  modes in Emacs, by jumping to the beginning (duh) and end of the
+  function/class definition point is contained in.
+
+- The command C-M-v also bears mention, as it scrolls the other window;
+  what other is depends on how many split windows you have open (if you
+  do) or frames (if you don’t). This key is very, very useful if you are
+  reading documentation in another window or frame and you want to
+  scroll it without the hassle of switching to that other
+  window. Incidentally, there is only one command to scroll the other
+  window, and that is the one I mentioned before; to scroll backwards,
+  use the negative argument first.
+
+- You can move the point between the top, center and bottom (by default)
+  of the visible window but without actually scrolling up or down. The
+  command is sometimes useful if you want to reach text in one of the
+  previous three areas, although you can configure the variable
+  recenter-positions to change that. The command is bound to M-r which
+  makes it very easy to reach and thus use.
+
+* Imenu
+  Imenu is a useful and extensible tool in Emacs that lets you jump to
+  key areas of your buffer, most usually functions definitions in source
+  code. Unfortunately, the imenu is marred somewhat by no default key
+  binding (M-x imenu to invoke) making it less known than it should be;
+  another negative is that it uses the standard completion mechanism
+  which is terrible for quickly navigating by “feel”.
+
+- If you find yourself editing multiple lines in a row – perhaps in a
+  macro – you may want to change the default column the point moves to
+  when you change lines; naturally it will only do so if it is
+  possible. This functionality is called goal column and it’s bound to
+  C-x C-n (C-u C-x C-n to disable).
+
+- What a lot of people don’t know is the default GNU Readline command
+  for interactive reverse search (called reverse-i-search), bound to
+  Ctrl+r, is also available in Emacs as M-r. If you knew about the
+  former, but not the latter, you are no doubt a happy person right now
+  as you will agree that it’s a productivity booster if you’re a regular
+  command line user. You can reverse the search direction with C-s.
