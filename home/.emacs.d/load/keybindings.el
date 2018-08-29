@@ -77,7 +77,7 @@
 (define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
 
 ;; use avy-goto-line instead of goto-line
-(define-key (current-global-map) [remap goto-line] 'avy-goto-line)
+(define-key (current-global-map) [remap goto-line] 'hydra-nav/avy-goto-line)
 
 ;; avy
 (avy-setup-default)
@@ -86,7 +86,9 @@
 (global-set-key (kbd "C-S-SPC") 'hydra-nav/avy-goto-char-timer)
 ;; (global-set-key (kbd "C-;") 'avy-goto-word-1)
 (global-set-key (kbd "C-;") 'hydra-nav/avy-goto-word-1)
+(global-set-key (kbd "C-:") 'avy-goto-word-0)
 (global-set-key (kbd "C-c SPC") 'avy-resume)
+(global-set-key (kbd "C-S-n") 'hydra-nav/body)
 
 ;; flycheck
 (global-set-key (kbd "C-!") 'flycheck-next-error)
@@ -153,6 +155,7 @@
 ;; projectile shortcuts
 (require 'projectile)
 (define-key projectile-mode-map (kbd "C-S-f") 'projectile-find-file)
+(define-key projectile-mode-map (kbd "C-M-S-f") 'projectile-find-file-other-window)
 (define-key projectile-mode-map (kbd "C-S-b") 'projectile-switch-to-buffer)
 (global-set-key (kbd "C-S-p") 'projectile-switch-project)
 (define-key projectile-mode-map (kbd "C-S-s") 'projectile-ag)
@@ -194,6 +197,7 @@
 (define-key smartparens-mode-map (kbd "C-M-p") 'sp-previous-sexp)
 
 (define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-sexp)
+(define-key smartparens-mode-map (kbd "C-S-k") 'sp-kill-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
 
 (define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)

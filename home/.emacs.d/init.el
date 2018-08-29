@@ -44,6 +44,7 @@
 	 (define-key yas-keymap (kbd "C-p") 'yas-prev-field)))
 
 ;; w3m
+(require 'w3m)
 (setq browse-url-browser-function 'w3m-browse-url)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 
@@ -192,6 +193,8 @@
 (global-smartscan-mode 1)
 
 (add-hook 'inferior-python-mode-hook (lambda () (smartscan-mode 0)))
+(add-hook 'shell-mode-hook (lambda () (smartscan-mode 0)))
+
 
 (load "functions")
 (load "keybindings")
