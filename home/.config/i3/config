@@ -10,11 +10,15 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $alt Mod1
 #set $mod Mod2
 # Mod2 is left alt, Mod5 is right alt
 
 # cycle workspace
 bindsym $mod+c exec i3-msg move workspace to output left
+
+# test
+bindsym $mod+$alt+c exec notify-send testingxxx
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
