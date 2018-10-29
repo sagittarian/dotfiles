@@ -9,16 +9,16 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# see xmodmap(1)
 set $mod Mod4
 set $alt Mod1
-#set $mod Mod2
-# Mod2 is left alt, Mod5 is right alt
 
 # cycle workspace
 bindsym $mod+c exec i3-msg move workspace to output left
 
 # test
 bindsym $mod+$alt+c exec notify-send testingxxx
+bindsym $mod+Control+c exec notify-send testingccc
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -26,26 +26,21 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# We use dolphin all the time
-bindsym $mod+Shift+E exec dolphin
-bindsym $mod+Shift+M exec dolphin ~/media
-# And also emacs
+# Easy access to various programs
 bindsym $mod+m exec emacsclient -n -c
-# don't forget uzbl
-# bindsym $mod+g exec uzbl-browser
-bindsym $mod+g exec google-chrome --new-window
-# open terminator with ipython
-bindsym $mod+Shift+C exec terminator -e isympy
-# open terminator with ghci
-bindsym $mod+Shift+g exec terminator -e ghci
+bindsym $mod+Control+d exec dolphin
+bindsym $mod+Control+m exec dolphin ~/media
+bindsym $mod+Control+e exec emacsclient -n -c
+bindsym $mod+Control+g exec google-chrome --new-window
+bindsym $mod+Control+s exec terminator -e isympy
+bindsym $mod+Control+h exec terminator -e ghci
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+colon kill
-# also let's do it without the shift, because it's so common
-# bindsym $mod+semicolon kill
+bindsym $mod+Control+semicolon kill
 
 # start dmenu (a program launcher)
 bindsym $mod+e exec dmenu_run_aliases
@@ -178,17 +173,12 @@ bar {
         status_command i3status
 }
 
-exec setxkbmap -layout 'us(dvp),il' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'
+exec setxkbmap -layout us(dvp),il -option grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps
 exec nm-applet
 exec workrave
 exec unity-settings-daemon
 exec pavucontrol
 exec ksysguard
-# exec xmodmap -e "keycode 107 = Menu"
-# exec skype
-# exec skype-call-recorder
-# exec kmix
-# exec klipper
+exec clipit
 # exec kalarm
 # exec dropbox start
-# exec tagtimed.pl
