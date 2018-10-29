@@ -1,5 +1,6 @@
 alias jenkins='ssh -L8080:localhost:8080 adam@c8-ci.colabo.com'
 alias pgprod='ssh -L15432:localhost:15432 adam@c8-pr1.colabo.com'
+alias pgst2='ssh -L12543:localhost:15432 adam@c8-st2.colabo.com'
 alias ipy=ipython2
 alias ipy3='[ -n "$VIRTUAL_ENV" ] && (python --version |& grep "Python 2" > /dev/null) && deactivate; ipython3'
 
@@ -26,13 +27,18 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 export CDPATH=$CDPATH:$HOME/src/genie/branches:$HOME/src/genie/worktrees
 for pkg in genie pycase; do
-    PYTHONPATH=./src/python/$pkg:../src/python/$pkg:$PYTHONPATH
+    PYTHONPATH=./src/python/$pkg:$PYTHONPATH
 done
 PYTHONPATH=./oms_svc/src/python/genie_oms:$PYTHONPATH
-PYTHONPATH=./test/src/python/genie_test/genie_test:../test/src/python/genie_test/genie_test:$PYTHONPATH
+PYTHONPATH=./test/src/python/genie_test/genie_test:$PYTHONPATH
+PYTHONPATH=./history_svc/src/python/genie_history:$PYTHONPATH
+PYTHONPATH=./carrier_svc/src/python/genie_carriers:$PYTHONPATH
+PYTHONPATH=./email_reader_svc/src/python/genie_email_reader:$PYTHONPATH
+
 export PYTHONPATH
 
 export GENIE_ENV=dev
+export GENIE_CONFIG_FOLDER=./conf
 
 function runsvc {
     svc=$1
@@ -99,5 +105,26 @@ eval $(cd ~/src/genie && python -c "from genie.config import get_config
 for s, d in get_config()['service_discovery']['services'].items(): print('{}_PORT={}'.format(s.upper(), d['port']))")
 
 alias greplog='python /home/adam/src/genie/tools/greplog.py'
+alias lintkill='while pkill -f pylint; do sleep 1; done'
+
+function geniecp {
+    src=$1
+    dest=$2
+    path=$3
+    prefix=$HOME/src/genie
+    if [ "$src" = "genie" ]; then
+        src=$prefix
+    else
+        src=$prefix/worktrees/$src
+    fi
+
+    if [ "$dest" = "genie" ]; then
+        dest=$prefix
+    else
+        dest=$prefix/worktrees/$dest
+    fi
+
+    cp -vi $src/$path $dest/$path
+}
 
 # docker run -v $(readlink -f ./conf):/genie/services/conf -v /var/log/genie:/var/log/genie -ti --entrypoint /bin/bash adam-genie-test
