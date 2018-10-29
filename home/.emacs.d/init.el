@@ -26,12 +26,24 @@
 			'(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 ;; macro for easily making anki clozes
-(fset 'make-cloze
-   (lambda (&optional arg)
-	 "Turn the selection into an Anki cloze"
-	 (interactive "p")
-	 (kmacro-exec-ring-item
-	  (quote ("{{c1::}}" 0 "%d")) arg)))
+;; (fset '-make-cloze-macro
+;;    (lambda (&optional arg)
+;; 	 "Turn the selection into an Anki cloze"
+;; 	 (interactive "p")
+;; 	 (kmacro-exec-ring-item
+;; 	  (quote ("{{c1::}}" 0 "%d")) arg)))
+
+(defun make-cloze (num)
+  "Make cloze numbered NUM out of the current region."
+  (interactive "p")
+  (let* ((text (if (use-region-p)
+                   (progn
+                     (kill-region (point) (mark))
+                     (car kill-ring-yank-pointer))
+                 ""))
+         (cloze (format "{{c%d::%s}}" num text)))
+    (insert cloze)
+    (goto-char (- (point) 2))))
 
 ;; use ibuffer to list buffers by default
 (defalias 'list-buffers 'ibuffer)
