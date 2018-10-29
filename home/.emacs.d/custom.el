@@ -195,7 +195,7 @@
     (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "worktrees" "node_modules")))
  '(projectile-mode t nil (projectile))
  '(projectile-sort-order (quote recently-active))
- '(projectile-switch-project-action (quote projectile-dired))
+ '(projectile-switch-project-action (quote magit-status))
  '(projectile-use-git-grep t)
  '(python-indent-guess-indent-offset t)
  '(python-indent-offset 4)
