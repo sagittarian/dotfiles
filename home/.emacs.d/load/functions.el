@@ -4,6 +4,19 @@
   (interactive)
   (kill-new (thing-at-point 'symbol)))
 
+(defun view-json ()
+  "Put the current region in a new json-mode buffer and beautify it."
+  (interactive)
+  (if mark-active
+      (let ((buf (generate-new-buffer "*JSON*")))
+        (copy-region-as-kill (region-beginning) (region-end))
+        (set-buffer buf)
+        (json-mode)
+        (yank 1)
+        (json-mode-beautify)
+        (switch-to-buffer buf))
+    (error "Mark is not active")))
+
 (defun delete-trailing-whitespace-except-before-point (&optional start end)
   "Delete trailing whitespace between start and end, but leave it just before the point"
   (interactive "p")
