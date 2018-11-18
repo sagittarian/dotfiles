@@ -64,7 +64,7 @@
 
 ;; custom commands
 (global-set-key (kbd "C-M-&") 'shell-command-as-kill)
-(global-set-key (kbd "C-c s") 'commit-buffer)
+;; (global-set-key (kbd "C-c s") 'commit-buffer)
 ;; XXX set this up to be run with commit-buffer above with prefix arg
 (global-set-key (kbd "C-c A") 'amend-buffer)
 (global-set-key (kbd "C-c a") 'stage-buffer)
@@ -74,6 +74,8 @@
 (global-set-key (kbd "C-c m") 'switch-to-minibuffer)
 (global-set-key (kbd "C-x M-e") 'eval-and-replace)
 (global-set-key (kbd "C-c w") 'current-buffer-file-name)
+
+(global-set-key (kbd "C-c s") 'scratch-buffer)
 
 ;; use my own function that saves the file when you switch windows
 (define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
