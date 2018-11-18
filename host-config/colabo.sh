@@ -53,6 +53,17 @@ export ST2=c8-st2.colabo.com
 export ST1=c8-st1.colabo.com
 export JENKINS=c8-ci.colabo.com
 
+read -r -d '' UNRUN <<'EOF'
+import re, subprocess; from genie.config import get_config
+svcs = get_config()["service_discovery"]["services"]
+running = [x.strip() for x in re.findall(
+    r"[^/]+$",
+    subprocess.check_output("ps aux | grep -v virtualenv | grep [s]vc", shell=True),
+    flags=re.MULTILINE)];
+print("\n".join(set(svcs) - set(running)))
+EOF
+alias unrun="(cd ~/src/genie && python -c '$UNRUN')"
+
 alias lorem="python -c 'import random; from statlorem import ipsum; print(ipsum(\"scifi\", 1, random.randrange(5, 19)))' | tee >(cat 1>&2) | xsel"
 alias monsvc='watch "ps aux | grep -v virtualenv | grep [s]vc; echo total services: \$(ps aux | grep -v virtualenv | grep [s]vc | wc -l)"'
 # alias newjira="jira-cli new -v --jira-url https://jira.colabo.com --project GEN --assignee adam --description '' --type Task --priority medium"
