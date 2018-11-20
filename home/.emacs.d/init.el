@@ -1,7 +1,5 @@
 ;;; Code:
 
-(require 'f)
-
 ;; look for files to load in ~/.emacs.d/load
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/load/"))
 
@@ -214,6 +212,9 @@
 
 (message "Host config is %s" host-config)
 (load host-config)
+
+(require 'f)
+
 
 (load "functions")
 (load "keybindings")
