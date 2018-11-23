@@ -81,7 +81,7 @@
 (define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
 
 ;; use avy-goto-line instead of goto-line
-(define-key (current-global-map) [remap goto-line] 'hydra-nav/avy-goto-line)
+(define-key (current-global-map) [remap goto-line] 'avy-goto-line)
 
 ;; avy
 (avy-setup-default)
