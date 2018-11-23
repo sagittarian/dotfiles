@@ -83,6 +83,9 @@
 ;; use avy-goto-line instead of goto-line
 (define-key (current-global-map) [remap goto-line] 'avy-goto-line)
 
+;; kill this buffer without confirmation
+(define-key (current-global-map) [remap kill-buffer] (lambda () (interactive) (kill-buffer nil)))
+
 ;; avy
 (avy-setup-default)
 ;; (global-set-key (kbd "C-'") 'avy-goto-char-timer)
