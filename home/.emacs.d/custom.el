@@ -7,6 +7,8 @@
    (quote
     ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--")))
  '(ag-group-matches nil)
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
  '(apropos-do-all t)
@@ -267,12 +269,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 105 :width normal :foundry "DAMA" :family "Ubuntu Mono"))))
- '(dired-subtree-depth-1-face ((t (:background "white"))))
- '(dired-subtree-depth-2-face ((t (:background "white smoke"))))
- '(dired-subtree-depth-3-face ((t (:background "gainsboro"))))
+ '(dired-subtree-depth-1-face ((t (:background "misty rose"))))
+ '(dired-subtree-depth-2-face ((t (:background "pale green"))))
+ '(dired-subtree-depth-3-face ((t (:background "light sky blue"))))
  '(dired-subtree-depth-4-face ((t (:background "light gray"))))
- '(dired-subtree-depth-5-face ((t (:background "dark gray"))))
- '(dired-subtree-depth-6-face ((t (:background "dim gray"))))
- '(git-gutter+-added ((t (:foreground "dark green" :weight bold)))))
+ '(dired-subtree-depth-5-face ((t (:background "light salmon"))))
+ '(dired-subtree-depth-6-face ((t (:background "aquamarine"))))
+ '(git-gutter+-added ((t (:foreground "dark green" :weight bold))))
+ '(linum ((t (:background "#EEEEEE" :foreground "#5a5a5a")))))
 
 ;;; custom.el ends here
