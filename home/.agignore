@@ -9,3 +9,5 @@ backups
 dist
 node_modules
 bower_components
+.local
+.git

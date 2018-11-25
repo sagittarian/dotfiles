@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(ag-arguments
    (quote
-    ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--")))
+    ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--hidden" "--")))
  '(ag-group-matches nil)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
