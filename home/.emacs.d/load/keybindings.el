@@ -22,6 +22,9 @@
 ;; macro to make an anki cloze
 (global-set-key (kbd "C-c c") 'make-cloze)
 
+;; alternative yasnippet expand key
+(global-set-key (kbd "C-<tab>") 'yas-expand)
+
 ;; elpy
 (require 'elpy)
 (define-key elpy-mode-map (kbd "C-.") 'xref-find-definitions-other-window)

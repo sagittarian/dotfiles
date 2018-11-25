@@ -207,14 +207,12 @@
 (add-hook 'inferior-python-mode-hook (lambda () (smartscan-mode 0)))
 (add-hook 'shell-mode-hook (lambda () (smartscan-mode 0)))
 
-
 (setq host-config (format "%s-config" (system-name)))
 
 (message "Host config is %s" host-config)
 (load host-config)
 
 (require 'f)
-
 
 (load "functions")
 (load "keybindings")
