@@ -34,6 +34,9 @@ PYTHONPATH=./test/src/python/genie_test/genie_test:$PYTHONPATH
 PYTHONPATH=./history_svc/src/python/genie_history:$PYTHONPATH
 PYTHONPATH=./carrier_svc/src/python/genie_carriers:$PYTHONPATH
 PYTHONPATH=./email_reader_svc/src/python/genie_email_reader:$PYTHONPATH
+PYTHONPATH=./payment_svc/src/python/genie_payment:$PYTHONPATH
+export PYTHONPATH
+
 
 export PYTHONPATH
 
