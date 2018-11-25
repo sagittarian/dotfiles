@@ -1,0 +1,37 @@
+127.0.0.1	localhost
+127.0.1.1	anthia
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+127.0.0.1       doubleclick.net
+
+# 74.125.141.95   securetoken.googleapis.com
+35.190.170.135	genie-prod-a prod
+104.196.19.240	genie-prod-a-rep
+35.185.53.138   genie-staging st sta st1
+35.190.173.77   genie-staging-b stb st2
+104.197.214.224	genie-staging-c stc st3
+35.227.65.14    genie-staging-d std st4
+35.202.198.162  genie-staging-e ste st5
+35.188.236.10   genie-staging-f stf st6
+35.194.84.10    genie-staging-g stg st7
+35.192.217.158  genie-staging-h sth st8
+35.185.0.172    genie-staging-nginx
+35.231.5.91     genie-staging-rep
+35.185.17.236   jenkins-master jenkins
+# 35.230.33.66    jenkins-master-staging jenkins-staging
+104.198.7.9     jenkins-master-staging jenkins-staging
+
+35.237.45.213	jenkins-slave-a
+35.229.108.40	jenkins-slave-b
+35.231.240.158	jenkins-slave-c
+35.185.19.45	jenkins-slave-d
+35.199.41.118	jenkins-slave-e
+35.194.64.192	jenkins-slave-f
+35.239.243.191	jenkins-slave-g
+35.238.171.251	jenkins-slave-h
