@@ -32,6 +32,7 @@ bindsym $mod+Control+d exec dolphin
 bindsym $mod+Control+m exec dolphin ~/media
 bindsym $mod+Control+e exec emacsclient -n -c
 bindsym $mod+Control+g exec google-chrome --new-window
+bindsym $mod+Control+Shift+G exec google-chrome --new-window --incognito
 bindsym $mod+Control+s exec terminator -e isympy
 bindsym $mod+Control+h exec terminator -e ghci
 
