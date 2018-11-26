@@ -63,6 +63,7 @@
  '(electric-pair-delete-adjacent-pairs nil)
  '(electric-pair-preserve-balance nil)
  '(elpy-disable-backend-error-display t)
+ '(elpy-mode-hook (quote (subword-mode hl-line-mode)))
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
