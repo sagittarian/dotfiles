@@ -5,7 +5,7 @@
   (kill-new (thing-at-point 'symbol)))
 
 (defun view-json ()
-  "Put the current region in a new json-mode buffer and beautify it."
+  "Put the current region in a new `json-mode` buffer and beautify it."
   (interactive)
   (if mark-active
       (let ((buf (generate-new-buffer "*JSON*")))
@@ -14,6 +14,20 @@
         (json-mode)
         (yank 1)
         (json-mode-beautify)
+        (switch-to-buffer buf))
+    (error "Mark is not active")))
+
+(defun view-python ()
+  "Put the current region in a new `python-mode` buffer and beautify it."
+  (interactive)
+  (if mark-active
+      (let ((buf (generate-new-buffer "*Python*")))
+        (copy-region-as-kill (region-beginning) (region-end))
+        (set-buffer buf)
+        (python-mode)
+        (yank 1)
+        (mark-whole-buffer)
+        (shell-command-on-region (point-min) (point-max) "autopep8 -aaa -" buf t)
         (switch-to-buffer buf))
     (error "Mark is not active")))
 
