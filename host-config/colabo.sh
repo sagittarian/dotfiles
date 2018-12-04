@@ -76,8 +76,13 @@ alias migrate='echo "I want to run migrations on env: DEV env_id:ADAM__AT__ANTHI
 function grablog {
     svc=$1
     destdir=$(date +%Y-%m-%d)
-    mkdir -p ./$destdir
-    rsync -avz "prod:/var/log/genie/${svc}*.log*" ./$destdir
+    if [ "$(basename $(pwd))" = "$(date +%Y-%m-%d)" ]; then
+        destdir=.
+    else
+        destdir="./$destdir"
+        mkdir -p $destdir
+    fi
+    rsync --progress -avz "prod:/var/log/genie/${svc}*.log*" $destdir
 }
 
 alias synclogs='rsync -avz "prod:/var/log/genie/*log*" .'
@@ -120,8 +125,15 @@ workon geniedev
 eval $(cd ~/src/genie && python -c "from genie.config import get_config
 for s, d in get_config()['service_discovery']['services'].items(): print('{}_PORT={}'.format(s.upper(), d['port']))")
 
-alias greplog='python /home/adam/src/genie/tools/greplog.py'
+alias greplog='python /home/adam/src/genie/tools/greplog.py -v -x "Thread #0"'
 alias lintkill='while pkill -f pylint; do sleep 1; done'
+function stest {
+    # run service tests more easily
+    svcname=${1}_svc
+    shift;
+    ./run-service-tests $svcname "$@"
+}
+
 
 function geniecp {
     src=$1
