@@ -20,10 +20,12 @@
 (global-set-key (kbd "C-9") 'er/contract-region)
 
 ;; macro to make an anki cloze
-(global-set-key (kbd "C-c c") 'make-cloze)
+(global-set-key (kbd "C-c C") 'make-cloze)
 
 ;; alternative yasnippet expand key
 (global-set-key (kbd "C-<tab>") 'yas-expand)
+
+(global-set-key (kbd "C-c c") 'org-capture)
 
 ;; elpy
 (require 'elpy)

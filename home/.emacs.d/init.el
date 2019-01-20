@@ -215,6 +215,13 @@
 (message "Host config is %s" host-config)
 (load host-config)
 
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/src/org/todo.org" "Tasks")
+         "* TODO %?\n  %i")
+        ("g" "Work todo" entry (file+headline "~/src/genie/todo.org" "Tasks")
+         "* TODO %?\n  %i")))
+
+(require 'expand-region)
 (require 'f)
 
 (load "functions")
