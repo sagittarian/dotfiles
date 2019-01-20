@@ -109,6 +109,10 @@
    (interactive)
    (insert (format-time-string "%Y-%m-%dT%H:%M:%S")))
 
+(defun find-todo ()
+  (interactive)
+  (find-file am-todo-filename))
+
 ;; source: https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."

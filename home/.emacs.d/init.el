@@ -208,6 +208,8 @@
 (add-hook 'shell-mode-hook (lambda () (smartscan-mode 0)))
 (add-hook 'python-mode-hook 'idle-highlight-mode)
 
+(setq am-todo-filename "~/src/org/todo.org")
+
 (setq host-config (format "%s-config" (system-name)))
 
 (message "Host config is %s" host-config)

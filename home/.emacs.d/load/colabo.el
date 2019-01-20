@@ -12,5 +12,7 @@
          "/home/adam/python" path-separator
          (getenv "PYTHONPATH")))
 
+(setq am-todo-filename "~/src/genie/todo.org")
+
 (provide 'colabo)
 ;;; colabo.el ends here
