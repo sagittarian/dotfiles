@@ -2,6 +2,7 @@
   enabled_plugins = CustomCommandsMenu, InactivityWatch, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   focus = mouse
 [keybindings]
+  close_window = <Primary><Shift>q
   go_down = <Alt>n
   go_left = <Alt>h
   go_right = <Alt>s
