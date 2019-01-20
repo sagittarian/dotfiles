@@ -11,3 +11,5 @@ export TERMINAL=/usr/bin/terminator
 # cabal
 export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 
+# less
+export LESS="-N"
