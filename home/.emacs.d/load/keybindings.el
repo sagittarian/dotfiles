@@ -1,6 +1,8 @@
 ;;; Code:
 
 ;; misc
+(global-set-key (kbd "C-S-g") 'keyboard-quit)
+(define-key ivy-minibuffer-map (kbd "C-S-g") 'minibuffer-keyboard-quit)
 (global-set-key (kbd "M-+") 'other-window)
 (global-set-key (kbd "C-+") 'other-window)
 (global-set-key (kbd "C-M-+")
@@ -46,7 +48,8 @@
 ;; magit
 (require 'magit)
 (global-set-key (kbd "C-c g g") 'magit-status)
-(global-set-key (kbd "C-S-g") 'magit-status)
+(global-set-key (kbd "C-M-g") 'magit-status)
+(global-set-key (kbd "C-S-m") 'magit-status)
 (global-set-key (kbd "C-c g b") 'magit-blame)
 (global-set-key (kbd "C-c g B") 'magit-blame-popup)
 (global-set-key (kbd "C-c g t") 'git-timemachine)
