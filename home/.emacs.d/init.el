@@ -206,6 +206,7 @@
 
 (add-hook 'inferior-python-mode-hook (lambda () (smartscan-mode 0)))
 (add-hook 'shell-mode-hook (lambda () (smartscan-mode 0)))
+(add-hook 'python-mode-hook 'idle-highlight-mode)
 
 (setq host-config (format "%s-config" (system-name)))
 
