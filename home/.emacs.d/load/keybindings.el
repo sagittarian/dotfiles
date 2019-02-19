@@ -100,7 +100,7 @@
 (avy-setup-default)
 ;; (global-set-key (kbd "C-'") 'avy-goto-char-timer)
 (global-set-key (kbd "C-'") 'hydra-nav/avy-goto-char-timer)
-(global-set-key (kbd "C-S-SPC") 'hydra-nav/avy-goto-char-timer)
+(global-set-key (kbd "C-S-SPC") 'avy-goto-char-timer)
 ;; (global-set-key (kbd "C-;") 'avy-goto-word-1)
 (global-set-key (kbd "C-;") 'hydra-nav/avy-goto-word-1)
 (global-set-key (kbd "C-:") 'avy-goto-word-0)
