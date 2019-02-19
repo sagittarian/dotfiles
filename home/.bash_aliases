@@ -120,6 +120,11 @@ function showpypath () {
 	python -c "import re, $1; print(re.search(r\"([^']+.py)c?'>$\", str($1)).group(1))"
 }
 
+function epy {
+    pypath=$(showpypath $1)
+    emacsclient -n -c $(dirname $pypath)
+}
+
 alias pyfmt="python -c 'import sys, autopep8; print(autopep8.fix_code(sys.stdin.read(), options=dict(aggressive=3, max_line_length=120)))'"
 
 # virtualenv
