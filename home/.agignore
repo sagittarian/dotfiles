@@ -11,3 +11,7 @@ node_modules
 bower_components
 .local
 .git
+*.csv
+*.txt
+*.log
+*.log.*
