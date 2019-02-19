@@ -132,6 +132,7 @@
      (holiday-fixed 11 1 "Samhain"))))
  '(htmlize-css-name-prefix "htmlize-")
  '(htmlize-output-type (quote css))
+ '(idle-highlight-idle-time 0.1)
  '(ido-auto-merge-work-directories-length -1)
  '(ido-default-buffer-method (quote selected-window))
  '(ido-default-file-method (quote selected-window))
