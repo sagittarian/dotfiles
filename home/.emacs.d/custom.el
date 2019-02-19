@@ -172,7 +172,9 @@
  '(nrepl-message-colors
    (quote
     ("#183691" "#969896" "#a71d5d" "#969896" "#0086b3" "#795da3" "#a71d5d" "#969896")))
- '(org-agenda-files nil)
+ '(org-agenda-files
+   (quote
+    ("~/src/org/inbox.org" "~/src/org/projects.org" "~/src/org/someday.org")))
  '(org-mode-hook
    (quote
     (er/add-org-mode-expansions
