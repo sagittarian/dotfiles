@@ -208,7 +208,7 @@
 (add-hook 'shell-mode-hook (lambda () (smartscan-mode 0)))
 (add-hook 'python-mode-hook 'idle-highlight-mode)
 
-(setq am-todo-filename "~/src/org/todo.org")
+(setq am-todo-filename "~/src/org/inbox.org")
 
 (setq host-config (format "%s-config" (system-name)))
 
@@ -216,7 +216,7 @@
 (load host-config)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/src/org/todo.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/src/org/inbox.org" "Tasks")
          "* TODO %?\n  %i")
         ("g" "Work todo" entry (file+headline "~/src/genie/todo.org" "Tasks")
          "* TODO %?\n  %i")))
