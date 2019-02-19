@@ -1,6 +1,7 @@
 ;;; Code:
 
 ;; misc
+(global-set-key (kbd "C-M-;") (lambda () (interactive) (back-to-indentation) (sp-comment)))
 (global-set-key (kbd "C-S-g") 'keyboard-quit)
 (define-key ivy-minibuffer-map (kbd "C-S-g") 'minibuffer-keyboard-quit)
 (global-set-key (kbd "M-+") 'other-window)
