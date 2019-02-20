@@ -16,3 +16,19 @@
     user: "{{ ansible_user }}"
     job: DISPLAY=:0 notify-send microbreak
     minute: "*/9"
+
+- name: Add job to commit tagtime logs
+  tags:
+    - crontab
+    - tagtime
+  cron:
+    name: commit tagtime
+    state: present
+    user: "{{ ansible_user }}"
+    job: >-
+      cd {{ src_dir }}/{{ org_repo }} &&
+      git commit -m 'Update {{ ansible_hostname }}.log'
+      {{ src_dir }}/{{ org_repo }}/{{ ansible_hostname }}.log
+    weekday: 0
+    hour: 13
+    minute: 30
