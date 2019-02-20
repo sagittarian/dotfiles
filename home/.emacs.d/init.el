@@ -209,6 +209,7 @@
 (add-hook 'python-mode-hook 'idle-highlight-mode)
 
 (setq am-todo-filename "~/src/org/inbox.org")
+(setq am-project-filename "~/src/org/projects.org")
 
 (setq host-config (format "%s-config" (system-name)))
 

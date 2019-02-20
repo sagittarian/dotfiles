@@ -113,6 +113,10 @@
   (interactive)
   (find-file am-todo-filename))
 
+(defun find-projects ()
+  (interactive)
+  (find-file am-project-filename))
+
 ;; source: https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."

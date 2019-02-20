@@ -81,6 +81,7 @@
 (global-set-key (kbd "C-c D") 'insert-date)
 (global-set-key (kbd "C-c T") 'insert-timestamp)
 (global-set-key (kbd "C-c t") 'find-todo)
+(global-set-key (kbd "C-c j") 'find-projects)
 (global-set-key (kbd "C-c m") 'switch-to-minibuffer)
 (global-set-key (kbd "C-x M-e") 'eval-and-replace)
 (global-set-key (kbd "C-c w") 'current-buffer-file-name)
