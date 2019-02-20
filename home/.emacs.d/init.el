@@ -228,5 +228,7 @@
 (load "functions")
 (load "keybindings")
 
+(server-start)
+
 (provide 'init)
 ;;; init ends here
