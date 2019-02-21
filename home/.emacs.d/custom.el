@@ -143,6 +143,7 @@
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(isearch-allow-scroll t)
+ '(ivy-count-format "(%d/%d) ")
  '(ivy-height 15)
  '(ivy-mode t)
  '(ivy-use-virtual-buffers t)
