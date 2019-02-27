@@ -16,3 +16,14 @@
 
 (provide 'colabo)
 ;;; colabo.el ends here
+
+
+(defun list-worktree ()
+  "Switch to a new scratch buffer."
+  (interactive)
+  (let ((buf (generate-new-buffer "*worktrees*")))
+    (switch-to-buffer buf)
+    (cd "~/src/genie")
+    (call-process "git" nil buf nil "worktree" "list")))
+
+(defalias 'worktree-list 'list-worktree)
