@@ -27,7 +27,8 @@
     user: "{{ ansible_user }}"
     job: >-
       cd {{ src_dir }}/{{ org_repo }} &&
-      git commit -m 'Update {{ ansible_hostname }}.log'
+      git commit -m
+      "Update {{ ansible_hostname }}.log up to $(tail -n 1 {{ src_dir }}/{{ org_repo }}/{{ ansible_hostname }}.log | cut -b56-78)"
       {{ src_dir }}/{{ org_repo }}/{{ ansible_hostname }}.log
     weekday: 0
     hour: 13
