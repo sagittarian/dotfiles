@@ -196,3 +196,5 @@ function escratch {
     emacsclient -n -c $tmpnam
 }
 
+alias today='date +%Y-%m-%d'
+alias now='date +%Y-%m-%dT%H:%M:%S'
