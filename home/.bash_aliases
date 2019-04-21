@@ -12,6 +12,8 @@ alias pyecho="python -c 'import sys; print(sys.argv[1:])'"
 
 alias e="emacsclient -n -c -a ''"
 alias e.="emacsclient -n -c -a '' ."
+alias ed.="emacsclient -n -c -a '' ."
+alias em.='emacsclient -n -c -a "" -e "(magit-status \"$(pwd)\")"'
 alias ec="emacsclient -nw"
 EDITOR='emacsclient -c'
 export EDITOR
