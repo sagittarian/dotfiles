@@ -225,6 +225,9 @@
 (require 'expand-region)
 (require 'f)
 
+(advice-add 'magit-stage-file :after (lambda (&rest r) (git-gutter+-refresh)))
+(advice-add 'magit-unstage-file :after (lambda (&rest r) (git-gutter+-refresh)))
+
 (load "functions")
 (load "keybindings")
 
