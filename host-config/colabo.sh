@@ -120,7 +120,19 @@ for line in sys.stdin: print(
 
 
 # source $HOME/.virtualenvs/geniedev/bin/activate
-workon geniedev
+export GENIE2_VIRTUALENV=geniedev
+export GENIE3_VIRTUALENV=genie3
+export GENIE_VIRTUALENV=$GENIE2_VIRTUALENV
+export BUZZ2_VIRTUALENV=buzzdev
+export BUZZ3_VIRTUALENV=buzz3
+export BUZZ_VIRTUALENV=$BUZZ3_VIRTUALENV
+alias genie='workon $GENIE_VIRTUALENV'
+alias genie2='workon $GENIE2_VIRTUALENV'
+alias genie3='workon $GENIE3_VIRTUALENV'
+alias buzz='workon $BUZZ_VIRTUALENV'
+alias buzz2='workon $BUZZ2_VIRTUALENV'
+alias buzz3='workon $BUZZ3_VIRTUALENV'
+genie
 
 eval $(cd ~/src/genie && python -c "from genie.config import get_config
 for s, d in get_config()['service_discovery']['services'].items(): print('{}_PORT={}'.format(s.upper(), d['port']))")
