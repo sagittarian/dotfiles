@@ -124,7 +124,10 @@ function showpypath () {
 
 function epy {
     pypath=$(showpypath $1)
-    emacsclient -n -c $(dirname $pypath)
+    if echo $pypath | grep __init__.py; then
+        pypath=$(dirname $pypath)
+    fi
+    emacsclient -n -c "$pypath"
 }
 
 alias pyfmt="python -c 'import sys, autopep8; print(autopep8.fix_code(sys.stdin.read(), options=dict(aggressive=3, max_line_length=120)))'"
