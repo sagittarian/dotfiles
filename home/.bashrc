@@ -2,6 +2,14 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+
+if [ -n "$BASHRC_EXECUTED" ]; then
+    unset BASHRC_EXECUTED
+    return
+fi
+
+export BASHRC_EXECUTED=1
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
