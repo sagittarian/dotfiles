@@ -15,6 +15,7 @@ set $alt Mod1
 
 # cycle workspace
 bindsym $mod+c exec i3-msg move workspace to output left
+bindsym $mod+Shift+C exec i3-msg move workspace to output up
 
 # test
 bindsym $mod+$alt+c exec notify-send testingxxx
