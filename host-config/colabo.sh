@@ -21,9 +21,9 @@ fi
 # Add RVM to PATH for scripting.
 # Make sure this is the last PATH variable change.
 # export PATH="$HOME/.rvm/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 
 export CDPATH=$CDPATH:$HOME/src/genie/branches:$HOME/src/genie/worktrees
