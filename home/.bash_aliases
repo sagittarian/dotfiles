@@ -203,3 +203,21 @@ function escratch {
 
 alias today='date +%Y-%m-%d'
 alias now='date +%Y-%m-%dT%H:%M:%S'
+
+export VENV_LOC="$HOME/.venv"
+export DEFAULT_VENV=wogo
+function set_venv {
+    name=$1
+    echo $name > $VENV_LOC
+    workon $name
+}
+
+function venv {
+    name=$1
+    if [[ "$name" != "" ]]; then
+       set_venv $name
+    else
+        cat $VENV_LOC 2> /dev/null || echo $DEFAULT_VENV
+    fi
+}
+
