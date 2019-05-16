@@ -27,6 +27,20 @@ fi
 
 
 export CDPATH=$CDPATH:$HOME/src/genie/branches:$HOME/src/genie/worktrees
+export GENIE2_VIRTUALENV=geniedev
+export GENIE3_VIRTUALENV=genie3
+export GENIE_VIRTUALENV=$GENIE2_VIRTUALENV
+export BUZZ2_VIRTUALENV=buzz2
+export BUZZ3_VIRTUALENV=buzzdev
+export BUZZ_VIRTUALENV=$BUZZ3_VIRTUALENV
+alias genie='set_venv $GENIE_VIRTUALENV'
+alias genie2='set_venv $GENIE2_VIRTUALENV && export GENIE_VIRTUALENV=$GENIE2_VIRTUALENV'
+alias genie3='set_venv $GENIE3_VIRTUALENV && export GENIE_VIRTUALENV=$GENIE3_VIRTUALENV'
+alias buzz='set_venv $BUZZ_VIRTUALENV'
+alias buzz2='set_venv $BUZZ2_VIRTUALENV && export BUZZ_VIRTUALENV=$BUZZ2_VIRTUALENV'
+alias buzz3='set_venv $BUZZ3_VIRTUALENV && export BUZZ_VIRTUALENV=$BUZZ3_VIRTUALENV'
+
+
 for pkg in genie pycase; do
     PYTHONPATH=./src/python/$pkg:$PYTHONPATH
 done
