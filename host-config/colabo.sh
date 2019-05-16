@@ -25,8 +25,8 @@ fi
 # Load RVM into a shell session *as a function*
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+export CDPATH=$CDPATH:$HOME/src/genie/worktrees:$HOME/src/buzz/worktrees
 
-export CDPATH=$CDPATH:$HOME/src/genie/branches:$HOME/src/genie/worktrees
 export GENIE2_VIRTUALENV=geniedev
 export GENIE3_VIRTUALENV=genie3
 export GENIE_VIRTUALENV=$GENIE2_VIRTUALENV
