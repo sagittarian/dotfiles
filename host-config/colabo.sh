@@ -1,7 +1,8 @@
 alias jenkins='ssh -L8080:localhost:8080 adam@c8-ci.colabo.com'
-alias pgprod='ssh -L15432:localhost:15432 adam@c8-pr1.colabo.com'
-alias pgst2='ssh -L12543:localhost:15432 adam@c8-st2.colabo.com'
-alias ipy=ipython2
+# alias pgprod='ssh -L15432:localhost:15432 adam@c8-pr1.colabo.com'
+alias pgprod='ssh -L15432:postgresql-cluster-prod-a-node-0:5432 adam@c8-pr1.colabo.com'
+alias pgst2='ssh -L25432:postgresql-cluster-st2-node-0:5432 adam@c8-st2.colabo.com'
+alias ipy=ipython
 alias ipy3='[ -n "$VIRTUAL_ENV" ] && (python --version |& grep "Python 2" > /dev/null) && deactivate; ipython3'
 
 export NVM_DIR="/home/adam/.nvm"
