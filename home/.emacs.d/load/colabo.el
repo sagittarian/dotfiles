@@ -23,7 +23,9 @@
   (interactive)
   (let ((buf (generate-new-buffer "*worktrees*")))
     (switch-to-buffer buf)
-    (cd "~/src/genie")
-    (call-process "git" nil buf nil "worktree" "list")))
+    (dolist (path '("~/src/genie" "~/src/buzz"))
+      (cd path)
+      (call-process "git" nil buf nil "worktree" "list")
+      (insert (make-string 80 ?-) "\n"))))
 
 (defalias 'worktree-list 'list-worktree)
