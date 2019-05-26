@@ -1,4 +1,4 @@
-(pyvenv-workon "geniedev")
+(pyvenv-workon "buzzdev")
 
 (setenv "PYTHONPATH"
         (concat
