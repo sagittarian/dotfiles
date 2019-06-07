@@ -199,5 +199,19 @@
   (next-line 1)
   (indent-according-to-mode))
 
+
+(defun indent-4 ()
+  (interactive)
+  (indent-rigidly (region-beginning) (region-end) 4))
+
+
+(defun mark-parens ()
+  (interactive)
+  (sp-backward-up-sexp)
+  (push-mark (point))
+  (activate-mark)
+  (sp-forward-sexp)
+  (kill-new (filter-buffer-substring (region-beginning) (region-end))))
+
 (provide 'functions)
 ;;; functions.el ends here

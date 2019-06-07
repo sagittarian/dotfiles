@@ -201,6 +201,8 @@
 ;; (global-git-gutter+-mode)
 (git-gutter+-toggle-fringe)
 
+(global-set-key (kbd "C-M-'") (lambda () (interactive) (insert "''") (backward-char)))
+(global-set-key (kbd "C-M-\"") (lambda () (interactive) (insert "\"\"") (backward-char)))
 
 (global-smartscan-mode 1)
 

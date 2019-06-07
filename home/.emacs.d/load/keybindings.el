@@ -10,7 +10,8 @@
                 (lambda () (interactive)
                   (switch-to-buffer-other-window (current-buffer))))
 (global-set-key (kbd "C-<return>") 'newline-and-indent)
-(global-set-key (kbd "M-<return>") 'am-open-next-line)
+;; (global-set-key (kbd "M-<return>") 'am-open-next-line)
+(global-unset-key (kbd "M-<return>"))
 (global-set-key (kbd "C-M-)") 'make-frame-command)
 (global-set-key (kbd "s-;") 'delete-frame)
 ;; (global-set-key (kbd "C-M-}") 'split-window-right)
@@ -21,6 +22,8 @@
 ;; expand region
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-9") 'er/contract-region)
+
+(global-set-key (kbd "C-c C-M-SPC") 'mark-parens)
 
 ;; macro to make an anki cloze
 (global-set-key (kbd "C-c C") 'make-cloze)
@@ -33,6 +36,7 @@
 ;; elpy
 (require 'elpy)
 (define-key elpy-mode-map (kbd "C-.") 'xref-find-definitions-other-window)
+(define-key python-mode-map (kbd "C-c i") 'pyimport-insert-missing)
 
 ;; traad
 (define-key elpy-mode-map (kbd "C-c r r") 'traad-rename)
@@ -105,7 +109,8 @@
 ;; (global-set-key (kbd "C-;") 'avy-goto-word-1)
 (global-set-key (kbd "C-;") 'hydra-nav/avy-goto-word-1)
 (global-set-key (kbd "C-:") 'avy-goto-word-0)
-(global-set-key (kbd "C-c SPC") 'avy-resume)
+;; (global-set-key (kbd "C-c SPC") 'avy-resume)
+(global-set-key (kbd "C-c SPC") 'avy-goto-word-1)
 (global-set-key (kbd "C-S-n") 'hydra-nav/body)
 
 ;; flycheck
@@ -203,6 +208,7 @@
 
 
 ;; smartparens
+;; (global-set-key (kbd "C-M-S-w") 'kill-sexp)
 (define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
 (define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
 
