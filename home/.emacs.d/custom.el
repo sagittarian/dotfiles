@@ -225,7 +225,7 @@
  '(tab-width 4)
  '(tool-bar-mode nil)
  '(track-eol t)
- '(tramp-default-method "ssh")
+ '(tramp-default-method "ssh" nil (tramp))
  '(undo-tree-auto-save-history t)
  '(uniquify-ask-about-buffer-names-p t)
  '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
