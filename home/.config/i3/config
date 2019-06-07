@@ -185,5 +185,6 @@ exec unity-settings-daemon
 exec pavucontrol
 exec ksysguard
 exec clipit
+exec emacs26
 # exec kalarm
 # exec dropbox start
