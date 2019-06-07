@@ -8,7 +8,6 @@ alias ipy3='[ -n "$VIRTUAL_ENV" ] && (python --version |& grep "Python 2" > /dev
 export NVM_DIR="/home/adam/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-
 # path and command completion for the Google Cloud SDK
 if [ -f '/home/adam/bin/google-cloud-sdk/path.bash.inc' ]; then
     source '/home/adam/bin/google-cloud-sdk/path.bash.inc'
@@ -90,6 +89,8 @@ alias migrate='echo "I want to run migrations on env: DEV env_id:ADAM__AT__ANTHI
 
 function grablog {
     svc=$1
+    host=${2:-prod}
+    echo svc is $svc and host is $host
     destdir=$(date +%Y-%m-%d)
     if [ "$(basename $(pwd))" = "$(date +%Y-%m-%d)" ]; then
         destdir=.
@@ -97,7 +98,7 @@ function grablog {
         destdir="./$destdir"
         mkdir -p $destdir
     fi
-    rsync --progress -avz "prod:/var/log/genie/${svc}*.log*" $destdir
+    rsync --progress -avz "${host}:/var/log/genie/${svc}*.log*" $destdir
 }
 
 alias synclogs='rsync -avz "prod:/var/log/genie/*log*" .'
@@ -157,7 +158,7 @@ alias lintkill='while pkill -f pylint; do sleep 1; done'
 function stest {
     # run service tests more easily
     svcname=${1}_svc
-    shift;
+    shift
     ./run-service-tests $svcname "$@"
 }
 
