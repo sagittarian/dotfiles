@@ -27,6 +27,9 @@
         smartscan
         annoying-arrows-mode
         w3m
+        pyimport
+        ;; format-all blacken elpygen importmagic indent-tools pygent
+        ;; idle-highlight-mode
         pyvenv which-key))
 
 ;; some others
