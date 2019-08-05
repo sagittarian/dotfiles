@@ -118,12 +118,12 @@ alias j2y="ruby -r json -r yaml -e 'puts YAML.dump JSON.load \$stdin.read'"
 alias rnd="python3 -c 'import random, sys; print(random.choice(sys.argv[1:]))'"
 alias rndchars="strings /dev/urandom | grep -o '[A-Za-z0-9]' | head" # | tr -d "\n"
 
-function showpypath () {
+function pywhich () {
 	python -c "import re, $1; print(re.search(r\"([^']+.py)c?'>$\", str($1)).group(1))"
 }
 
 function epy {
-    pypath=$(showpypath $1)
+    pypath=$(pywhich $1)
     if echo $pypath | grep __init__.py; then
         pypath=$(dirname $pypath)
     fi
