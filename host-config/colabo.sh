@@ -87,9 +87,10 @@ alias monsvc='watch "ps aux | grep -v virtualenv | grep [s]vc; echo total servic
 alias createjira=/home/adam/src/genie/tools/create-jira.py
 alias migrate='echo "I want to run migrations on env: DEV env_id:ADAM__AT__ANTHIA" | devops/migrations/do-db-migrate -H localhost -p 5432 -d genie_dev'
 
-function grablog {
-    svc=$1
-    host=${2:-prod}
+function _grablog {
+    project=$1
+    svc=$2
+    host=${3:-prod}
     echo svc is $svc and host is $host
     destdir=$(date +%Y-%m-%d)
     if [ "$(basename $(pwd))" = "$(date +%Y-%m-%d)" ]; then
@@ -98,8 +99,10 @@ function grablog {
         destdir="./$destdir"
         mkdir -p $destdir
     fi
-    rsync --progress -avz "${host}:/var/log/genie/${svc}*.log*" $destdir
+    rsync --progress -avz "${host}:/var/log/${project}/${svc}*.log*" $destdir
 }
+alias grablog="_grablog buzz"
+alias genielog="_grablog genie"
 
 alias synclogs='rsync -avz "prod:/var/log/genie/*log*" .'
 
