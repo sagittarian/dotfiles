@@ -8,6 +8,8 @@ export TERMINAL=/usr/bin/terminator
 #export TERMINAL=/usr/bin/konsole
 #export TERMINAL=/usr/bin/rxvt
 
+export PYTHONBREAKPOINT="pudb.set_trace"
+
 # cabal
 export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 
