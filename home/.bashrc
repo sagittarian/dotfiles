@@ -2,6 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export ZSH_VERSION=
 
 if [ -n "$BASHRC_EXECUTED" ]; then
     unset BASHRC_EXECUTED
