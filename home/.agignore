@@ -15,3 +15,5 @@ bower_components
 *.txt
 *.log
 *.log.*
+*.chunk.js
+*.chunk.js.map
