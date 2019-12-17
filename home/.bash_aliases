@@ -228,3 +228,4 @@ function venv {
     fi
 }
 
+alias pudb='python -m pudb.run'
