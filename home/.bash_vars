@@ -15,3 +15,11 @@ export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 
 # less
 export LESS="FRX"
+
+# virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+
+export PROJECT_HOME=$HOME/src
+
+source $(which virtualenvwrapper.sh)
+# source /home/adam/jython/bin/virtualenvwrapper.sh
