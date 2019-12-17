@@ -14,12 +14,8 @@
 
 (setq am-todo-filename "~/src/genie/todo.org")
 
-(provide 'colabo)
-;;; colabo.el ends here
-
-
 (defun list-worktree ()
-  "Switch to a new scratch buffer."
+  "List all my worktrees in a new scratch buffer."
   (interactive)
   (let ((buf (generate-new-buffer "*worktrees*")))
     (switch-to-buffer buf)
@@ -29,3 +25,6 @@
       (insert (make-string 80 ?-) "\n"))))
 
 (defalias 'worktree-list 'list-worktree)
+
+(provide 'colabo)
+;;; colabo.el ends here
