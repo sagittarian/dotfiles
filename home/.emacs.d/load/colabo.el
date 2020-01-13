@@ -17,14 +17,22 @@
 (defun list-worktree ()
   "List all my worktrees in a new scratch buffer."
   (interactive)
-  (let ((buf (generate-new-buffer "*worktrees*")))
+  (let* ((buf-name "*worktrees*")
+         (cur-buf (get-buffer buf-name))
+         (buf (if cur-buf cur-buf (generate-new-buffer buf-name))))
     (switch-to-buffer buf)
-    (dolist (path '("~/src/genie" "~/src/buzz"))
-      (cd path)
-      (call-process "git" nil buf nil "worktree" "list")
-      (insert (make-string 80 ?-) "\n"))))
+    (make-local-variable 'buffer-read-only)
+    (setq buffer-read-only t)
+    (let ((inhibit-read-only t))
+      (erase-buffer)
+      (dolist (path '("~/src/genie" "~/src/buzz"))
+        (cd path)
+        (call-process "git" nil buf nil "worktree" "list")
+        (insert (make-string 80 ?-) "\n")))))
 
 (defalias 'worktree-list 'list-worktree)
+
+(global-set-key (kbd "C-c l") 'list-worktree)
 
 (provide 'colabo)
 ;;; colabo.el ends here
