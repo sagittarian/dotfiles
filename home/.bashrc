@@ -4,12 +4,14 @@
 
 export ZSH_VERSION=
 
-if [ -n "$BASHRC_EXECUTED" ]; then
-    unset BASHRC_EXECUTED
-    return
-fi
+if [[ $- == *i* ]]; then  # i is interactive
+    if [ -n "$BASHRC_EXECUTED" ]; then
+        unset BASHRC_EXECUTED
+        return
+    fi
 
-export BASHRC_EXECUTED=1
+    export BASHRC_EXECUTED=1
+fi
 
 # If not running interactively, don't do anything
 case $- in
