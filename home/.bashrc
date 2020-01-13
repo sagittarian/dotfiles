@@ -164,3 +164,6 @@ if [ -e $compdir ]; then
         source "$compdir/$fname";
     done
 fi
+# Undefine the keybinding C-s for the stop-flow flow signal so we can
+# use C-s for forward search
+stty stop 'undef'
