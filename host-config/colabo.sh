@@ -6,6 +6,7 @@ alias ipy=ipython
 alias ipy3='[ -n "$VIRTUAL_ENV" ] && (python --version |& grep "Python 2" > /dev/null) && deactivate; ipython3'
 
 export BUZZ_REPO=$HOME/src/buzz/worktrees/moon
+export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/src/buzz/devops/ansible/vault-password
 
 export NVM_DIR="/home/adam/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
