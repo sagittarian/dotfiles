@@ -9,15 +9,15 @@
 - name: Unarchive Node.js
   unarchive:
     src: "{{ download_dir }}/{{ node_download_url | basename }}"
-    dest: "{{ bin_dir }}"
+    dest: "{{ local_bin_dir }}"
     copy: no
-    creates: "{{ bin_dir }}/{{ node_unarchive_dir }}/bin/node"
+    creates: "{{ local_bin_dir }}/{{ node_unarchive_dir }}/bin/node"
 
 - name: Create symlinks to node and npm
   file:
     state: link
-    path: "{{ bin_dir }}/{{ item }}"
-    src: "{{ bin_dir }}/{{ node_unarchive_dir }}/bin/{{ item }}"
+    path: "{{ local_bin_dir }}/{{ item }}"
+    src: "{{ local_bin_dir }}/{{ node_unarchive_dir }}/bin/{{ item }}"
   with_items:
     - node
     - npm
