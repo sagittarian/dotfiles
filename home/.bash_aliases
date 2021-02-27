@@ -10,12 +10,19 @@ alias bpy2=bpython
 
 alias pyecho="python -c 'import sys; print(sys.argv[1:])'"
 
+ecl=emacsclient
+if which emacs27 > /dev/null; then
+     alias emacs=emacs27
+     alias emacsclient=emacsclient27
+     ecl=emacsclient27
+fi
+
 alias e="emacsclient -n -c -a ''"
 alias e.="emacsclient -n -c -a '' ."
 alias ed.="emacsclient -n -c -a '' ."
 alias em.='emacsclient -n -c -a "" -e "(magit-status \"$(pwd)\")"'
 alias ec="emacsclient -nw"
-EDITOR='emacsclient -c'
+EDITOR="$ecl -c"
 export EDITOR
 
 alias ebang="emacsclient -n -c \$(eval \$(fc -ln -1))"
