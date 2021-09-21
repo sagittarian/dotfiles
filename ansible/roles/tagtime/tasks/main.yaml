@@ -31,7 +31,7 @@
   cron:
     name: Check tagtime editing
     state: present
-    user: "{{ ansible_user }}"
+    user: "{{ ansible_user_id }}"
     job: >-
       pgrep -f $(echo GntGvzr | tr a-zA-Z n-za-mN-ZA-M) > /dev/null &&
       notify-send -t 60000 tagtime 'Waiting for tagtime'

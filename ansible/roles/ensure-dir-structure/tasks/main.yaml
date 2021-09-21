@@ -3,8 +3,8 @@
   file:
     state: directory
     path: "{{ item }}"
-    owner: "{{ ansible_user }}"
-    group: "{{ ansible_user }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
   with_items:
     - "{{ download_dir }}"
     - "{{ bin_dir }}"

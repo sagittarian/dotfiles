@@ -13,7 +13,7 @@
   cron:
     name: microbreak reminder
     state: present
-    user: "{{ ansible_user }}"
+    user: "{{ ansible_user_id }}"
     job: DISPLAY=:0 notify-send microbreak
     minute: "*/9"
 
@@ -24,7 +24,7 @@
   cron:
     name: commit tagtime
     state: present
-    user: "{{ ansible_user }}"
+    user: "{{ ansible_user_id }}"
     job: >-
       cd {{ src_dir }}/{{ org_repo }} &&
       git commit -m

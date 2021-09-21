@@ -17,6 +17,7 @@ repourl='git@github.com:sagittarian/dotfiles.git'
 sudo apt update
 sudo apt -y install git python3-pip
 python3 -m pip install --user ansible
+export PATH=$PATH:/home/$USER/.local/bin
 
 mkdir -p $HOME/src
 cd $HOME/src
