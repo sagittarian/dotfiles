@@ -10,7 +10,7 @@ user = subprocess.getoutput('hostname')
 # path is path to tagtime directory
 path = "{{ src_dir }}/pytagtime"
 # path to logfile
-logf = os.path.join("{{ src_dir }}", "{{ org_repo }}", user + '.log')
+logf = os.path.join("{{ media_src_dir }}", "{{ org_repo }}", user + '.log')
 
 # If you're using windows, you'll need cygwin and to set this flag to True:
 # cygwin = False        # CHANGEME to True if you're using windows/cygwin.

@@ -3,7 +3,7 @@
   tags:
     - git-bootstrap
   git:
-    dest: "{{ src_dir }}/{{ item.dir }}"
+    dest: "{{ media_src_dir }}/{{ item.dir }}"
     repo: "{{ item.url }}"
     clone: yes
     update: yes

@@ -11,3 +11,5 @@
     - "{{ local_bin_dir }}"
     - "{{ src_dir }}"
     - "{{ home_dir }}/.bash_completion.d"
+    - "{{ media_dir }}"
+    - "{{ media_src_dir }}"

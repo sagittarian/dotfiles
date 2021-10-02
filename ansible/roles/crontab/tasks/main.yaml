@@ -26,10 +26,10 @@
     state: present
     user: "{{ ansible_user_id }}"
     job: >-
-      cd {{ src_dir }}/{{ org_repo }} &&
+      cd {{ media_src_dir }}/{{ org_repo }} &&
       git commit -m
-      "Update {{ ansible_hostname }}.log up to $(tail -n 1 {{ src_dir }}/{{ org_repo }}/{{ ansible_hostname }}.log | cut -b56-78)"
-      {{ src_dir }}/{{ org_repo }}/{{ ansible_hostname }}.log
+      "Update {{ ansible_hostname }}.log up to $(tail -n 1 {{ media_src_dir }}/{{ org_repo }}/{{ ansible_hostname }}.log | cut -b56-78)"
+      {{ media_src_dir }}/{{ org_repo }}/{{ ansible_hostname }}.log"
     weekday: 0
     hour: 13
     minute: 30
