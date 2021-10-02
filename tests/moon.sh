@@ -14,11 +14,11 @@ export PATH=$PATH:/home/$USER/.local/bin
 
 sudo locale-gen en_US.UTF-8
 
-repourl='git@github.com:sagittarian/dotfiles.git'
+repourl=git@github.com:sagittarian/dotfiles.git
 
 sudo apt update
-sudo apt -y install git python3-pip python3-venv pipx
-# python3 -m pip install --user ansible
+sudo apt -y install git python3-pip python3-venv
+python3 -m pip install --user --upgrade pipx
 which ansible || pipx install ansible --include-deps
 
 
