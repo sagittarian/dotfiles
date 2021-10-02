@@ -1,11 +1,16 @@
 ---
 # Various python packages
 - name: Install python packages
-  command: pipx install {{ item }}
+  command:
+    cmd: pipx install {{ item.name }}
+    creates: "{{ local_bin_dir }}/{{ item.command }}"
   with_items:
-    - youtube-dl
-    - virtualenvwrapper
-    - sympy
+    - name: youtube-dl
+      command: youtube-dl
+    - name: virtualenvwrapper
+      command: virtualenvwrapper.sh
+    - name: sympy
+      command: isympy
     # - flake8
     # - black
     # - mypy
