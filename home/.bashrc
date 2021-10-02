@@ -149,7 +149,6 @@ fi
 
 workon $(venv)
 
-
 # additions for specific hosts
 repo_root=$(dirname $(dirname $(readlink -f "$BASH_SOURCE")))
 host_config=$repo_root/host-config/$(hostname).sh
@@ -164,6 +163,30 @@ if [ -e $compdir ]; then
         source "$compdir/$fname";
     done
 fi
+
+eval "$(register-python-argcomplete pipx)"
+
+
+# Golang
+# export GOPATH=$HOME/src/workshop/go
+# export GOROOT=$HOME/.local/go
+
+# export PATH=$HOME/.local/go/bin:$PATH
+
+# # The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/home/adam/Downloads/google-cloud-sdk/path.bash.inc' ]; then
+#     source '/home/adam/Downloads/google-cloud-sdk/path.bash.inc'
+# fi
+
+# # The next line enables shell command completion for gcloud.
+# if [ -f '/home/adam/Downloads/google-cloud-sdk/completion.bash.inc' ]; then
+#     source '/home/adam/Downloads/google-cloud-sdk/completion.bash.inc'
+# fi
+
 # Undefine the keybinding C-s for the stop-flow flow signal so we can
 # use C-s for forward search
 stty stop 'undef'
+
+# export NVM_DIR="/home/adam/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/

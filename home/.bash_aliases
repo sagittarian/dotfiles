@@ -64,6 +64,7 @@ alias setkbru="setxkbmap -layout 'us(dvp),ru' -option 'grp:shifts_toggle,esperan
 # alias localeup="localeapp pull && rake i18n:js:export"
 alias mirror-site="wget -m -k -p -E"
 
+# alias .="cd $(readlink -f .)"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -228,4 +229,24 @@ function venv {
     fi
 }
 
+function pyan {
+    output=$HOME/tmp/pyan.dot
+    python pyan3 "$@" --dot --colored > \
+           $output && dot $output  -Tpng -O && gwenview ${output}.png
+}
+
+function set_ipv6 {
+    state=$1
+    sudo sysctl -w net.ipv6.conf.all.disable_ipv6=$state
+    sudo sysctl -w net.ipv6.conf.default.disable_ipv6=$state
+}
+
 alias pudb='python -m pudb.run'
+
+function tomp3 {
+    src=$1
+    dest=${src%.*}.mp3
+    ffmpeg -i "$src" -f mp3 -ab 192000 -vn "$dest"
+}
+
+alias ytdl=youtube-dl

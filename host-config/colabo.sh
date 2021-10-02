@@ -2,11 +2,21 @@ alias jenkins='ssh -L8080:localhost:8080 adam@c8-ci.colabo.com'
 # alias pgprod='ssh -L15432:localhost:15432 adam@c8-pr1.colabo.com'
 alias pgprod='ssh -L15432:postgresql-cluster-prod-a-node-0:5432 adam@c8-pr1.colabo.com'
 alias pgst2='ssh -L25432:postgresql-cluster-st2-node-0:5432 adam@c8-st2.colabo.com'
+function tunnel {
+    host=$1
+    remote=${2:-localhost}
+    ssh -L15432:$remote:15432 adam@$host
+}
 alias ipy=ipython
 alias ipy3='[ -n "$VIRTUAL_ENV" ] && (python --version |& grep "Python 2" > /dev/null) && deactivate; ipython3'
 
 export BUZZ_REPO=$HOME/src/buzz/worktrees/moon
 export ANSIBLE_VAULT_PASSWORD_FILE=$HOME/src/buzz/devops/ansible/vault-password
+export GENIE_GLOBAL_LOG_LEVEL=info
+export BUZZ_GLOBAL_LOG_LEVEL=info
+# export BUZZ_THEME=vision
+# export BUZZ_THEME=barclays
+export BUZZ_THEME=rakuten
 
 export NVM_DIR="/home/adam/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -55,6 +65,8 @@ PYTHONPATH=./email_reader_svc/src/python/genie_email_reader:$PYTHONPATH
 PYTHONPATH=./payment_svc/src/python/genie_payment:$PYTHONPATH
 PYTHONPATH=./agent_svc/src/python/genie_agent:$PYTHONPATH
 PYTHONPATH=./date_logic_svc/src/python/genie_date_logic:$PYTHONPATH
+PYTHONPATH=./classification_svc/src:$PYTHONPATH
+PYTHONPATH=./file_svc/src:$PYTHONPATH
 
 # tmp till buzz settles down hopefully
 # PYTHONPATH=./watershed_svc/src/watershed:./config_svc/src/buzz_config:$PYTHONPATH
@@ -68,7 +80,7 @@ PYTHONPATH=./date_logic_svc/src/python/genie_date_logic:$PYTHONPATH
 
 PYTHONPATH=./src/buzz:./src/pycase:./test/src:$PYTHONPATH
 pushd $BUZZ_REPO > /dev/null
-for svc in $($WORKON_HOME/buzzdev/bin/python $BUZZ_REPO/dev/get-services | cut -d' ' -f 2); do
+for svc in $($WORKON_HOME/buzzdev/bin/python $BUZZ_REPO/dev/get-services --all | cut -d' ' -f 2); do
     PYTHONPATH=./$svc/src:../$svc/src:$PYTHONPATH
 done
 popd > /dev/null
@@ -153,9 +165,6 @@ function prod {
 
 alias striplogname="sed -re 's/^[a-z_]+-[0-9]+\.log(\.[0-9]+)?://'"
 
-export GENIE_GLOBAL_LOG_LEVEL=info
-export BUZZ_GLOBAL_LOG_LEVEL=info
-
 # alias ccfmt="python -c \"import autopep8, sys, re; \
 #        print('\n'.join(re.sub(r'\b[A-Z]\w+\(.*\)$', \
 #                               lambda match: autopep8.fix_code(match.group(0), \
@@ -224,7 +233,7 @@ function geniecp {
 # workon $BUZZ_VIRTUALENV
 pyenv shell 3.7.3
 
-export PYTHONASYNCIODEBUG=1
+# export PYTHONASYNCIODEBUG=1
 export AUTH0_CLIENT_ID=hCDpeOQPBeOd08C5Ddx08R8Q68ZZzBcV
 
 
@@ -247,3 +256,12 @@ function create_gcloud_instance {
 }
 
 alias py3='workon py3 && ipython'
+
+
+function compare_dgn {
+    token='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODI2Mzg3MjUsImlzcyI6ImlweXRob24iLCJleHAiOjE4OTc5OTg3MjUsImF1ZCI6ImNsYXNzaWZpY2F0aW9uX3N2YyJ9.RnFOb5wqSMOzOd5MN98t6tRMx_WX-HuE1EE7qx0MbgY'
+    path=api/v1/predict
+    diff -uws \
+      <(curl https://degania.colabo.com/$path -H 'content-type: application/json' -H "authorization: token $token" "$@") \
+      <(curl http://localhost:8030/$path  -H 'content-type: application/json' -H "authorization: token $token" "$@")
+}

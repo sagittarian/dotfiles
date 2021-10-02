@@ -28,6 +28,9 @@
     smerge = "!smerge () { git stash && git merge $@ && git stash pop; }; smerge"
     kall = !gitk --all
 
+    statusall = "!git worktree list | cut -d' ' -f1 | while read p; do (echo \"\n***$p***\"; cd $p && git status); done"
+    runall = "!runall () { git worktree list | cut -d' ' -f1 | while read p; do (echo \"\n***$p***\"; cd $p && \"$@\"); done }; runall"
+
     showtool = "!showci () { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; showci $1"
 
     # logging
@@ -56,6 +59,8 @@
     wip = commit -am wip
     yolo = !git commit -am \"wip -- $(curl -s whatthecommit.com/index.txt || echo wip)\"
     when-modified = log -1 --format=\"%ad\" --date=iso --
+    type = cat-file -t
+    dump = cat-file -p
 [magit]
     extension = svn
 [status]
