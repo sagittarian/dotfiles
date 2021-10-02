@@ -4,18 +4,32 @@
   roles:
     - role: ensure-dir-structure
       become: no
+      tags:
+        - ensure-dir-structure
     - role: install-packages
       become: yes
+      tags:
+        - install-packages
     - role: create-symlinks
       become: no
+      tags:
+        - create-symlinks
     - role: install-misc
       become: no
+      tags:
+        - install-misc
     - role: install-docker
       become: yes
+      tags:
+        - install-docker
     - role: init-emacs
       become: no
+      tags:
+        - install-emacs
     - role: crontab
       become: no
+      tags:
+        - crontab
     - role: git-bootstrap
       become: no
       tags:
