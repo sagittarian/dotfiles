@@ -8,12 +8,10 @@
       become: yes
     - role: create-symlinks
       become: no
-    - role: install-nodejs
+    - role: install-misc
       become: no
     - role: install-docker
       become: yes
-    - role: install-anki
-      become: no
     - role: init-emacs
       become: no
     - role: crontab
@@ -26,3 +24,4 @@
       become: no
       tags:
         - tagtime
+    - role: misc

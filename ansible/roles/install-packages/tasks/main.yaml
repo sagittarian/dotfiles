@@ -19,25 +19,24 @@
     # - uzbl
     - jq
     - ghc
-    - python-pip
+    # - python-pip
     - python3
     - python3-pip
+    - python3-venv
+    - pipx
     - ksysguard
     - kate
     - kwrite
     # - kdesudo
     - openssh-server
     - exuberant-ctags
-    - isympy
-    - python-sympy
-    - python3-sympy
     - pavucontrol
     - gwenview
     - meld
-    - fish
+    # - fish
     - vlc
-    - kvirc
-    - w3m
+    # - kvirc
+    # - w3m
 
 - name: apt upgrade installed packages
   apt:
@@ -58,9 +57,3 @@
     state: present
   tags:
     - chrome
-
-- name: Install python packages
-  pip: name={{ item }}
-  with_items:
-    - youtube-dl
-    - virtualenvwrapper

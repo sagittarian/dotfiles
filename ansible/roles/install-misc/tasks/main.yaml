@@ -1,0 +1,57 @@
+---
+# Various python packages
+- name: Install python packages
+  command: pipx install {{ item }}
+  with_items:
+    - youtube-dl
+    - virtualenvwrapper
+    - sympy
+    # - flake8
+    # - black
+    # - mypy
+
+# Anki
+- name: Download Anki
+  get_url:
+    url: "{{ anki_download_url }}"
+    # We specify the exact download location so we only download if it's
+    # not already there
+    dest: "{{ download_dir }}/{{anki_download_url | basename}}"
+
+- name: Unarchive Anki
+  unarchive:
+    src: "{{ download_dir }}/{{anki_download_url | basename }}"
+    dest: "{{ local_bin_dir }}"
+    copy: no
+    creates: "{{ local_bin_dir }}/{{ anki_unarchive_dir }}/bin/anki"
+
+- name: Create symlink to Anki
+  file:
+    state: link
+    src: "{{ local_bin_dir }}/{{ anki_unarchive_dir }}/bin/anki"
+    path: "{{ local_bin_dir }}/anki"
+
+
+# Node.js
+- name: Download Node.js stable
+  get_url:
+    url: "{{ node_download_url }}"
+    # We specify the exact download location so we only download if it's
+    # not already there
+    dest: "{{ download_dir }}/{{ node_download_url | basename}}"
+
+- name: Unarchive Node.js
+  unarchive:
+    src: "{{ download_dir }}/{{ node_download_url | basename }}"
+    dest: "{{ local_bin_dir }}"
+    copy: no
+    creates: "{{ local_bin_dir }}/{{ node_unarchive_dir }}/bin/node"
+
+- name: Create symlinks to node and npm
+  file:
+    state: link
+    path: "{{ local_bin_dir }}/{{ item }}"
+    src: "{{ local_bin_dir }}/{{ node_unarchive_dir }}/bin/{{ item }}"
+  with_items:
+    - node
+    - npm

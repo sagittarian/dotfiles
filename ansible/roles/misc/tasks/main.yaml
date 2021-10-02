@@ -1,0 +1,8 @@
+---
+- name: Add insults to sudoers
+  lineinfile:
+    path: /etc/sudoers
+    line: Defaults insults
+    state: present
+  become: yes
+  become_user: root
