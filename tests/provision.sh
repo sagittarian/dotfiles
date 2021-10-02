@@ -15,7 +15,7 @@ EOF
 )
 
 
-sudo resize2fs /dev/sda1 10000M
+# sudo resize2fs /dev/sda1 10000M
 df
 
 mkdir -p ~$HOME/.ssh
