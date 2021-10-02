@@ -33,8 +33,11 @@
 - name: Create symlink to Anki
   file:
     state: link
-    src: "{{ local_bin_dir }}/{{ anki_unarchive_dir }}/bin/anki"
-    path: "{{ local_bin_dir }}/anki"
+    src: "{{ local_bin_dir }}/{{ anki_unarchive_dir }}/bin/Anki"
+    path: "{{ local_bin_dir }}/{{ item }}"
+  with_items:
+    - anki
+    - Anki
 
 
 # Node.js
