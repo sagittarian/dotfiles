@@ -1,42 +1,41 @@
 ---
 - name: apt install
   apt:
-    name: "{{item}}"
+    name:
+      - git
+      - gitk
+      - i3
+      - emacs
+      - workrave
+      - silversearcher-ag
+      - firefox
+      # - chrome
+      - terminator
+      - dolphin
+      - kmix
+      # - uzbl
+      - jq
+      - ghc
+      # - python-pip
+      - python3
+      - python3-pip
+      - python3-venv
+      - pipx
+      - ksysguard
+      - kate
+      - kwrite
+      # - kdesudo
+      - openssh-server
+      - exuberant-ctags
+      - pavucontrol
+      - gwenview
+      - meld
+      # - fish
+      - vlc
+      # - kvirc
+      # - w3m
     update_cache: yes
     state: present
-  with_items:
-    - git
-    - gitk
-    - i3
-    - emacs
-    - workrave
-    - silversearcher-ag
-    - firefox
-    # - chrome
-    - terminator
-    - dolphin
-    - kmix
-    # - uzbl
-    - jq
-    - ghc
-    # - python-pip
-    - python3
-    - python3-pip
-    - python3-venv
-    - pipx
-    - ksysguard
-    - kate
-    - kwrite
-    # - kdesudo
-    - openssh-server
-    - exuberant-ctags
-    - pavucontrol
-    - gwenview
-    - meld
-    # - fish
-    - vlc
-    # - kvirc
-    # - w3m
 
 - name: apt upgrade installed packages
   apt:
