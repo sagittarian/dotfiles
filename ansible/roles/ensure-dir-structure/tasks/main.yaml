@@ -6,10 +6,39 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_id }}"
   with_items:
-    - "{{ download_dir }}"
     - "{{ bin_dir }}"
     - "{{ local_bin_dir }}"
     - "{{ src_dir }}"
     - "{{ home_dir }}/.bash_completion.d"
     - "{{ media_dir }}"
     - "{{ media_src_dir }}"
+    - "{{ download_dir }}"
+    - "{{ documents_dir }}"
+
+- name: Copy downloads to media downloads
+  copy:
+    src: "{{ home_dir }}/Downloads/"
+    dest: "{{ download_dir }}"
+  ignore_errors: yes
+
+- name: Copy documents to media documents
+  copy:
+    src: "{{ home_dir }}/Documents/"
+    dest: "{{ documents_dir }}"
+  ignore_errors: yes
+
+- name: Create Downloads symlink
+  file:
+    state: link
+    force: yes
+    src: "{{ download_dir }}"
+    path: "{{ home_dir }}/Downloads"
+  ignore_errors: yes
+
+- name: Create Documents symlink
+  file:
+    state: link
+    force: yes
+    src: "{{ documents_dir }}"
+    path: "{{ home_dir }}/Documents"
+  ignore_errors: yes
