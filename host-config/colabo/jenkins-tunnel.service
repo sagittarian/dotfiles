@@ -1,0 +1,15 @@
+[Unit]
+Description=Setup a secure tunnel to jenkins
+After=network.target
+
+[Service]
+Type=simple
+User=adam
+ExecStart=/usr/bin/ssh -NT -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -L8080:localhost:8080 adam@c8-ci.colabo.com
+# Restart=on-failure
+# Restart every >2 seconds to avoid StartLimitInterval failure
+RestartSec=5
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
