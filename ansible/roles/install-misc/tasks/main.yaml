@@ -11,6 +11,8 @@
       command: virtualenvwrapper.sh
     - name: sympy
       command: isympy
+    - name: pyan3
+      command: pyan3
     # - flake8
     # - black
     # - mypy
