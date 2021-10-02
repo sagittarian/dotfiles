@@ -1,0 +1,13 @@
+[Unit]
+Description=Pytagtime
+
+[Service]
+Type=simple
+Environment="DISPLAY=:0"
+User={{ ansible_user_id }}
+WorkingDirectory={{ src_dir }}/pytagtime
+ExecStart=python3 -u {{ src_dir }}/pytagtime/tagtimed.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

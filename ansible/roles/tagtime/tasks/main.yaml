@@ -14,17 +14,41 @@
   notify:
     - Restart pytagtime
 
-- name: Install supervisord
-  become: yes
-  apt: name=supervisor state=present update_cache=yes
-
-- name: Install pytagtime supervisor config
-  become: yes
+- name: Create systemd service file
   template:
-    dest: "{{ supervisor_conf_dir }}/pytagtime.conf"
-    src: pytagtime.conf
+    src: pytagtime.service
+    dest: "{{ systemd_service_dir }}/pytagtime.service"
+    trim_blocks: yes
+    lstrip_blocks: yes
+  become: yes
+  become_user: root
   notify:
     - Restart pytagtime
+
+- name: Reload systemd
+  systemd:
+    daemon_reload: yes
+  become: yes
+  become_user: root
+
+- name: Enable pytagtime systemd unit
+  systemd:
+    name: pytagtime.service
+    enabled: yes
+  become: yes
+  become_user: root
+
+# - name: Install supervisord
+#   become: yes
+#   apt: name=supervisor state=present update_cache=yes
+
+# - name: Install pytagtime supervisor config
+#   become: yes
+#   template:
+#     dest: "{{ supervisor_conf_dir }}/pytagtime.conf"
+#     src: pytagtime.conf
+#   notify:
+#     - Restart pytagtime
 
 - name: Add cron job to notify if editing tagtime
   become: no

@@ -1,6 +1,6 @@
 ---
 - name: Restart pytagtime
   become: yes
-  supervisorctl:
+  service:
     name: pytagtime
     state: restarted
