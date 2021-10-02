@@ -10,20 +10,23 @@
 
 set -ex
 
+export PATH=$PATH:/home/$USER/.local/bin
+
 sudo locale-gen en_US.UTF-8
 
 repourl='git@github.com:sagittarian/dotfiles.git'
 
 sudo apt update
-sudo apt -y install git python3-pip
-python3 -m pip install --user ansible
-export PATH=$PATH:/home/$USER/.local/bin
+sudo apt -y install git python3-pip python3-venv pipx
+# python3 -m pip install --user ansible
+which ansible || pipx install ansible --include-deps
 
-mkdir -p $HOME/src
-cd $HOME/src
-[ -e $HOME/src/dotfiles ] || git clone "$repourl"
 
-cd $HOME/src/dotfiles/ansible
+mkdir -p $HOME/media/src
+cd $HOME/media/src
+[ -e $HOME/media/src/dotfiles ] || git clone "$repourl"
+
+cd $HOME/media/src/dotfiles/ansible
 
 [ ! -e vpass ] && echo "$vpass" > vpass
 
