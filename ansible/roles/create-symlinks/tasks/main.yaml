@@ -47,9 +47,8 @@
     - .profile
     - .vimrc
 
-- name: Copy the dmenu_run_aliases to ~/bin
-  copy:
-    remote_src: yes
+- name: Symlink dmenu_run_aliases
+  file:
+    state: link
     src: "{{ dotfiles_dir }}/scripts/dmenu_run_aliases"
-    dest: "{{ local_bin_dir }}"
-    mode: a+x
+    dest: "{{ local_bin_dir }}/dmenu_run_aliases"
