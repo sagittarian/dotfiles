@@ -14,7 +14,7 @@
 ;;     '("marmalade" .
 ;;       "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+  '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; automatically delete trailing whitespace on all lines when saving
