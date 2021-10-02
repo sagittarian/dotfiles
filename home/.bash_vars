@@ -10,6 +10,12 @@ export TERMINAL=/usr/bin/terminator
 
 export PYTHONBREAKPOINT="pudb.set_trace"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
 # cabal
 export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 
@@ -17,6 +23,7 @@ export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 export LESS="FRX"
 
 # virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=$(pyenv which python)
 export WORKON_HOME=$HOME/.virtualenvs
 
 export PROJECT_HOME=$HOME/src

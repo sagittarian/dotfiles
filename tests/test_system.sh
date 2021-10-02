@@ -26,7 +26,7 @@ function cmd {
 
 SRC=$HOME/src
 MEDIA_SRC=$HOME/media/src
-PATH=$HOME/.local/bin:$PATH
+source $HOME/.bash_vars
 
 # role: ensure-dir-structure
 echo "Checking directory structure... "
@@ -44,7 +44,7 @@ echo Checking that packages are installed
 cmds="
     git gitk i3 emacs workrave ag firefox terminator dolphin kmix jq ghc
     python3 ksysguard kate kwrite sshd ctags isympy pavucontrol
-    gwenview meld google-chrome youtube-dl node npm anki
+    gwenview meld google-chrome youtube-dl node npm anki pyenv
     dmenu_run_aliases"
 for cmd in $cmds; do
     echo -n "  $cmd: "

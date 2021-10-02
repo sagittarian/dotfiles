@@ -70,3 +70,20 @@
   with_items:
     - node
     - npm
+
+# pyenv
+- name: Install pyenv
+  git:
+    dest: "{{ home_dir }}/.pyenv"
+    repo: git@github.com:pyenv/pyenv.git
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+
+- name: Dynamic bash extension for pyenv
+  shell:
+    # cd ~/.pyenv && src/configure && make -C src
+    cmd: src/configure && make -C src
+    chdir: "{{ home_dir }}/.pyenv"
+  ignore_errors: yes
+
