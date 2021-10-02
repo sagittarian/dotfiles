@@ -17,3 +17,11 @@ bower_components
 *.log.*
 *.chunk.js
 *.chunk.js.map
+*.svg
+.mypy_cache
+*.map
+*.css
+package-lock.json
+index.html
+doc
+jsdoc
