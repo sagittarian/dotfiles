@@ -7,15 +7,15 @@
     name: DISPLAY
     value: ":0"
 
-- name: Add microbreak reminder cron job
-  tags:
-    - crontab
-  cron:
-    name: microbreak reminder
-    state: present
-    user: "{{ ansible_user_id }}"
-    job: DISPLAY=:0 notify-send microbreak
-    minute: "*/9"
+# - name: Add microbreak reminder cron job
+#   tags:
+#     - crontab
+#   cron:
+#     name: microbreak reminder
+#     state: present
+#     user: "{{ ansible_user_id }}"
+#     job: DISPLAY=:0 notify-send microbreak
+#     minute: "*/9"
 
 - name: Add job to commit tagtime logs
   tags:

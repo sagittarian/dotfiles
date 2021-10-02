@@ -86,8 +86,8 @@ cmd 'which docker && docker ps > /dev/null'
 # role: crontab
 echo -n "Checking for DISPLAY=:0 in crontab: "
 cmd 'crontab -l | grep ^DISPLAY=.\\?:0.\\?$'
-echo -ne "Checking for microbreak cron job\n  "
-cmd "crontab -l | grep 'notify-send.*microbreak'"
+# echo -ne "Checking for microbreak cron job\n  "
+# cmd "crontab -l | grep 'notify-send.*microbreak'"
 
 # role: git-bootstrap
 echo Checking for org repository
