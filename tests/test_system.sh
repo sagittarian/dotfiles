@@ -25,6 +25,8 @@ function cmd {
 }
 
 SRC=$HOME/src
+MEDIA_SRC=$HOME/media/src
+PATH=$HOME/.local/bin:$PATH
 
 # role: ensure-dir-structure
 echo "Checking directory structure... "
@@ -41,8 +43,8 @@ cmd 'test "$(apt list --upgradable -qq 2> /dev/null)" = ""'
 echo Checking that packages are installed
 cmds="
     git gitk i3 emacs workrave ag firefox terminator dolphin kmix jq ghc
-    python3 ksysguard kate kwrite kdesudo sshd ctags isympy pavucontrol
-    gwenview meld fish google-chrome youtube-dl node npm anki
+    python3 ksysguard kate kwrite sshd ctags isympy pavucontrol
+    gwenview meld google-chrome youtube-dl node npm anki
     dmenu_run_aliases"
 for cmd in $cmds; do
     echo -n "  $cmd: "
@@ -50,12 +52,10 @@ for cmd in $cmds; do
 done
 
 echo Checking for pip and virtualenv
-echo '  /usr/bin/python -m pip'
-cmd "/usr/bin/python -m pip -h > /dev/null"
 echo '  /usr/bin/python3 -m pip'
 cmd "/usr/bin/python3 -m pip -h > /dev/null"
-echo '  /usr/bin/python -m virtualenv'
-cmd "/usr/bin/python -m virtualenv -h > /dev/null"
+echo '  /usr/bin/python3 -m venv'
+cmd "/usr/bin/python3 -m venv -h > /dev/null"
 
 # role: create-symlinks
 test -d $SRC
@@ -91,9 +91,9 @@ cmd 'crontab -l | grep ^DISPLAY=.\\?:0.\\?$'
 
 # role: git-bootstrap
 echo Checking for org repository
-cmd "(cd $SRC/org && git status > /dev/null)"
+cmd "(cd $MEDIA_SRC/org && git status > /dev/null)"
 echo Checking for notes repository
-cmd "(cd $SRC/notes && git status > /dev/null)"
+cmd "(cd $MEDIA_SRC/notes && git status > /dev/null)"
 
 # role: tagtime
 echo Checking for pytagtime repository
@@ -102,10 +102,12 @@ cmd "(cd $SRC/pytagtime && git status > /dev/null)"
 echo Checking for .pytagtimerc
 cmd test -e $HOME/.pytagtimerc
 
-echo Checking for Supervisord
-cmd "service supervisor status > /dev/null"
-echo -ne "Checking for supervisorctl\n  "
-cmd which supervisorctl
+# echo Checking for Supervisord
+# cmd "service supervisor status > /dev/null"
+# echo -ne "Checking for supervisorctl\n  "
+# cmd which supervisorctl
+echo Checking for systemd pytagtime service
+cmd "systemctl list-units --full -all | grep 'pytagtime.service.*loaded.*active.*running'"
 
 echo -ne "Checking for cron job to notify if editing tagtime\n  "
 cmd "crontab -l | grep 'pgrep.*GntGvzr'"
