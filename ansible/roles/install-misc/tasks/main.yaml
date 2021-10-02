@@ -15,6 +15,11 @@
     # - black
     # - mypy
 
+- name: Install IPython for sympy
+  command:
+    cmd: pipx runpip sympy install IPython
+    creates: "{{ local_dir }}/pipx/venvs/sympy/bin/ipython"
+
 # Anki
 - name: Download Anki
   get_url:
