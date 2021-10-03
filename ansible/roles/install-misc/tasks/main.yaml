@@ -13,6 +13,8 @@
       command: isympy
     - name: pyan3
       command: pyan3
+    - name: jupyter
+      command: jupyter
     # - flake8
     # - black
     # - mypy
