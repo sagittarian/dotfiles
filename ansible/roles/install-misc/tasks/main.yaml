@@ -2,19 +2,26 @@
 # Various python packages
 - name: Install python packages
   command:
-    cmd: pipx install {{ item.name }}
+    cmd: >-
+      pipx install {{ item.name }}
+      {% if item.include_deps %} --include-deps {% endif %}
     creates: "{{ local_bin_dir }}/{{ item.command }}"
   with_items:
     - name: youtube-dl
       command: youtube-dl
+      include_deps: no
     - name: virtualenvwrapper
       command: virtualenvwrapper.sh
+      include_deps: no
     - name: sympy
       command: isympy
+      include_deps: no
     - name: pyan3
       command: pyan3
+      include_deps: no
     - name: jupyter
       command: jupyter
+      include_deps: yes
     # - flake8
     # - black
     # - mypy
