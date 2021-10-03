@@ -36,7 +36,9 @@
 ;; elpy
 (require 'elpy)
 (define-key elpy-mode-map (kbd "C-.") 'xref-find-definitions-other-window)
-(define-key python-mode-map (kbd "C-c i") 'pyimport-insert-missing)
+(define-key elpy-mode-map (kbd "C-c i") 'pyimport-insert-missing)
+;; what?
+(define-key python-mode-map (kbd "C-<backspace>") 'backward-kill-word)
 
 ;; traad
 (define-key elpy-mode-map (kbd "C-c r r") 'traad-rename)

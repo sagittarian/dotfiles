@@ -160,6 +160,7 @@
   ("j" avy-goto-word-1)
   ("c" avy-goto-char-timer)
   ("g" avy-goto-line)
+  ;; ("b" avy-goto-word-1-below)
   ("r" avy-resume)
   ("q" nil)
   ("ESC" nil))
@@ -219,13 +220,18 @@
 (load host-config)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/src/org/inbox.org" "Tasks")
+      '(("t" "todo" entry (file+headline "~/src/org/inbox.org" "Tasks")
          "* TODO %?\n  %i")
-        ("g" "Work todo" entry (file+headline "~/src/genie/todo.org" "Tasks")
+        ("l" "lrn todo" entry (file+headline "~/src/org/lrn.org" "Sort")
+         "* TODO %?\n  %i")
+        ("g" "work todo" entry (file+headline "~/src/genie/todo.org" "Tasks")
          "* TODO %?\n  %i")))
 
 (require 'expand-region)
 (require 'f)
+
+(eval-after-load "org"
+  '(require 'ox-md nil t))
 
 (advice-add 'magit-stage-file :after (lambda (&rest r) (git-gutter+-refresh)))
 (advice-add 'magit-unstage-file :after (lambda (&rest r) (git-gutter+-refresh)))
@@ -233,7 +239,15 @@
 (load "functions")
 (load "keybindings")
 
+(setq org-todo-keywords '((sequence "TODO" "(*) TODO" "|" "DONE" "DELETED")))
+;; bullet character: •
+
 (server-start)
 
 (provide 'init)
+
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:
+
 ;;; init ends here

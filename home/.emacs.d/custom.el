@@ -55,7 +55,7 @@
  '(custom-enabled-themes (quote (abyss)))
  '(custom-safe-themes
    (quote
-    ("3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "7085ad716baf17384f10a5eb121a840a4c29da57e403e8bceff0ca65a6f83d61" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
+    ("2642a1b7f53b9bb34c7f1e032d2098c852811ec2881eec2dc8cc07be004e45a0" "445e30faa31222f339df0a313675e79b37fc33603cc65279e1704893e19b4f37" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "7085ad716baf17384f10a5eb121a840a4c29da57e403e8bceff0ca65a6f83d61" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
  '(delete-selection-mode t)
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
@@ -189,7 +189,7 @@
      org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
  '(package-selected-packages
    (quote
-    (w3m smartscan f traad git-gutter-fringe+ git-gutter+ string-inflection string-utils sql-indent format-sql dired-subtree groovy-mode pylint restclient-helm annoying-arrows-mode git-gutter-fringe all-the-icons-dired dired-sidebar ghub fish-mode markdown-mode github-theme abyss-theme js-doc git-timemachine org-jira undo-tree yaml-mode winnow which-key wc-mode swiper sublime-themes ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode haml-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag)))
+    (phps-mode php-mode ini-mode atom-dark-theme danneskjold-theme hc-zenburn-theme prassee-theme tide go-mode idle-highlight-mode blacken elpygen importmagic indent-tools pygen pyimport format-all flycheck-kotlin kotlin-mode w3m smartscan f traad git-gutter-fringe+ git-gutter+ string-inflection string-utils sql-indent format-sql dired-subtree groovy-mode pylint restclient-helm annoying-arrows-mode git-gutter-fringe all-the-icons-dired dired-sidebar ghub fish-mode markdown-mode github-theme abyss-theme js-doc git-timemachine org-jira undo-tree yaml-mode winnow which-key wc-mode swiper sublime-themes ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode haml-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag)))
  '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")))
  '(projectile-completion-system (quote ivy))
  '(projectile-enable-caching t)
@@ -206,7 +206,6 @@
  '(python-shell-prompt-regexp "In \\[\\d+\\]: ")
  '(python-skeleton-autoinsert t)
  '(pyvenv-mode t)
- '(pyvenv-virtualenvwrapper-python "/home/adam/local/bin/python3")
  '(require-final-newline t)
  '(safe-local-variable-values (quote ((js-indent-level 2) (indent-tabs-mode\. t))))
  '(save-interprogram-paste-before-kill t)
