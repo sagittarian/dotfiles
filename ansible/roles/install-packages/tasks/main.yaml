@@ -34,7 +34,11 @@
       - vlc
       # - kvirc
       # - w3m
-      
+      - xclip
+      - qt5ct  # for icons in qt apps
+      - xterm
+      - net-tools
+
       ### Python build dependencies (for pyenv):
       - make
       - build-essential
