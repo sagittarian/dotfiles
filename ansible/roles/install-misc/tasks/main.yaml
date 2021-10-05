@@ -12,7 +12,7 @@
       include_deps: no
     - name: virtualenvwrapper
       command: virtualenvwrapper.sh
-      include_deps: no
+      include_deps: yes
     - name: sympy
       command: isympy
       include_deps: no
