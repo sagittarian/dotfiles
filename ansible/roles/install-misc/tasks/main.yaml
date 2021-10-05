@@ -22,6 +22,9 @@
     - name: jupyter
       command: jupyter
       include_deps: yes
+    - name: docker-compose
+      command: docker-compose
+      include_deps: no
     # - flake8
     # - black
     # - mypy
