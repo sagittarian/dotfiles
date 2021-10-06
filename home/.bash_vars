@@ -23,7 +23,7 @@ export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
 export LESS="FRX"
 
 # virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=$(pyenv which python)
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.local/pipx/venvs/virtualenvwrapper/bin/python
 export WORKON_HOME=$HOME/.virtualenvs
 
 export PROJECT_HOME=$HOME/src
