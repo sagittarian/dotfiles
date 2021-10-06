@@ -109,7 +109,7 @@
 
 ;; js-doc
 (setq js-doc-mail-address "adam@mesha.org"
-      js-doc-author (format "Adam Mesha <%s>" js-doc-mail-address)
+      js-doc-author (format "Adam Raizen <%s>" js-doc-mail-address)
       js-doc-url "http://www.mesha.org"
       js-doc-license "MIT")
 
