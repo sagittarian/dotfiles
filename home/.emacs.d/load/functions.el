@@ -224,5 +224,38 @@
   (yank)
 )
 
+(defun blacken (start end &optional diff)
+  "Run black on either the buffer or the region.
+
+Pipe the text between START and END to black, and display the
+diff if DIFF is not nil, otherwise replace the text in the
+buffer."
+  (let* ((curbuff (current-buffer))
+         (base-cmd "python3 -m black -S -l 79 -")
+         (cmd (concat base-cmd (if diff " --diff" "")))
+         (outbuff (if diff "*black --diff*" t))
+         (replace (if diff nil t))
+         (errbuff "*error buffer*"))
+    (save-excursion
+      (shell-command-on-region start end cmd outbuff replace errbuff nil)
+      (switch-to-buffer outbuff)
+      (diff-mode)
+      (read-only-mode))
+    (switch-to-buffer curbuff)))
+
+(defun blacken-region (diff)
+  "Run black on the current region.
+
+Replace the text if DIFF is nil, otherwise show the diff."
+  (interactive "P")
+  (blacken (region-beginning) (region-end) diff))
+
+(defun blacken-buffer (diff)
+  "Run black on the entire buffer.
+
+Replace the text if DIFF is nil, otherwise show the diff."
+  (interactive "P")
+  (blacken (point-min) (point-max) diff))
+
 (provide 'functions)
 ;;; functions.el ends here
