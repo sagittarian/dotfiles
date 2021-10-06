@@ -213,7 +213,7 @@ alias today='date +%Y-%m-%d'
 alias now='date +%Y-%m-%dT%H:%M:%S'
 
 export VENV_LOC="$HOME/.venv"
-export DEFAULT_VENV=wogo
+export DEFAULT_VENV=ladybug
 function set_venv {
     name=$1
     echo $name > $VENV_LOC
