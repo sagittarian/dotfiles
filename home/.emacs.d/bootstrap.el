@@ -28,6 +28,9 @@
         annoying-arrows-mode
         w3m
         pyimport
+        markdown-mode
+        use-package
+        idle-highlight-in-visible-buffers-mode
         ;; format-all blacken elpygen importmagic indent-tools pygent
         ;; idle-highlight-mode
         pyvenv which-key))
