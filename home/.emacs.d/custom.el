@@ -160,6 +160,9 @@
  '(kill-do-not-save-duplicates t)
  '(kill-read-only-ok t)
  '(line-number-mode t)
+ '(linum-disabled-modes-list
+   (quote
+    (eshell-mode wl-summary-mode compilation-mode org-mode text-mode dired-mode doc-view-mode image-mode dired-sidebar-mode)))
  '(linum-format " %7i ")
  '(magit-completing-read-function (quote ivy-completing-read))
  '(magit-diff-arguments (quote ("--no-ext-diff" "-w")))
