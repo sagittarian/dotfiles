@@ -163,10 +163,10 @@
  '(linum-disabled-modes-list
    (quote
     (eshell-mode wl-summary-mode compilation-mode org-mode text-mode dired-mode doc-view-mode image-mode dired-sidebar-mode)))
- '(linum-format " %7i ")
  '(magit-completing-read-function (quote ivy-completing-read))
  '(magit-diff-arguments (quote ("--no-ext-diff" "-w")))
  '(magit-diff-options (quote ("--patience" "-b")))
+ '(linum-format " %4i ")
  '(magit-diff-refine-hunk t)
  '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(magit-process-popup-time 1)
