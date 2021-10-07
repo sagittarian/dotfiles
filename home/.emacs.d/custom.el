@@ -279,6 +279,6 @@
  '(dired-subtree-depth-5-face ((t (:background "gold4"))))
  '(dired-subtree-depth-6-face ((t (:background "DarkOrange4"))))
  '(git-gutter+-added ((t (:foreground "dark green" :weight bold))))
- '(linum ((t (:background "#EEEEEE" :foreground "#5a5a5a")))))
+ '(linum ((t (:background "wheat2" :foreground "gray20" :weight bold)))))
 
 ;;; custom.el ends here
