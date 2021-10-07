@@ -275,12 +275,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 105 :width normal :foundry "DAMA" :family "Ubuntu Mono"))))
- '(dired-subtree-depth-1-face ((t (:background "maroon"))))
- '(dired-subtree-depth-2-face ((t (:background "forest green"))))
- '(dired-subtree-depth-3-face ((t (:background "royal blue"))))
- '(dired-subtree-depth-4-face ((t (:background "dim gray"))))
- '(dired-subtree-depth-5-face ((t (:background "indian red"))))
- '(dired-subtree-depth-6-face ((t (:background "sea green"))))
+ '(dired-subtree-depth-1-face ((t (:background "dark orchid"))))
+ '(dired-subtree-depth-2-face ((t (:background "purple4"))))
+ '(dired-subtree-depth-3-face ((t (:background "navy"))))
+ '(dired-subtree-depth-4-face ((t (:background "dark green"))))
+ '(dired-subtree-depth-5-face ((t (:background "gold4"))))
+ '(dired-subtree-depth-6-face ((t (:background "DarkOrange4"))))
  '(git-gutter+-added ((t (:foreground "dark green" :weight bold))))
  '(linum ((t (:background "#EEEEEE" :foreground "#5a5a5a")))))
 
