@@ -191,10 +191,7 @@
            5]
      org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
  '(package-selected-packages
-   (quote
-    (phps-mode php-mode ini-mode atom-dark-theme danneskjold-theme hc-zenburn-theme prassee-theme tide go-mode idle-highlight-mode blacken elpygen importmagic indent-tools pygen pyimport format-all flycheck-kotlin kotlin-mode w3m smartscan f traad git-gutter-fringe+ git-gutter+ string-inflection string-utils sql-indent format-sql dired-subtree groovy-mode pylint restclient-helm annoying-arrows-mode git-gutter-fringe all-the-icons-dired dired-sidebar ghub fish-mode markdown-mode github-theme abyss-theme js-doc git-timemachine org-jira undo-tree yaml-mode winnow which-key wc-mode swiper sublime-themes ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode haml-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag)))
- '(pdf-view-midnight-colors (quote ("#969896" . "#f8eec7")))
- '(projectile-completion-system (quote ivy))
+   '(restclient avy flycheck flymake-easy hydra js2-mode json-mode json-reformat move-text pyvenv yasnippet idle-highlight-in-visible-buffers-mode use-package elpy phps-mode php-mode ini-mode tide go-mode elpygen importmagic indent-tools pygen pyimport format-all flycheck-kotlin kotlin-mode w3m smartscan f traad git-gutter-fringe+ string-inflection string-utils sql-indent format-sql dired-subtree groovy-mode pylint annoying-arrows-mode all-the-icons-dired dired-sidebar markdown-mode abyss-theme js-doc git-timemachine yaml-mode winnow which-key wc-mode swiper ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag))
  '(projectile-enable-caching t)
  '(projectile-global-mode t)
  '(projectile-globally-ignored-directories
