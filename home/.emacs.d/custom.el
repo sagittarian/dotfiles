@@ -197,6 +197,7 @@
  '(projectile-globally-ignored-directories
    (quote
     (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "worktrees" "node_modules")))
+ '(projectile-keymap-prefix "C-c p")
  '(projectile-mode t nil (projectile))
  '(projectile-sort-order (quote recently-active))
  '(projectile-switch-project-action (quote magit-status))
