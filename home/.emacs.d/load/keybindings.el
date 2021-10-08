@@ -35,6 +35,10 @@
 
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;; more discoverablitity from which-key
+(global-set-key (kbd "C-c h") 'which-key-show-full-major-mode)
+(global-set-key (kbd "C-c C-h") 'which-key-show-full-minor-mode-keymap)
+
 ;; elpy
 (require 'elpy)
 (define-key elpy-mode-map (kbd "C-.") 'xref-find-definitions-other-window)
