@@ -253,6 +253,7 @@ otherwise projectile-find-file."
 (define-key smartparens-mode-map (kbd "C-<right>") 'sp-forward-slurp-sexp)
 ;; (define-key smartparens-mode-map (kbd "C-S-<right>") 'sp-slurp-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-<left>") 'sp-forward-barf-sexp)
+(define-key smartparens-mode-map (kbd "C-M-S-f") 'sp-forward-barf-sexp)
 ;; (define-key smartparens-mode-map (kbd "C-M-<left>") 'sp-backward-slurp-sexp)
 ;; (define-key smartparens-mode-map (kbd "C-M-<right>") 'sp-backward-barf-sexp)
 
