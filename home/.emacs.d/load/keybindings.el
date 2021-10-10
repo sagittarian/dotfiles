@@ -188,8 +188,19 @@
 
 ;; projectile shortcuts
 (require 'projectile)
-(define-key projectile-mode-map (kbd "C-S-f") 'projectile-find-file)
-(define-key projectile-mode-map (kbd "C-M-S-f") 'projectile-find-file-other-window)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+;; (define-key projectile-mode-map (kbd "C-S-f") 'projectile-find-file)
+;; (define-key projectile-mode-map (kbd "C-M-S-f") 'projectile-find-file-other-window)
+(defun ar--projectile-find-file-maybe-other-window (other-window)
+  "Run projectile-find-file or projectile-find-file-other-window.
+
+If OTHER-WINDOW is nil, run projectile-find-file-other-window,
+otherwise projectile-find-file."
+  (interactive "P")
+  (if other-window
+      (projectile-find-file-other-window)
+    (projectile-find-file)))
+(define-key projectile-mode-map (kbd "C-S-f") 'ar--projectile-find-file-maybe-other-window)
 (define-key projectile-mode-map (kbd "C-S-b") 'projectile-switch-to-buffer)
 (global-set-key (kbd "C-S-p") 'projectile-switch-project)
 (define-key projectile-mode-map (kbd "C-S-s") 'projectile-ag)
