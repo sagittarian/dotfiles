@@ -1,3 +1,10 @@
+* pygen
+* company
+* helm
+* org-mode
+  - https://www.youtube.com/watch?v=AyhPmypHDEw
+* repeat-map (???)
+* motion
 - Despite the cryptic Lisp name for a function, the functions
   beginning-of-defun and end-of-defun works great with most programming
   modes in Emacs, by jumping to the beginning (duh) and end of the
@@ -26,16 +33,38 @@
   binding (M-x imenu to invoke) making it less known than it should be;
   another negative is that it uses the standard completion mechanism
   which is terrible for quickly navigating by “feel”.
-
-- If you find yourself editing multiple lines in a row – perhaps in a
-  macro – you may want to change the default column the point moves to
-  when you change lines; naturally it will only do so if it is
-  possible. This functionality is called goal column and it’s bound to
-  C-x C-n (C-u C-x C-n to disable).
-
-- What a lot of people don’t know is the default GNU Readline command
-  for interactive reverse search (called reverse-i-search), bound to
-  Ctrl+r, is also available in Emacs as M-r. If you knew about the
-  former, but not the latter, you are no doubt a happy person right now
-  as you will agree that it’s a productivity booster if you’re a regular
-  command line user. You can reverse the search direction with C-s.
+* commands
+  - flush-lines
+  - rx
+  - global-so-long-mode
+  - sort-regexp-fields
+  - occur
+  - dig
+  - global-display-line-numbers-mode (faster than linum)
+  - icicles (non-prefix completion)
+  - goal-column
+    If you find yourself editing multiple lines in a row – perhaps in a
+    macro – you may want to change the default column the point moves to
+    when you change lines; naturally it will only do so if it is
+    possible. This functionality is called goal column and it’s bound to
+    C-x C-n (C-u C-x C-n to disable).
+  - comint-history-isearch-backward-regexp
+    What a lot of people don’t know is the default GNU Readline command
+    for interactive reverse search (called reverse-i-search), bound to
+    Ctrl+r, is also available in Emacs as M-r. If you knew about the
+    former, but not the latter, you are no doubt a happy person right now
+    as you will agree that it’s a productivity booster if you’re a regular
+    command line user. You can reverse the search direction with C-s.
+* keybindings
+  - https://stackoverflow.com/questions/3124844/what-are-your-favorite-global-key-bindings-in-emacs
+* packages
+  - https://github.com/jacktasia/dumb-jump
+    (possibly sufficient replacement for etags)
+  - hyperbole
+  - display-fill-column-indicator
+  - tab-bar-mode
+  - eshell
+    https://masteringemacs.org/article/complete-guide-mastering-eshell
+  - ielm
+* options
+  - auth-source-pass
