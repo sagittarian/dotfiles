@@ -225,6 +225,17 @@ otherwise projectile-find-file."
 (define-key dired-mode-map (kbd "C-. o f") 'dired-subtree-only-this-file)
 (define-key dired-mode-map (kbd "C-. o d") 'dired-subtree-only-this-directory)
 
+;; move lines
+(defhydra hydra-move-text ()
+  "move-text"
+  ("p" move-text-up "move-text-up")
+  ("n" move-text-down "move-text-down")
+  ;; ("/" undo)
+  ;; ("C-/" undo)
+  ("RET" nil)
+  ("q" nil))
+(global-set-key (kbd "C-c M-p") 'hydra-move-text/move-text-up)
+(global-set-key (kbd "C-c M-n") 'hydra-move-text/move-text-down)
 
 ;; smartparens
 ;; (global-set-key (kbd "C-M-S-w") 'kill-sexp)
