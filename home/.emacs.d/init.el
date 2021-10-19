@@ -109,6 +109,7 @@
 (add-hook 'ruby-mode-hook 'fci-mode)
 (add-hook 'haskell-mode-hook 'fci-mode)
 (add-hook 'c-mode-hook 'fci-mode)
+(add-hook 'emacs-lisp-mode-hook 'fci-mode)
 
 ;; js-doc
 (setq js-doc-mail-address "adam@mesha.org"
