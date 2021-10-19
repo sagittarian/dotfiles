@@ -15,7 +15,10 @@
 ;;       "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives
   '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
+(when (< emacs-major-version 27)
+  ;; In emacs 27 package-initialize is called automatically between
+  ;; early init and init
+  (package-initialize))
 
 ;; automatically delete trailing whitespace on all lines when saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
