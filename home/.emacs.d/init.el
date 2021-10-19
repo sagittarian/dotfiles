@@ -195,6 +195,11 @@
 ;;             ;; invisible here anyway.
 ;;             (assq-delete-all 'which-func-mode mode-line-misc-info))
 
+;; all-the-icons
+(add-hook 'dired-mode-hook
+          (lambda () (all-the-icons-dired-mode)))
+(all-the-icons-ibuffer-mode)
+
 (load "functions")
 (load "keybindings")
 ;; (load "linum-off")
