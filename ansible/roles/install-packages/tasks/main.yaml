@@ -1,11 +1,29 @@
 ---
+- name: Add shutter PPA
+  apt_repository:
+    repo: ppa:shutter/ppa
+  tags:
+    - apt
+    - apt-ppa
+
+- name: Add emacs PPA
+  apt_repository:
+    repo: ppa:kelleyk/emacs
+  tags:
+    - apt
+    - apt-ppa
+
 - name: apt install
   apt:
     name:
       - git
       - gitk
+      - qgit
+      - tig
       - i3
-      - emacs
+      # - emacs
+      - emacs27
+      - emacs27-common
       - workrave
       - silversearcher-ag
       - firefox
@@ -38,6 +56,10 @@
       - qt5ct  # for icons in qt apps
       - xterm
       - net-tools
+      - shutter
+      - ruby
+      - virtualbox-qt
+      - filezilla
 
       ### Python build dependencies (for pyenv):
       - make
@@ -59,12 +81,16 @@
       - liblzma-dev
     update_cache: yes
     state: present
+  tags:
+    - apt
 
 - name: apt upgrade installed packages
   apt:
     update_cache: yes
     state: present
     upgrade: dist
+  tags:
+    - apt
 
 - name: Download Chrome
   get_url:
