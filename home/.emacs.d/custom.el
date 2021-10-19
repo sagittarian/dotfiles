@@ -4,8 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ag-arguments
-   (quote
-    ("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--hidden" "--")))
+   '("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--hidden" "--"))
  '(ag-group-matches nil)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
@@ -13,32 +12,29 @@
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
  '(apropos-do-all t)
  '(auto-coding-alist
-   (quote
-    (("\\.\\(arc\\|zip\\|lzh\\|lha\\|zoo\\|[jew]ar\\|xpi\\|rar\\|7z\\|ARC\\|ZIP\\|LZH\\|LHA\\|ZOO\\|[JEW]AR\\|XPI\\|RAR\\|7Z\\)\\'" . no-conversion-multibyte)
+   '(("\\.\\(arc\\|zip\\|lzh\\|lha\\|zoo\\|[jew]ar\\|xpi\\|rar\\|7z\\|ARC\\|ZIP\\|LZH\\|LHA\\|ZOO\\|[JEW]AR\\|XPI\\|RAR\\|7Z\\)\\'" . no-conversion-multibyte)
      ("\\.\\(exe\\|EXE\\)\\'" . no-conversion)
      ("\\.\\(sx[dmicw]\\|odt\\|tar\\|t[bg]z\\)\\'" . no-conversion)
      ("\\.\\(gz\\|Z\\|bz\\|bz2\\|xz\\|gpg\\)\\'" . no-conversion)
      ("\\.\\(jpe?g\\|png\\|gif\\|tiff?\\|p[bpgn]m\\)\\'" . no-conversion)
      ("\\.pdf\\'" . no-conversion)
      ("/#[^/]+#\\'" . utf-8-emacs-unix)
-     ("\\.py" . utf-8-unix))))
+     ("\\.py" . utf-8-unix)))
  '(auto-indent-delete-line-char-remove-extra-spaces t)
  '(auto-indent-kill-line-at-eol nil)
  '(auto-indent-kill-remove-extra-spaces t)
  '(auto-save-interval 20)
  '(auto-save-timeout 5)
  '(avy-keys
-   (quote
-    (97 111 101 117 105 100 104 116 110 115 46 112 121 102 103 99 114)))
- '(browse-url-browser-function (quote w3m-browse-url))
+   '(97 111 101 117 105 100 104 116 110 115 46 112 121 102 103 99 114))
+ '(browse-url-browser-function 'w3m-browse-url)
  '(c-default-style
-   (quote
-    ((c-mode . "c")
+   '((c-mode . "c")
      (java-mode . "java")
      (awk-mode . "awk")
-     (other . "gnu"))))
- '(calendar-date-display-form (quote (calendar-iso-date-display-form)))
- '(calendar-date-style (quote iso))
+     (other . "gnu")))
+ '(calendar-date-display-form '(calendar-iso-date-display-form))
+ '(calendar-date-style 'iso)
  '(calendar-hebrew-all-holidays-flag t)
  '(calendar-latitude 32.1)
  '(calendar-location-name "Tel Aviv")
@@ -49,7 +45,7 @@
  '(company-show-numbers t)
  '(company-tooltip-align-annotations t)
  '(compilation-auto-jump-to-first-error nil)
- '(compilation-scroll-output (quote first-error))
+ '(compilation-scroll-output 'first-error)
  '(compilation-search-path nil)
  '(css-indent-offset 2)
  '(custom-enabled-themes '(wheatgrass))
@@ -65,27 +61,25 @@
  '(electric-pair-delete-adjacent-pairs nil)
  '(electric-pair-preserve-balance nil)
  '(elpy-disable-backend-error-display t)
- '(elpy-mode-hook (quote (hl-line-mode)))
+ '(elpy-mode-hook '(hl-line-mode))
  '(elpy-modules
-   (quote
-    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults)))
- '(elpy-test-pytest-runner-command (quote ("pytest")))
- '(elpy-test-runner (quote elpy-test-pytest-runner))
+   '(elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-highlight-indentation elpy-module-yasnippet elpy-module-sane-defaults))
+ '(elpy-test-pytest-runner-command '("pytest"))
+ '(elpy-test-runner 'elpy-test-pytest-runner)
  '(enable-recursive-minibuffers t)
- '(erc-autojoin-channels-alist (quote (("freenode.net" "#emacs"))))
+ '(erc-autojoin-channels-alist '(("freenode.net" "#emacs")))
  '(erc-log-channels-directory "~/.log")
  '(erc-log-insert-log-on-open t)
  '(erc-log-mode t)
  '(erc-log-write-after-insert t)
  '(erc-log-write-after-send t)
  '(erc-modules
-   (quote
-    (autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track)))
+   '(autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands readonly ring stamp track))
  '(erc-nick "sagittarian")
  '(erc-save-queries-on-quit nil)
  '(fci-rule-color "#969896")
  '(fill-column 72)
- '(flex-isearch-auto (quote on-failed))
+ '(flex-isearch-auto 'on-failed)
  '(flx-ido-mode nil)
  '(focus-follows-mouse t)
  '(git-commit-confirm-commit nil)
@@ -102,46 +96,42 @@
  '(global-smartscan-mode t)
  '(global-undo-tree-mode t)
  '(haskell-font-lock-symbols t)
- '(haskell-mode-hook (quote (turn-on-haskell-indentation)) t)
+ '(haskell-mode-hook '(turn-on-haskell-indentation) t)
  '(hippie-expand-try-functions-list
-   (quote
-    (try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-lisp-symbol-partially try-complete-lisp-symbol try-expand-line try-expand-list)))
+   '(try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-lisp-symbol-partially try-complete-lisp-symbol try-expand-line try-expand-list))
  '(holiday-bahai-holidays nil)
  '(holiday-general-holidays
-   (quote
-    ((holiday-fixed 1 1 "New Year's Day")
+   '((holiday-fixed 1 1 "New Year's Day")
      (holiday-fixed 2 14 "Valentine's Day")
      (holiday-fixed 4 1 "April Fools' Day")
      (holiday-float 5 0 2 "Mother's Day")
      (holiday-float 6 0 3 "Father's Day")
      (holiday-fixed 10 31 "Samhain/Halloween")
-     (holiday-float 11 4 4 "Thanksgiving"))))
+     (holiday-float 11 4 4 "Thanksgiving")))
  '(holiday-hebrew-holidays
-   (quote
-    ((holiday-hebrew-passover t)
+   '((holiday-hebrew-passover t)
      (holiday-hebrew-rosh-hashanah t)
      (holiday-hebrew-hanukkah t)
      (holiday-hebrew 11 15 "Tu B'Shevat")
      (if calendar-hebrew-all-holidays-flag
          (append
           (holiday-hebrew-tisha-b-av)
-          (holiday-hebrew-misc))))))
+          (holiday-hebrew-misc)))))
  '(holiday-islamic-holidays nil)
  '(holiday-other-holidays
-   (quote
-    ((holiday-fixed 2 1 "Imbolc")
+   '((holiday-fixed 2 1 "Imbolc")
      (holiday-fixed 5 1 "Beltaine")
      (holiday-fixed 8 1 "Lughnasadh")
-     (holiday-fixed 11 1 "Samhain"))))
+     (holiday-fixed 11 1 "Samhain")))
  '(htmlize-css-name-prefix "htmlize-")
- '(htmlize-output-type (quote css))
+ '(htmlize-output-type 'css)
  '(idle-highlight-idle-time 0.1)
  '(ido-auto-merge-work-directories-length -1)
- '(ido-default-buffer-method (quote selected-window))
- '(ido-default-file-method (quote selected-window))
+ '(ido-default-buffer-method 'selected-window)
+ '(ido-default-file-method 'selected-window)
  '(ido-enable-flex-matching t)
  '(ido-use-faces nil)
- '(ido-use-filename-at-point (quote guess))
+ '(ido-use-filename-at-point 'guess)
  '(ido-use-virtual-buffers t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
@@ -155,55 +145,50 @@
  '(js-indent-level 4)
  '(js2-allow-keywords-as-property-names nil)
  '(js2-bounce-indent-p t)
- '(js2-concat-multiline-strings (quote eol))
+ '(js2-concat-multiline-strings 'eol)
  '(js2-highlight-external-variables nil)
  '(js2-highlight-level 3)
  '(js2-strict-trailing-comma-warning nil)
- '(keyboard-coding-system (quote utf-8-unix))
+ '(keyboard-coding-system 'utf-8-unix)
  '(kill-do-not-save-duplicates t)
  '(kill-read-only-ok t)
  '(line-number-mode t)
  '(linum-disabled-modes-list
-   (quote
-    (eshell-mode wl-summary-mode compilation-mode org-mode text-mode dired-mode doc-view-mode image-mode dired-sidebar-mode)))
- '(magit-completing-read-function (quote ivy-completing-read))
- '(magit-diff-arguments (quote ("--no-ext-diff" "-w")))
- '(magit-diff-options (quote ("--patience" "-b")))
+   '(eshell-mode wl-summary-mode compilation-mode org-mode text-mode dired-mode doc-view-mode image-mode dired-sidebar-mode))
  '(linum-format " %4i ")
+ '(magit-completing-read-function 'ivy-completing-read)
+ '(magit-diff-arguments '("--no-ext-diff" "-w"))
+ '(magit-diff-options '("--patience" "-b"))
  '(magit-diff-refine-hunk t)
- '(magit-diff-section-arguments (quote ("--no-ext-diff")))
+ '(magit-diff-section-arguments '("--no-ext-diff"))
  '(magit-process-popup-time 1)
  '(magit-restore-window-configuration t)
- '(makefile-mode-hook (quote ((lambda nil (set-variable (quote tab-width) 8)))))
+ '(makefile-mode-hook '((lambda nil (set-variable 'tab-width 8))))
  '(mouse-autoselect-window t)
  '(mouse-yank-at-point t)
  '(nrepl-message-colors
-   (quote
-    ("#183691" "#969896" "#a71d5d" "#969896" "#0086b3" "#795da3" "#a71d5d" "#969896")))
+   '("#183691" "#969896" "#a71d5d" "#969896" "#0086b3" "#795da3" "#a71d5d" "#969896"))
  '(org-agenda-files
-   (quote
-    ("~/src/org/inbox.org" "~/src/org/projects.org" "~/src/org/someday.org")))
+   '("~/src/org/inbox.org" "~/src/org/projects.org" "~/src/org/someday.org"))
  '(org-mode-hook
-   (quote
-    (er/add-org-mode-expansions
+   '(er/add-org-mode-expansions
      #[nil "\300\301\302\303\304$\207"
            [org-add-hook change-major-mode-hook org-show-block-all append local]
            5]
      #[nil "\300\301\302\303\304$\207"
            [org-add-hook change-major-mode-hook org-babel-show-result-all append local]
            5]
-     org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode)))
+     org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode))
  '(package-selected-packages
    '(restclient avy flycheck flymake-easy hydra js2-mode json-mode json-reformat move-text pyvenv yasnippet idle-highlight-in-visible-buffers-mode use-package elpy phps-mode php-mode ini-mode tide go-mode elpygen importmagic indent-tools pygen pyimport format-all flycheck-kotlin kotlin-mode w3m smartscan f traad git-gutter-fringe+ string-inflection string-utils sql-indent format-sql dired-subtree groovy-mode pylint annoying-arrows-mode all-the-icons-dired dired-sidebar markdown-mode abyss-theme js-doc git-timemachine yaml-mode winnow which-key wc-mode swiper ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag))
  '(projectile-enable-caching t)
  '(projectile-global-mode t)
  '(projectile-globally-ignored-directories
-   (quote
-    (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "worktrees" "node_modules")))
+   '(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "worktrees" "node_modules"))
  '(projectile-keymap-prefix "C-c p")
  '(projectile-mode t nil (projectile))
- '(projectile-sort-order (quote recently-active))
- '(projectile-switch-project-action (quote magit-status))
+ '(projectile-sort-order 'recently-active)
+ '(projectile-switch-project-action 'magit-status)
  '(projectile-use-git-grep t)
  '(python-indent-guess-indent-offset t)
  '(python-indent-offset 4)
@@ -211,7 +196,7 @@
  '(python-skeleton-autoinsert t)
  '(pyvenv-mode t)
  '(require-final-newline t)
- '(safe-local-variable-values (quote ((js-indent-level 2) (indent-tabs-mode\. t))))
+ '(safe-local-variable-values '((js-indent-level 2) (indent-tabs-mode\. t)))
  '(save-interprogram-paste-before-kill t)
  '(save-place t nil (saveplace))
  '(save-place-file "~/.emacs.d/places")
@@ -232,13 +217,12 @@
  '(tramp-default-method "ssh" nil (tramp))
  '(undo-tree-auto-save-history t)
  '(uniquify-ask-about-buffer-names-p t)
- '(uniquify-buffer-name-style (quote post-forward) nil (uniquify))
+ '(uniquify-buffer-name-style 'post-forward nil (uniquify))
  '(uniquify-min-dir-content 1)
  '(uniquify-strip-common-suffix t)
  '(vc-annotate-background "#b0cde7")
  '(vc-annotate-color-map
-   (quote
-    ((20 . "#969896")
+   '((20 . "#969896")
      (40 . "#183691")
      (60 . "#969896")
      (80 . "#969896")
@@ -255,10 +239,10 @@
      (300 . "#0086b3")
      (320 . "#969896")
      (340 . "#a71d5d")
-     (360 . "#969896"))))
+     (360 . "#969896")))
  '(vc-annotate-very-old-color "#969896")
  '(w3m-fill-column 72)
- '(w3m-mode-hook (quote (bookmark-w3m-prepare visual-line-mode)))
+ '(w3m-mode-hook '(bookmark-w3m-prepare visual-line-mode))
  '(warning-minimum-level :error)
  '(wc-modeline-format "WC[%tl,%tw,%tc]")
  '(wdired-allow-to-change-permissions t)
