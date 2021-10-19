@@ -52,7 +52,7 @@
  '(compilation-scroll-output (quote first-error))
  '(compilation-search-path nil)
  '(css-indent-offset 2)
- '(custom-enabled-themes (quote (manoj-dark)))
+ '(custom-enabled-themes '(wheatgrass))
  '(custom-safe-themes
    (quote
     ("2642a1b7f53b9bb34c7f1e032d2098c852811ec2881eec2dc8cc07be004e45a0" "445e30faa31222f339df0a313675e79b37fc33603cc65279e1704893e19b4f37" "3b5ce826b9c9f455b7c4c8bff22c020779383a12f2f57bf2eb25139244bb7290" "e0d42a58c84161a0744ceab595370cbe290949968ab62273aed6212df0ea94b4" "551596f9165514c617c99ad6ce13196d6e7caa7035cea92a0e143dbe7b28be0e" "c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "987b709680284a5858d5fe7e4e428463a20dfabe0a6f2a6146b3b8c7c529f08b" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "e9776d12e4ccb722a2a732c6e80423331bcb93f02e089ba2a4b02e85de1cf00e" "72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" "58c6711a3b568437bab07a30385d34aacf64156cc5137ea20e799984f4227265" "7085ad716baf17384f10a5eb121a840a4c29da57e403e8bceff0ca65a6f83d61" "0c29db826418061b40564e3351194a3d4a125d182c6ee5178c237a7364f0ff12" default)))
@@ -282,7 +282,9 @@
  '(dired-subtree-depth-4-face ((t (:background "dark green"))))
  '(dired-subtree-depth-5-face ((t (:background "gold4"))))
  '(dired-subtree-depth-6-face ((t (:background "DarkOrange4"))))
- '(git-gutter+-added ((t (:foreground "dark green" :weight bold))))
- '(linum ((t (:background "wheat2" :foreground "gray20" :weight bold)))))
+ '(git-gutter+-added ((t (:foreground "green" :weight bold))))
+ '(linum ((t (:background "wheat2" :foreground "gray20" :weight bold))))
+ '(region ((t (:extend t :background "dark olive green" :foreground "white"))))
+ '(which-func ((t (:foreground "deep sky blue")))))
 
 ;;; custom.el ends here
