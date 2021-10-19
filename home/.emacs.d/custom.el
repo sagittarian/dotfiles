@@ -247,6 +247,7 @@
  '(wc-modeline-format "WC[%tl,%tw,%tc]")
  '(wdired-allow-to-change-permissions t)
  '(wgrep-enable-key (kbd "C-c C-r"))
+ '(which-function-mode t)
  '(which-key-idle-delay 0.5)
  '(which-key-mode t)
  '(with-editor-emacsclient-executable "/usr/bin/emacsclient")
