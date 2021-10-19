@@ -103,13 +103,17 @@
 
 ;; fill-column-indicator
 (add-hook 'text-mode-hook 'fci-mode)
-(add-hook 'js2-mode-hook 'fci-mode)
-(add-hook 'js-mode-hook 'fci-mode)
-(add-hook 'python-mode-hook 'fci-mode)
-(add-hook 'ruby-mode-hook 'fci-mode)
-(add-hook 'haskell-mode-hook 'fci-mode)
-(add-hook 'c-mode-hook 'fci-mode)
-(add-hook 'emacs-lisp-mode-hook 'fci-mode)
+(add-hook 'prog-mode-hook (lambda () (setq fill-column 79)))
+(add-hook 'prog-mode-hook 'fci-mode)
+
+;; (add-hook 'js2-mode-hook 'fci-mode)
+;; (add-hook 'js-mode-hook 'fci-mode)
+;; (add-hook 'python-mode-hook 'fci-mode)
+;; (add-hook 'ruby-mode-hook 'fci-mode)
+;; (add-hook 'haskell-mode-hook 'fci-mode)
+;; (add-hook 'c-mode-hook 'fci-mode)
+;; (add-hook 'emacs-lisp-mode-hook 'fci-mode)
+
 
 ;; js-doc
 (setq js-doc-mail-address "adam@mesha.org"
