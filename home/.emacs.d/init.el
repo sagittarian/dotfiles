@@ -192,7 +192,7 @@
 
 (load "functions")
 (load "keybindings")
-(load "linum-off")
+;; (load "linum-off")
 
 (setq org-todo-keywords '((sequence "TODO" "(*) TODO" "|" "DONE" "DELETED")))
 ;; bullet character: •
