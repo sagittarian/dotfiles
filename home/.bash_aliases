@@ -241,7 +241,7 @@ function set_ipv6 {
     sudo sysctl -w net.ipv6.conf.default.disable_ipv6=$state
 }
 
-alias pudb='python -m pudb.run'
+alias pudb='python3 -m pudb.run'
 
 function tomp3 {
     src=$1
