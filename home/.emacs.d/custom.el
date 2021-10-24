@@ -6,6 +6,7 @@
  '(ag-arguments
    '("--line-number" "--smart-case" "--nogroup" "--column" "--stats" "--ignore" "doc" "--ignore" "jsdoc" "--hidden" "--"))
  '(ag-group-matches nil)
+ '(all-the-icons-ibuffer-mode t)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
