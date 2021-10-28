@@ -17,6 +17,7 @@
   with_items:
     - .config
     - .config/i3
+    - .config/systemd/user
     - .local/share
 
 - name: Create symlinks in home directory
@@ -31,6 +32,7 @@
     - .bash_aliases
     - .bashrc
     - .bash_vars
+    - .config/systemd/user/emacs.service
     - .config/pip
     - .config/terminator
     - .config/uzbl
