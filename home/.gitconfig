@@ -73,3 +73,6 @@
 	enabled = true
 [github]
 	user = sagittarian
+[filter "encrypt-gpg"]
+    smudge = gpg --decrypt --batch --passphrase-file /home/adam/media/.pass
+    clean = gpg --symmetric --batch --passphrase-file /home/adam/media/.pass

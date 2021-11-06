@@ -60,6 +60,7 @@
       - ruby
       - virtualbox-qt
       - filezilla
+      - gnupg
 
       ### Python build dependencies (for pyenv):
       - make
