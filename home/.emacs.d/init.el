@@ -199,18 +199,25 @@
 (advice-add 'magit-unstage-file :after (lambda (&rest r) (git-gutter+-refresh)))
 
 (which-function-mode)
-(setq-default header-line-format
-              '((which-func-mode ("" which-func-format " "))
-                " "
-                (:eval
-                 (replace-regexp-in-string
-                  ;; (getenv "HOME")
-                  ;; "~"
-                  (concat "^" (projectile-project-root))
-                  ""
-                  (or buffer-file-name "")))
-                " in "
-                (:eval (projectile-project-root))))
+
+(setq-default
+ ara/headerline
+ '("  " (which-func-mode ("" which-func-format " "))
+   " "
+   (:eval
+    (let ((root (projectile-project-root)))
+      (if root
+          (if buffer-file-name
+              (concat
+               (replace-regexp-in-string (concat "^" root) "" buffer-file-name)
+               " in "
+               root)
+            root)
+        buffer-file-name)))))
+(make-variable-buffer-local 'ara/headerline)
+(setq-default header-line-format '((t (:eval ara/headerline))))
+(add-hook 'lsp-mode-hook (lambda () (setq ara/headerline (list ""))))
+
 
 
 
