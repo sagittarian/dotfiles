@@ -5,6 +5,7 @@
 
 ;; custom variables
 (setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 (add-hook 'after-init-hook (lambda () (load custom-file)))
 
 (require 'package)
