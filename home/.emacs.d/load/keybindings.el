@@ -54,9 +54,27 @@
 (define-key elpy-mode-map (kbd "C-c r i") 'traad-organize-imports)
 
 ;; string-inflection
-(global-set-key (kbd "C-c _") 'string-inflection-all-cycle)
-(global-set-key (kbd "C-c C--") 'string-inflection-all-cycle)
-(define-key python-mode-map (kbd "C-c C--") 'string-inflection-python-style-cycle)
+(defhydra hydra-string-inflection ()
+  "string-inflection"
+  ("-" string-inflection-cycle "string inflect")
+  ("_" string-inflection-all-cycle "string inflect all")
+  ("RET" nil)
+  ("q" nil))
+(global-set-key (kbd "C-c _")
+                'hydra-string-inflection/string-inflection-all-cycle)
+;; (global-set-key (kbd "C-c C--") 'string-inflection-all-cycle)
+(global-set-key (kbd "C-c C--")
+                'hydra-string-inflection/string-inflection-cycle)
+(global-set-key (kbd "C-c -")
+                'hydra-string-inflection/string-inflection-cycle)
+;; (define-key python-mode-map (kbd "C-c C--")
+;;   'string-inflection-python-style-cycle)
+(define-key python-mode-map (kbd "C-c C--")
+  'hydra-string-inflection/string-inflection-cycle)
+(define-key python-mode-map (kbd "C-c C-_")
+  'hydra-string-inflection/string-inflection-all-cycle)
+(define-key python-mode-map (kbd "C-c _")
+  'hydra-string-inflection/string-inflection-all-cycle)
 
 ;; magit
 (require 'magit)
