@@ -247,6 +247,8 @@ function set_ipv6 {
 
 alias pudb='python3 -m pudb.run'
 
+alias ungron='gron --ungron'
+
 function tomp3 {
     src=$1
     dest=${src%.*}.mp3
