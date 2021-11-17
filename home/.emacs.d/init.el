@@ -238,7 +238,8 @@
 (setq org-todo-keywords '((sequence "TODO" "(*) TODO" "|" "DONE" "DELETED")))
 ;; bullet character: •
 
-;; (server-start)
+(server-start)
+(message "Server started.")
 
 (provide 'init)
 
