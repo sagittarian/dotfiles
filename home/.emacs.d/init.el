@@ -36,6 +36,8 @@
 
 ;; automatically delete trailing whitespace on all lines when saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace-except-before-point)
+(add-hook 'shell-mode-hook (lambda () (setq show-trailing-whitespace nil)))
+;; (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
 ;; show the full path in the title bar
 (setq frame-title-format
