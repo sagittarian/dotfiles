@@ -255,4 +255,6 @@ function tomp3 {
     ffmpeg -i "$src" -f mp3 -ab 192000 -vn "$dest"
 }
 
+alias normj='jq -S .'
+
 alias ytdl=youtube-dl
