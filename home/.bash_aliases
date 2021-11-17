@@ -52,10 +52,11 @@ function mkcd () {
     mkdir -p $1 && cd $1;
 }
 
-alias setkb="setxkbmap -layout 'us(dvp),il' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
-alias setkbus="setxkbmap -layout 'us,il' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
-alias setkbdana="setxkbmap -layout 'us,il' -option "" && setxkbmap -layout 'us,il' -option grp:shifts_toggle"
-alias setkbru="setxkbmap -layout 'us(dvp),ru' -option 'grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps'"
+xkbopts='grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps,eurosign:4'
+alias setkb="setxkbmap -layout 'us(dvp),il' -option '' -option '$xkbopts'"
+alias setkbus="setxkbmap -layout 'us,il' -option '' '$xkbopts'"
+alias setkbdana="setxkbmap -layout 'us,il' -option '' && setxkbmap -layout 'us,il' -option grp:shifts_toggle"
+alias setkbru="setxkbmap -layout 'us(dvp),ru' -option '' -option '$xkbopts'"
 
 #alias ghc=ghc-7.8.2
 #alias ghci=ghci-7.8.2
