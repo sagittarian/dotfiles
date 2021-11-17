@@ -36,6 +36,12 @@
   (interactive)
   (switch-to-buffer (generate-new-buffer "*scratch*")))
 
+(defun shell-new-buffer ()
+  "Run shell in a new buffer."
+  (interactive)
+  (let* ((shellbuff (generate-new-buffer "*shell*")))
+    (shell shellbuff)))
+
 (defun delete-trailing-whitespace-except-before-point (&optional start end)
   "Delete trailing whitespace between start and end, but leave it just before the point"
   (interactive "p")
