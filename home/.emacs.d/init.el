@@ -188,6 +188,10 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (display-line-numbers-mode 0)))
+
 (eval-after-load "org"
   '(require 'ox-md nil t))
 
