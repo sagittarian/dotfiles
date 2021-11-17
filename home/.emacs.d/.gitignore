@@ -10,3 +10,10 @@ places
 ido.last
 .yas-compiled-snippets.el
 .mc-lists.el
+transient
+session*
+request
+image-dired
+elpy
+*.lock
+url
