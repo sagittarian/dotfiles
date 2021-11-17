@@ -123,6 +123,9 @@ alias unhist='unset HISTFILE'
 alias y2j="python -c 'import yaml, json, sys; print(json.dumps(yaml.load(sys.stdin.read()), indent=4))'"
 #alias j2y="python -c 'import yaml, json, sys; print(yaml.dump(json.loads(sys.stdin.read())))'"
 alias j2y="ruby -r json -r yaml -e 'puts YAML.dump JSON.load \$stdin.read'"
+alias py2j="python -c 'import sys, json; print(json.dumps(eval(sys.stdin.read()), indent=4))'"
+alias pretty_xml="python -c 'import sys; from xml.dom.minidom import parse; \
+      print(parse(sys.stdin).toprettyxml(indent=chr(32)*4))'"
 
 alias rnd="python3 -c 'import random, sys; print(random.choice(sys.argv[1:]))'"
 alias rndchars="strings /dev/urandom | grep -o '[A-Za-z0-9]' | head" # | tr -d "\n"
