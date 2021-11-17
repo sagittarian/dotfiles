@@ -95,8 +95,8 @@
 ;; (add-hook 'python-mode-hook 'anaconda-mode)
 (elpy-enable)
 
-;; no menu bars
-(menu-bar-mode 0)
+;; menu bars
+(menu-bar-mode 1)
 
 ;; beeminder
 (load "beeminder")
