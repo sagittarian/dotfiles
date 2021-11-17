@@ -25,7 +25,7 @@
 
 (global-set-key (kbd "C-c C-M-SPC") 'mark-parens)
 
-(global-set-key (kbd "C-c C-S-D") 'duplicate-line)
+(global-set-key (kbd "C-c C-S-D") 'ara/duplicate-line-or-region)
 
 ;; macro to make an anki cloze
 (global-set-key (kbd "C-c C") 'make-cloze)

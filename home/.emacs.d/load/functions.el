@@ -214,15 +214,28 @@
   (kill-new (filter-buffer-substring (region-beginning) (region-end))))
 
 
-(defun duplicate-line ()
+(defun ara/duplicate-line ()
   (interactive)
   (move-beginning-of-line 1)
   (kill-line)
   (yank)
   (open-line 1)
-  (next-line 1)
-  (yank)
-)
+  (forward-line 1)
+  (yank))
+
+(defun ara/duplicate-region ()
+  (interactive)
+  (let ((end (region-end)))
+    (kill-ring-save nil nil t)
+    (goto-char end))
+  (let ((kill (current-kill 0)))
+    (if (not (string= (substring kill -1) "\n"))
+        (insert "\n"))
+    (insert kill)))
+
+(defun ara/duplicate-line-or-region ()
+  (interactive)
+  (if mark-active (ara/duplicate-region) (ara/duplicate-line)))
 
 (defun blacken (start end &optional diff)
   "Run black on either the buffer or the region.
