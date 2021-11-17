@@ -184,6 +184,10 @@
 (require 'expand-region)
 (require 'f)
 
+;; make a shell script executable automatically on save
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
+
 (eval-after-load "org"
   '(require 'ox-md nil t))
 
