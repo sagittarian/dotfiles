@@ -231,6 +231,7 @@
  '(select-enable-primary t)
  '(sentence-end-double-space t)
  '(show-paren-mode t)
+ '(show-paren-style 'mixed)
  '(show-trailing-whitespace nil)
  '(size-indication-mode t)
  '(smartparens-global-mode t)

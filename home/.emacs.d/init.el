@@ -81,7 +81,7 @@
 
 ;; some nice minor modes
 (show-paren-mode)
-(setq-default show-paren-style 'expression)
+;; (setq-default show-paren-style 'expression)
 ;; (electric-pair-mode) ;; superceded by smartparens
 
 ;; js2-mode
