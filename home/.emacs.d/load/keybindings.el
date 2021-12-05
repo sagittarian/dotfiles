@@ -99,6 +99,7 @@
   ("p" git-gutter+-previous-hunk "previous hunk")
   ("k" git-gutter+-previous-hunk "previous hunk")
   ("v" git-gutter+-show-hunk "show hunk")
+  ("m" magit-status "magit status" :exit t)
   ("r" git-gutter+-revert-hunks "revert hunks")
   ("R" ara/git-gutter+-refresh "refresh")
   ("s" git-gutter+-stage-hunks "stage hunks")
