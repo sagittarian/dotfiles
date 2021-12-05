@@ -88,18 +88,51 @@
 (global-set-key (kbd "C-g") 'keyboard-quit)
 
 ;; git-gutter+
-(define-key git-gutter+-mode-map (kbd "C-c u n") 'git-gutter+-next-hunk)
-(define-key git-gutter+-mode-map (kbd "C-c u p") 'git-gutter+-previous-hunk)
+(defun ara/git-gutter+-refresh ()
+  "Interactive version of git-gutter+-refresh"
+  (interactive)
+  (git-gutter+-refresh))
+(defhydra hydra-git-gutter+ ()
+  "git-gutter+"
+  ("n" git-gutter+-next-hunk "next hunk")
+  ("j" git-gutter+-next-hunk "next hunk")
+  ("p" git-gutter+-previous-hunk "previous hunk")
+  ("k" git-gutter+-previous-hunk "previous hunk")
+  ("v" git-gutter+-show-hunk "show hunk")
+  ("r" git-gutter+-revert-hunks "revert hunks")
+  ("R" ara/git-gutter+-refresh "refresh")
+  ("s" git-gutter+-stage-hunks "stage hunks")
+  ("S" ara/stage-buffer "stage buffer")
+  ("c" git-gutter+-commit "commit")
+  ("C" git-gutter+-stage-and-commit "stage and commit")
+  ("y" git-gutter+-stage-and-commit-whole-buffer "stage and commit buffer")
+  ("u" git-gutter+-unstage-whole-buffer "unstage buffer")
+  ("RET" nil)
+  ("q" nil))
+(define-key git-gutter+-mode-map (kbd "C-c u n")
+  'hydra-git-gutter+/git-gutter+-next-hunk)
+(define-key git-gutter+-mode-map (kbd "C-c u j")
+  'hydra-git-gutter+/git-gutter+-next-hunk)
+(define-key git-gutter+-mode-map (kbd "C-c u p")
+  'hydra-git-gutter+/git-gutter+-previous-hunk)
+(define-key git-gutter+-mode-map (kbd "C-c u k")
+  'hydra-git-gutter+/git-gutter+-previous-hunk)
 ;; act on hunks
-(define-key git-gutter+-mode-map (kbd "C-c u v =") 'git-gutter+-show-hunk)
+(define-key git-gutter+-mode-map (kbd "C-c u v") 'git-gutter+-show-hunk)
 (define-key git-gutter+-mode-map (kbd "C-c u r") 'git-gutter+-revert-hunks)
+(define-key git-gutter+-mode-map (kbd "C-c u R") 'ara/git-gutter+-refresh)
 ;; stage hunk at point
 ;; if region is active, stage all hunk lines within the region
-(define-key git-gutter+-mode-map (kbd "C-c u s") 'git-gutter+-stage-hunks)
+(define-key git-gutter+-mode-map (kbd "C-c u s")
+  'hydra-git-gutter+/git-gutter+-stage-hunks)
+(define-key git-gutter+-mode-map (kbd "C-c u S") 'ara/stage-buffer)
 (define-key git-gutter+-mode-map (kbd "C-c u c") 'git-gutter+-commit)
 (define-key git-gutter+-mode-map (kbd "C-c u C") 'git-gutter+-stage-and-commit)
-(define-key git-gutter+-mode-map (kbd "C-c u C-y") 'git-gutter+-stage-and-commit-whole-buffer)
-(define-key git-gutter+-mode-map (kbd "C-c u u") 'git-gutter+-unstage-whole-buffer)
+(define-key git-gutter+-mode-map (kbd "C-c u y")
+  'git-gutter+-stage-and-commit-whole-buffer)
+(define-key git-gutter+-mode-map (kbd "C-c u u")
+  'git-gutter+-unstage-whole-buffer)
+
 
 ;; custom commands
 (global-set-key (kbd "C-M-&") 'shell-command-as-kill)
