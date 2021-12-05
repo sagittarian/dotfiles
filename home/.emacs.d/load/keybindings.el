@@ -262,6 +262,7 @@ otherwise projectile-find-file."
 (define-key dired-mode-map (kbd "C-. r") 'dired-subtree-remove)
 (define-key dired-mode-map (kbd "C-. t") 'dired-subtree-toggle)
 (define-key dired-mode-map (kbd "\\") 'dired-subtree-toggle)
+(define-key dired-mode-map (kbd "<tab>") 'dired-subtree-toggle)
 (define-key dired-mode-map (kbd "C-. c") 'dired-subtree-cycle)
 (define-key dired-mode-map (kbd "C-. v") 'dired-subtree-revert)
 (define-key dired-mode-map (kbd "C-. n") 'dired-subtree-narrow)
