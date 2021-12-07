@@ -79,6 +79,7 @@
 ;; magit
 (require 'magit)
 (global-set-key (kbd "C-c g g") 'magit-status)
+(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-M-g") 'magit-status)
 (global-set-key (kbd "C-S-m") 'magit-status)
 (global-set-key (kbd "C-c g b") 'magit-blame)
@@ -97,6 +98,7 @@
   ("v" git-gutter+-show-hunk "show hunk" :column "view")
   ("r" (git-gutter+-refresh) "refresh")
   ("m" magit-status "magit status" :exit t)
+  ("g" magit-status "magit status" :exit t)
   ("R" git-gutter+-revert-hunks "revert hunks" :column "edit")
   ("s" git-gutter+-stage-hunks "stage hunks" :column "stage/commit")
   ("+" (progn (git-gutter+-stage-hunks) (git-gutter+-next-hunk 1)) "stage and next")
