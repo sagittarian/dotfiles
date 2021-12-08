@@ -21,6 +21,17 @@
   ;; early init and init
   (package-initialize))
 
+
+
+;; scroll the buffer when moving up/down
+(defvar ara/autoscroll-line-move t)
+(defun ara/next-line-scroll-up (arg &optional try-vscroll)
+  (if ara/autoscroll-line-move (scroll-up-line arg)))
+(defun ara/previous-line-scroll-down (arg &optional try-vscroll)
+  (if ara/autoscroll-line-move (scroll-down-line arg)))
+(advice-add 'next-line :after 'ara/next-line-scroll-up)
+(advice-add 'previous-line :after 'ara/previous-line-scroll-down)
+
 ;; keyfreq
 (require 'keyfreq)
 ;; (keyfreq-mode 1)
