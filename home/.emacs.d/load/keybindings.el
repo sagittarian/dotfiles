@@ -1,43 +1,43 @@
 ;;; Code:
 
 ;; misc
-(global-set-key (kbd "C-M-;") (lambda () (interactive) (back-to-indentation) (sp-comment)))
-(global-set-key (kbd "C-S-g") 'keyboard-quit)
+(define-key ara/keymap (kbd "C-M-;") (lambda () (interactive) (back-to-indentation) (sp-comment)))
+(define-key ara/keymap (kbd "C-S-g") 'keyboard-quit)
 (define-key ivy-minibuffer-map (kbd "C-S-g") 'minibuffer-keyboard-quit)
-(global-set-key (kbd "M-+") 'other-window)
-(global-set-key (kbd "C-+") 'other-window)
-(global-set-key (kbd "C-M-+")
+(define-key ara/keymap (kbd "M-+") 'other-window)
+(define-key ara/keymap (kbd "C-+") 'other-window)
+(define-key ara/keymap (kbd "C-M-+")
                 (lambda () (interactive)
                   (switch-to-buffer-other-window (current-buffer))))
-(global-set-key (kbd "C-<return>") 'newline-and-indent)
-;; (global-set-key (kbd "M-<return>") 'am-open-next-line)
+(define-key ara/keymap (kbd "C-<return>") 'newline-and-indent)
+;; (define-key ara/keymap (kbd "M-<return>") 'am-open-next-line)
 (global-unset-key (kbd "M-<return>"))
-(global-set-key (kbd "C-M-)") 'make-frame-command)
-(global-set-key (kbd "s-;") 'delete-frame)
-;; (global-set-key (kbd "C-M-}") 'split-window-right)
+(define-key ara/keymap (kbd "C-M-)") 'make-frame-command)
+(define-key ara/keymap (kbd "s-;") 'delete-frame)
+;; (define-key ara/keymap (kbd "C-M-}") 'split-window-right)
 
 ;; print screen is where the menu key should be on my thinkpad
-(global-set-key (kbd "<print>") 'execute-extended-command)
+(define-key ara/keymap (kbd "<print>") 'execute-extended-command)
 
 ;; expand region
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C-9") 'er/contract-region)
+(define-key ara/keymap (kbd "C-=") 'er/expand-region)
+(define-key ara/keymap (kbd "C-9") 'er/contract-region)
 
-(global-set-key (kbd "C-c C-M-SPC") 'mark-parens)
+(define-key ara/keymap (kbd "C-c C-M-SPC") 'mark-parens)
 
-(global-set-key (kbd "C-c C-S-D") 'ara/duplicate-line-or-region)
+(define-key ara/keymap (kbd "C-c C-S-D") 'ara/duplicate-line-or-region)
 
 ;; macro to make an anki cloze
-(global-set-key (kbd "C-c C") 'make-cloze)
+(define-key ara/keymap (kbd "C-c C") 'make-cloze)
 
 ;; alternative yasnippet expand key
-(global-set-key (kbd "C-<tab>") 'yas-expand)
+(define-key ara/keymap (kbd "C-<tab>") 'yas-expand)
 
-(global-set-key (kbd "C-c c") 'org-capture)
+(define-key ara/keymap (kbd "C-c c") 'org-capture)
 
 ;; more discoverablitity from which-key
-(global-set-key (kbd "C-c h") 'which-key-show-full-major-mode)
-(global-set-key (kbd "C-c C-h") 'which-key-show-full-minor-mode-keymap)
+(define-key ara/keymap (kbd "C-c h") 'which-key-show-full-major-mode)
+(define-key ara/keymap (kbd "C-c C-h") 'which-key-show-full-minor-mode-keymap)
 
 ;; elpy
 (require 'elpy)
@@ -60,12 +60,12 @@
   ("_" string-inflection-all-cycle "string inflect all")
   ("RET" nil)
   ("q" nil))
-(global-set-key (kbd "C-c _")
+(define-key ara/keymap (kbd "C-c _")
                 'hydra-string-inflection/string-inflection-all-cycle)
-;; (global-set-key (kbd "C-c C--") 'string-inflection-all-cycle)
-(global-set-key (kbd "C-c C--")
+;; (define-key ara/keymap (kbd "C-c C--") 'string-inflection-all-cycle)
+(define-key ara/keymap (kbd "C-c C--")
                 'hydra-string-inflection/string-inflection-cycle)
-(global-set-key (kbd "C-c -")
+(define-key ara/keymap (kbd "C-c -")
                 'hydra-string-inflection/string-inflection-cycle)
 ;; (define-key python-mode-map (kbd "C-c C--")
 ;;   'string-inflection-python-style-cycle)
@@ -78,15 +78,15 @@
 
 ;; magit
 (require 'magit)
-(global-set-key (kbd "C-c g g") 'magit-status)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-M-g") 'magit-status)
-(global-set-key (kbd "C-S-m") 'magit-status)
-(global-set-key (kbd "C-c g b") 'magit-blame)
-(global-set-key (kbd "C-c g B") 'magit-blame-popup)
-(global-set-key (kbd "C-c g t") 'git-timemachine)
+(define-key ara/keymap (kbd "C-c g g") 'magit-status)
+(define-key ara/keymap (kbd "C-x g") 'magit-status)
+(define-key ara/keymap (kbd "C-M-g") 'magit-status)
+(define-key ara/keymap (kbd "C-S-m") 'magit-status)
+(define-key ara/keymap (kbd "C-c g b") 'magit-blame)
+(define-key ara/keymap (kbd "C-c g B") 'magit-blame-popup)
+(define-key ara/keymap (kbd "C-c g t") 'git-timemachine)
 (define-key magit-status-mode-map (kbd "s-<return>") 'magit-diff-visit-file-other-window)
-(global-set-key (kbd "C-g") 'keyboard-quit)
+(define-key ara/keymap (kbd "C-g") 'keyboard-quit)
 
 ;; git-gutter+
 (defhydra hydra-git-gutter+ (git-gutter+-mode-map "C-c u")
@@ -115,21 +115,21 @@
 
 
 ;; custom commands
-(global-set-key (kbd "C-M-&") 'shell-command-as-kill)
-;; (global-set-key (kbd "C-c s") 'commit-buffer)
+(define-key ara/keymap (kbd "C-M-&") 'shell-command-as-kill)
+;; (define-key ara/keymap (kbd "C-c s") 'commit-buffer)
 ;; XXX set this up to be run with commit-buffer above with prefix arg
-(global-set-key (kbd "C-c A") 'amend-buffer)
-(global-set-key (kbd "C-c a") 'stage-buffer)
-(global-set-key (kbd "C-c S") 'commit-all-changes)
-(global-set-key (kbd "C-c D") 'insert-date)
-(global-set-key (kbd "C-c T") 'insert-timestamp)
-(global-set-key (kbd "C-c t") 'find-todo)
-(global-set-key (kbd "C-c j") 'find-projects)
-(global-set-key (kbd "C-c m") 'switch-to-minibuffer)
-(global-set-key (kbd "C-x M-e") 'eval-and-replace)
-(global-set-key (kbd "C-c w") 'current-buffer-file-name)
+(define-key ara/keymap (kbd "C-c A") 'amend-buffer)
+(define-key ara/keymap (kbd "C-c a") 'stage-buffer)
+(define-key ara/keymap (kbd "C-c S") 'commit-all-changes)
+(define-key ara/keymap (kbd "C-c D") 'insert-date)
+(define-key ara/keymap (kbd "C-c T") 'insert-timestamp)
+(define-key ara/keymap (kbd "C-c t") 'find-todo)
+(define-key ara/keymap (kbd "C-c j") 'find-projects)
+(define-key ara/keymap (kbd "C-c m") 'switch-to-minibuffer)
+(define-key ara/keymap (kbd "C-x M-e") 'eval-and-replace)
+(define-key ara/keymap (kbd "C-c w") 'current-buffer-file-name)
 
-(global-set-key (kbd "C-c s") 'scratch-buffer)
+(define-key ara/keymap (kbd "C-c s") 'scratch-buffer)
 
 ;; use my own function that saves the file when you switch windows
 (define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
@@ -142,46 +142,46 @@
 
 ;; avy
 (avy-setup-default)
-;; (global-set-key (kbd "C-'") 'avy-goto-char-timer)
-(global-set-key (kbd "C-'") 'hydra-nav/avy-goto-char-timer)
-(global-set-key (kbd "C-S-SPC") 'avy-goto-char-timer)
-;; (global-set-key (kbd "C-;") 'avy-goto-word-1)
-(global-set-key (kbd "C-;") 'hydra-nav/avy-goto-word-1)
-(global-set-key (kbd "C-:") 'avy-goto-word-0)
-;; (global-set-key (kbd "C-c SPC") 'avy-resume)
-(global-set-key (kbd "C-c SPC") 'avy-goto-word-1)
-(global-set-key (kbd "C-S-n") 'hydra-nav/body)
+;; (define-key ara/keymap (kbd "C-'") 'avy-goto-char-timer)
+(define-key ara/keymap (kbd "C-'") 'hydra-nav/avy-goto-char-timer)
+(define-key ara/keymap (kbd "C-S-SPC") 'avy-goto-char-timer)
+;; (define-key ara/keymap (kbd "C-;") 'avy-goto-word-1)
+(define-key ara/keymap (kbd "C-;") 'hydra-nav/avy-goto-word-1)
+(define-key ara/keymap (kbd "C-:") 'avy-goto-word-0)
+;; (define-key ara/keymap (kbd "C-c SPC") 'avy-resume)
+(define-key ara/keymap (kbd "C-c SPC") 'avy-goto-word-1)
+(define-key ara/keymap (kbd "C-S-n") 'hydra-nav/body)
 
 ;; flycheck
-(global-set-key (kbd "C-!") 'flycheck-next-error)
-(global-set-key (kbd "C-M-!") 'flycheck-previous-error)
-(global-set-key (kbd "C-c >") 'sgml-close-tag)
+(define-key ara/keymap (kbd "C-!") 'flycheck-next-error)
+(define-key ara/keymap (kbd "C-M-!") 'flycheck-previous-error)
+(define-key ara/keymap (kbd "C-c >") 'sgml-close-tag)
 
 ;; misc
-(global-set-key (kbd "<f11>") 'calendar)
-(global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "<f12>") 'shell)
-(global-set-key (kbd "S-<f12>") 'run-python)
+(define-key ara/keymap (kbd "<f11>") 'calendar)
+(define-key ara/keymap (kbd "<f5>") 'revert-buffer)
+(define-key ara/keymap (kbd "<f12>") 'shell)
+(define-key ara/keymap (kbd "S-<f12>") 'run-python)
 
 
 (defun tabify-buffer ()
   (interactive)
   (message "tabify-buffer")
   (tabify (point-min) (point-max)))
-;(global-set-key (kbd "<f6>") 'tabify-buffer)
-(global-set-key (kbd "C-`") 'bury-buffer)
-;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
-(global-set-key (kbd "M-/") 'hippie-expand)
+;(define-key ara/keymap (kbd "<f6>") 'tabify-buffer)
+(define-key ara/keymap (kbd "C-`") 'bury-buffer)
+;; (define-key ara/keymap (kbd "<C-tab>") 'bury-buffer)
+(define-key ara/keymap (kbd "M-/") 'hippie-expand)
 
 ;; swiper
-;; (global-set-key (kbd "C-S-s") 'isearch-forward)
-;; (global-set-key (kbd "C-s") 'swiper)
+;; (define-key ara/keymap (kbd "C-S-s") 'isearch-forward)
+;; (define-key ara/keymap (kbd "C-s") 'swiper)
 (define-key (current-global-map) [remap isearch-forward] 'swiper)
 
 
-(global-set-key (kbd "C-c %") 'replace-string)
-(global-set-key (kbd "C-c M-%") 'replace-regexp)
-(global-set-key (kbd "C-x j") 'auto-fill-mode)
+(define-key ara/keymap (kbd "C-c %") 'replace-string)
+(define-key ara/keymap (kbd "C-c M-%") 'replace-regexp)
+(define-key ara/keymap (kbd "C-x j") 'auto-fill-mode)
 
 ;; js2-refactor
 (js2r-add-keybindings-with-prefix "C-c C-m")
@@ -202,20 +202,20 @@
                 'js-doc-describe-tag)))
 
 ;; ;; Align your code in a pretty way.
-(global-set-key (kbd "C-x \\") 'align-regexp)
+(define-key ara/keymap (kbd "C-x \\") 'align-regexp)
 
 ;; ;; Start proced in a similar manner to dired
-(global-set-key (kbd "C-x p") 'proced)
+(define-key ara/keymap (kbd "C-x p") 'proced)
 
 ;; yasnippet
-(global-set-key (kbd "C-<tab>") 'yas-expand)
+(define-key ara/keymap (kbd "C-<tab>") 'yas-expand)
 
 ;; beeminder
-(global-set-key (kbd "C-c b a") 'beeminder-add-data)
-(global-set-key (kbd "C-c b w") 'beeminder-whoami)
-(global-set-key (kbd "C-c b g") 'beeminder-my-goals-org)
-(global-set-key (kbd "C-c b r") 'beeminder-refresh-goal)
-(global-set-key (kbd "C-c b t") 'beeminder-submit-clocked-time)
+(define-key ara/keymap (kbd "C-c b a") 'beeminder-add-data)
+(define-key ara/keymap (kbd "C-c b w") 'beeminder-whoami)
+(define-key ara/keymap (kbd "C-c b g") 'beeminder-my-goals-org)
+(define-key ara/keymap (kbd "C-c b r") 'beeminder-refresh-goal)
+(define-key ara/keymap (kbd "C-c b t") 'beeminder-submit-clocked-time)
 
 ;; projectile shortcuts
 (require 'projectile)
@@ -233,7 +233,7 @@ otherwise projectile-find-file."
     (projectile-find-file)))
 (define-key projectile-mode-map (kbd "C-S-f") 'ar--projectile-find-file-maybe-other-window)
 (define-key projectile-mode-map (kbd "C-S-b") 'projectile-switch-to-buffer)
-(global-set-key (kbd "C-S-p") 'projectile-switch-project)
+(define-key ara/keymap (kbd "C-S-p") 'projectile-switch-project)
 (define-key projectile-mode-map (kbd "C-S-s") 'projectile-ag)
 
 ;; dired-subtree
@@ -266,8 +266,8 @@ otherwise projectile-find-file."
   ;; ("C-/" undo)
   ("RET" nil)
   ("q" nil))
-(global-set-key (kbd "C-c M-p") 'hydra-move-text/move-text-up)
-(global-set-key (kbd "C-c M-n") 'hydra-move-text/move-text-down)
+(define-key ara/keymap (kbd "C-c M-p") 'hydra-move-text/move-text-up)
+(define-key ara/keymap (kbd "C-c M-n") 'hydra-move-text/move-text-down)
 
 (defhydra hydra-nav (global-map "C-c n")
   "nav"
@@ -341,7 +341,7 @@ otherwise projectile-find-file."
 
 
 ;; smartparens
-;; (global-set-key (kbd "C-M-S-w") 'kill-sexp)
+;; (define-key ara/keymap (kbd "C-M-S-w") 'kill-sexp)
 (define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
 (define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
 
@@ -384,7 +384,7 @@ otherwise projectile-find-file."
 (define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
 
 ;; dired-sidebar
-(global-set-key (kbd "C-c (") 'dired-sidebar-toggle-sidebar)
+(define-key ara/keymap (kbd "C-c (") 'dired-sidebar-toggle-sidebar)
 
 ;; w3m
 (define-key w3m-mode-map (kbd "C-,") 'w3m-tab-previous-buffer)
@@ -408,9 +408,9 @@ otherwise projectile-find-file."
   (let ((url (format "https://pypi.org/search/?q=%s" query)))
     (w3m-goto-url-new-session url)))
 
-(global-set-key (kbd "C-c C-c p") 'w3m-python-module)
-(global-set-key (kbd "C-c C-c w") 'w3m-search-wikipedia)
-(global-set-key (kbd "C-c C-c P") 'w3m-pypi-search)
+(define-key ara/keymap (kbd "C-c C-c p") 'w3m-python-module)
+(define-key ara/keymap (kbd "C-c C-c w") 'w3m-search-wikipedia)
+(define-key ara/keymap (kbd "C-c C-c P") 'w3m-pypi-search)
 
 (provide 'keybindings)
 ;;; keybindings ends here

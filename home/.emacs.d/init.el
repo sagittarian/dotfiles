@@ -27,6 +27,8 @@
   ;; (add-to-list 'load-path "<path where use-package is installed>")
   (require 'use-package))
 
+(defvar ara/keymap (current-global-map))
+
 
 (load "usepkg")
 
