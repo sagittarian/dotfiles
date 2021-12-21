@@ -258,3 +258,10 @@ function tomp3 {
 alias normj='jq -S .'
 
 alias ytdl=youtube-dl
+
+function gronall {
+    for path in "$@"; do
+        gron $path | sed -e "s|^|${path}:|"
+    done
+}
+
