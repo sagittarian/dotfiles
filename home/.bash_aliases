@@ -259,6 +259,8 @@ alias normj='jq -S .'
 
 alias ytdl=youtube-dl
 
+alias k=kubectl
+
 function gronall {
     for path in "$@"; do
         gron $path | sed -e "s|^|${path}:|"
