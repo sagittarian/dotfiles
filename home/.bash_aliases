@@ -265,3 +265,13 @@ function gronall {
     done
 }
 
+function gui {
+    cmd=$1
+    shift
+    if [[ -n "${BASH_ALIASES[$cmd]}" ]]; then
+        cmd="${BASH_ALIASES[$cmd]}"
+    fi
+    echo nohup $cmd "$@" \> /dev/null \& disown
+    nohup $cmd "$@" > /dev/null &
+    disown
+}
