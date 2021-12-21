@@ -17,13 +17,14 @@ if which emacs27 > /dev/null; then
      ecl=emacsclient27
 fi
 
-alias e="emacsclient -n -c -a ''"
-alias e.="emacsclient -n -c -a '' ."
-alias ed.="emacsclient -n -c -a '' ."
-alias em.='emacsclient -n -c -a "" -e "(magit-status \"$(pwd)\")"'
-alias ec="emacsclient -nw"
-EDITOR="$ecl -c"
-export EDITOR
+ebase="$ecl -n -c -a ''"
+alias e="$ebase"
+alias e.="$ebase ."
+alias ed.="$ebase ."
+# alias em.="$ebase -e '(magit-status "\""$(pwd)"\"")'"
+alias ec="$ecl -nw"
+export EDITOR="$ecl -nw"
+export VISUAL="$ecl -c"
 
 alias ebang="emacsclient -n -c \$(eval \$(fc -ln -1))"
 
