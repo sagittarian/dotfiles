@@ -89,6 +89,7 @@ function wrapstash () {
 # make some commands pay attention to aliases
 alias sudo='sudo '
 alias xargs='xargs '
+alias nohup='nohup '
 
 # create a directory and cd into it
 function mkcd () {
