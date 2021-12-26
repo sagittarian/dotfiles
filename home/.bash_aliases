@@ -210,7 +210,7 @@ which emacs25 > /dev/null && alias emacs=emacs25
 which emacsclient25 > /dev/null && alias emacsclient=emacsclient25
 
 function escratch {
-    tmpnam=$(mktemp)
+    tmpnam=$(mktemp "$@")
     cat | tee $tmpnam
     emacsclient -n -c $tmpnam
 }
