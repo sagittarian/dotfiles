@@ -56,6 +56,7 @@
  '(compilation-auto-jump-to-first-error nil)
  '(compilation-scroll-output 'first-error)
  '(compilation-search-path nil)
+ '(counsel-mode t)
  '(css-indent-offset 2)
  '(current-language-environment "UTF-8")
  '(cursor-type 'hbar)
