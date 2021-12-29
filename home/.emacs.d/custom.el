@@ -291,6 +291,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
+ '(avy-lead-face ((t (:background "dark red" :foreground "white"))))
+ '(avy-lead-face-0 ((t (:background "medium blue" :foreground "white"))))
+ '(avy-lead-face-2 ((t (:background "dark magenta" :foreground "white"))))
  '(dired-subtree-depth-1-face ((t (:background "dark orchid"))))
  '(dired-subtree-depth-2-face ((t (:background "purple4"))))
  '(dired-subtree-depth-3-face ((t (:background "navy"))))
