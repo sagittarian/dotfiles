@@ -21,6 +21,7 @@ bower_components
 .mypy_cache
 *.map
 *.css
+*.json
 package-lock.json
 index.html
 doc
