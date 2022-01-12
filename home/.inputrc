@@ -1,2 +1,28 @@
+# set bind-tty-special-chars off
+set show-mode-in-prompt
+set blink-matching-paren
+set colored-completion-prefix
+set show-all-if-ambiguous on
+set menu-complete-display-prefix on
+# set emacs-mode-string @@@
+# set keymap emacs-ctlx
+# Control-Z: vi-movement-mode
+set keymap emacs
 "\en": history-search-forward
 "\ep": history-search-backward
+Control-Z: vi-movement-mode
+Meta-Z: vi-movement-mode
+"\ez": vi-movement-mode
+set keymap vi-insert
+"\en": history-search-forward
+"\ep": history-search-backward
+"\ez": emacs-editing-mode
+Control-N: vi-movement-mode
+"\e.": insert-last-argument
+set keymap vi-command
+"\en": history-search-forward
+"\ep": history-search-backward
+"\ez": emacs-editing-mode
+"\e.": insert-last-argument
+# set editing-mode vi
+set editing-mode emacs
