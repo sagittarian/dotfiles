@@ -17,7 +17,10 @@ eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 # cabal
-export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
+# export PATH="$HOME/.cabal/bin:$HOME/bin/.cabal-sandbox/bin:$PATH"
+
+# go
+# export PATH="$HOME/go/bin:$PATH"
 
 # less
 export LESS="FRX"
@@ -25,8 +28,7 @@ export LESS="FRX"
 # virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=$HOME/.local/pipx/venvs/virtualenvwrapper/bin/python
 export WORKON_HOME=$HOME/.virtualenvs
-
-export PROJECT_HOME=$HOME/src
-
 source $(which virtualenvwrapper.sh)
 # source /home/adam/jython/bin/virtualenvwrapper.sh
+
+export PROJECT_HOME=$HOME/src
