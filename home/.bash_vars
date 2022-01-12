@@ -26,6 +26,10 @@ eval "$(pyenv init -)"
 # less
 export LESS="FRX"
 
+# icons in qt apps
+export QT_QPA_PLATFORMTHEME=qt5ct
+# Start qt5ct and select gtk2
+
 # virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=$HOME/.local/pipx/venvs/virtualenvwrapper/bin/python
 export WORKON_HOME=$HOME/.virtualenvs
