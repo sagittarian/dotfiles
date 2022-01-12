@@ -1,6 +1,7 @@
 export NODE_ENV=DEV
 export RAILS_ENV=development
-export PYTHONPATH=$HOME/python:$PYTHONPATH
+# export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}$HOME/python
+export PYTHONPATH=.:${PYTHONPATH:+$PYTHONPATH:}$HOME/python
 
 export PATH=$HOME/bin:$HOME/.local/bin:$PATH
 export CDPATH=:..:~:~/src:~/doc:$CDPATH
