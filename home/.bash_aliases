@@ -206,8 +206,8 @@ function cppath {
 }
 
 alias dux='du -sc * | sort -g'
-which emacs25 > /dev/null && alias emacs=emacs25
-which emacsclient25 > /dev/null && alias emacsclient=emacsclient25
+# which emacs25 > /dev/null && alias emacs=emacs25
+# which emacsclient25 > /dev/null && alias emacsclient=emacsclient25
 
 function escratch {
     tmpnam=$(mktemp "$@")
