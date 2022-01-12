@@ -216,6 +216,8 @@ function escratch {
 }
 
 alias today='date +%Y-%m-%d'
+alias yesterday='date --date=@$(($(date +%s) - 86400)) +%Y-%m-%d'
+alias tomorrow='date --date=@$(($(date +%s) + 86400)) +%Y-%m-%d'
 alias now='date +%Y-%m-%dT%H:%M:%S'
 
 export VENV_LOC="$HOME/.venv"
