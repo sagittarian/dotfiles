@@ -281,3 +281,5 @@ function gui {
     nohup $cmd "$@" > /dev/null &
     disown
 }
+
+alias chrome=google-chrome
