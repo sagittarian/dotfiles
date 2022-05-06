@@ -264,6 +264,10 @@ alias normj='jq -S .'
 alias ytdl=youtube-dl
 
 alias k=kubectl
+function sshpod {
+    podname=$1
+    kubectl -A exec -ti $podname -- /bin/bash
+}
 
 function gronall {
     for path in "$@"; do
