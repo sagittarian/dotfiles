@@ -27,6 +27,7 @@ function em. {
 alias ec="$ecl -nw"
 export EDITOR="$ecl -nw"
 export VISUAL="$ecl -c"
+export KUBE_EDITOR="$VISUAL"
 
 alias ebang="emacsclient -n -c \$(eval \$(fc -ln -1))"
 
