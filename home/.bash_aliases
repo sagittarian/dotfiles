@@ -300,3 +300,5 @@ function reveal_type {
     import_item=${attr%%.*}
     mypy --ignore-missing-imports <(echo "from $module import $import_item; reveal_type($attr)")
 }
+
+alias kmk='kubectl config use-context minikube'
