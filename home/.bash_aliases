@@ -293,3 +293,10 @@ function gui {
 alias chrome=google-chrome
 
 alias mypy='mypy --ignore-missing-imports'
+
+function reveal_type {
+    module=$1
+    attr=$2
+    import_item=${attr%%.*}
+    mypy --ignore-missing-imports <(echo "from $module import $import_item; reveal_type($attr)")
+}
