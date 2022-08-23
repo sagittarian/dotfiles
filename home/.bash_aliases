@@ -302,3 +302,4 @@ function reveal_type {
 }
 
 alias kmk='kubectl config use-context minikube'
+alias deact=deactivate
