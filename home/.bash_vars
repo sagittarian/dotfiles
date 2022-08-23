@@ -39,3 +39,6 @@ source $(which virtualenvwrapper.sh)
 # source /home/adam/jython/bin/virtualenvwrapper.sh
 
 export PROJECT_HOME=$HOME/src
+
+# Docker BuildKit
+export DOCKER_BUILDKIT=1
