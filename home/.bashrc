@@ -219,3 +219,8 @@ stty stop 'undef'
 # export NVM_DIR="/home/adam/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+
+# kubectl autocompletion
+if which kubectl > /dev/null; then
+    source <(kubectl completion bash)
+fi
