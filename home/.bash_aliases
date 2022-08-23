@@ -291,3 +291,5 @@ function gui {
 }
 
 alias chrome=google-chrome
+
+alias mypy='mypy --ignore-missing-imports'
