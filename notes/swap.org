@@ -1,0 +1,11 @@
+* adding
+  - sudo dd if=/dev/zero of=/swapfile bs=1024 count=33554432
+  - sudo mkswap /swapfile
+  - sudo chmod 600 /swapfile
+  - sudo swapon /swapfile
+  - sudo $EDITOR /etc/fstab
+    /swapfile    none    swap    sw    0    0
+* removing
+  - remove the line in /etc/fstab
+  - swapoff /swapfile
+  - delete the file
