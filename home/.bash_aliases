@@ -21,7 +21,9 @@ ebase="$ecl -n -c -a ''"
 alias e="$ebase"
 alias e.="$ebase ."
 alias ed.="$ebase ."
-# alias em.="$ebase -e '(magit-status "\""$(pwd)"\"")'"
+function em. {
+    $ebase -e "(magit-status \"$(pwd)\")"
+}
 alias ec="$ecl -nw"
 export EDITOR="$ecl -nw"
 export VISUAL="$ecl -c"
