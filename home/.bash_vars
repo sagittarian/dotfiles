@@ -22,6 +22,8 @@ eval "$(pyenv init -)"
 
 # go
 # export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/go/bin:$HOME/go/bin:$PATH"
+export GOPATH="$HOME/go"
 
 # less
 export LESS="FRX"
