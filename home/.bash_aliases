@@ -75,6 +75,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ff='firefox --ProfileManager'
+alias ffp='firefox -P'
 
 alias ctrlcntr='unset XDG_CURRENT_DESKTOP && unity-control-center'
 
