@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: argparse
+# key: argparse
+# --
+def get_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser($1)
+    parser.add_argument($0)
+    return parser.parse_args()

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: main
+# key: main
+# --
+def ${1:main}() -> ${2:int}:
+    ${3:args = get_args()}
+    $0
+    ${4:return 0}
+
+
+if __name__ == "__main__":
+    ${5:raise SystemExit($1())}
