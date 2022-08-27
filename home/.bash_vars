@@ -27,6 +27,9 @@ export GOPATH="$HOME/go"
 
 # less
 export LESS="FRX"
+if which pygmentize > /dev/null; then
+    export LESSOPEN="| pygmentize -f terminal256 -O style=native -g %s"
+fi
 
 # icons in qt apps
 export QT_QPA_PLATFORMTHEME=qt5ct
