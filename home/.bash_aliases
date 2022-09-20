@@ -130,6 +130,27 @@ alias y2j="python -c 'import yaml, json, sys; print(json.dumps(yaml.load(sys.std
 #alias j2y="python -c 'import yaml, json, sys; print(yaml.dump(json.loads(sys.stdin.read())))'"
 alias j2y="ruby -r json -r yaml -e 'puts YAML.dump JSON.load \$stdin.read'"
 alias py2j="python -c 'import sys, json; print(json.dumps(eval(sys.stdin.read()), indent=4))'"
+
+function j2t {
+    python - <(cat) <<EOF
+import json
+import sys
+import tomli_w
+
+def rmnull(root):
+    if isinstance(root, dict):
+        return {k: rmnull(v) for (k, v) in root.items() if v is not None}
+    if isinstance(root, (tuple, list)):
+        return type(root)(rmnull(item) for item in root if item is not None)
+    return root
+
+root = json.loads(open(sys.argv[1]).read())
+if isinstance(root, list):
+   root = dict(items=root)
+print(tomli_w.dumps(rmnull(root), multiline_strings=True))
+EOF
+}
+
 alias pretty_xml="python -c 'import sys; from xml.dom.minidom import parse; \
       print(parse(sys.stdin).toprettyxml(indent=chr(32)*4))'"
 
