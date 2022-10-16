@@ -33,3 +33,18 @@
     weekday: 0
     hour: 13
     minute: 30
+
+- name: Add job to pop up inspirational quote
+  tags:
+    - crontab
+  cron:
+    name: show inspiration
+    state: present
+    user: "{{ ansible_user_id }}"
+    special_time: hourly
+    job: >-
+      notify-send -t 18000000
+      "$(curl -X GET https://api.goprogram.ai/inspiration | jq '.quote + "\n-- " + .author' -r)"
+    # weekday: "*"
+    # hour: "*"
+    # minute: 30
