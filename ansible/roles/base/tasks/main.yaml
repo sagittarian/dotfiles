@@ -1,3 +1,6 @@
 ---
+- name: setup
+  setup: {}
+
 - name: Include secret vars
   include_vars: secrets.yaml

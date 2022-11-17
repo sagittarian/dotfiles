@@ -1,6 +1,7 @@
 ---
 - hosts: localmachine
   tags: bootstrap
+  gather_facts: yes
   roles:
     - role: ensure-dir-structure
       become: no
