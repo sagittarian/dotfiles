@@ -3,7 +3,7 @@ export RAILS_ENV=development
 # export PYTHONPATH=${PYTHONPATH:+$PYTHONPATH:}$HOME/python
 export PYTHONPATH=.:${PYTHONPATH:+$PYTHONPATH:}$HOME/python
 
-export PATH=$HOME/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH:$HOME/bin
 export CDPATH=..:~:~/src:~/dev:~/doc:~/media/src:~/dev/worktrees${CDPATH:+:${CDPATH}}
 export TERMINAL=/usr/bin/terminator
 #export TERMINAL=/usr/bin/konsole
