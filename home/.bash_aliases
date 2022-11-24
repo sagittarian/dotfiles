@@ -324,3 +324,19 @@ function reveal_type {
 
 alias kmk='kubectl config use-context minikube'
 alias deact=deactivate
+
+
+function mvpath {
+    # move a file into a directory while recreating its relative path
+    # for example, mvpath a/b/c.txt otherdir will move the file to
+    # otherdir/a/b/c.txt
+    dest=${@:$#}
+    while [[ $# -gt 1 ]]; do
+        src=$1
+        shift
+        full_dest="$dest/$src"
+        mkdir -p $(dirname $full_dest)
+        echo "$src -> $full_dest"
+        mv $src $full_dest
+    done
+}
