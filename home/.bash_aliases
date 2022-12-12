@@ -333,6 +333,13 @@ function mvpath {
     # move a file into a directory while recreating its relative path
     # for example, mvpath a/b/c.txt otherdir will move the file to
     # otherdir/a/b/c.txt
+    # If the first argument is --git then this will do git mv instead of mv
+    if [[ $1 == "--git" ]]; then
+        shift
+        mvcmd="git mv"
+    else
+        mvcmd="mv"
+    fi
     dest=${@:$#}
     while [[ $# -gt 1 ]]; do
         src=$1
@@ -340,6 +347,10 @@ function mvpath {
         full_dest="$dest/$src"
         mkdir -p $(dirname $full_dest)
         echo "$src -> $full_dest"
-        mv $src $full_dest
+        if [[ -d $src ]]; then
+            mkdir -p $full_dest
+        else
+            $mvcmd $src $full_dest
+        fi
     done
 }
