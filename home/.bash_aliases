@@ -328,6 +328,8 @@ function reveal_type {
 alias kmk='kubectl config use-context minikube'
 alias deact=deactivate
 
+alias htmlize='pygmentize -f html'
+
 
 function mvpath {
     # move a file into a directory while recreating its relative path
