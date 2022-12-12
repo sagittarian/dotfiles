@@ -151,6 +151,9 @@ print(tomli_w.dumps(rmnull(root), multiline_strings=True))
 EOF
 }
 
+alias t2j="python -c 'import sys, tomli, json; \
+      print(json.dumps(tomli.load(sys.stdin), indent=2))'"
+
 alias pretty_xml="python -c 'import sys; from xml.dom.minidom import parse; \
       print(parse(sys.stdin).toprettyxml(indent=chr(32)*4))'"
 
