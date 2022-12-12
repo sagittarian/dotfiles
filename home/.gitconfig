@@ -1,6 +1,8 @@
 [user]
     name = Adam Raizen
     email = araizen@gmail.com
+[includeIf "gitdir:~/dev/"]
+    path = ~/dev/.gitconfig
 [color]
     ui = true
     diff = auto
