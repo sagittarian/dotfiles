@@ -24,6 +24,7 @@
     ds = diff --staged
     vi = bisect visualize
     bi = bisect
+    wl = worktree list
     amend = commit --amend
     sco = "!sco () { git stash && git checkout $@ && git stash pop; }; sco"
     spull = "!git stash && git pull --rebase && git stash pop"
