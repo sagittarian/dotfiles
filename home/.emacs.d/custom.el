@@ -28,13 +28,21 @@
  '(auto-indent-kill-remove-extra-spaces t)
  '(auto-save-interval 20)
  '(auto-save-timeout 5)
+ '(avy-highlight-first t)
+ '(avy-ignored-modes '(image-mode doc-view-mode pdf-view-mode))
  '(avy-indent-line-overlay nil)
  '(avy-keys
    '(97 111 101 117 100 104 115 46 112 102 103 99 114 44 107 113 119 118))
  '(avy-orders-alist
    '((avy-goto-char . avy-order-closest)
      (avy-goto-word-0 . avy-order-closest)))
- '(avy-styles-alist '((avy-goto-line . words)))
+ '(avy-style 'words)
+ '(avy-styles-alist
+   '((avy-goto-line . words)
+     (avy-goto-word-0 . words)
+     (avy-goto-word-1 . words)
+     (avy-goto-char . words)
+     (avy-goto-char-timer . words)))
  '(aw-keys
    '(97 100 102 103 104 105 107 108 112 113 114 115 116 119 121 65 66 67 68 69 71 72 73 74 75 76 78 79 80 81 82 83 85 86 87 88 89 90))
  '(browse-url-browser-function 'w3m-browse-url)
@@ -68,6 +76,7 @@
  '(delete-trailing-lines nil)
  '(desktop-save-mode t)
  '(display-fill-column-indicator t)
+ '(display-line-numbers-type t)
  '(doc-view-continuous t)
  '(electric-indent-mode t)
  '(electric-layout-mode nil)
