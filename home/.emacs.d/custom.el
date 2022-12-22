@@ -242,6 +242,8 @@
  '(python-black-extra-args nil)
  '(python-indent-guess-indent-offset t)
  '(python-indent-offset 4)
+ '(python-mode-hook
+   '(evil-collection-python-set-evil-shift-width er/add-python-mode-expansions importmagic-mode) t)
  '(python-shell-prompt-regexp "In \\[\\d+\\]: ")
  '(python-skeleton-autoinsert t)
  '(pyvenv-mode t)
