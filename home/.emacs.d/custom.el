@@ -235,6 +235,7 @@
  '(projectile-switch-project-action 'magit-status-quick)
  '(projectile-use-git-grep t)
  '(python-black-extra-args '("-S" "-l 80"))
+ '(py-isort-options '("--profile" "black"))
  '(python-indent-guess-indent-offset t)
  '(python-indent-offset 4)
  '(python-shell-prompt-regexp "In \\[\\d+\\]: ")
