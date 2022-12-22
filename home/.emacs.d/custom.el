@@ -194,6 +194,9 @@
  '(linum-disabled-modes-list
    '(eshell-mode wl-summary-mode compilation-mode org-mode text-mode dired-mode doc-view-mode image-mode dired-sidebar-mode))
  '(linum-format " %4i ")
+ '(lsp-headerline-breadcrumb-segments '(symbols file path-up-to-project project))
+ '(lsp-keymap-prefix "C-c l")
+ '(lsp-pylsp-plugins-pydocstyle-ignore ["D205" "D400"])
  '(magit-completing-read-function 'ivy-completing-read)
  '(magit-diff-arguments '("--no-ext-diff" "-w"))
  '(magit-diff-options '("--patience" "-b"))
