@@ -103,7 +103,7 @@
  '(erc-save-queries-on-quit nil)
  '(evil-collection-setup-minibuffer t)
  '(evil-emacs-state-modes
-   '(5x5-mode archive-mode bbdb-mode biblio-selection-mode blackbox-mode bookmark-edit-annotation-mode browse-kill-ring-mode bs-mode bubbles-mode bzr-annotate-mode cfw:calendar-mode completion-list-mode delicious-search-mode desktop-menu-blist-mode desktop-menu-mode dun-mode dvc-bookmarks-mode dvc-diff-mode dvc-info-buffer-mode dvc-log-buffer-mode dvc-revlist-mode dvc-revlog-mode dvc-status-mode dvc-tips-mode ediff-meta-mode efs-mode Electric-buffer-menu-mode emms-browser-mode emms-mark-mode emms-metaplaylist-mode emms-playlist-mode ess-help-mode etags-select-mode fj-mode gc-issues-mode gdb-breakpoints-mode gdb-disassembly-mode gdb-frames-mode gdb-locals-mode gdb-memory-mode gdb-registers-mode gdb-threads-mode gist-list-mode gomoku-mode google-maps-static-mode jde-javadoc-checker-report-mode magit-popup-mode magit-popup-sequence-mode mh-folder-mode monky-mode mpuz-mode mu4e-main-mode mu4e-headers-mode mu4e-view-mode notmuch-hello-mode notmuch-search-mode notmuch-show-mode notmuch-tree-mode org-agenda-mode pdf-outline-buffer-mode pdf-view-mode rcirc-mode rebase-mode recentf-dialog-mode reftex-select-bib-mode reftex-select-label-mode reftex-toc-mode sldb-mode slime-inspector-mode slime-thread-control-mode slime-xref-mode snake-mode solitaire-mode sr-buttons-mode sr-mode sr-tree-mode sr-virtual-mode tar-mode tetris-mode tla-annotate-mode tla-archive-list-mode tla-bconfig-mode tla-bookmarks-mode tla-branch-list-mode tla-browse-mode tla-category-list-mode tla-changelog-mode tla-follow-symlinks-mode tla-inventory-file-mode tla-inventory-mode tla-lint-mode tla-logs-mode tla-revision-list-mode tla-revlog-mode tla-tree-lint-mode tla-version-list-mode twittering-mode urlview-mode vc-annotate-mode vc-dir-mode vc-hg-log-view-mode vc-svn-log-view-mode vm-mode vm-summary-mode wab-compilation-mode xgit-annotate-mode xgit-changelog-mode xgit-diff-mode xgit-revlog-mode xhg-annotate-mode xhg-log-mode xhg-mode xhg-mq-mode xhg-mq-sub-mode xhg-status-extra-mode w3m-mode))
+   '(5x5-mode bbdb-mode biblio-selection-mode blackbox-mode bookmark-edit-annotation-mode browse-kill-ring-mode bs-mode bubbles-mode bzr-annotate-mode cfw:calendar-mode completion-list-mode delicious-search-mode desktop-menu-blist-mode desktop-menu-mode dun-mode dvc-bookmarks-mode dvc-diff-mode dvc-info-buffer-mode dvc-log-buffer-mode dvc-revlist-mode dvc-revlog-mode dvc-status-mode dvc-tips-mode ediff-meta-mode efs-mode Electric-buffer-menu-mode emms-browser-mode emms-mark-mode emms-metaplaylist-mode emms-playlist-mode ess-help-mode etags-select-mode fj-mode gc-issues-mode gdb-breakpoints-mode gdb-disassembly-mode gdb-frames-mode gdb-locals-mode gdb-memory-mode gdb-registers-mode gdb-threads-mode gist-list-mode gomoku-mode google-maps-static-mode jde-javadoc-checker-report-mode magit-popup-mode magit-popup-sequence-mode mh-folder-mode monky-mode mpuz-mode mu4e-main-mode mu4e-headers-mode mu4e-view-mode notmuch-hello-mode notmuch-search-mode notmuch-show-mode notmuch-tree-mode org-agenda-mode pdf-outline-buffer-mode pdf-view-mode rcirc-mode rebase-mode recentf-dialog-mode reftex-select-bib-mode reftex-select-label-mode reftex-toc-mode sldb-mode slime-inspector-mode slime-thread-control-mode slime-xref-mode snake-mode solitaire-mode sr-buttons-mode sr-mode sr-tree-mode sr-virtual-mode tetris-mode tla-annotate-mode tla-archive-list-mode tla-bconfig-mode tla-bookmarks-mode tla-branch-list-mode tla-browse-mode tla-category-list-mode tla-changelog-mode tla-follow-symlinks-mode tla-inventory-file-mode tla-inventory-mode tla-lint-mode tla-logs-mode tla-revision-list-mode tla-revlog-mode tla-tree-lint-mode tla-version-list-mode twittering-mode urlview-mode vc-annotate-mode vc-dir-mode vc-hg-log-view-mode vc-svn-log-view-mode vm-mode vm-summary-mode wab-compilation-mode xgit-annotate-mode xgit-changelog-mode xgit-diff-mode xgit-revlog-mode xhg-annotate-mode xhg-log-mode xhg-mode xhg-mq-mode xhg-mq-sub-mode xhg-status-extra-mode w3m-mode))
  '(evil-overriding-maps '((swiper-map) (winnow-mode-map) (ivy-minibuffer-map)))
  '(evil-symbol-word-search t)
  '(evil-want-keybinding nil)
@@ -208,6 +208,7 @@
    '("#183691" "#969896" "#a71d5d" "#969896" "#0086b3" "#795da3" "#a71d5d" "#969896"))
  '(org-agenda-files
    '("~/src/org/inbox.org" "~/src/org/projects.org" "~/src/org/someday.org"))
+ '(org-babel-python-command "python3")
  '(org-mode-hook
    '(er/add-org-mode-expansions
      #[nil "\300\301\302\303\304$\207"
@@ -258,7 +259,8 @@
  '(smartparens-global-strict-mode nil)
  '(sp-autoescape-string-quote nil)
  '(sp-successive-kill-preserve-whitespace 2)
- '(swiper-include-line-number-in-search t)
+ '(speedbar-default-position 'left)
+ '(swiper-action-recenter t)
  '(swiper-isearch-highlight-delay '(3 0.5))
  '(swiper-min-highlight 3)
  '(tab-width 4)
@@ -266,7 +268,7 @@
    '(er/add-text-mode-expansions text-mode-hook-identify scroll-lock-mode))
  '(tool-bar-mode nil)
  '(track-eol t)
- '(tramp-default-method "ssh" nil (tramp))
+ '(tramp-default-method "ssh")
  '(undo-tree-auto-save-history t)
  '(uniquify-ask-about-buffer-names-p t)
  '(uniquify-buffer-name-style 'post-forward nil (uniquify))
@@ -309,6 +311,7 @@
  '(with-editor-emacsclient-executable "/usr/bin/emacsclient")
  '(words-include-escapes t)
  '(yas-global-mode t nil (yasnippet))
+ '(yas-indent-line 'fixed)
  '(yas-triggers-in-field t)
  '(yas-wrap-around-region t))
 (custom-set-faces
@@ -327,6 +330,7 @@
  '(dired-subtree-depth-5-face ((t (:background "gold4"))))
  '(dired-subtree-depth-6-face ((t (:background "DarkOrange4"))))
  '(git-gutter+-added ((t (:foreground "green" :weight bold))))
+ '(line-number ((t nil)))
  '(linum ((t (:background "wheat2" :foreground "gray20" :weight bold))))
  '(region ((t (:extend t :background "dark olive green" :foreground "white"))))
  '(which-func ((t (:foreground "deep sky blue")))))
