@@ -232,7 +232,7 @@
  '(projectile-keymap-prefix "C-c p")
  '(projectile-mode t nil (projectile))
  '(projectile-sort-order 'recently-active)
- '(projectile-switch-project-action 'magit-status)
+ '(projectile-switch-project-action 'magit-status-quick)
  '(projectile-use-git-grep t)
  '(python-black-extra-args '("-S" "-l 80"))
  '(python-indent-guess-indent-offset t)
