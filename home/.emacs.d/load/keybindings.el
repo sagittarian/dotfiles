@@ -25,6 +25,8 @@
 (evil-define-key 'normal python-mode-map (kbd "SPC \\ i") 'py-isort-buffer)
 
 ;; misc
+;; Need to toggle importmagic-mode sometimes to get it to work
+(evil-define-key 'normal ara/keymap (kbd "SPC M") 'importmagic-mode)
 (define-key ara/keymap (kbd "C-S-g") 'keyboard-quit)
 (define-key ivy-minibuffer-map (kbd "C-S-g") 'minibuffer-keyboard-quit)
 (define-key ara/keymap (kbd "M-+") 'other-window)
