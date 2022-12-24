@@ -314,6 +314,10 @@ function gui {
     disown
 }
 
+# join csv cells with a space and print each line
+alias decsv="python -c 'import csv, sys; print(chr(10).join(chr(9).join([item.replace(chr(10), chr(0x21b5)) for item in line]) for line in csv.reader(sys.stdin)))'"
+alias stripdate="sed -e 's/^[0-9]\+-[0-9]\+-[0-9]\+ \+//'"
+
 alias chrome=google-chrome
 
 alias mypy='mypy --ignore-missing-imports'
