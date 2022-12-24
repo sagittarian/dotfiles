@@ -60,6 +60,27 @@
 ;; (global-unset-key (kbd "C-<tab>"))
 
 (define-key ara/keymap (kbd "C-c c") 'org-capture)
+(defhydra hydra-org-todo ()
+  "Track todos"
+  ("t" org-todo "next TODO state")
+  ("C-t" org-todo "next TODO state")
+  ("RET" nil)
+  ("q" nil))
+(define-key org-mode-map [remap org-todo] 'hydra-org-todo/org-todo)
+(evil-define-key 'normal org-mode-map (kbd "SPC -") 'org-ctrl-c-minus)
+(defun ara/org-add-item-below ()
+  (interactive)
+  (org-insert-heading-respect-content)
+  (org-toggle-item nil)
+  (evil-append-line nil))
+(evil-define-key 'normal org-mode-map (kbd "SPC o RET") 'ara/org-add-item-below)
+(defun ara/org-paste-item-below ()
+  (interactive)
+  (org-insert-heading-respect-content)
+  (org-toggle-item nil)
+  (evil-end-of-line)
+  (evil-paste-after 1))
+(evil-define-key 'normal org-mode-map (kbd "SPC o p") 'ara/org-paste-item-below)
 
 ;; more discoverablitity from which-key
 (define-key ara/keymap (kbd "C-c h") 'which-key-show-full-major-mode)
