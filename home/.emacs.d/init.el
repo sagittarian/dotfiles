@@ -348,6 +348,9 @@
           (lambda () (all-the-icons-dired-mode)))
 ;; (all-the-icons-ibuffer-mode)
 
+;; ace-window
+(require 'ace-window)
+
 (load "functions")
 (load "keybindings")
 ;; (load "linum-off")
