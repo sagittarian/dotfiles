@@ -15,11 +15,14 @@ set $alt Mod1
 
 # cycle workspace
 bindsym $mod+c exec i3-msg move workspace to output left
-bindsym $mod+Shift+C exec i3-msg move workspace to output up
+bindsym $mod+Shift+C exec i3-msg move workspace to output right
 
 # test
-bindsym $mod+$alt+c exec notify-send testingxxx
-bindsym $mod+Control+c exec notify-send testingccc
+bindsym $mod+$alt+c exec emacsclient -n -c -e '(org-capture)'
+bindsym $mod+$alt+s exec emacsclient -n -c -e '(scratch-buffer)'
+# bindsym $mod+Control+plus exec emacsclient -n -c -e '(ace-window)'
+# bindsym $mod+Control+c exec notify-send testingccc
+bindsym $mod+Control+c exec emacsclient -n -c -e '(org-capture)'
 
 # font for window titles. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -204,7 +207,7 @@ bar {
 
 exec setxkbmap -layout us(dvp),il -option grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps
 exec nm-applet
-exec workrave
+# exec workrave
 exec unity-settings-daemon
 exec pavucontrol
 exec ksysguard
