@@ -1,5 +1,12 @@
 ;;; Code:
 
+;; execute-extended-command
+(evil-define-key 'normal ara/keymap (kbd "SPC RET") 'execute-extended-command)
+(evil-define-key 'normal ara/keymap (kbd "SPC TAB") 'execute-extended-command)
+(evil-define-key 'normal ara/keymap (kbd "SPC SPC SPC") 'execute-extended-command)
+;; print screen is where the menu key should be on my thinkpad
+(define-key ara/keymap (kbd "<print>") 'execute-extended-command)
+
 ;; misc
 (define-key ara/keymap (kbd "C-M-;") (lambda () (interactive) (back-to-indentation) (sp-comment)))
 (define-key ara/keymap (kbd "C-S-g") 'keyboard-quit)
@@ -15,9 +22,6 @@
 (define-key ara/keymap (kbd "C-M-)") 'make-frame-command)
 (define-key ara/keymap (kbd "s-;") 'delete-frame)
 ;; (define-key ara/keymap (kbd "C-M-}") 'split-window-right)
-
-;; print screen is where the menu key should be on my thinkpad
-(define-key ara/keymap (kbd "<print>") 'execute-extended-command)
 
 ;; expand region
 (define-key ara/keymap (kbd "C-=") 'er/expand-region)
