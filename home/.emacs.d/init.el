@@ -197,9 +197,10 @@
 (git-gutter+-toggle-fringe)
 
 ;; fill-column-indicator
-(add-hook 'text-mode-hook 'fci-mode)
-(add-hook 'prog-mode-hook (lambda () (setq fill-column 79)))
-(add-hook 'prog-mode-hook 'fci-mode)
+;; (add-hook 'text-mode-hook 'fci-mode)
+;; (add-hook 'prog-mode-hook (lambda () (setq fill-column 80)))
+;; (add-hook 'prog-mode-hook 'fci-mode)
+;; (add-hook 'prog-mode-hook 'hs-minor-mode)
 
 ;; (add-hook 'js2-mode-hook 'fci-mode)
 ;; (add-hook 'js-mode-hook 'fci-mode)
