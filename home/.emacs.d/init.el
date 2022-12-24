@@ -264,12 +264,35 @@
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
+;; ;; god-mode
+;; (require 'god-mode)
+;; ;; (god-mode)
+;; ;; (global-set-key (kbd "<escape>") 'god-local-mode)
+;; ;; (global-unset-key (kbd "<escape>"))
+;; ;; (global-set-key (kbd "C-c x") 'god-local-mode)
+;; ;; (global-unset-key (kbd "C-c x"))
+;; (define-key god-local-mode-map (kbd ".") 'repeat)
+;; (define-key god-local-mode-map (kbd "i") 'god-local-mode)
+;; (define-key god-local-mode-map (kbd "[") 'backward-paragraph)
+;; (define-key god-local-mode-map (kbd "]") 'forward-paragraph)
+;; (define-key god-local-mode-map (kbd "M-g") 'avyac-goto-line)
+;; (defun god-mode-update-cursor-type ()
+;;   "Update the cursor type depending on the active mode."
+;;   (setq cursor-type (cond (god-local-mode 'hollow)
+;;                           (buffer-read-only 'box)
+;;                           (t 'bar))))
+;; (add-hook 'post-command-hook 'god-mode-update-cursor-type)
+;; (remove-hook 'post-command-hook 'god-mode-update-cursor-type nil)
+
 (add-hook 'dired-mode-hook
           (lambda ()
             (display-line-numbers-mode 0)))
 
 (eval-after-load "org"
   '(require 'ox-md nil t))
+(require 'ox-md nil )
+(require 'nxml-mode)
+(add-hook 'nxml-mode-hook (lambda () (turn-off-smartparens-mode)))
 
 (advice-add 'magit-stage-file :after (lambda (&rest r) (git-gutter+-refresh)))
 (advice-add 'magit-unstage-file :after (lambda (&rest r) (git-gutter+-refresh)))
