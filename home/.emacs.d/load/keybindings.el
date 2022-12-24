@@ -211,9 +211,10 @@
 
 ;; magit
 (require 'magit)
-(define-key ara/keymap (kbd "C-c g g") 'magit-status)
-(define-key ara/keymap (kbd "C-x g") 'magit-status)
-(define-key ara/keymap (kbd "C-M-g") 'magit-status)
+(define-key ara/keymap (kbd "C-c g g") 'magit-status-quick)
+(define-key ara/keymap (kbd "C-x g") 'magit-status-quick)
+(define-key ara/keymap (kbd "C-x G") 'magit-status)
+;; (define-key ara/keymap (kbd "C-M-g") 'magit-status)
 (define-key ara/keymap (kbd "C-S-m") 'magit-status)
 (define-key ara/keymap (kbd "C-c g b") 'magit-blame)
 (define-key ara/keymap (kbd "C-c g B") 'magit-blame-popup)
