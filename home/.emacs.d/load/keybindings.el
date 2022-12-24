@@ -175,6 +175,12 @@
 (define-key git-timemachine-mode-map [remap git-timemachine-show-previous-revision]
   'hydra-git-timemachine/git-timemachine-show-previous-revision)
 
+;; swiper
+(define-key (current-global-map) [remap isearch-forward] 'swiper)
+(define-key (current-global-map) [remap isearch-forward-symbol-at-point]
+  'swiper-isearch-thing-at-point)
+(define-key swiper-map (kbd "C-r") 'ara/swiper-C-r)
+
 ;; string-inflection
 (defhydra hydra-string-inflection ()
   "string-inflection"
@@ -294,12 +300,6 @@
 (define-key ara/keymap (kbd "C-`") 'bury-buffer)
 ;; (define-key ara/keymap (kbd "<C-tab>") 'bury-buffer)
 (define-key ara/keymap (kbd "M-/") 'hippie-expand)
-
-;; swiper
-;; (define-key ara/keymap (kbd "C-S-s") 'isearch-forward)
-;; (define-key ara/keymap (kbd "C-s") 'swiper)
-(define-key (current-global-map) [remap isearch-forward] 'swiper)
-
 
 (define-key ara/keymap (kbd "C-c %") 'replace-string)
 (define-key ara/keymap (kbd "C-c M-%") 'replace-regexp)
