@@ -18,6 +18,12 @@
 (define-key ara/keymap (kbd "C-x \\") 'align-regexp)
 
 ;; golang
+;; python utilities
+(evil-define-key 'normal python-mode-map (kbd "SPC \\ b") 'python-black-partial-dwim)
+(evil-define-key 'visual python-mode-map (kbd "SPC \\ b") 'python-black-partial-dwim)
+(evil-define-key 'normal python-mode-map (kbd "SPC \\ B") 'python-black-buffer)
+(evil-define-key 'normal python-mode-map (kbd "SPC \\ i") 'py-isort-buffer)
+
 ;; misc
 (define-key ara/keymap (kbd "C-S-g") 'keyboard-quit)
 (define-key ivy-minibuffer-map (kbd "C-S-g") 'minibuffer-keyboard-quit)
