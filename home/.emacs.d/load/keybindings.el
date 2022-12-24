@@ -233,18 +233,22 @@
   ("m" magit-status "magit status" :exit t)
   ("g" magit-status "magit status" :exit t)
   ("R" git-gutter+-revert-hunks "revert hunks" :column "edit")
+  ("x" git-gutter+-revert-hunks "revert hunks")
   ("s" git-gutter+-stage-hunks "stage hunks" :column "stage/commit")
   ("+" (progn (git-gutter+-stage-hunks) (git-gutter+-next-hunk 1)) "stage and next")
   ("-" (progn (git-gutter+-stage-hunks) (git-gutter+-previous-hunk 1)) "stage and previous")
-  ("S" (progn (ara/stage-buffer) (git-gutter+-refresh)) "stage buffer" :exit t)
+  ("S" (progn (ara/stage-buffer) (git-gutter+-refresh) (magit-status))
+   "stage buffer" :exit t)
   ("c" git-gutter+-commit "commit" :exit t)
   ("C" git-gutter+-stage-and-commit "stage and commit" :exit t)
   ("y" git-gutter+-stage-and-commit-whole-buffer "stage and commit buffer"
    :exit t)
-  ("u" git-gutter+-unstage-whole-buffer "unstage buffer")
+  ("U" git-gutter+-unstage-whole-buffer "unstage buffer")
   ("RET" nil "quit" :column nil)
   ("q" nil "quit"))
 (define-key git-gutter+-mode-map (kbd "C-c u") 'hydra-git-gutter+/body)
+(evil-define-key
+  '(normal visual) git-gutter+-mode-map (kbd "SPC u") 'hydra-git-gutter+/body)
 
 
 ;; custom commands
