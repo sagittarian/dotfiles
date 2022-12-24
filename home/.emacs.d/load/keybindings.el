@@ -567,6 +567,7 @@ otherwise projectile-find-file."
 
 (define-key smartparens-mode-map (kbd "C-M-k") 'sp-kill-sexp)
 (define-key smartparens-mode-map (kbd "C-S-k") 'sp-kill-hybrid-sexp)
+(define-key smartparens-mode-map [remap kill-line] 'sp-kill-hybrid-sexp)
 (define-key smartparens-mode-map (kbd "C-M-w") 'sp-copy-sexp)
 
 (define-key smartparens-mode-map (kbd "M-<delete>") 'sp-unwrap-sexp)
