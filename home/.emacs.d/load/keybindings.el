@@ -346,6 +346,7 @@
   (tabify (point-min) (point-max)))
 ;(define-key ara/keymap (kbd "<f6>") 'tabify-buffer)
 (define-key ara/keymap (kbd "C-`") 'bury-buffer)
+(define-key ara/keymap (kbd "M-Q") 'bury-buffer)
 ;; (define-key ara/keymap (kbd "<C-tab>") 'bury-buffer)
 (define-key ara/keymap (kbd "M-/") 'hippie-expand)
 
