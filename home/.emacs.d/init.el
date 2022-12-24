@@ -240,8 +240,9 @@
 (add-hook 'shell-mode-hook (lambda () (smartscan-mode 0)))
 (add-hook 'prog-mode-hook 'idle-highlight-in-visible-buffers-mode)
 
-(setq am-todo-filename "~/src/org/inbox.org")
-(setq am-project-filename "~/src/org/projects.org")
+(setq am-todo-filename "~/media/src/org/inbox.org")
+(setq araizen/todo-lrn-filename "~/media/src/org/lrn.org")
+(setq am-project-filename "~/media/src/org/projects.org")
 
 (setq host-config (format "%s-config" (system-name)))
 
@@ -249,11 +250,11 @@
 (load host-config)
 
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/src/org/inbox.org" "Tasks")
+      '(("t" "todo" entry (file+headline "~/media/src/org/inbox.org" "Tasks")
          "* TODO %?\n  %i")
-        ("l" "lrn todo" entry (file+headline "~/src/org/lrn.org" "Sort")
+        ("l" "lrn todo" entry (file+headline "~/media/src/org/lrn.org" "Sort")
          "* TODO %?\n  %i")
-        ("g" "work todo" entry (file+headline "~/src/genie/todo.org" "Tasks")
+        ("w" "work todo" entry (file+headline "~/media/src/org/work-inbox.org" "Tasks")
          "* TODO %?\n  %i")))
 
 (require 'expand-region)
