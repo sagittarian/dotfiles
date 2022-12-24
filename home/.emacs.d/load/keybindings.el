@@ -398,6 +398,10 @@
 ;; projectile shortcuts
 (require 'projectile)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(evil-define-key
+  'normal projectile-mode-map (kbd "SPC p") 'projectile-command-map)
+(evil-define-key
+  'normal projectile-find-file (kbd "SPC f") 'projectile-command-map)
 ;; (define-key projectile-mode-map (kbd "C-S-f") 'projectile-find-file)
 ;; (define-key projectile-mode-map (kbd "C-M-S-f") 'projectile-find-file-other-window)
 (defun ar--projectile-find-file-maybe-other-window (other-window)
