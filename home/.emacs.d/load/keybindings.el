@@ -161,6 +161,20 @@
 ;;   (error "Don't use Emacs motion keys in evil mode"))
 
 
+(require 'git-timemachine)
+(defhydra hydra-git-timemachine (:foreign-keys run)
+  "Time travel"
+  ("j" git-timemachine-show-next-revision "next revision")
+  ("C-j" git-timemachine-show-next-revision "next revision")
+  ("k" git-timemachine-show-previous-revision "previous revision")
+  ("C-k" git-timemachine-show-previous-revision "previous revision")
+  ("RET" nil)
+  ("q" nil))
+(define-key git-timemachine-mode-map [remap git-timemachine-show-next-revision]
+  'hydra-git-timemachine/git-timemachine-show-next-revision)
+(define-key git-timemachine-mode-map [remap git-timemachine-show-previous-revision]
+  'hydra-git-timemachine/git-timemachine-show-previous-revision)
+
 ;; string-inflection
 (defhydra hydra-string-inflection ()
   "string-inflection"
