@@ -442,17 +442,38 @@ otherwise projectile-find-file."
 ;; nxml movement
 (define-key nxml-mode-map (kbd "C-M-f") 'nxml-forward-element)
 
-;; move lines
+;; move lines and text
 (defhydra hydra-move-text ()
   "move-text"
-  ("p" move-text-up "move-text-up")
-  ("n" move-text-down "move-text-down")
+  ("k" move-text-up "line up")
+  ("p" move-text-up "line up")
+  ("M-p" move-text-up "line up")
+  ("j" move-text-down "line down")
+  ("n" move-text-down "line down")
+  ("M-n" move-text-down "line down")
+  ("b" ara/move-sexp-backward "sexp backward")
+  ("M-b" ara/move-sexp-backward "sexp backward")
+  ("w" ara/move-sexp-forward "sexp forward")
+  ("f" ara/move-sexp-forward "sexp forward")
+  ("M-f" ara/move-sexp-forward "sexp forward")
   ;; ("/" undo)
   ;; ("C-/" undo)
   ("RET" nil)
   ("q" nil))
 (define-key ara/keymap (kbd "C-c M-p") 'hydra-move-text/move-text-up)
 (define-key ara/keymap (kbd "C-c M-n") 'hydra-move-text/move-text-down)
+(define-key ara/keymap (kbd "C-c M-b") 'hydra-move-text/ara/move-sexp-backward)
+(define-key ara/keymap (kbd "C-c M-f") 'hydra-move-text/ara/move-sexp-forward)
+
+;; (defhydra hydra-move-sexp ()
+;;   "move-word"
+;;   ;; ("n" move-text-down "move-text-down")
+;;   ;; ("M-n" move-text-down "move-text-down")
+;;   ;; ("/" undo)
+;;   ;; ("C-/" undo)
+;;   ("RET" nil)
+;;   ("q" nil))
+;; (define-key ara/keymap (kbd "C-c M-b") 'hydra-move-sexp/ara/move-sexp-backward)
 
 (defhydra hydra-nav (global-map "C-c n")
   "nav"
