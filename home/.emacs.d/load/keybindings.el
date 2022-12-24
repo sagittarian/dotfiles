@@ -10,6 +10,14 @@
 (define-key ara/keymap (kbd "C-M-;") 'comment-line)
 (evil-define-key 'normal ara/keymap (kbd "SPC ;") 'comment-line)
 
+;; Formatting
+(define-key ara/keymap (kbd "C-<return>") 'newline-and-indent)
+(define-key python-mode-map (kbd "C-c \\") 'python-black-partial-dwim)
+(define-key python-mode-map (kbd "C-c C-M-\\") 'python-black)
+;; Align your code in a pretty way.
+(define-key ara/keymap (kbd "C-x \\") 'align-regexp)
+
+;; golang
 ;; misc
 (define-key ara/keymap (kbd "C-S-g") 'keyboard-quit)
 (define-key ivy-minibuffer-map (kbd "C-S-g") 'minibuffer-keyboard-quit)
