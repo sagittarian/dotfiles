@@ -367,6 +367,11 @@
   (interactive (list (completing-read "Go to url: " ara/url-list)))
   (w3m-goto-url-new-session url))
 
+;; Enable narrow-to-* commands (disabled by default to avoid confusing users).
+(put 'narrow-to-defun  'disabled nil)
+(put 'narrow-to-page   'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+
 (load "functions")
 (load "keybindings")
 ;; (load "linum-off")
