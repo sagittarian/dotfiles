@@ -80,7 +80,13 @@
 ;; scroll the buffer when moving up/down
 (defvar ara/autoscroll-line-move t)
 (defun ara/next-line-scroll-up (arg &optional try-vscroll)
-  (if ara/autoscroll-line-move (scroll-up-line arg)))
+  (if ara/autoscroll-line-move
+      (let* ((line-min (line-number-at-pos (window-start)))
+             (current-line (line-number-at-pos))
+             (current-line-relative (- current-line line-min)))
+        ;; (message "cur line %s tot lines %s" current-line-relative lines-in-window)
+        (if (> current-line-relative 15)
+            (scroll-up-line arg)))))
 (defun ara/previous-line-scroll-down (arg &optional try-vscroll)
   (if ara/autoscroll-line-move (scroll-down-line arg)))
 (advice-add 'next-line :after 'ara/next-line-scroll-up)
