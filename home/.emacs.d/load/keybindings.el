@@ -7,8 +7,10 @@
 ;; print screen is where the menu key should be on my thinkpad
 (define-key ara/keymap (kbd "<print>") 'execute-extended-command)
 
+(define-key ara/keymap (kbd "C-M-;") 'comment-line)
+(evil-define-key 'normal ara/keymap (kbd "SPC ;") 'comment-line)
+
 ;; misc
-(define-key ara/keymap (kbd "C-M-;") (lambda () (interactive) (back-to-indentation) (sp-comment)))
 (define-key ara/keymap (kbd "C-S-g") 'keyboard-quit)
 (define-key ivy-minibuffer-map (kbd "C-S-g") 'minibuffer-keyboard-quit)
 (define-key ara/keymap (kbd "M-+") 'other-window)
