@@ -238,7 +238,7 @@
 
 (add-hook 'inferior-python-mode-hook (lambda () (smartscan-mode 0)))
 (add-hook 'shell-mode-hook (lambda () (smartscan-mode 0)))
-(add-hook 'python-mode-hook 'idle-highlight-mode)
+(add-hook 'prog-mode-hook 'idle-highlight-in-visible-buffers-mode)
 
 (setq am-todo-filename "~/src/org/inbox.org")
 (setq am-project-filename "~/src/org/projects.org")
