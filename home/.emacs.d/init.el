@@ -32,6 +32,24 @@
 
 (load "usepkg")
 
+(use-package evil
+  ;; :init
+  ;; (setq evil-want-keybinding nil)
+  :config
+  ;; (require 'evil)
+  (evil-mode 1)
+  (evil-collection-init))
+  ;; (evil-indent-plus-default-bindings))
+;; (setq-default evil-normal-state-cursor 'box)
+(setq-default evil-emacs-state-cursor 'hollow)
+
+(defun ara/save-buffer-if-visiting-file ()
+  (if (buffer-file-name (current-buffer)) (save-buffer)))
+
+(add-hook 'evil-normal-state-entry-hook 'ara/save-buffer-if-visiting-file)
+(add-hook 'evil-normal-state-exit-hook 'ara/save-buffer-if-visiting-file)
+
+;; (setq-default evil-insert-state-cursor '(bar . 2))
 
 ;; scroll the buffer when moving up/down
 (defvar ara/autoscroll-line-move t)

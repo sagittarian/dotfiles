@@ -53,6 +53,59 @@
 (define-key elpy-mode-map (kbd "C-c r f") 'traad-local-to-field)
 (define-key elpy-mode-map (kbd "C-c r i") 'traad-organize-imports)
 
+;; evil
+(require 'evil)
+(define-key ara/keymap (kbd "C-c v") 'evil-mode)
+(let ((evil-nonnormal-states
+       (list 'insert 'visual 'operator 'replace 'motion)))
+  (dolist (state evil-nonnormal-states)
+                 (evil-global-set-key state (kbd "C-c [") 'evil-normal-state)
+                 (evil-global-set-key state (kbd "C-S-n") 'evil-normal-state)
+                 (evil-global-set-key state (kbd "C-n") 'evil-normal-state)
+                 (evil-global-set-key state (kbd "C-*") 'evil-normal-state)))
+
+(evil-global-set-key 'insert (kbd "C-_") 'evil-normal-state)
+(evil-global-set-key 'insert (kbd "S-SPC") 'evil-normal-state)  ;; doesn't work
+                                                                ;; on a terminal
+(evil-global-set-key 'insert (kbd "M-RET") 'evil-normal-state)
+(evil-global-set-key 'normal (kbd "g R") 'revert-buffer)
+;; (evil-global-set-key 'insert (kbd "C-S-n") 'evil-normal-state)
+
+(defun ara/evil-global-set-key-all-states
+    (key def &optional exclude-states)
+  (let* ((evil-states
+          (list 'normal 'insert 'visual 'operator 'replace 'motion 'emacs))
+         (states (cl-set-difference evil-states exclude-states)))
+    (message "defining key %s as %s for states %s" key def states)
+    (evil-define-key states 'global key def)))
+
+(ara/evil-global-set-key-all-states (kbd "M-.") 'xref-find-definitions)
+(ara/evil-global-set-key-all-states (kbd "M-*") 'xref-pop-marker-stack)
+
+;; The following code was used to help me get used to evil mode.
+;; (let ((keys
+;;        (list
+;;              ;; "C-n"
+;;              "C-p"
+;;              ;; "C-f" "C-b"
+;;              "M-b" "M-f"
+;;              ;; "C-v" "M-v"
+;;              "<up>" "<down>" "<right>" "<left>"
+;;              "M-<" "M->")))
+;;   ;; C-a and C-e have evil keys in insert state
+;;   (dolist (key keys)
+;;     (ara/evil-global-set-key-all-states
+;;      (kbd key) 'ara/evil-no-emacs-movement '(emacs))))
+
+
+;; ;; Disable emacs motion keys in insert state to force me to get used to
+;; ;; vim keys
+;; (defun ara/evil-no-emacs-movement ()
+;;   (interactive)
+;;   (beep)
+;;   (error "Don't use Emacs motion keys in evil mode"))
+
+
 ;; string-inflection
 (defhydra hydra-string-inflection ()
   "string-inflection"
