@@ -268,7 +268,7 @@
 (define-key ara/keymap (kbd "C-c j") 'find-projects)
 (define-key ara/keymap (kbd "C-c m") 'switch-to-minibuffer)
 (define-key ara/keymap (kbd "C-x M-e") 'eval-and-replace)
-(define-key ara/keymap (kbd "C-c w") 'current-buffer-file-name)
+(define-key ara/keymap (kbd "C-c w") 'ara/buffer-current-name)
 
 (define-key ara/keymap (kbd "C-c s") 'scratch-buffer)
 
