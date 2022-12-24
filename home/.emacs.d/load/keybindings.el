@@ -600,6 +600,9 @@ otherwise projectile-find-file."
 (define-key smartparens-mode-map (kbd "M-F") 'sp-forward-symbol)
 (define-key smartparens-mode-map (kbd "M-B") 'sp-backward-symbol)
 
+;; transpose-regions
+(define-key ara/keymap (kbd "C-M-S-t") 'transpose-regions)
+
 ;; dired-sidebar
 (define-key ara/keymap (kbd "C-c (") 'dired-sidebar-toggle-sidebar)
 
