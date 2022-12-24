@@ -330,6 +330,8 @@
 (define-key ara/keymap (kbd "C-!") 'flycheck-next-error)
 (define-key ara/keymap (kbd "C-M-!") 'flycheck-previous-error)
 (define-key ara/keymap (kbd "C-c >") 'sgml-close-tag)
+(evil-global-set-key 'motion (kbd "g ! j") 'flycheck-next-error)
+(evil-global-set-key 'motion (kbd "g ! k") 'flycheck-previous-error)
 
 ;; misc
 (define-key ara/keymap (kbd "<f11>") 'calendar)
