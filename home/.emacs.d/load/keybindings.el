@@ -182,9 +182,11 @@
 (define-key swiper-map (kbd "C-r") 'ara/swiper-C-r)
 
 ;; string-inflection
+(require 'string-inflection)
 (defhydra hydra-string-inflection ()
   "string-inflection"
   ("-" string-inflection-cycle "string inflect")
+  ("C--" string-inflection-cycle "string inflect")
   ("_" string-inflection-all-cycle "string inflect all")
   ("RET" nil)
   ("q" nil))
