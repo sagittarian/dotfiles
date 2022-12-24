@@ -606,6 +606,8 @@ otherwise projectile-find-file."
 ;; dired-sidebar
 (define-key ara/keymap (kbd "C-c (") 'dired-sidebar-toggle-sidebar)
 
+(define-key ara/keymap (kbd "<XF86Calculator>") 'calc)
+
 ;; w3m
 (define-key w3m-mode-map (kbd "C-,") 'w3m-tab-previous-buffer)
 (define-key w3m-mode-map (kbd "C-.") 'w3m-tab-next-buffer)
