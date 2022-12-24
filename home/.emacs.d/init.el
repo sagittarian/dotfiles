@@ -185,7 +185,7 @@
 (smex-initialize)
 
 ;; theme
-(load-theme 'spolsky t nil)
+;; (load-theme 'spolsky t nil)
 
 ;; magit-svn (why do people use sucky software, grumble grumble
 ;; grumble)
