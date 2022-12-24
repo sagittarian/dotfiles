@@ -351,6 +351,22 @@
 ;; ace-window
 (require 'ace-window)
 
+(defvar ara/url-list
+  '("https://news.google.com"
+    "https://getpocket.com/explore"
+    "https://astralcodexten.substack.com/"
+    "https://pycoders.com/issues"
+    "https://www.reddit.com/r/dailyprogrammer/"
+    "https://weekly.statuscode.com/issues"
+    "https://javascriptweekly.com/issues"
+    "https://nodeweekly.com/issues"
+    "https://golangweekly.com/issues"
+    ))
+
+(defun ara/goto-url (url)
+  (interactive (list (completing-read "Go to url: " ara/url-list)))
+  (w3m-goto-url-new-session url))
+
 (load "functions")
 (load "keybindings")
 ;; (load "linum-off")
