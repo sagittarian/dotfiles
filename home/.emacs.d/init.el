@@ -50,6 +50,32 @@
 (add-hook 'evil-normal-state-exit-hook 'ara/save-buffer-if-visiting-file)
 
 ;; (setq-default evil-insert-state-cursor '(bar . 2))
+;; lsp
+
+;; (use-package lsp-mode
+;;   ;; :init
+;;   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+;;   ;; (setq lsp-keymap-prefix "C-c l")
+;;   :hook (
+;;          (python-mode . lsp)
+;;          ;; if you want which-key integration
+;;          (lsp-mode . lsp-enable-which-key-integration))
+;;   :commands lsp
+;;   :after (python-mode))
+;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+
+
+;; optionally
+;; (use-package lsp-ui :commands lsp-ui-mode)
+;; ;; if you are helm user
+;; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+
+;; if you are ivy user
+;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+;; optionally if you want to use debugger
+;; (use-package dap-mode)
+;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 
 ;; scroll the buffer when moving up/down
 (defvar ara/autoscroll-line-move t)
@@ -257,6 +283,9 @@
 (setq-default header-line-format '((t (:eval ara/headerline))))
 (add-hook 'lsp-mode-hook (lambda () (setq ara/headerline (list ""))))
 
+;; lsp wants these
+(setq read-process-output-max (* 1024 64))
+(setq gc-cons-threshold 6400000)
 
 
 
