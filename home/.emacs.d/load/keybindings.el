@@ -86,6 +86,12 @@
 (define-key ara/keymap (kbd "C-c h") 'which-key-show-full-major-mode)
 (define-key ara/keymap (kbd "C-c C-h") 'which-key-show-full-minor-mode-keymap)
 
+;; imenu
+(define-key ara/keymap (kbd "C-x i") 'imenu)
+(define-key ara/keymap (kbd "M-g i") 'ivy-imenu-anywhere)
+;; (define-key ara/keymap (kbd "C-x i") 'insert-file)  ;; original keybinding for C-x i
+(evil-define-key 'normal ara/keymap (kbd "SPC i") 'imenu)
+
 ;; elpy
 (require 'elpy)
 (define-key elpy-mode-map (kbd "C-.") 'xref-find-definitions-other-window)
