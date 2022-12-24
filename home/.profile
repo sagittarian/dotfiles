@@ -22,4 +22,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 
+# export QT_QPA_PLATFORMTHEME=qt5ct
 # source ~/.bashrc
