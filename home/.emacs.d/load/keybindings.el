@@ -475,7 +475,7 @@ otherwise projectile-find-file."
 ;;   ("q" nil))
 ;; (define-key ara/keymap (kbd "C-c M-b") 'hydra-move-sexp/ara/move-sexp-backward)
 
-(defhydra hydra-nav (global-map "C-c n")
+(defhydra hydra-nav ()
   "nav"
   ("n" next-line)
   ;; ("k" next-line)
@@ -512,6 +512,7 @@ otherwise projectile-find-file."
   ("r" avy-resume)
   ("q" nil)
   ("ESC" nil))
+;; (define-key ara/keymap (kbd "C-S-n") 'hydra-nav/body)
 ;; (define-key (current-global-map) [remap next-line] 'hydra-nav/next-line)
 ;; (define-key (current-global-map) [remap previous-line] 'hydra-nav/previous-line)
 ;; (define-key (current-global-map) [remap forward-char] 'hydra-nav/forward-char)
