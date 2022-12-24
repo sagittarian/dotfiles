@@ -63,10 +63,15 @@
 
 ;; save the buffer when switching to another window
 (defun save-buffer-other-window (count &optional all-frames)
-  "Save the buffer before switching to another window"
+  "Save the buffer before switching to another window."
   (interactive "p")
   (full-auto-save)
   (other-window count all-frames))
+
+(defun ara/switch-to-current-buffer-other-window ()
+  "Switch to the current buffer in the other window."
+  (interactive)
+  (switch-to-buffer-other-window (current-buffer)))
 
 (defun shell-command-as-kill (cmd)
   "Execute the given shell command and put its output into the kill ring"
@@ -79,24 +84,24 @@
 (defun commit-buffer (msg)
   "Commit the current state of the current buffer (using magit)."
   (interactive "MCommit message: ")
-  (stage-buffer)
+  (ara/stage-buffer)
   (magit-run-git "commit" "-m" msg "--" (buffer-file-name))
   (message "committed %s" (buffer-file-name)))
 
 (defun amend-buffer ()
   "Amend the last commit to include the current state of the current buffer (using magit)."
   (interactive)
-  (stage-buffer)
+  (ara/stage-buffer)
   (magit-run-git "commit" "--amend" "--no-edit" "--" (buffer-file-name))
   (message "amended last commit for %s" (buffer-file-name)))
 
 ;; quick command to stage the current file
-(defun stage-buffer ()
+(defun ara/stage-buffer ()
   "Stage the current state of the current buffer (using magit)."
   (interactive)
   (full-auto-save)
   (magit-run-git "add" "--" (buffer-file-name))
-  (message "staged %s" (buffer-file-name)))
+  (message "Staged %s" (buffer-file-name)))
 
 ;; quick command to commit all changes in the working tree
 (defun commit-all-changes (msg)
@@ -123,6 +128,10 @@
   (interactive)
   (find-file am-project-filename))
 
+(defun find-todo-work ()
+  (interactive)
+  (find-file am-todo-work-filename))
+
 ;; source: https://github.com/magnars/.emacs.d/blob/master/defuns/lisp-defuns.el
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
@@ -143,10 +152,19 @@
     (error "Minibuffer is not active")))
 
 ;; sometimes we want to know the full path of the current file
-(defun current-buffer-file-name ()
-  (interactive)
-  (let ((fname (buffer-file-name)))
-    (kill-new (message fname))))
+(defun ara/buffer-current-name
+    (relative)
+  (interactive "P")
+  (let* ((absname (buffer-file-name))
+         (name (cond (w3m-current-url)
+                     (relative
+                      (let ((root (projectile-project-root)))
+                        (if root
+                            (replace-regexp-in-string (concat "^" root) "" absname)
+                          absname)))
+                     (t absname))))
+    (kill-new (message "%s" name))))
+
 
 ;; ;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
 ;; (defun rename-file-and-buffer (new-name)
@@ -205,6 +223,12 @@
   (next-line 1)
   (indent-according-to-mode))
 
+;; XXX this already exists as swiper-isearch-C-r
+(defun ara/swiper-C-r (&optional arg)
+  "Move cursor vertically up ARG candidates.
+If the input is empty, select the previous history element instead."
+  (interactive "p")
+  (swiper-C-s (- (or arg 1))))
 
 (defun indent-4 ()
   (interactive)
@@ -243,7 +267,57 @@
   (interactive)
   (if mark-active (ara/duplicate-region) (ara/duplicate-line)))
 
-(defun blacken (start end &optional diff)
+(defun ara/move-sexp-backward ()
+  (interactive)
+  (sp-transpose-sexp)
+  (sp-backward-sexp 2))
+
+(defun ara/move-sexp-forward ()
+  (interactive)
+  (sp-forward-sexp 1)
+  (sp-transpose-sexp)
+  (sp-backward-sexp 1))
+
+
+(defun ara/lines-after-point (n)
+  (save-excursion
+    ;(forward-line n)
+    (move-beginning-of-line n)
+    (point)))
+
+(defun ara/show-packages-maybe-list ()
+  "Switch to the buffer `*Packages*' if it exists, otherwise call 'list-packages'."
+  (interactive)
+  (let ((packages-buffer (get-buffer "*Packages*")))
+    (if packages-buffer
+        (switch-to-buffer packages-buffer)
+      (list-packages))))
+
+;; based on: https://kitchingroup.cheme.cmu.edu/blog/2014/09/06/Randomize-a-list-in-Emacs/
+(defun ara/swap (lst i j)
+  "In LST swap indices I and J in place."
+  (let ((tmp (nth i lst)))
+    (setf (nth i lst) (nth j lst))
+    (setf (nth j lst) tmp)))
+
+(defun ara/shuffle (lst)
+  "Shuffle the elements of LST in place."
+  (dolist (i (reverse (number-sequence 1 (1- (length lst)))))
+    (let ((j (random i)))
+      (ara/swap lst i j))))
+
+(defun ara/randletter ()
+  "Return a random lowercase letter"
+  (char-to-string (+ (random 26) (string-to-char "a"))))
+
+(defun ara/randstring (len)
+  "Return a string of random lowercase letters of length LEN"
+  (let* ((a (string-to-char "a"))
+         (result (mapcar (lambda (i) (+ a (random 26)))
+                         (number-sequence 1 len))))
+    (apply 'string result)))
+
+(defun ara/blacken (start end &optional diff)
   "Run black on either the buffer or the region.
 
 Pipe the text between START and END to black, and display the
@@ -262,19 +336,31 @@ buffer."
       (read-only-mode))
     (switch-to-buffer curbuff)))
 
-(defun blacken-region (diff)
+(defun ara/blacken-region (diff)
   "Run black on the current region.
 
 Replace the text if DIFF is nil, otherwise show the diff."
   (interactive "P")
-  (blacken (region-beginning) (region-end) diff))
+  (ara/blacken (region-beginning) (region-end) diff))
 
-(defun blacken-buffer (diff)
+(defun ara/blacken-buffer (diff)
   "Run black on the entire buffer.
 
 Replace the text if DIFF is nil, otherwise show the diff."
   (interactive "P")
-  (blacken (point-min) (point-max) diff))
+  (ara/blacken (point-min) (point-max) diff))
+
+(defun ara/grammarly-on-region ()
+  (interactive)
+  (if mark-active
+      (grammarly-check-text (buffer-substring-no-properties (point-min) (point-max)))
+    (error "Mark is not active")))
+
+(defun test-on-message (data)
+  "On message callback with DATA."
+  (message "[DATA] %s" data))
+;; (add-to-list 'grammarly-on-message-function-list 'test-on-message)
+;; (remove 'test-on-message grammarly-on-message-function-list )
 
 (provide 'functions)
 ;;; functions.el ends here
