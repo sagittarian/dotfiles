@@ -38,6 +38,8 @@
 ;; (define-key ara/keymap (kbd "M-<return>") 'am-open-next-line)
 (global-unset-key (kbd "M-<return>"))
 (define-key ara/keymap (kbd "C-M-)") 'make-frame-command)
+(define-key ara/keymap (kbd "C-)") 'make-frame-command)
+(evil-define-key 'normal ara/keymap (kbd "SPC )") 'make-frame-command)
 (define-key ara/keymap (kbd "s-;") 'delete-frame)
 ;; (define-key ara/keymap (kbd "C-M-}") 'split-window-right)
 
