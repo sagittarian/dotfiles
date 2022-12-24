@@ -118,9 +118,9 @@
 ;; (add-hook 'prog-mode-hook (lambda () (setq show-trailing-whitespace t)))
 
 ;; show the full path in the title bar
-(setq frame-title-format
-      (list (format "%s %%S: %%j " (system-name))
-			'(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
+;; (setq frame-title-format
+;;       (list (format "%s %%S: %%j " (system-name))
+;; 			'(buffer-file-name "%f" (dired-directory dired-directory "%b"))))
 
 ;; macro for easily making anki clozes
 ;; (fset '-make-cloze-macro
