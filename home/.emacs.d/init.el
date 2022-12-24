@@ -330,6 +330,12 @@
 ;; pre-commit tries to color its output, which looks bad in an emacs buffer
 (setenv "PRE_COMMIT_COLOR" "never")
 
+;; inserting an empty pair of parens isn't useful
+(advice-add 'insert-parentheses :before
+            (lambda (&optional arg)
+              (interactive (list
+                            (let ((arg (prefix-numeric-value current-prefix-arg)))
+                              (if (= arg 0) 1 arg))))))
 
 
 ;; (setq mode-line-misc-info
