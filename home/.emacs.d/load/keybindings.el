@@ -531,6 +531,7 @@ otherwise projectile-find-file."
   ("q" nil))
 (define-key (current-global-map) [remap yank] 'hydra-yank/yank)
 (define-key (current-global-map) [remap yank-pop] 'hydra-yank/yank-pop)
+(define-key (current-global-map) (kbd "M-Y") 'counsel-yank-pop)
 
 (defhydra hydra-window (global-map "C-c {")
   "window"
