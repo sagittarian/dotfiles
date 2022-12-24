@@ -327,6 +327,9 @@
 (setq read-process-output-max (* 1024 64))
 (setq gc-cons-threshold 6400000)
 
+;; pre-commit tries to color its output, which looks bad in an emacs buffer
+(setenv "PRE_COMMIT_COLOR" "never")
+
 
 
 ;; (setq mode-line-misc-info
