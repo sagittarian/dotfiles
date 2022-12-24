@@ -126,8 +126,8 @@ alias inst='sudo apt-get install'
 alias unhist='unset HISTFILE'
 
 # convert yaml to json and the other way around
-alias y2j="python -c 'import yaml, json, sys; print(json.dumps(yaml.load(sys.stdin.read(), Loader=getattr(yaml, \"CLoader\", yaml.Loader)), indent=4))'"
-#alias j2y="python -c 'import yaml, json, sys; print(yaml.dump(json.loads(sys.stdin.read())))'"
+alias y2j="python -c 'import yaml, json, sys; print(chr(10).join(json.dumps(doc) for doc in yaml.load_all(sys.stdin.read(), Loader=getattr(yaml, \"CLoader\", yaml.Loader))))'"
+# alias j2y="python -c 'import yaml, json, sys; print(yaml.dump(json.loads(sys.stdin.read())))'"
 alias j2y="ruby -r json -r yaml -e 'puts YAML.dump JSON.load \$stdin.read'"
 alias py2j="python -c 'import sys, json; print(json.dumps(eval(sys.stdin.read()), indent=4))'"
 
