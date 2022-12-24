@@ -275,8 +275,15 @@
 ;; use my own function that saves the file when you switch windows
 (define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
 
+(defun ara/kill-buffer-no-prompt ()
+  "Kill current buffer without prompting."
+  (interactive)
+  (kill-buffer nil))
 ;; kill this buffer without confirmation
-(define-key (current-global-map) [remap kill-buffer] (lambda () (interactive) (kill-buffer nil)))
+(define-key (current-global-map) [remap kill-buffer]
+  'ara/kill-buffer-no-prompt)
+(evil-define-key
+  'normal ara/keymap (kbd "SPC k") 'ara/kill-buffer-no-prompt)
 
 ;; avy
 (avy-setup-default)
