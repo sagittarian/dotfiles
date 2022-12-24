@@ -275,9 +275,6 @@
 ;; use my own function that saves the file when you switch windows
 (define-key (current-global-map) [remap other-window] 'save-buffer-other-window)
 
-;; use avy-goto-line instead of goto-line
-(define-key (current-global-map) [remap goto-line] 'avy-goto-line)
-
 ;; kill this buffer without confirmation
 (define-key (current-global-map) [remap kill-buffer] (lambda () (interactive) (kill-buffer nil)))
 
@@ -285,13 +282,49 @@
 (avy-setup-default)
 ;; (define-key ara/keymap (kbd "C-'") 'avy-goto-char-timer)
 (define-key ara/keymap (kbd "C-'") 'hydra-nav/avy-goto-char-timer)
-(define-key ara/keymap (kbd "C-S-SPC") 'avy-goto-char-timer)
+;; (define-key ara/keymap (kbd "C-S-SPC") 'avy-goto-char-timer)
+;; (define-key ara/keymap (kbd "C-S-SPC") 'avy-goto-char-2)
+
+
+;; (define-key ara/keymap (kbd "C-S-SPC") 'avy-goto-char)
 ;; (define-key ara/keymap (kbd "C-;") 'avy-goto-word-1)
 (define-key ara/keymap (kbd "C-;") 'hydra-nav/avy-goto-word-1)
 (define-key ara/keymap (kbd "C-:") 'avy-goto-word-0)
 ;; (define-key ara/keymap (kbd "C-c SPC") 'avy-resume)
-(define-key ara/keymap (kbd "C-c SPC") 'avy-goto-word-1)
-(define-key ara/keymap (kbd "C-S-n") 'hydra-nav/body)
+;; (define-key ara/keymap (kbd "C-c SPC") 'avy-goto-word-1)
+;; (define-key ara/keymap
+;;  (kbd "C-S-SPC")
+;;  (lambda ()
+;;    (interactive)
+;;    (let ((start (ara/lines-after-point -26))
+;;          (end (ara/lines-after-point 25)))
+;;      (avy-goto-word-0 1 start end))))
+(define-key ara/keymap (kbd "C-S-SPC") 'avy-goto-word-0)
+(define-key ara/keymap (kbd "C-c SPC") 'avy-goto-word-0)
+(define-key ara/keymap (kbd "M-g SPC") 'avy-goto-word-0)
+;; (define-key ara/keymap (kbd "C-M-g") 'avy-goto-word-1)
+(define-key ara/keymap (kbd "C-M-g") 'avy-goto-char-timer)
+;; avy kill/save/copy
+(evil-define-key 'normal ara/keymap (kbd "SPC d d") 'avy-kill-whole-line)
+(evil-define-key 'normal ara/keymap (kbd "SPC y y") 'avy-kill-ring-save-whole-line)
+(evil-define-key 'normal ara/keymap (kbd "SPC d v") 'avy-kill-region)
+(evil-define-key 'normal ara/keymap (kbd "SPC y v") 'avy-kill-ring-save-region)
+(evil-define-key 'normal ara/keymap (kbd "SPC y p") 'avy-copy-line)
+(evil-define-key 'normal ara/keymap (kbd "SPC y P") 'avy-copy-region)
+;; (evil-define-key 'normal ara/keymap "C-a" 'avy-goto-word-0)
+
+
+(define-key ara/keymap (kbd "C-c j") 'avy-goto-char-timer)
+(define-key ara/keymap (kbd "C-c C-w") 'avy-move-on)
+(define-key ara/keymap (kbd "C-c C-x C-w") 'avy-move-region)
+(define-key ara/keymap (kbd "C-c C-k") 'avy-move-line)
+(define-key ara/keymap (kbd "C-c C-x C-k") 'avy-move-line)
+(define-key ara/keymap (kbd "C-c M-w") 'avy-copy-region)
+(define-key ara/keymap (kbd "C-c C-x M-w") 'avy-copy-region)
+(define-key ara/keymap (kbd "C-c M-k") 'avy-copy-line)
+(define-key ara/keymap (kbd "C-c C-x M-k") 'avy-copy-line)
+;; use avy-goto-line instead of goto-line
+(define-key (current-global-map) [remap goto-line] 'avy-goto-line)
 
 ;; flycheck
 (define-key ara/keymap (kbd "C-!") 'flycheck-next-error)
