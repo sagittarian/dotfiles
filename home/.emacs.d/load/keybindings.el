@@ -98,6 +98,8 @@
 (define-key elpy-mode-map (kbd "C-c i") 'pyimport-insert-missing)
 ;; what?
 (define-key python-mode-map (kbd "C-<backspace>") 'backward-kill-word)
+;; globally M-i is tab-to-tab-stop
+(define-key python-mode-map (kbd "M-i") 'importmagic-fix-symbol-at-point)
 
 ;; traad
 (define-key elpy-mode-map (kbd "C-c r r") 'traad-rename)
