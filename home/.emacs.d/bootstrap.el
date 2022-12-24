@@ -2,9 +2,15 @@
       '(;; flx
         ;; flx-ido
         ;; flx-isearch ;; seems broken
+        use-package
         yasnippet projectile magit
+        ;; lsp etc
+        lsp-mode lsp-ui lsp-ivy lsp-treemacs ;; dap-mode
+        ivy ivy-hydra
         ;; ido-completing-read+
         git-timemachine wc-mode js2-mode js2-refactor js-doc
+        evil evil-collection evil-indent-plus
+        python-mode python-pytest
         ;; uniquify saveplace
         flycheck flycheck-ghcmod flycheck-haskell flymake-easy
         flymake-hlint flymake-jshint flymake-json flymake-yaml
@@ -31,6 +37,10 @@
         markdown-mode
         use-package
         idle-highlight-in-visible-buffers-mode
+        counsel
+        keyfreq
+        python-black
+        imenu-anywhere
         ;; format-all blacken elpygen importmagic indent-tools pygent
         ;; idle-highlight-mode
         pyvenv which-key))
