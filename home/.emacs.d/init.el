@@ -150,7 +150,8 @@
   '(progn
 	 (define-key yas-keymap (kbd "\e") 'yas-exit-snippet)
 	 (define-key yas-keymap (kbd "C-n") 'yas-next-field-or-maybe-expand)
-	 (define-key yas-keymap (kbd "C-p") 'yas-prev-field)))
+	 (define-key yas-keymap (kbd "C-p") 'yas-prev-field)
+     (add-hook 'yas-after-exit-snippet-hook 'evil-normal-state)))
 
 ;; w3m
 (require 'w3m)
