@@ -53,8 +53,11 @@
 ;; macro to make an anki cloze
 (define-key ara/keymap (kbd "C-c C") 'make-cloze)
 
+;; yasnippet
 ;; alternative yasnippet expand key
-(define-key ara/keymap (kbd "C-<tab>") 'yas-expand)
+;; (define-key ara/keymap (kbd "C-<tab>") 'yas-expand)
+(define-key ara/keymap (kbd "C-c <tab>") 'yas-expand)
+;; (global-unset-key (kbd "C-<tab>"))
 
 (define-key ara/keymap (kbd "C-c c") 'org-capture)
 
