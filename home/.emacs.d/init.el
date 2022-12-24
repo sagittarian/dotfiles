@@ -276,15 +276,21 @@
  '("  " (which-func-mode ("" which-func-format " "))
    " "
    (:eval
-    (let ((root (projectile-project-root)))
-      (if root
-          (if buffer-file-name
-              (concat
-               (replace-regexp-in-string (concat "^" root) "" buffer-file-name)
-               " in "
-               root)
-            root)
-        buffer-file-name)))))
+    (let* ((home (getenv "HOME"))
+           (replace-prefix
+            (lambda (prefix replace str)
+              (replace-regexp-in-string
+               (concat "^" (regexp-quote prefix)) replace str)))
+           (absolute-root (projectile-project-root))
+           (root (and absolute-root
+                      (funcall replace-prefix home "~" absolute-root)))
+           (fname (if buffer-file-name
+                      (if absolute-root
+                          (funcall replace-prefix
+                                   absolute-root "" buffer-file-name)
+                        (funcall replace-prefix home "~" buffer-file-name))
+                    nil)))
+      (if root (if fname (concat fname " in " root) root) fname)))))
 (make-variable-buffer-local 'ara/headerline)
 (setq-default header-line-format '((t (:eval ara/headerline))))
 (add-hook 'lsp-mode-hook (lambda () (setq ara/headerline (list ""))))
