@@ -219,8 +219,7 @@
 (define-key ara/keymap (kbd "C-c g b") 'magit-blame)
 (define-key ara/keymap (kbd "C-c g B") 'magit-blame-popup)
 (define-key ara/keymap (kbd "C-c g t") 'git-timemachine)
-(define-key magit-status-mode-map (kbd "s-<return>") 'magit-diff-visit-file-other-window)
-(define-key ara/keymap (kbd "C-g") 'keyboard-quit)
+(define-key magit-status-mode-map (kbd "S-<return>") 'magit-diff-visit-file-other-window)
 
 ;; git-gutter+
 (defhydra hydra-git-gutter+ (git-gutter+-mode-map "C-c u")
