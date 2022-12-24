@@ -103,6 +103,13 @@
         ;; backward-char
         ;; previous-line
         ;; next-line
+
+        ;; mwheel-scroll
+        ;; handle-switch-frame
+        org-self-insert-command
+        ;; handle-select-window
+        ;; mouse-set-point
+        ;; mouse-drag-region
         ))
 
 ;; automatically delete trailing whitespace on all lines when saving
