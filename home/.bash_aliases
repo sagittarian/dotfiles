@@ -320,6 +320,14 @@ alias stripdate="sed -e 's/^[0-9]\+-[0-9]\+-[0-9]\+ \+//'"
 
 alias chrome=google-chrome
 
+
+function aratest {
+    files=$(git diff --staged --name-only; git diff origin/staging..HEAD --name-only)
+    # radon cc --min C --show-complexity --total-average --show-closures $files
+    radon cc --show-complexity --total-average --show-closures $files
+}
+
+
 alias mypy='mypy --ignore-missing-imports'
 
 function reveal_type {
