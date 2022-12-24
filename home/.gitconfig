@@ -11,7 +11,10 @@
 [branch]
     autosetuprebase = always
 [push]
-    default = upstream
+    # In a central workflow, simple works like upstream with an added
+    # safety to refuse to push if the upstream branch’s name is
+    # different from the local one.
+	default = simple
 [credential]
     helper = cache --timeout=3600
 [diff]
