@@ -439,6 +439,9 @@ otherwise projectile-find-file."
 (define-key dired-mode-map (kbd "C-. o f") 'dired-subtree-only-this-file)
 (define-key dired-mode-map (kbd "C-. o d") 'dired-subtree-only-this-directory)
 
+;; nxml movement
+(define-key nxml-mode-map (kbd "C-M-f") 'nxml-forward-element)
+
 ;; move lines
 (defhydra hydra-move-text ()
   "move-text"
