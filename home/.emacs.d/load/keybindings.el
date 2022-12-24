@@ -206,6 +206,9 @@
 (define-key python-mode-map (kbd "C-c _")
   'hydra-string-inflection/string-inflection-all-cycle)
 
+;; help
+(evil-define-key 'normal ara/keymap (kbd "SPC h") 'help-command)
+
 ;; magit
 (require 'magit)
 (define-key ara/keymap (kbd "C-c g g") 'magit-status)
