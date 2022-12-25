@@ -340,6 +340,18 @@
 (evil-global-set-key 'motion (kbd "g ! j") 'flycheck-next-error)
 (evil-global-set-key 'motion (kbd "g ! k") 'flycheck-previous-error)
 
+;; hide-show, evil keybindings
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ h") 'hs-hide-block)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ s") 'hs-show-block)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ M-h") 'hs-hide-all)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ M-s") 'hs-show-all)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ l") 'hs-hide-level)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ c") 'hs-toggle-hiding)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ a") 'hs-show-all)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ t") 'hs-hide-all)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ d") 'hs-hide-block)
+(evil-define-key 'normal hs-minor-mode-map (kbd "SPC @ e") 'hs-toggle-hiding)
+
 ;; misc
 (define-key ara/keymap (kbd "<f11>") 'calendar)
 (define-key ara/keymap (kbd "<f5>") 'revert-buffer)
