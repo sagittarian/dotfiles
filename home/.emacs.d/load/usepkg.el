@@ -47,9 +47,9 @@
   :after (flycheck)
   :init (flycheck-pos-tip-mode 1))
 
-(use-package flycheck-grammarly
-  :after (flycheck)
-  :init (flycheck-grammarly-setup))
+;; (use-package flycheck-grammarly
+;;   :after (flycheck)
+;;   :init (flycheck-grammarly-setup))
 
 (use-package diminish
   :init
