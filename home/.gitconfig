@@ -63,7 +63,7 @@
     # add to the last commit
     grow-commit = commit -a --amend --no-edit
     wip = commit -am wip
-    yolo = !git commit -am \"wip -- $(curl -s whatthecommit.com/index.txt || echo wip)\"
+    yolo = !git commit -am \"$(curl -s https://whatthecommit.com/index.txt || echo wip)\"
     when-modified = log -1 --format=\"%ad\" --date=iso --
     type = cat-file -t
     dump = cat-file -p
