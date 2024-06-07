@@ -24,3 +24,4 @@ fi
 
 # export QT_QPA_PLATFORMTHEME=qt5ct
 # source ~/.bashrc
+. "$HOME/.cargo/env"

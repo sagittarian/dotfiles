@@ -195,6 +195,9 @@ fi
 
 eval "$(register-python-argcomplete pipx)"
 
+# Rust
+export PATH=$PATH:$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin
+
 
 # Golang
 # export GOPATH=$HOME/src/workshop/go
@@ -224,3 +227,4 @@ stty stop 'undef'
 if which kubectl > /dev/null; then
     source <(kubectl completion bash)
 fi
+. "$HOME/.cargo/env"
