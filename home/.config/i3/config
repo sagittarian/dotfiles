@@ -223,7 +223,7 @@ bar {
 
 exec setxkbmap -layout us(dvp),il -option grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps
 exec nm-applet
-# exec workrave
+exec workrave
 exec unity-settings-daemon
 exec pavucontrol
 exec ksysguard
