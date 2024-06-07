@@ -45,3 +45,10 @@ export PROJECT_HOME=$HOME/src
 
 # Docker BuildKit
 export DOCKER_BUILDKIT=1
+export BUILDKIT_PROGRESS=plain
+
+# Python logformat for debugging
+export LOGFMT="%(created).4f %(levelname)s: %(message)s"
+
+# Rust backtrace
+export RUST_BACKTRACE=full
