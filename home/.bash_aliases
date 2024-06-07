@@ -53,7 +53,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 function mkcd () {
-    mkdir -p $1 && cd $1;
+    mkdir -p "$1" && cd "$1"
 }
 
 xkbopts='grp:shifts_toggle,esperanto:dvorak,lv3:ralt_switch,ctrl:swapcaps,eurosign:4'
