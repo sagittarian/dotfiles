@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-
 import json
+import math
 import subprocess
 import sys
 from collections import defaultdict
@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 class GitMetricsTracker:
@@ -258,70 +259,142 @@ class GitMetricsTracker:
         start_date: datetime,
         end_date: datetime,
         period: str = "daily",
-        metric: str = "commits",
-        per_commit: bool = False,
-        excluded_commits: Container[str] = (),
+        show_heatmap: bool = True,
     ) -> None:
-        """Plot metrics across all repositories"""
-        data = cls.aggregate_metrics(start_date, end_date, period)
-        if not data:
+        """Plot commit metrics across all repositories"""
+        metrics = cls.aggregate_metrics(start_date, end_date, period)
+        if not metrics:
             print("No data found for the specified criteria")
             return
 
-        dates = sorted(data.keys())
-        if per_commit:
-            values = [
-                (
-                    data[date]["lines"] / data[date]["commits"]
-                    if data[date]["commits"] > 0
-                    else 0
-                )
-                for date in dates
-            ]
-            ylabel = "Lines Changed per Commit"
-            title_metric = "Lines per Commit"
-        else:
-            values = [data[date][metric] for date in dates]
-            ylabel = "Number of Commits" if metric == "commits" else "Lines Changed"
-            title_metric = "Commits" if metric == "commits" else "Lines Changed"
+        # Create main time series plot with two y-axes
+        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 12), height_ratios=[2, 1])
+        dates = sorted(metrics.keys())
 
-        # Calculate statistics
-        total_value = sum(values)
-        average_value = total_value / len(values) if values else 0
+        # Plot raw commits
+        commits = [metrics[date]["commits"] for date in dates]
+        bars = ax1.bar(dates, commits, alpha=0.6, label="Raw Commits")
+        ax1.set_ylabel("Number of Commits")
 
-        # Find busiest periods
-        sorted_periods = sorted(zip(dates, values), key=lambda x: (-x[1], x[0]))
-        top_periods = sorted_periods[:3]
+        # Calculate and plot normalized commits on secondary y-axis
+        normalized = calculate_normalized_commits(metrics)
+        norm_values = [normalized[date] for date in dates]
+        ax1_twin = ax1.twinx()
+        line = ax1_twin.plot(
+            dates, norm_values, color="red", label="Normalized Commits"
+        )[0]
+        ax1_twin.set_ylabel("Normalized Commits")
 
-        # Create the plot
-        plt.figure(figsize=(12, 6))
-        plt.bar(dates, values)
-
-        # Add average line
-        plt.axhline(y=average_value, color="r", linestyle="--", alpha=0.5)
-        plt.text(
-            dates[0],
-            average_value,
-            f" Avg: {average_value:.1f}",
-            verticalalignment="bottom",
+        # Add legends
+        # Use the first bar and the line for the legend
+        ax1.legend(
+            [bars.patches[0], line],
+            ["Raw Commits", "Normalized Commits"],
+            loc="upper left",
         )
 
-        plt.xticks(rotation=45)
+        # Rotate x-axis labels
+        ax1.tick_params(axis="x", rotation=45)
+
+        # Add title
         title_period = period.capitalize()
-        plt.title(f"{title_period} {title_metric} (All Repositories)")
-        plt.xlabel("Date")
-        plt.ylabel(ylabel)
+        ax1.set_title(f"{title_period} Commit Metrics (All Repositories)")
+
+        # Create day-of-week heatmap if showing daily data
+        if period == "daily" and show_heatmap:
+            create_weekday_heatmap(metrics, ax2)
+        else:
+            fig.delaxes(ax2)
+            fig.set_size_inches(12, 6)
+
         plt.tight_layout()
 
         # Print summary statistics
-        metric_name = "lines per commit" if per_commit else title_metric.lower()
         print("\nSummary Statistics:")
-        print(f"Total {metric_name}: {total_value:.1f}")
-        print(f"Average {metric_name} per {period[:-2]}: {average_value:.1f}")
-        print(f"\nBusiest periods:")
-        for date, value in top_periods:
-            print(f"{date}: {value:.1f} {metric_name}")
+        print(f"Total commits: {sum(commits)}")
+        avg_commits = sum(commits) / len(commits) if commits else 0
+        print(f"Average commits per {period[:-2]}: {avg_commits:.1f}")
+        print(f"Average normalized commits: {sum(norm_values) / len(norm_values):.1f}")
         plt.show()
+
+
+def calculate_normalized_commits(
+    metrics: dict[str, dict[str, int]]
+) -> dict[str, float]:
+    """Calculate normalized commit scores taking into account lines/commit ratio"""
+    # First get the overall average lines per commit
+    total_lines = sum(day["lines"] for day in metrics.values())
+    total_commits = sum(day["commits"] for day in metrics.values())
+    avg_lines_per_commit = total_lines / total_commits if total_commits > 0 else 0
+
+    normalized = {}
+    for date, day_metrics in metrics.items():
+        if day_metrics["commits"] == 0:
+            normalized[date] = 0
+            continue
+
+        # Calculate how this day's commits compare in size to the average
+        day_avg_lines = day_metrics["lines"] / day_metrics["commits"]
+        size_factor = (
+            day_avg_lines / avg_lines_per_commit if avg_lines_per_commit > 0 else 1
+        )
+
+        # Apply a dampening function to avoid over-emphasizing very large commits
+        size_adjustment = math.log2(1 + size_factor)
+
+        # Combine number of commits with size adjustment
+        normalized[date] = day_metrics["commits"] * size_adjustment
+
+    return normalized
+
+
+def create_weekday_heatmap(metrics: dict[str, dict[str, int]], ax: plt.Axes) -> None:
+    """Create a heatmap showing average commits by day of week"""
+    # Initialize data structure for day-of-week aggregation
+    weekday_data = defaultdict(lambda: {"commits": [], "lines": []})
+
+    # Aggregate data by day of week
+    for date_str, day_metrics in metrics.items():
+        date = datetime.strptime(date_str, "%Y-%m-%d")
+        weekday = date.strftime("%A")  # Full weekday name
+        weekday_data[weekday]["commits"].append(day_metrics["commits"])
+        weekday_data[weekday]["lines"].append(day_metrics["lines"])
+
+    # Calculate averages
+    weekday_order = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ]
+    commit_avgs = [
+        (
+            sum(weekday_data[day]["commits"]) / len(weekday_data[day]["commits"])
+            if weekday_data[day]["commits"]
+            else 0
+        )
+        for day in weekday_order
+    ]
+
+    # Create heatmap
+    data = np.array([commit_avgs])
+    im = ax.imshow(data, aspect="auto", cmap="YlOrRd")
+
+    # Customize appearance
+    ax.set_xticks(range(len(weekday_order)))
+    ax.set_xticklabels(weekday_order, rotation=45)
+    ax.set_yticks([])
+
+    # Add color bar
+    plt.colorbar(im, ax=ax, orientation="vertical", label="Average Commits")
+    ax.set_title("Average Commits by Day of Week")
+
+    # Add value annotations
+    for i, avg in enumerate(commit_avgs):
+        ax.text(i, 0, f"{avg:.1f}", ha="center", va="center")
 
 
 def process_repository(
@@ -445,6 +518,9 @@ def main() -> None:
         action="store_true",
         help="Show lines changed per commit (only valid with --metric lines)",
     )
+    parser.add_argument(
+        "-H", "--heatmap", action="store_true", default=False, help="Show a heatmap"
+    )
     args = parser.parse_args()
 
     if args.per_commit and args.metric != "lines":
@@ -472,11 +548,7 @@ def main() -> None:
     if args.aggregate:
         # Just show aggregated view without processing any repositories
         GitMetricsTracker.plot_aggregated_metrics(
-            start_date,
-            end_date,
-            args.period,
-            metric=args.metric,
-            per_commit=args.per_commit,
+            start_date, end_date, period=args.period, show_heatmap=args.heatmap
         )
         return
 
@@ -519,11 +591,7 @@ def main() -> None:
 
     # Show aggregated view after processing
     GitMetricsTracker.plot_aggregated_metrics(
-        start_date,
-        end_date,
-        args.period,
-        metric=args.metric,
-        per_commit=args.per_commit,
+        start_date, end_date, period=args.period, show_heatmap=args.heatmap
     )
 
 
