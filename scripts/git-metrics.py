@@ -356,23 +356,7 @@ def create_weekday_heatmap(
     end_date: datetime,
     ax: plt.Axes,
 ) -> None:
-    """Create a heatmap showing average commits by day of week"""
-    # Initialize data structure for day-of-week aggregation
-    weekday_data = defaultdict(lambda: {"total_commits": 0, "count_days": 0})
-
-    # Iterate through all days in the range
-    current_date = start_date
-    while current_date <= end_date:
-        weekday = current_date.strftime("%A")  # Full weekday name
-        date_str = current_date.strftime("%Y-%m-%d")
-
-        # Count this day and add its commits (if any)
-        weekday_data[weekday]["count_days"] += 1
-        if date_str in metrics:
-            weekday_data[weekday]["total_commits"] += metrics[date_str]["commits"]
-
-        current_date += timedelta(days=1)
-    # Calculate averages
+    """Create a heatmap showing average commits by day of week, split by odd/even weeks"""
     weekday_order = [
         "Sunday",
         "Monday",
@@ -382,27 +366,56 @@ def create_weekday_heatmap(
         "Friday",
         "Saturday",
     ]
-    commit_avgs = [
-        weekday_data[day]["total_commits"] / weekday_data[day]["count_days"]
-        for day in weekday_order
-    ]
+    # Initialize data structure for two-week aggregation
+    week_data = {
+        "odd": defaultdict(lambda: {"total_commits": 0, "count_days": 0}),
+        "even": defaultdict(lambda: {"total_commits": 0, "count_days": 0}),
+    }
+
+    # Iterate through all days in the range
+    current_date = start_date
+    while current_date <= end_date:
+        weekday = current_date.strftime("%A")
+        date_str = current_date.strftime("%Y-%m-%d")
+        week_type = "even" if current_date.isocalendar()[1] % 2 == 0 else "odd"
+
+        # Count this day and add its commits (if any)
+        week_data[week_type][weekday]["count_days"] += 1
+        if date_str in metrics:
+            week_data[week_type][weekday]["total_commits"] += metrics[date_str][
+                "commits"
+            ]
+
+        current_date += timedelta(days=1)
+
+    # Calculate averages for both weeks
+    averages = np.zeros((2, len(weekday_order)))
+    for i, week_type in enumerate(["odd", "even"]):
+        for j, day in enumerate(weekday_order):
+            data = week_data[week_type][day]
+            averages[i, j] = (
+                data["total_commits"] / data["count_days"]
+                if data["count_days"] > 0
+                else 0
+            )
 
     # Create heatmap
-    data = np.array([commit_avgs])
-    im = ax.imshow(data, aspect="auto", cmap="YlOrRd")
+    im = ax.imshow(averages, aspect="auto", cmap="YlOrRd")
 
     # Customize appearance
     ax.set_xticks(range(len(weekday_order)))
     ax.set_xticklabels(weekday_order, rotation=45)
-    ax.set_yticks([])
+    ax.set_yticks([0, 1])
+    ax.set_yticklabels(["Odd Weeks", "Even Weeks"])
 
     # Add color bar
     plt.colorbar(im, ax=ax, orientation="vertical", label="Average Commits")
-    ax.set_title("Average Commits by Day of Week")
+    ax.set_title("Average Commits by Day of Week (Two-Week Cycle)")
 
     # Add value annotations
-    for i, avg in enumerate(commit_avgs):
-        ax.text(i, 0, f"{avg:.1f}", ha="center", va="center")
+    for i in range(2):
+        for j in range(len(weekday_order)):
+            ax.text(j, i, f"{averages[i, j]:.1f}", ha="center", va="center")
 
 
 def process_repository(
