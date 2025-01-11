@@ -302,7 +302,9 @@ class GitMetricsTracker:
 
         # Create day-of-week heatmap if showing daily data
         if period == "daily" and show_heatmap:
-            create_weekday_heatmap(metrics, ax2)
+            create_weekday_heatmap(
+                metrics, start_date=start_date, end_date=end_date, ax=ax2
+            )
         else:
             fig.delaxes(ax2)
             fig.set_size_inches(12, 6)
@@ -348,18 +350,28 @@ def calculate_normalized_commits(
     return normalized
 
 
-def create_weekday_heatmap(metrics: dict[str, dict[str, int]], ax: plt.Axes) -> None:
+def create_weekday_heatmap(
+    metrics: dict[str, dict[str, int]],
+    start_date: datetime,
+    end_date: datetime,
+    ax: plt.Axes,
+) -> None:
     """Create a heatmap showing average commits by day of week"""
     # Initialize data structure for day-of-week aggregation
-    weekday_data = defaultdict(lambda: {"commits": [], "lines": []})
+    weekday_data = defaultdict(lambda: {"total_commits": 0, "count_days": 0})
 
-    # Aggregate data by day of week
-    for date_str, day_metrics in metrics.items():
-        date = datetime.strptime(date_str, "%Y-%m-%d")
-        weekday = date.strftime("%A")  # Full weekday name
-        weekday_data[weekday]["commits"].append(day_metrics["commits"])
-        weekday_data[weekday]["lines"].append(day_metrics["lines"])
+    # Iterate through all days in the range
+    current_date = start_date
+    while current_date <= end_date:
+        weekday = current_date.strftime("%A")  # Full weekday name
+        date_str = current_date.strftime("%Y-%m-%d")
 
+        # Count this day and add its commits (if any)
+        weekday_data[weekday]["count_days"] += 1
+        if date_str in metrics:
+            weekday_data[weekday]["total_commits"] += metrics[date_str]["commits"]
+
+        current_date += timedelta(days=1)
     # Calculate averages
     weekday_order = [
         "Sunday",
@@ -371,11 +383,7 @@ def create_weekday_heatmap(metrics: dict[str, dict[str, int]], ax: plt.Axes) -> 
         "Saturday",
     ]
     commit_avgs = [
-        (
-            sum(weekday_data[day]["commits"]) / len(weekday_data[day]["commits"])
-            if weekday_data[day]["commits"]
-            else 0
-        )
+        weekday_data[day]["total_commits"] / weekday_data[day]["count_days"]
         for day in weekday_order
     ]
 
