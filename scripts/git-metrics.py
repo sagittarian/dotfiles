@@ -377,7 +377,15 @@ def create_weekday_heatmap(
     while current_date <= end_date:
         weekday = current_date.strftime("%A")
         date_str = current_date.strftime("%Y-%m-%d")
-        week_type = "even" if current_date.isocalendar()[1] % 2 == 0 else "odd"
+
+        # For Sundays, use the next day's week number
+        if weekday == "Sunday":
+            next_day = current_date + timedelta(days=1)
+            week_num = next_day.isocalendar()[1]
+        else:
+            week_num = current_date.isocalendar()[1]
+
+        week_type = "even" if week_num % 2 == 0 else "odd"
 
         # Count this day and add its commits (if any)
         week_data[week_type][weekday]["count_days"] += 1
