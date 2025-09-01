@@ -24,6 +24,10 @@
 (evil-define-key 'normal python-mode-map (kbd "SPC \\ B") 'python-black-buffer)
 (evil-define-key 'normal python-mode-map (kbd "SPC \\ i") 'py-isort-buffer)
 
+;; Rust
+(evil-define-key 'normal rust-mode-map (kbd "SPC \\ B") 'rust-format-buffer)
+(evil-define-key 'visual rust-mode-map (kbd "SPC \\ B") 'rust-format-buffer)
+
 ;; misc
 ;; Need to toggle importmagic-mode sometimes to get it to work
 (evil-define-key 'normal ara/keymap (kbd "SPC M") 'importmagic-mode)
@@ -31,15 +35,22 @@
 (define-key ara/keymap (kbd "C-S-g") 'keyboard-quit)
 (define-key ivy-minibuffer-map (kbd "C-S-g") 'minibuffer-keyboard-quit)
 (define-key ara/keymap (kbd "M-+") 'other-window)
-(define-key ara/keymap (kbd "C-+") 'ace-window)
+;; (define-key ara/keymap (kbd "C-+") 'ace-window)
 (define-key ara/keymap (kbd "C-M-+") 'ara/switch-to-current-buffer-other-window)
-(evil-global-set-key 'normal (kbd "SPC +")
-                     'ara/switch-to-current-buffer-other-window)
+(evil-define-key 'normal ara/keymap (kbd "SPC o") 'ara/switch-to-current-buffer-other-window)
+;; (evil-global-set-key 'normal (kbd "SPC +")
+;;                      'ara/switch-to-current-buffer-other-window)
 ;; (define-key ara/keymap (kbd "M-<return>") 'am-open-next-line)
 (define-key ara/keymap (kbd "C-M-)") 'make-frame-command)
 (define-key ara/keymap (kbd "C-)") 'make-frame-command)
 (evil-define-key 'normal ara/keymap (kbd "SPC )") 'make-frame-command)
+(evil-define-key 'normal ara/keymap (kbd "SPC }") 'split-window-right)
+(evil-define-key 'normal ara/keymap (kbd "SPC 3") 'split-window-right)
+(evil-define-key 'normal ara/keymap (kbd "SPC 2") 'split-window-below)
+(evil-define-key 'normal ara/keymap (kbd "SPC #") 'bury-buffer)
 (define-key ara/keymap (kbd "s-;") 'delete-frame)
+(evil-define-key 'normal ara/keymap (kbd "SPC B") 'ivy-switch-buffer)
+(evil-define-key 'normal ara/keymap (kbd "SPC SPC b") 'list-buffers)
 ;; (define-key ara/keymap (kbd "C-M-}") 'split-window-right)
 
 ;; expand region
@@ -58,6 +69,7 @@
 ;; (define-key ara/keymap (kbd "C-<tab>") 'yas-expand)
 (define-key ara/keymap (kbd "C-c <tab>") 'yas-expand)
 ;; (global-unset-key (kbd "C-<tab>"))
+;; (define-key ara/keymap (kbd "C-<tab>") 'yas-expand)
 
 (define-key ara/keymap (kbd "C-c c") 'org-capture)
 (defhydra hydra-org-todo ()
@@ -81,10 +93,34 @@
   (evil-end-of-line)
   (evil-paste-after 1))
 (evil-define-key 'normal org-mode-map (kbd "SPC o p") 'ara/org-paste-item-below)
+(evil-define-key 'insert org-mode-map (kbd "M-RET") 'org-meta-return)
 
 ;; more discoverablitity from which-key
 (define-key ara/keymap (kbd "C-c h") 'which-key-show-full-major-mode)
 (define-key ara/keymap (kbd "C-c C-h") 'which-key-show-full-minor-mode-keymap)
+
+;; copilot
+(define-key copilot-mode-map (kbd "C-S-c TAB") 'copilot-accept-completion)
+(define-key copilot-mode-map (kbd "C-<tab>") 'copilot-accept-completion)
+;; (define-key copilot-mode-map (kbd "<tab>") 'copilot-accept-completion)
+(keymap-unset copilot-mode-map (kbd "<tab>"))
+(define-key copilot-mode-map (kbd "C-f") 'copilot-accept-completion-by-word)
+(define-key copilot-mode-map (kbd "C-n") 'copilot-accept-completion-by-line)
+(define-key copilot-mode-map (kbd "M-<tab>") 'copilot-complete)
+(define-key copilot-mode-map (kbd "C-+") 'copilot-next-completion)
+(define-key copilot-mode-map (kbd "C--") 'copilot-previous-completion)
+
+;; eglot
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e r") 'eglot-rename)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e h m") 'eglot-manual)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e d") 'eglot-find-declaration)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e i") 'eglot-find-implementation)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e c i") 'eglot-code-action-inline)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e c q") 'eglot-code-action-quickfix)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e c a") 'eglot-code-actions)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e c e") 'eglot-code-action-extract)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e c o") 'eglot-code-action-organize-imports)
+(evil-define-key '(normal visual) eglot-mode-map (kbd "SPC e c r") 'eglot-code-action-rewrite)
 
 ;; imenu
 (define-key ara/keymap (kbd "C-x i") 'imenu)
@@ -117,14 +153,20 @@
                  (evil-global-set-key state (kbd "C-c [") 'evil-normal-state)
                  (evil-global-set-key state (kbd "C-S-n") 'evil-normal-state)
                  (evil-global-set-key state (kbd "C-n") 'evil-normal-state)
+                 (evil-global-set-key state (kbd "M-n") 'evil-normal-state)
                  (evil-global-set-key state (kbd "C-*") 'evil-normal-state)))
 
 (evil-global-set-key 'insert (kbd "C-_") 'evil-normal-state)
 (evil-global-set-key 'insert (kbd "S-SPC") 'evil-normal-state)  ;; doesn't work
                                                                 ;; on a terminal
-(evil-global-set-key 'insert (kbd "M-RET") 'evil-normal-state)
+(evil-global-set-key 'insert (kbd "C-S-n") 'evil-complete-next)
+;; (evil-global-set-key 'insert (kbd "M-RET") 'evil-normal-state)
 (evil-global-set-key 'normal (kbd "g R") 'revert-buffer)
 ;; (evil-global-set-key 'insert (kbd "C-S-n") 'evil-normal-state)
+(evil-global-set-key 'normal (kbd "SPC +") 'ctl-x-4-prefix)
+(evil-global-set-key 'normal (kbd "SPC {") 'ctl-x-5-prefix)
+(evil-global-set-key 'normal (kbd "SPC 1") 'delete-other-windows)
+(evil-global-set-key 'normal (kbd "SPC (") 'delete-other-windows)
 
 (defun ara/evil-global-set-key-all-states
     (key def &optional exclude-states)
@@ -180,6 +222,7 @@
 (define-key (current-global-map) [remap isearch-forward-symbol-at-point]
   'swiper-isearch-thing-at-point)
 (define-key swiper-map (kbd "C-r") 'ara/swiper-C-r)
+(evil-define-key 'normal (current-global-map) (kbd "SPC s") 'swiper)
 
 ;; string-inflection
 (require 'string-inflection)
@@ -197,6 +240,8 @@
                 'hydra-string-inflection/string-inflection-cycle)
 (define-key ara/keymap (kbd "C-c -")
                 'hydra-string-inflection/string-inflection-cycle)
+(evil-define-key 'normal ara/keymap (kbd "SPC -")
+  'hydra-string-inflection/string-inflection-cycle)
 ;; (define-key python-mode-map (kbd "C-c C--")
 ;;   'string-inflection-python-style-cycle)
 (define-key python-mode-map (kbd "C-c C--")
@@ -205,20 +250,34 @@
   'hydra-string-inflection/string-inflection-all-cycle)
 (define-key python-mode-map (kbd "C-c _")
   'hydra-string-inflection/string-inflection-all-cycle)
+(evil-define-key 'normal python-mode-map (kbd "SPC -")
+  'hydra-string-inflection/string-inflection-cycle)
+(evil-define-key 'normal python-mode-map (kbd "SPC _")
+  'hydra-string-inflection/string-inflection-all-cycle)
+
+;; quoted-insert
+(evil-define-key 'normal ara/keymap (kbd "SPC q") 'quoted-insert)
 
 ;; help
 (evil-define-key 'normal ara/keymap (kbd "SPC h") 'help-command)
 
 ;; magit
 (require 'magit)
-(define-key ara/keymap (kbd "C-c g g") 'magit-status-quick)
+;; (define-key ara/keymap (kbd "C-c g g") 'magit-status-quick)
 (define-key ara/keymap (kbd "C-x g") 'magit-status-quick)
 (define-key ara/keymap (kbd "C-x G") 'magit-status)
+(evil-define-key 'normal ara/keymap (kbd "SPC g") 'magit-status-quick)
+(evil-define-key 'normal ara/keymap (kbd "SPC G") 'magit-status)
 ;; (define-key ara/keymap (kbd "C-M-g") 'magit-status)
 (define-key ara/keymap (kbd "C-S-m") 'magit-status)
 (define-key ara/keymap (kbd "C-c g b") 'magit-blame)
 (define-key ara/keymap (kbd "C-c g B") 'magit-blame-popup)
 (define-key ara/keymap (kbd "C-c g t") 'git-timemachine)
+;;
+(evil-define-key '(normal visual) ara/keymap (kbd "SPC g g") 'magit-status-quick)
+(evil-define-key '(normal visual) ara/keymap (kbd "SPC g b") 'magit-blame)
+(evil-define-key '(normal visual) ara/keymap (kbd "SPC g B") 'magit-blame-popup)
+(evil-define-key '(normal visual) ara/keymap (kbd "SPC g t") 'git-timemachine)
 (define-key magit-status-mode-map (kbd "S-<return>") 'magit-diff-visit-file-other-window)
 
 ;; git-gutter+
@@ -249,6 +308,7 @@
 (define-key git-gutter+-mode-map (kbd "C-c u") 'hydra-git-gutter+/body)
 (evil-define-key
   '(normal visual) git-gutter+-mode-map (kbd "SPC u") 'hydra-git-gutter+/body)
+(define-key git-gutter+-mode-map (kbd "M-S") 'git-gutter+-stage-hunks)
 
 
 ;; custom commands
@@ -265,7 +325,7 @@
 (define-key ara/keymap (kbd "C-c M-T") (lambda ()
                                   (interactive)
                                   (find-file araizen/todo-lrn-filename)))
-(define-key ara/keymap (kbd "C-c j") 'find-projects)
+;; (define-key ara/keymap (kbd "C-c j") 'find-projects)
 (define-key ara/keymap (kbd "C-c m") 'switch-to-minibuffer)
 (define-key ara/keymap (kbd "C-x M-e") 'eval-and-replace)
 (define-key ara/keymap (kbd "C-c w") 'ara/buffer-current-name)
@@ -311,6 +371,7 @@
 (define-key ara/keymap (kbd "M-g SPC") 'avy-goto-word-0)
 ;; (define-key ara/keymap (kbd "C-M-g") 'avy-goto-word-1)
 (define-key ara/keymap (kbd "C-M-g") 'avy-goto-char-timer)
+(evil-define-key 'normal ara/keymap (kbd "SPC t") 'avy-goto-char-timer)
 ;; avy kill/save/copy
 (evil-define-key 'normal ara/keymap (kbd "SPC d d") 'avy-kill-whole-line)
 (evil-define-key 'normal ara/keymap (kbd "SPC y y") 'avy-kill-ring-save-whole-line)
@@ -318,10 +379,14 @@
 (evil-define-key 'normal ara/keymap (kbd "SPC y v") 'avy-kill-ring-save-region)
 (evil-define-key 'normal ara/keymap (kbd "SPC y p") 'avy-copy-line)
 (evil-define-key 'normal ara/keymap (kbd "SPC y P") 'avy-copy-region)
+(evil-define-key 'normal ara/keymap (kbd "SPC y w") 'avy-move-line)
+(evil-define-key 'normal ara/keymap (kbd "SPC y W") 'avy-move-region)
 ;; (evil-define-key 'normal ara/keymap "C-a" 'avy-goto-word-0)
 
 
 (define-key ara/keymap (kbd "C-c j") 'avy-goto-char-timer)
+(evil-define-key 'normal ara/keymap (kbd "SPC J") 'avy-goto-char-timer)
+(evil-define-key 'normal ara/keymap (kbd "SPC j") 'avy-goto-word-or-subword-1)
 (define-key ara/keymap (kbd "C-c C-w") 'avy-move-on)
 (define-key ara/keymap (kbd "C-c C-x C-w") 'avy-move-region)
 (define-key ara/keymap (kbd "C-c C-k") 'avy-move-line)
@@ -397,9 +462,6 @@
 ;; ;; Start proced in a similar manner to dired
 (define-key ara/keymap (kbd "C-x p") 'proced)
 
-;; yasnippet
-(define-key ara/keymap (kbd "C-<tab>") 'yas-expand)
-
 ;; beeminder
 (define-key ara/keymap (kbd "C-c b a") 'beeminder-add-data)
 (define-key ara/keymap (kbd "C-c b w") 'beeminder-whoami)
@@ -414,6 +476,8 @@
   'normal projectile-mode-map (kbd "SPC p") 'projectile-command-map)
 (evil-define-key
   'normal projectile-mode-map (kbd "SPC f") 'projectile-find-file)
+(evil-define-key
+  'normal projectile-mode-map (kbd "SPC b") 'projectile-switch-to-buffer)
 ;; (define-key projectile-mode-map (kbd "C-S-f") 'projectile-find-file)
 ;; (define-key projectile-mode-map (kbd "C-M-S-f") 'projectile-find-file-other-window)
 (defun ar--projectile-find-file-maybe-other-window (other-window)

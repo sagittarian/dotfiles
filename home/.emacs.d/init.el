@@ -205,6 +205,8 @@
 ;; (add-hook 'c-mode-hook 'fci-mode)
 ;; (add-hook 'emacs-lisp-mode-hook 'fci-mode)
 
+(add-hook 'python-mode-hook 'eglot)
+(add-hook 'rust-mode-hook 'eglot)
 
 ;; js-doc
 (setq js-doc-mail-address "adam@mesha.org"
@@ -371,6 +373,16 @@
 (put 'narrow-to-defun  'disabled nil)
 (put 'narrow-to-page   'disabled nil)
 (put 'narrow-to-region 'disabled nil)
+
+;; Enable Copilot
+(require 'copilot)
+(copilot-diagnose)
+(add-hook 'prog-mode-hook 'copilot-mode)
+
+;; (add-hook 'rust-mode (lambda () (copilot-mode t)))
+(add-hook 'rust-mode-hook 'copilot-mode)
+;; (remove-hook 'rust-mode 'copilot-mode)
+(add-hook 'python-mode-hook 'copilot-mode)
 
 (load "functions")
 (load "keybindings")

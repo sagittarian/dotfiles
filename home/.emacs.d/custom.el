@@ -65,6 +65,7 @@
  '(compilation-auto-jump-to-first-error nil)
  '(compilation-scroll-output 'first-error)
  '(compilation-search-path nil)
+ '(copilot-node-executable "/home/adam/.local/bin/node")
  '(counsel-mode t)
  '(css-indent-offset 2)
  '(current-language-environment "UTF-8")
@@ -103,7 +104,7 @@
  '(erc-save-queries-on-quit nil)
  '(evil-collection-setup-minibuffer t)
  '(evil-emacs-state-modes
-   '(5x5-mode bbdb-mode biblio-selection-mode blackbox-mode bookmark-edit-annotation-mode browse-kill-ring-mode bs-mode bubbles-mode bzr-annotate-mode cfw:calendar-mode completion-list-mode delicious-search-mode desktop-menu-blist-mode desktop-menu-mode dun-mode dvc-bookmarks-mode dvc-diff-mode dvc-info-buffer-mode dvc-log-buffer-mode dvc-revlist-mode dvc-revlog-mode dvc-status-mode dvc-tips-mode ediff-meta-mode efs-mode Electric-buffer-menu-mode emms-browser-mode emms-mark-mode emms-metaplaylist-mode emms-playlist-mode ess-help-mode etags-select-mode fj-mode gc-issues-mode gdb-breakpoints-mode gdb-disassembly-mode gdb-frames-mode gdb-locals-mode gdb-memory-mode gdb-registers-mode gdb-threads-mode gist-list-mode gomoku-mode google-maps-static-mode jde-javadoc-checker-report-mode magit-popup-mode magit-popup-sequence-mode mh-folder-mode monky-mode mpuz-mode mu4e-main-mode mu4e-headers-mode mu4e-view-mode notmuch-hello-mode notmuch-search-mode notmuch-show-mode notmuch-tree-mode org-agenda-mode pdf-outline-buffer-mode pdf-view-mode rcirc-mode rebase-mode recentf-dialog-mode reftex-select-bib-mode reftex-select-label-mode reftex-toc-mode sldb-mode slime-inspector-mode slime-thread-control-mode slime-xref-mode snake-mode solitaire-mode sr-buttons-mode sr-mode sr-tree-mode sr-virtual-mode tetris-mode tla-annotate-mode tla-archive-list-mode tla-bconfig-mode tla-bookmarks-mode tla-branch-list-mode tla-browse-mode tla-category-list-mode tla-changelog-mode tla-follow-symlinks-mode tla-inventory-file-mode tla-inventory-mode tla-lint-mode tla-logs-mode tla-revision-list-mode tla-revlog-mode tla-tree-lint-mode tla-version-list-mode twittering-mode urlview-mode vc-annotate-mode vc-dir-mode vc-hg-log-view-mode vc-svn-log-view-mode vm-mode vm-summary-mode wab-compilation-mode xgit-annotate-mode xgit-changelog-mode xgit-diff-mode xgit-revlog-mode xhg-annotate-mode xhg-log-mode xhg-mode xhg-mq-mode xhg-mq-sub-mode xhg-status-extra-mode w3m-mode))
+   '(5x5-mode bbdb-mode biblio-selection-mode blackbox-mode bookmark-edit-annotation-mode browse-kill-ring-mode bs-mode bubbles-mode bzr-annotate-mode cfw:calendar-mode completion-list-mode delicious-search-mode desktop-menu-blist-mode desktop-menu-mode dun-mode dvc-bookmarks-mode dvc-diff-mode dvc-info-buffer-mode dvc-log-buffer-mode dvc-revlist-mode dvc-revlog-mode dvc-status-mode dvc-tips-mode ediff-meta-mode efs-mode Electric-buffer-menu-mode emms-browser-mode emms-mark-mode emms-metaplaylist-mode emms-playlist-mode ess-help-mode etags-select-mode fj-mode gc-issues-mode gdb-breakpoints-mode gdb-disassembly-mode gdb-frames-mode gdb-locals-mode gdb-memory-mode gdb-registers-mode gdb-threads-mode gist-list-mode gomoku-mode google-maps-static-mode jde-javadoc-checker-report-mode magit-popup-mode magit-popup-sequence-mode mh-folder-mode monky-mode mpuz-mode mu4e-main-mode mu4e-headers-mode mu4e-view-mode notmuch-hello-mode notmuch-search-mode notmuch-show-mode notmuch-tree-mode org-agenda-mode pdf-outline-buffer-mode pdf-view-mode rcirc-mode rebase-mode recentf-dialog-mode reftex-select-bib-mode reftex-select-label-mode reftex-toc-mode sldb-mode slime-inspector-mode slime-thread-control-mode slime-xref-mode snake-mode solitaire-mode sr-buttons-mode sr-mode sr-tree-mode sr-virtual-mode tetris-mode tla-annotate-mode tla-archive-list-mode tla-bconfig-mode tla-bookmarks-mode tla-branch-list-mode tla-browse-mode tla-category-list-mode tla-changelog-mode tla-follow-symlinks-mode tla-inventory-file-mode tla-inventory-mode tla-lint-mode tla-logs-mode tla-revision-list-mode tla-revlog-mode tla-tree-lint-mode tla-version-list-mode twittering-mode urlview-mode vc-annotate-mode vc-dir-mode vm-mode vm-summary-mode wab-compilation-mode xgit-annotate-mode xgit-changelog-mode xgit-diff-mode xgit-revlog-mode xhg-annotate-mode xhg-log-mode xhg-mode xhg-mq-mode xhg-mq-sub-mode xhg-status-extra-mode))
  '(evil-overriding-maps '((swiper-map) (winnow-mode-map) (ivy-minibuffer-map)))
  '(evil-symbol-word-search t)
  '(evil-want-keybinding nil)
@@ -202,6 +203,7 @@
  '(magit-diff-options '("--patience" "-b"))
  '(magit-diff-refine-hunk t)
  '(magit-diff-section-arguments '("--no-ext-diff"))
+ '(magit-diff-visit-previous-blob nil)
  '(magit-process-popup-time 1)
  '(magit-restore-window-configuration t)
  '(makefile-mode-hook '((lambda nil (set-variable 'tab-width 8))))
@@ -222,7 +224,7 @@
            5]
      org-babel-result-hide-spec org-babel-hide-all-hashes wc-mode))
  '(package-selected-packages
-   '(py-isort cython-mode protobuf-mode typescript-mode ivy-hydra imenu-anywhere powershell treemacs-all-the-icons treemacs-evil treemacs-magit treemacs-projectile lsp-treemacs lsp-ivy lsp-mode lsp-ui evil-collection evil-avy evil-tutor evil god-mode elpy rg keyfreq diminish ace-window winum json-navigator python-black counsel all-the-icons-ivy all-the-icons-completion all-the-icons-ibuffer all-the-icons-ivy-rich restclient avy flycheck flymake-easy hydra js2-mode json-mode json-reformat move-text pyvenv yasnippet idle-highlight-in-visible-buffers-mode use-package phps-mode php-mode ini-mode tide go-mode elpygen importmagic indent-tools pygen pyimport format-all flycheck-kotlin kotlin-mode w3m smartscan f traad git-gutter-fringe+ string-inflection string-utils sql-indent format-sql dired-subtree groovy-mode pylint annoying-arrows-mode all-the-icons-dired dired-sidebar markdown-mode abyss-theme js-doc git-timemachine yaml-mode winnow which-key wc-mode swiper ssass-mode smex smartparens scss-mode projectile marcopolo magit js2-refactor jinja2-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag))
+   '(nvm rg all-the-icons-dired diminish magit elpy python-black arscript-mode dired-imenu python python-environment python-x yaml-imenu project eglot flycheck-pos-tip powerline powerline-evil python-docstring python-isort python-switch-quotes python-test copilot editorconfig quelpa-use-package quelpa terraform-doc terraform-mode racer rust-auto-use cargo cargo-mode flycheck-rust py-isort cython-mode protobuf-mode ivy-hydra imenu-anywhere powershell evil-collection evil-avy evil-tutor evil keyfreq ace-window winum json-navigator counsel all-the-icons-ivy all-the-icons-completion all-the-icons-ibuffer all-the-icons-ivy-rich restclient avy flycheck flymake-easy hydra js2-mode json-mode json-reformat move-text pyvenv yasnippet idle-highlight-in-visible-buffers-mode use-package phps-mode php-mode ini-mode tide go-mode elpygen importmagic indent-tools pygen pyimport format-all flycheck-kotlin kotlin-mode w3m smartscan f traad git-gutter-fringe+ string-inflection string-utils sql-indent format-sql dired-subtree groovy-mode pylint annoying-arrows-mode dired-sidebar markdown-mode abyss-theme js-doc git-timemachine yaml-mode winnow which-key wc-mode swiper ssass-mode smex smartparens scss-mode projectile marcopolo js2-refactor jinja2-mode ggtags flymake-yaml flymake-json flymake-jshint flymake-hlint flycheck-haskell flycheck-ghcmod fill-column-indicator expand-region dockerfile-mode docker-api docker ansible-doc ag))
  '(prog-mode-hook
    '((lambda nil
        (setq show-trailing-whitespace t))
@@ -237,6 +239,7 @@
  '(projectile-mode t nil (projectile))
  '(projectile-sort-order 'recently-active)
  '(projectile-switch-project-action 'magit-status-quick)
+ '(projectile-tags-backend 'etags-select)
  '(projectile-use-git-grep t)
  '(py-isort-options '("--profile" "black"))
  '(python-black-extra-args nil)
@@ -248,8 +251,8 @@
  '(python-skeleton-autoinsert t)
  '(pyvenv-mode t)
  '(require-final-newline t)
- '(rg-keymap-prefix "s")
- '(safe-local-variable-values '((js-indent-level 2) (indent-tabs-mode\. t)))
+ '(rg-keymap-prefix "\3\3s")
+ '(safe-local-variable-values '((js-indent-level 2) (indent-tabs-mode. t)))
  '(save-interprogram-paste-before-kill t)
  '(save-place-file "~/.emacs.d/places")
  '(save-place-mode t nil (saveplace))
@@ -269,6 +272,7 @@
  '(swiper-isearch-highlight-delay '(3 0.5))
  '(swiper-min-highlight 3)
  '(tab-width 4)
+ '(tags-add-tables nil)
  '(text-mode-hook
    '(er/add-text-mode-expansions text-mode-hook-identify scroll-lock-mode))
  '(tool-bar-mode nil)
@@ -324,7 +328,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil))))
+ '(default ((t (:height 105 :width condensed :family "Liberation Mono"))))
  '(avy-lead-face ((t (:background "dark red" :foreground "white"))))
  '(avy-lead-face-0 ((t (:background "medium blue" :foreground "white"))))
  '(avy-lead-face-2 ((t (:background "dark magenta" :foreground "white"))))

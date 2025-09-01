@@ -1,5 +1,6 @@
 * adding
-  - sudo dd if=/dev/zero of=/swapfile bs=1024 count=33554432
+  - sudo dd if=/dev/zero of=/swapfile bs=1024 count=33554432  # 32GiB
+  - sudo dd if=/dev/zero of=/swapfile bs=1024 count=67108864  # 64GiB
   - sudo mkswap /swapfile
   - sudo chmod 600 /swapfile
   - sudo swapon /swapfile

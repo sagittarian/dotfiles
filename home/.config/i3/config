@@ -32,10 +32,10 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # Easy access to various programs
-bindsym $mod+m exec emacsclient -n -c
+bindsym $mod+m exec /snap/bin/emacs.emacsclient -n -c
 bindsym $mod+Control+d exec dolphin
 bindsym $mod+Control+m exec dolphin ~/media
-bindsym $mod+Control+e exec emacsclient -n -c
+bindsym $mod+Control+e exec /snap/bin/emacs.emacsclient -n -c
 bindsym $mod+Control+g exec google-chrome --new-window
 bindsym $mod+Control+w exec firefox -P work -new-window
 bindsym $mod+Control+f exec firefox -P main -new-window
@@ -228,6 +228,7 @@ exec unity-settings-daemon
 exec pavucontrol
 exec ksysguard
 exec clipit
-exec emacs27
+# exec emacs
+exec /snap/bin/emacs
 # exec kalarm
 # exec dropbox start

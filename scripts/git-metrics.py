@@ -168,7 +168,7 @@ class GitMetricsTracker:
 
         return dict(daily_metrics)
 
-    def save_metrics(self, metrics: dict[str, int]) -> None:
+    def save_metrics(self, metrics: dict[str, dict[str, int]]) -> None:
         """Save metrics to repository-specific JSON file"""
         branch = self.get_default_remote_branch()
         data_file = self.get_data_file(branch)

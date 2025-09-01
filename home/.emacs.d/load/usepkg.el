@@ -5,6 +5,43 @@
 
 ;;; Code:
 
+;; (defvar bootstrap-version)
+;; (let ((bootstrap-file
+;;        (expand-file-name
+;;         "straight/repos/straight.el/bootstrap.el"
+;;         (or (bound-and-true-p straight-base-dir)
+;;             user-emacs-directory)))
+;;       (bootstrap-version 7))
+;;   (unless (file-exists-p bootstrap-file)
+;;     (with-current-buffer
+;;         (url-retrieve-synchronously
+;;          "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+;;          'silent 'inhibit-cookies)
+;;       (goto-char (point-max))
+;;       (eval-print-last-sexp)))
+;;   (load bootstrap-file nil 'nomessage))
+
+
+
+(unless (package-installed-p 'quelpa)
+  (with-temp-buffer
+    (url-insert-file-contents "https://raw.githubusercontent.com/quelpa/quelpa/master/quelpa.el")
+    (eval-buffer)
+    (quelpa-self-upgrade)))
+
+;; (quelpa
+;;  '(quelpa-use-package
+;;    :fetcher git
+;;    :url "https://github.com/quelpa/quelpa-use-package.git"))
+(require 'quelpa-use-package)
+
+(use-package copilot
+  :quelpa (copilot :fetcher github
+                   :repo "copilot-emacs/copilot.el"
+                   :branch "main"
+                   :files ("dist" "*.el")))
+
+
 (use-package python
   :config
   ;; (add-hook 'python-mode-hook 'anaconda-mode)
@@ -12,7 +49,8 @@
   (add-hook 'python-mode-hook
             (lambda () (set-variable parens-require-spaces nil t)))
   (add-hook 'python-mode-hook
-            (lambda nil (setq fill-column 95))))
+            (lambda nil (setq fill-column 95)))
+  (add-hook 'python-mode-hook 'copilot-mode))
 
 
 ;; (add-hook 'python-mode-hook (lambda () (set-variable 'tab-width 4)))
@@ -45,7 +83,8 @@
 
 (use-package flycheck-pos-tip
   :after (flycheck)
-  :init (flycheck-pos-tip-mode 1))
+  ;; :init (flycheck-pos-tip-mode 1)
+  )
 
 ;; (use-package flycheck-grammarly
 ;;   :after (flycheck)
@@ -64,6 +103,5 @@
   (diminish 'smartparens-mode)
   (diminish 'git-gutter+-mode)
   (diminish 'flycheck-mode))
-
 
 (provide 'usepkg)
