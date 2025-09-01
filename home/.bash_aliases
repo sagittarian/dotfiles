@@ -579,9 +579,37 @@ alias killco="pgrep 'Isolated Web Co' | tail | xargs kill"
 
 
 function responsibility {
-    regex=${1:-.py$}
-    fullblame=$(git ls-files | grep "$regex" | xargs -L1 git blame)
-    mine=$(grep -i raizen <<< $fullblame | wc -l)
-    all=$(wc -l <<< $fullblame)
-    python -c "print($mine/$all)"
+    # Defaults
+    regex='.py$'
+    grepexpr='raizen'
+
+    # reset getopts index so the function can be called multiple times in the same shell
+    OPTIND=1
+
+    # Parse options: -r regex -g grepexpr
+    while getopts ":r:g:" opt; do
+        case "$opt" in
+            r) regex="$OPTARG" ;;
+            g) grepexpr="$OPTARG" ;;
+            \?) echo "Usage: responsibility [-r regex] [-g grepexpr]" >&2; return 2 ;;
+        esac
+    done
+    shift $((OPTIND - 1))
+
+    # Allow positional overrides for convenience: responsibility <regex> <grepexpr>
+    if [ $# -ge 1 ]; then regex="$1"; fi
+    if [ $# -ge 2 ]; then grepexpr="$2"; fi
+
+    # Collect blame for files matching the regex
+    fullblame=$(git ls-files | grep "$regex" | xargs -L1 git blame 2>/dev/null || true)
+
+    # Count matches and total lines; handle empty result safely
+    mine=$(grep -i "$grepexpr" <<< "$fullblame" | wc -l)
+    all=$(wc -l <<< "$fullblame" | tr -d ' ')
+
+    if [ -z "$all" ] || [ "$all" -eq 0 ]; then
+        python -c "print(0.0)"
+    else
+        python -c "import sys; a=int(sys.argv[1]); b=int(sys.argv[2]); print(a/b if b else 0.0)" "$mine" "$all"
+    fi
 }
