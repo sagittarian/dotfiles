@@ -575,7 +575,14 @@ function nudeclass {
 }
 # https://github.com/notAI-tech/NudeNet
 
-alias killco="pgrep 'Isolated Web Co' | tail | xargs kill"
+function killco {
+    num=${1:-10}
+    if [[ $num == all ]]; then
+        pgrep 'Isolated Web Co' | xargs kill
+    else
+        pgrep 'Isolated Web Co' | head --lines=${num} | xargs kill
+    fi
+}
 
 
 function responsibility {
