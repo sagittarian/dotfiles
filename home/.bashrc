@@ -176,6 +176,10 @@ if [ -f ~/.bash_vars ]; then
     . ~/.bash_vars
 fi
 
+if [ -f ~/.bash_secrets ]; then
+    . ~/.bash_secrets
+fi
+
 workon $(venv)
 
 # additions for specific hosts
