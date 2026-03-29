@@ -1,1 +1,1 @@
-host-config/**  filter=encrypt-gpg
+host-config/**  filter=git-crypt diff=git-crypt
